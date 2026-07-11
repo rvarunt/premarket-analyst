@@ -59,9 +59,12 @@ SPAM_PATTERNS = [
     re.compile(r"\b20\d{2}-20\d{2}\b"),
 ]
 
-# Generic company-name words that must never match a headline on their own.
-# "Applied" alone would false-match Applied Materials, Applied Digital, etc.
-COMPANY_STOPWORDS = {
+# A headline only counts as a catalyst if it names the ticker on a word
+# boundary, or contains a distinctive company-name token (4+ letters, not in
+# NAME_STOP). Short/generic words are shared across unrelated companies, so
+# matching on them alone would cross-match the wrong one, e.g. "Applied"
+# alone would hit both Applied Optoelectronics and Applied Digital.
+NAME_STOP = {
     "the", "inc", "incorporated", "corp", "corporation", "co", "company",
     "holdings", "holding", "technologies", "technology", "group", "digital",
     "applied", "advanced", "strategy", "strategies", "motors", "motor",
@@ -390,7 +393,7 @@ def _distinctive_tokens(name):
     keep = []
     for tok in tokens:
         low = tok.lower()
-        if len(low) <= 2 or low in COMPANY_STOPWORDS or low.isdigit():
+        if len(low) < 4 or low in NAME_STOP or low.isdigit():
             continue
         keep.append(low)
     return keep
