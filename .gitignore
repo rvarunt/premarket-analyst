@@ -1,0 +1,5 @@
+.venv
+packet.json
+reports/
+__pycache__
+.env
