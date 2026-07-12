@@ -24,6 +24,36 @@ DEFAULT_HEADERS = {
                    "(KHTML, like Gecko) Chrome/124.0 Safari/537.36"
 }
 
+
+def _load_dotenv(path=".env"):
+    # Minimal .env loader so ALPACA_API_KEY_ID / ALPACA_API_SECRET_KEY can be
+    # dropped in a gitignored .env without adding a python-dotenv dependency.
+    # Real environment variables always win over .env values.
+    p = Path(path)
+    if not p.exists():
+        return
+    for line in p.read_text().splitlines():
+        line = line.strip()
+        if not line or line.startswith("#") or "=" not in line:
+            continue
+        key, _, value = line.partition("=")
+        key = key.strip()
+        value = value.strip().strip('"').strip("'")
+        os.environ.setdefault(key, value)
+
+
+_load_dotenv()
+
+ALPACA_DATA_BASE_URL = "https://data.alpaca.markets"
+ALPACA_KEY_ID = os.environ.get("ALPACA_API_KEY_ID")
+ALPACA_SECRET_KEY = os.environ.get("ALPACA_API_SECRET_KEY")
+ALPACA_HEADERS = None
+if ALPACA_KEY_ID and ALPACA_SECRET_KEY:
+    ALPACA_HEADERS = {
+        "APCA-API-KEY-ID": ALPACA_KEY_ID,
+        "APCA-API-SECRET-KEY": ALPACA_SECRET_KEY,
+    }
+
 MARKET_SNAPSHOT_SYMBOLS = {
     "S&P 500": "^GSPC",
     "Dow": "^DJI",
@@ -34,6 +64,16 @@ MARKET_SNAPSHOT_SYMBOLS = {
     "US 3M": "^IRX",
     "WTI Oil": "CL=F",
     "Dollar (DXY)": "DX-Y.NYB",
+}
+
+# Alpaca's free tier covers US equities/ETFs, not index or futures symbols, so
+# these liquid ETF proxies stand in for the index rows above whenever the
+# yfinance leg fails.
+PROXY_MAP = {
+    "S&P 500": "SPY",
+    "Dow": "DIA",
+    "Nasdaq": "QQQ",
+    "Russell 2000": "IWM",
 }
 
 STATIC_UNIVERSE = [
@@ -193,30 +233,238 @@ def batch_fetch_daily_bars(tickers, session, period="5d", label="daily bars batc
 
 
 # ---------------------------------------------------------------------------
+# 0. Alpaca data helpers
+#
+# Alpaca is the primary data source for anything stock/ETF-shaped (bars,
+# screeners, news). yfinance is kept only as a fallback for those, and as the
+# primary (only) source for index/futures symbols Alpaca's free tier doesn't
+# carry. Free-tier Alpaca serves feed=iex, which is a subset of the full
+# consolidated tape (one exchange's prints, not all of them) but is good
+# enough for scanning purposes here.
+# ---------------------------------------------------------------------------
+
+def alpaca_available():
+    return ALPACA_HEADERS is not None
+
+
+def alpaca_get(path, params=None, label="", attempts=3):
+    if not alpaca_available():
+        return None
+
+    def fetch():
+        resp = requests.get(
+            f"{ALPACA_DATA_BASE_URL}{path}",
+            headers=ALPACA_HEADERS,
+            params=params,
+            timeout=20,
+        )
+        resp.raise_for_status()
+        return resp.json()
+
+    return with_retries(fetch, attempts=attempts, label=label or f"alpaca {path}")
+
+
+def _chunked(seq, size):
+    for i in range(0, len(seq), size):
+        yield seq[i:i + size]
+
+
+def alpaca_batch_daily_bars(tickers, start, label="alpaca daily bars"):
+    """Batched Alpaca v2 daily bars (feed=iex) for many symbols, paginated and
+    chunked. Returns {ticker: [{"t","o","h","l","c","v"}, ...]} ascending by
+    date, only for tickers Alpaca actually returned data for."""
+    if not tickers or not alpaca_available():
+        return {}
+    out = {}
+    for chunk in _chunked(list(tickers), 100):
+        params = {
+            "symbols": ",".join(chunk),
+            "timeframe": "1Day",
+            "start": start,
+            "feed": "iex",
+            "limit": 10000,
+            "adjustment": "raw",
+        }
+        data = alpaca_get("/v2/stocks/bars", params, label=label)
+        if not data:
+            continue
+        for sym, arr in (data.get("bars") or {}).items():
+            out.setdefault(sym, []).extend(arr)
+        page_token = data.get("next_page_token")
+        guard = 0
+        while page_token and guard < 20:
+            params["page_token"] = page_token
+            data = alpaca_get("/v2/stocks/bars", params, label=f"{label} (page)")
+            if not data:
+                break
+            for sym, arr in (data.get("bars") or {}).items():
+                out.setdefault(sym, []).extend(arr)
+            page_token = data.get("next_page_token")
+            guard += 1
+    return out
+
+
+def get_alpaca_snapshots(symbols, label="alpaca snapshots"):
+    if not symbols or not alpaca_available():
+        return {}
+    out = {}
+    for chunk in _chunked(list(symbols), 100):
+        data = alpaca_get("/v2/stocks/snapshots", {"symbols": ",".join(chunk), "feed": "iex"}, label=label)
+        if isinstance(data, dict):
+            for sym, snap in data.items():
+                if isinstance(snap, dict):
+                    out[sym] = snap
+    return out
+
+
+def get_alpaca_news(ticker, limit=10):
+    data = alpaca_get("/v1beta1/news", {"symbols": ticker, "limit": limit},
+                       label=f"alpaca news {ticker}", attempts=2)
+    if not data:
+        return []
+    items = []
+    for n in data.get("news") or []:
+        title = (n.get("headline") or "").strip()
+        if not title:
+            continue
+        items.append({"title": title, "publisher": n.get("source") or "alpaca", "link": n.get("url", "")})
+    return items
+
+
+def _normalize_alpaca_bars(bars):
+    out = []
+    for b in bars:
+        ts = datetime.fromisoformat(b["t"].replace("Z", "+00:00"))
+        out.append({
+            "date": ts.astimezone(ET).date(),
+            "open": b["o"], "high": b["h"], "low": b["l"], "close": b["c"], "volume": b["v"],
+        })
+    out.sort(key=lambda r: r["date"])
+    return out
+
+
+def _normalize_yf_frame(df):
+    if df is None or df.empty:
+        return []
+    if df.index.tz is not None:
+        df = df.tz_localize(None)
+    out = []
+    for idx, row in df.iterrows():
+        d = idx.date() if hasattr(idx, "date") else idx
+        out.append({
+            "date": d,
+            "open": float(row["Open"]), "high": float(row["High"]),
+            "low": float(row["Low"]), "close": float(row["Close"]),
+            "volume": int(row["Volume"]),
+        })
+    out.sort(key=lambda r: r["date"])
+    return out
+
+
+def batch_fetch_daily_metrics_bars(tickers, session, lookback_days=380, label="daily bars"):
+    """Alpaca daily bars first, yfinance daily bars for whatever tickers
+    Alpaca didn't cover. Returns {ticker: {"bars": [...], "source": "alpaca"
+    | "yfinance_fallback" | "unavailable"}}."""
+    if not tickers:
+        return {}
+    start = (datetime.now(ET) - timedelta(days=lookback_days)).date().isoformat()
+    alpaca_raw = alpaca_batch_daily_bars(tickers, start, label=f"{label} (alpaca)")
+
+    result = {}
+    missing = []
+    for t in tickers:
+        bars = alpaca_raw.get(t)
+        if bars and len(bars) >= 2:
+            result[t] = {"bars": _normalize_alpaca_bars(bars), "source": "alpaca"}
+        else:
+            missing.append(t)
+
+    if missing:
+        print(f"  {len(missing)} ticker(s) missing/thin from Alpaca daily bars, "
+              f"falling back to yfinance: {missing[:10]}{'...' if len(missing) > 10 else ''}")
+        yf_period = "1y" if lookback_days > 10 else "5d"
+        yf_batch = batch_fetch_daily_bars(missing, session, period=yf_period, label=f"{label} (yfinance fallback)")
+        for t in missing:
+            normalized = _normalize_yf_frame(yf_batch.get(t))
+            result[t] = {"bars": normalized, "source": "yfinance_fallback" if normalized else "unavailable"}
+
+    return result
+
+
+# ---------------------------------------------------------------------------
 # 1. Market snapshot
 # ---------------------------------------------------------------------------
 
 def get_market_snapshot(session):
-    print("Fetching market snapshot (one batched call for all instruments)...")
-    symbols = list(MARKET_SNAPSHOT_SYMBOLS.values())
-    batch = batch_fetch_daily_bars(symbols, session, period="5d", label="market snapshot batch")
-
+    print("Fetching market snapshot (yfinance for indices/futures)...")
     snapshot = {}
-    for name, symbol in MARKET_SNAPSHOT_SYMBOLS.items():
-        hist = batch.get(symbol)
-        if hist is None or len(hist) < 2:
-            snapshot[name] = {"symbol": symbol, "last": None, "prev_close": None, "change_pct": None}
+    try:
+        symbols = list(MARKET_SNAPSHOT_SYMBOLS.values())
+        batch = batch_fetch_daily_bars(symbols, session, period="5d", label="market snapshot batch")
+        for name, symbol in MARKET_SNAPSHOT_SYMBOLS.items():
+            hist = batch.get(symbol)
+            if hist is None or len(hist) < 2:
+                snapshot[name] = {
+                    "symbol": symbol, "last": None, "prev_close": None, "change_pct": None,
+                    "data_source": "yfinance_failed",
+                }
+                continue
+            last = float(hist["Close"].iloc[-1])
+            prev_close = float(hist["Close"].iloc[-2])
+            change_pct = round((last - prev_close) / prev_close * 100, 2) if prev_close else None
+            snapshot[name] = {
+                "symbol": symbol,
+                "last": round(last, 2),
+                "prev_close": round(prev_close, 2),
+                "change_pct": change_pct,
+                "data_source": "yfinance",
+            }
+            print(f"  {name}: {snapshot[name]['last']} ({change_pct}%)")
+    except Exception as e:
+        # yfinance can throw outright (not just per-symbol misses) if the whole
+        # batch call blows up; degrade to an empty snapshot rather than crash
+        # the whole scan, and let the Alpaca ETF-proxy pass below fill what it can.
+        print(f"  yfinance market snapshot failed entirely: {e}")
+        for name, symbol in MARKET_SNAPSHOT_SYMBOLS.items():
+            snapshot.setdefault(name, {
+                "symbol": symbol, "last": None, "prev_close": None, "change_pct": None,
+                "data_source": "yfinance_failed",
+            })
+
+    proxy_symbols = list(PROXY_MAP.values())
+    alpaca_proxies = {}
+    try:
+        alpaca_proxies = get_alpaca_snapshots(proxy_symbols, label="market snapshot ETF proxies")
+    except Exception as e:
+        print(f"  Alpaca ETF proxy snapshot failed: {e}")
+
+    for name, proxy_symbol in PROXY_MAP.items():
+        entry = snapshot.get(name)
+        if entry and entry.get("last") is not None:
             continue
-        last = float(hist["Close"].iloc[-1])
-        prev_close = float(hist["Close"].iloc[-2])
+        proxy = alpaca_proxies.get(proxy_symbol)
+        daily = (proxy or {}).get("dailyBar")
+        prev = (proxy or {}).get("prevDailyBar")
+        if not daily or not prev or prev.get("c") in (None, 0):
+            snapshot[name] = entry or {
+                "symbol": MARKET_SNAPSHOT_SYMBOLS[name], "last": None, "prev_close": None,
+                "change_pct": None, "data_source": "unavailable",
+            }
+            continue
+        last = float(daily["c"])
+        prev_close = float(prev["c"])
         change_pct = round((last - prev_close) / prev_close * 100, 2) if prev_close else None
         snapshot[name] = {
-            "symbol": symbol,
+            "symbol": MARKET_SNAPSHOT_SYMBOLS[name],
             "last": round(last, 2),
             "prev_close": round(prev_close, 2),
             "change_pct": change_pct,
+            "data_source": "alpaca_etf_proxy",
+            "is_proxy": True,
+            "proxy_symbol": proxy_symbol,
         }
-        print(f"  {name}: {snapshot[name]['last']} ({change_pct}%)")
+        print(f"  {name} (proxy {proxy_symbol}): {snapshot[name]['last']} ({change_pct}%)")
+
     return snapshot
 
 
@@ -224,61 +472,93 @@ def get_market_snapshot(session):
 # 2 & 3. Live movers / static universe fallback, and gap filter
 # ---------------------------------------------------------------------------
 
-def _screen_to_movers(quotes):
-    movers = {}
-    for q in quotes or []:
-        symbol = q.get("symbol")
-        if not symbol:
-            continue
-        movers[symbol] = {
-            "ticker": symbol,
-            "name": q.get("shortName") or q.get("longName") or symbol,
-            "price": q.get("regularMarketPrice"),
-            "prev_close": q.get("regularMarketPreviousClose"),
-            "gap_pct": q.get("regularMarketChangePercent"),
-            "market_cap": q.get("marketCap"),
-            "volume": q.get("regularMarketVolume"),
-        }
-    return movers
+def get_alpaca_movers(top=50):
+    """Combine Alpaca's gainers+losers screener with most-actives into one
+    candidate list. Neither endpoint returns company name or market cap
+    (free tier has no fundamentals), so those are backfilled later, only for
+    names that survive the gap filter."""
+    result = {}
 
+    movers_data = alpaca_get("/v1beta1/screener/stocks/movers", {"top": top}, label="alpaca movers")
+    if movers_data:
+        for bucket in ("gainers", "losers"):
+            for q in movers_data.get(bucket) or []:
+                symbol = q.get("symbol")
+                if not symbol:
+                    continue
+                price = q.get("price")
+                change = q.get("change")
+                prev_close = round(price - change, 2) if price is not None and change is not None else None
+                result[symbol] = {
+                    "ticker": symbol,
+                    "name": symbol,
+                    "price": price,
+                    "prev_close": prev_close,
+                    "gap_pct": q.get("percent_change"),
+                    "market_cap": None,
+                    "volume": None,
+                    "candidate_data_source": "alpaca_movers",
+                }
 
-def get_live_movers(session):
-    print("Trying live screeners (day_gainers, most_actives)...")
-    combined = {}
-    for query in ("day_gainers", "most_actives"):
-        def fetch(query=query):
-            return yf.screen(query, count=25, session=session)
+    actives_data = alpaca_get("/v1beta1/screener/stocks/most-actives", {"top": top, "by": "volume"},
+                               label="alpaca most-actives")
+    if actives_data:
+        actives = actives_data.get("most_actives") or []
+        symbols = [q.get("symbol") for q in actives if q.get("symbol")]
+        snaps = get_alpaca_snapshots(symbols, label="most-actives snapshots") if symbols else {}
+        for q in actives:
+            symbol = q.get("symbol")
+            if not symbol:
+                continue
+            if symbol in result:
+                if result[symbol].get("volume") is None:
+                    result[symbol]["volume"] = q.get("volume")
+                continue
+            snap = snaps.get(symbol) or {}
+            daily = snap.get("dailyBar") or {}
+            prev = snap.get("prevDailyBar") or {}
+            price = daily.get("c")
+            prev_close = prev.get("c")
+            gap_pct = round((price - prev_close) / prev_close * 100, 2) if price and prev_close else None
+            result[symbol] = {
+                "ticker": symbol,
+                "name": symbol,
+                "price": price,
+                "prev_close": prev_close,
+                "gap_pct": gap_pct,
+                "market_cap": None,
+                "volume": q.get("volume"),
+                "candidate_data_source": "alpaca_most_actives",
+            }
 
-        result = with_retries(fetch, label=f"screener {query}")
-        if result is None:
-            continue
-        quotes = result.get("quotes") if isinstance(result, dict) else None
-        movers = _screen_to_movers(quotes)
-        print(f"  {query}: {len(movers)} names")
-        combined.update(movers)
-    return list(combined.values())
+    return list(result.values())
 
 
 def get_static_universe_movers(session):
     print(f"Falling back to static universe ({len(STATIC_UNIVERSE)} tickers)...")
-    batch = batch_fetch_daily_bars(STATIC_UNIVERSE, session, period="5d", label="static universe daily bars batch")
+    batch = batch_fetch_daily_metrics_bars(
+        STATIC_UNIVERSE, session, lookback_days=10, label="static universe daily bars"
+    )
 
     movers = []
     for ticker in STATIC_UNIVERSE:
-        hist = batch.get(ticker)
-        if hist is None or len(hist) < 2:
-            print(f"    skipping {ticker}, no batched daily bars")
+        bars = (batch.get(ticker) or {}).get("bars") or []
+        if len(bars) < 2:
+            print(f"    skipping {ticker}, no daily bars from alpaca or yfinance")
             continue
-        price = float(hist["Close"].iloc[-1])
-        prev_close = float(hist["Close"].iloc[-2])
+        price = bars[-1]["close"]
+        prev_close = bars[-2]["close"]
+        volume = bars[-1]["volume"]
+        price_source = batch[ticker]["source"]
 
         def fetch_info(ticker=ticker):
             t = yf.Ticker(ticker, session=session)
             return t.info or {}
 
-        # Name and market cap aren't in the batched daily bars, so this stays
-        # a per-ticker call. The delay after it keeps the whole loop from
-        # firing 40 requests back to back.
+        # Name and market cap aren't in the daily bars, so this stays a
+        # per-ticker yfinance call regardless of where the price came from
+        # (Alpaca's free tier has no fundamentals). The delay after it keeps
+        # the loop from firing 40 requests back to back.
         info = with_retries(fetch_info, attempts=2, label=f"static info {ticker}") or {}
         polite_delay()
 
@@ -290,10 +570,32 @@ def get_static_universe_movers(session):
             "prev_close": round(prev_close, 2),
             "gap_pct": gap_pct,
             "market_cap": info.get("marketCap"),
-            "volume": info.get("regularMarketVolume") or int(hist["Volume"].iloc[-1]),
+            "volume": info.get("regularMarketVolume") or int(volume),
+            "candidate_data_source": price_source,
         })
         print(f"  {ticker}: gap {gap_pct}%")
     return movers
+
+
+def backfill_name_and_market_cap(gappers, session):
+    # Alpaca's free screener/snapshot endpoints carry no company name or
+    # market cap, so pull those from yfinance .info -- but only for the
+    # handful of names that survive the gap filter, not the whole screener.
+    print(f"  backfilling name/market cap for {len(gappers)} gapper(s) via yfinance...")
+    for g in gappers:
+        ticker = g["ticker"]
+
+        def fetch_info(ticker=ticker):
+            t = yf.Ticker(ticker, session=session)
+            return t.info or {}
+
+        info = with_retries(fetch_info, attempts=2, label=f"market cap backfill {ticker}") or {}
+        polite_delay()
+        if info.get("shortName") or info.get("longName"):
+            g["name"] = info.get("shortName") or info.get("longName")
+        g["market_cap"] = info.get("marketCap")
+        if g.get("volume") is None:
+            g["volume"] = info.get("regularMarketVolume")
 
 
 def gap_filter(movers):
@@ -310,14 +612,22 @@ def gap_filter(movers):
 
 
 def get_gappers(session):
-    live_movers = get_live_movers(session)
-    if len(live_movers) >= 5:
-        candidate_source = "live_screener"
-        movers = live_movers
+    print("Trying Alpaca screeners (movers, most-actives)...")
+    alpaca_movers = get_alpaca_movers()
+    print(f"  alpaca screeners: {len(alpaca_movers)} candidate name(s)")
+
+    if len(alpaca_movers) >= 5:
+        candidate_source = "alpaca_screener"
+        movers = alpaca_movers
     else:
         candidate_source = "static_universe_fallback"
         movers = get_static_universe_movers(session)
+
     gappers = gap_filter(movers)
+
+    if candidate_source == "alpaca_screener" and gappers:
+        backfill_name_and_market_cap(gappers, session)
+
     print(f"Gap filter kept {len(gappers)} of {len(movers)} candidates (source: {candidate_source})")
     return gappers, candidate_source
 
@@ -534,12 +844,30 @@ def get_catalyst_headlines(ticker, name, session, market_news):
         if not title or is_spam(title):
             continue
         if _headline_matches(title, ticker, tokens):
-            matched.append({"title": title, "publisher": norm.get("publisher", ""), "link": norm.get("link", "")})
+            matched.append({
+                "title": title, "publisher": norm.get("publisher", ""), "link": norm.get("link", ""),
+                "data_source": "yfinance",
+            })
+
+    # Alpaca news is already filtered server-side by symbol, so it doesn't
+    # need the name/token matching yfinance and RSS headlines go through.
+    alpaca_news = get_alpaca_news(ticker)
+    for item in alpaca_news:
+        title = item["title"]
+        if not title or is_spam(title):
+            continue
+        matched.append({
+            "title": title, "publisher": item.get("publisher") or "alpaca", "link": item.get("link", ""),
+            "data_source": "alpaca",
+        })
 
     for item in market_news:
         title = item["title"]
         if _headline_matches(title, ticker, tokens):
-            matched.append({"title": title, "publisher": item["source"], "link": item["link"]})
+            matched.append({
+                "title": title, "publisher": item["source"], "link": item["link"],
+                "data_source": "rss",
+            })
 
     seen = set()
     deduped = []
@@ -554,25 +882,42 @@ def get_catalyst_headlines(ticker, name, session, market_news):
     return deduped[:5]
 
 
-def get_intraday_levels(ticker, session):
-    def fetch():
-        t = yf.Ticker(ticker, session=session)
-        bars = t.history(period="5d", interval="5m", prepost=True)
-        if bars is None or bars.empty:
-            raise ValueError("no intraday bars")
-        return bars
+def _levels_from_alpaca_bars(bars):
+    highs = [b["h"] for b in bars]
+    lows = [b["l"] for b in bars]
+    closes = [b["c"] for b in bars]
+    vols = [b["v"] for b in bars]
 
-    bars = with_retries(fetch, label=f"intraday {ticker}")
-    if bars is None:
-        return {"vwap": None, "hod": None, "lod": None, "premarket_high": None, "premarket_volume": None}
+    typical = [(h + l + c) / 3 for h, l, c in zip(highs, lows, closes)]
+    vwap_den = sum(vols)
+    vwap = round(sum(t * v for t, v in zip(typical, vols)) / vwap_den, 2) if vwap_den else None
 
+    market_open = datetime.strptime("09:30", "%H:%M").time()
+    premarket_bars = [
+        b for b in bars
+        if datetime.fromisoformat(b["t"].replace("Z", "+00:00")).astimezone(ET).time() < market_open
+    ]
+    premarket_high = max((b["h"] for b in premarket_bars), default=None)
+    premarket_volume = sum(b["v"] for b in premarket_bars)
+
+    return {
+        "vwap": vwap,
+        "hod": round(max(highs), 2) if highs else None,
+        "lod": round(min(lows), 2) if lows else None,
+        "premarket_high": round(premarket_high, 2) if premarket_high is not None else None,
+        "premarket_volume": int(premarket_volume),
+    }
+
+
+def _levels_from_yf_bars(bars):
     bars = bars.tz_convert(ET)
     today = datetime.now(ET).date()
     today_bars = bars[bars.index.date == today]
     if today_bars.empty:
         return {"vwap": None, "hod": None, "lod": None, "premarket_high": None, "premarket_volume": None}
 
-    premarket_bars = today_bars[today_bars.index.time < datetime.strptime("09:30", "%H:%M").time()]
+    market_open = datetime.strptime("09:30", "%H:%M").time()
+    premarket_bars = today_bars[today_bars.index.time < market_open]
 
     typical = (today_bars["High"] + today_bars["Low"] + today_bars["Close"]) / 3
     vwap_num = (typical * today_bars["Volume"]).sum()
@@ -588,35 +933,81 @@ def get_intraday_levels(ticker, session):
     }
 
 
+def get_intraday_levels(ticker, session):
+    """Today's 5-min bars including extended hours, feed=iex (free-tier IEX
+    is a subset of the consolidated tape -- one exchange's prints, not all of
+    them -- but good enough for VWAP/HOD/LOD/premarket scanning). Falls back
+    to yfinance 5-min bars if Alpaca has nothing for today."""
+    now_et = datetime.now(ET)
+    today = now_et.date()
+    start = datetime.combine(today, datetime.min.time(), tzinfo=ET).astimezone(timezone.utc).isoformat()
+    end = now_et.astimezone(timezone.utc).isoformat()
+
+    if alpaca_available():
+        params = {
+            "symbols": ticker, "timeframe": "5Min", "start": start, "end": end,
+            "feed": "iex", "limit": 10000, "adjustment": "raw",
+        }
+        data = alpaca_get("/v2/stocks/bars", params, label=f"alpaca intraday {ticker}")
+        bars = ((data or {}).get("bars") or {}).get(ticker) or []
+        if bars:
+            levels = _levels_from_alpaca_bars(bars)
+            levels["data_source"] = "alpaca"
+            return levels
+
+    def fetch_yf():
+        t = yf.Ticker(ticker, session=session)
+        b = t.history(period="5d", interval="5m", prepost=True)
+        if b is None or b.empty:
+            raise ValueError("no intraday bars")
+        return b
+
+    yf_bars = with_retries(fetch_yf, label=f"yfinance intraday {ticker}")
+    if yf_bars is None:
+        return {
+            "vwap": None, "hod": None, "lod": None, "premarket_high": None, "premarket_volume": None,
+            "data_source": "unavailable",
+        }
+
+    levels = _levels_from_yf_bars(yf_bars)
+    levels["data_source"] = "yfinance_fallback"
+    return levels
+
+
 def get_daily_metrics(ticker, current_price, daily_bars_batch):
-    # 1y daily bars come from a single batched yf.download call made once for
-    # all gappers up front (see batch_fetch_daily_bars in main), not a
-    # per-ticker fetch here.
-    hist = daily_bars_batch.get(ticker)
-    if hist is None:
+    # Bars come from a single batched call made once for all gappers up front
+    # (see batch_fetch_daily_metrics_bars in main), not a per-ticker fetch here.
+    entry = daily_bars_batch.get(ticker) or {}
+    bars = entry.get("bars") or []
+    data_source = entry.get("source", "unavailable")
+
+    if not bars:
         return {
             "sma_200": None, "prior_day_high": None, "prior_close": None,
-            "today_open": None, "avg_volume_20d": None,
+            "today_open": None, "today_open_effective": current_price, "avg_volume_20d": None,
+            "data_source": data_source,
         }
-    if hist.index.tz is not None:
-        hist = hist.tz_localize(None)
 
     today = datetime.now(ET).date()
     today_open = None
-    if hist.index[-1].date() == today:
-        today_open = round(float(hist["Open"].iloc[-1]), 2)
-        hist = hist.iloc[:-1]  # drop today's partial bar from prior-day/average calcs
+    if bars[-1]["date"] == today:
+        today_open = round(float(bars[-1]["open"]), 2)
+        bars = bars[:-1]  # drop today's partial bar from prior-day/average calcs
 
-    if hist.empty:
+    if not bars:
         return {
             "sma_200": None, "prior_day_high": None, "prior_close": None,
-            "today_open": today_open, "avg_volume_20d": None,
+            "today_open": today_open,
+            "today_open_effective": today_open if today_open is not None else current_price,
+            "avg_volume_20d": None, "data_source": data_source,
         }
 
-    sma_200 = round(float(hist["Close"].tail(200).mean()), 2) if len(hist) >= 1 else None
-    prior_day_high = round(float(hist["High"].iloc[-1]), 2)
-    prior_close = round(float(hist["Close"].iloc[-1]), 2)
-    avg_volume_20d = int(hist["Volume"].tail(20).mean())
+    closes_tail = [b["close"] for b in bars[-200:]]
+    sma_200 = round(sum(closes_tail) / len(closes_tail), 2) if closes_tail else None
+    prior_day_high = round(float(bars[-1]["high"]), 2)
+    prior_close = round(float(bars[-1]["close"]), 2)
+    vols_tail = [b["volume"] for b in bars[-20:]]
+    avg_volume_20d = int(sum(vols_tail) / len(vols_tail)) if vols_tail else None
 
     # Before the 9:30 ET open there is no real "today's open" yet. Use the
     # current gap price as a stand-in so eligibility checks are still
@@ -630,6 +1021,7 @@ def get_daily_metrics(ticker, current_price, daily_bars_batch):
         "today_open": today_open,
         "today_open_effective": today_open_effective,
         "avg_volume_20d": avg_volume_20d,
+        "data_source": data_source,
     }
 
 
@@ -664,10 +1056,14 @@ def enrich_gapper(gapper, session, market_news, daily_bars_batch):
     next_earnings = get_next_earnings_date(ticker, session)
 
     avg_vol = daily.get("avg_volume_20d")
-    today_volume = gapper.get("volume") or intraday.get("premarket_volume")
-    # yfinance reports ~0 true premarket volume. A real premarket RVOL needs a
-    # premarket-aware feed (e.g. Alpaca). Full/partial-day volume vs the 20-day
-    # average volume is the keyless stand-in used here.
+    premarket_vol = intraday.get("premarket_volume")
+    # Alpaca's premarket_volume is a real print; yfinance's is near-zero, so
+    # only prefer it over the screener's own volume figure when it actually
+    # came from Alpaca.
+    if intraday.get("data_source") == "alpaca" and premarket_vol:
+        today_volume = premarket_vol
+    else:
+        today_volume = gapper.get("volume") or premarket_vol
     rvol = round(today_volume / avg_vol, 2) if today_volume and avg_vol else None
 
     gapper.update({
@@ -686,6 +1082,8 @@ def enrich_gapper(gapper, session, market_news, daily_bars_batch):
         "next_earnings_date": next_earnings,
         "catalyst_headlines": catalysts,
         "catalyst_found": len(catalysts) > 0,
+        "daily_bars_data_source": daily.get("data_source"),
+        "intraday_data_source": intraday.get("data_source"),
     })
     return gapper
 
@@ -758,14 +1156,18 @@ def main():
     now_et = datetime.now(ET)
     session = new_yf_session()
 
+    if not alpaca_available():
+        print("WARNING: ALPACA_API_KEY_ID/ALPACA_API_SECRET_KEY not set (env or .env). "
+              "Running on yfinance fallbacks only.")
+
     market_snapshot = get_market_snapshot(session)
     gappers, candidate_source = get_gappers(session)
     market_news = gather_market_news(session)
     econ_calendar = fetch_econ_calendar(session)
 
     gapper_tickers = [g["ticker"] for g in gappers]
-    daily_bars_batch = batch_fetch_daily_bars(
-        gapper_tickers, session, period="1y", label="gapper daily bars batch"
+    daily_bars_batch = batch_fetch_daily_metrics_bars(
+        gapper_tickers, session, lookback_days=380, label="gapper daily bars"
     )
 
     print(f"Enriching {len(gappers)} gappers...")
@@ -779,23 +1181,41 @@ def main():
     gaps_to_fill = [
         "Market-wide earnings coverage is partial (only per-gapper next earnings date is pulled, "
         "not a full market earnings calendar).",
-        "Intraday levels (VWAP, HOD, LOD, premarket high) come from free 5-min bars, not a "
-        "true tick-level feed, so they're an approximation.",
-        "RVOL uses full/partial-day volume vs the 20-day average as a keyless stand-in. Real "
-        "premarket RVOL needs a premarket-aware feed like Alpaca; yfinance reports near-zero "
-        "premarket volume.",
+        "Intraday levels (VWAP, HOD, LOD, premarket high) come from free 5-min bars (Alpaca IEX, "
+        "or yfinance if Alpaca had nothing for today), not a true tick-level feed, so they're an "
+        "approximation. IEX is a subset of the consolidated tape.",
         "Before 9:30am ET, today's open is not real yet. The scanner uses the current gap "
         "price as a stand-in for swing eligibility until the actual open prints.",
     ]
+
+    if not alpaca_available():
+        gaps_to_fill.append(
+            "ALPACA_API_KEY_ID/ALPACA_API_SECRET_KEY were not set, so this run used yfinance "
+            "for everything Alpaca would normally cover (movers/most-actives screeners, daily "
+            "bars, intraday bars, news). RVOL in particular is weaker without Alpaca, since "
+            "yfinance reports near-zero premarket volume."
+        )
 
     if RATE_LIMIT_FAILURES:
         preview = ", ".join(RATE_LIMIT_FAILURES[:8])
         more = f" and {len(RATE_LIMIT_FAILURES) - 8} more" if len(RATE_LIMIT_FAILURES) > 8 else ""
         gaps_to_fill.append(
-            f"Yahoo rate-limited {len(RATE_LIMIT_FAILURES)} request(s) even after retries this "
-            f"scan ({preview}{more}). Fields tied to those calls are null or missing rather than "
-            "guessed at."
+            f"{len(RATE_LIMIT_FAILURES)} request(s) failed even after retries this scan "
+            f"({preview}{more}). Fields tied to those calls are null or missing rather than guessed at."
         )
+
+    data_sources = {
+        "market_snapshot": "yfinance for index/futures rows; Alpaca ETF proxies (SPY/DIA/QQQ/IWM) "
+                            "fill in S&P 500/Dow/Nasdaq/Russell 2000 whenever the yfinance leg fails.",
+        "top_movers_universe": candidate_source,
+        "daily_bars": "alpaca (v2 bars, feed=iex), yfinance fallback per-ticker when Alpaca has no data",
+        "intraday_levels": "alpaca (v2 5-min bars incl. extended hours, feed=iex), yfinance fallback",
+        "market_news": "rss",
+        "per_ticker_news": "yfinance + alpaca (v1beta1/news), merged and deduped; RSS market_news "
+                            "matches added on top",
+        "company_name_market_cap": "yfinance (Alpaca free tier has no fundamentals)",
+        "alpaca_credentials_present": alpaca_available(),
+    }
 
     packet = {
         "generated_at": now_et.isoformat(),
@@ -807,6 +1227,7 @@ def main():
             "gap_filter_top_n": GAP_TOP_N,
         },
         "criteria": CRITERIA_TEXT,
+        "data_sources": data_sources,
         "market_snapshot": market_snapshot,
         "econ_calendar": econ_calendar,
         "gappers": gappers,
