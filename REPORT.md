@@ -6,17 +6,17 @@
 
 ## Summary
 
-- **The tape in one line:** No live tape to read. This scan ran Saturday, July 11, 2026 at 8:09pm ET, after hours and over the weekend, and the data source got rate limited for the entire run, so there's no index or gapper data behind this report.
-- **The catch we're watching:** The catch today is the data itself. Every price field in the packet came back empty because of the rate limit, and the gap filter found zero candidates as a result. Read this as "no data today" in the pipeline, not "no gappers today" in the market.
-- **Two-brain verdict:** Single brain, no second opinion to compare. Nothing here to lean bullish or bearish on with an empty packet.
+- **The tape in one line:** No live tape today. It's Sunday, July 12, so markets are closed anyway, and on top of that the price feed hit its rate limit again on this run, so the index snapshot is empty regardless.
+- **The catch we're watching:** Bank earnings season opens this week, with five big U.S. banks reporting on the same day and Citigroup singled out as the one to watch. Layer that on top of a market news feed that's leaning hard on one theme: the rally right now is running on AI demand more than anything else.
+- **Two-brain verdict:** Single brain, no second opinion to compare.
 
 ## Pre-Market Gappers
 
-No gappers made it through the pipeline this scan. The candidate source was the static universe fallback (the live screener also came back empty first), and every ticker in that fallback list hit the same rate limit before a price could be pulled. Zero candidates reached the gap filter, so there's nothing to list here.
+No gappers made it through the pipeline this scan. Candidate source was the static universe fallback, and Yahoo rate-limited every batched daily-bars request and both live screener calls even after retries with backoff. Zero candidates reached the gap filter.
 
 ## Day Trading Watchlist
 
-No names cleared the day-trading bar today. That flag encodes gap over 3%, price over $3, market cap over $1B, premarket RVOL over 1.5, and price already breaking above yesterday's high, all computed in code from the watchlist criteria. With zero gappers in the packet, there's nothing to check that rule against.
+No names cleared the day-trading bar today. That flag encodes gap over 3%, price over $3, market cap over $1B, premarket RVOL over 1.5, and price already breaking above yesterday's high. With zero gappers in the packet, there's nothing to check that rule against.
 
 ## Swing Watchlist
 
@@ -24,24 +24,30 @@ No names cleared the swing bar either. That flag encodes gap of 8% or more, pric
 
 ## Market Trends of the Day
 
-Nothing usable here. The news feed pulled 20 headlines, but they're mostly MarketWatch personal-finance pieces (Social Security timing, retirement portfolios, financial literacy) rather than market-moving stories. Several of the MarketWatch RealTime items are also stale: a Fed rate-cut headline dated July 2024, a Swiss National Bank rate cut from December 2024, an Elon Musk post from June 2025. None of that reflects today's tape. There's no real trend to call off this packet.
+The news feed is actually useful this run. Two threads stand out:
+
+Earnings season is kicking off, with a MarketWatch piece flagging five big U.S. banks reporting on the same day and calling out Citigroup as the name to watch for margin improvement. A second piece notes analyst estimates have climbed into this earnings season instead of the usual pre-earnings drift lower, credited to strength in energy and tech.
+
+AI demand is the dominant story across sectors, not just chipmakers. MarketWatch is running it straight: "the stock-market rally now hinges more on AI than oil." That shows up across the individual headlines too: Micron is being framed around $22 billion in AI memory customer commitments, Western Digital around tight HDD supply from AI-driven storage demand, and AppLovin around pushing its AI ad tooling past mobile gaming into e-commerce. Salesforce is the counter-note here, taking "a double blow" on one of its AI products.
+
+Outside of AI, there's real corporate-action flow in the feed: Clarivate selling its life sciences and healthcare business to Altaris for $600 million, a fast-food franchisee filing Chapter 11, and a cluster of small-cap mining and energy items (First Majestic Silver, Ur-Energy, NVRO Metals, Borr Drilling) hitting regulatory or operational milestones.
 
 ## Technical Signals for Today
 
-No data. All nine readings in the market snapshot (S&P 500, Dow, Nasdaq, Russell 2000, VIX, 10-year yield, 3-month yield, WTI crude, dollar index) came back null from the same rate limit. Can't call breadth, VIX level, or any chart signal off an empty snapshot.
+No data. All nine readings in the market snapshot (S&P 500, Dow, Nasdaq, Russell 2000, VIX, 10-year yield, 3-month yield, WTI crude, dollar index) came back null, same rate limit as the gappers. Nothing to call on breadth, VIX, or index levels.
 
 ## Economic Data, Rates and the Fed
 
-Nothing on deck. The econ calendar shows zero USD high-impact events for today (Saturday, July 11) or tomorrow (Sunday, July 12). That part checks out on its own, markets are closed both days regardless of the data outage.
+Nothing on deck. The econ calendar shows zero USD high-impact events for today (Sunday, July 12) or tomorrow (Monday, July 13). Markets are closed today regardless, and Monday's calendar is just quiet, not broken.
 
 ## Coming Up
 
-- **Tomorrow's events:** None in the calendar. Sunday, markets closed.
-- **Earnings:** None to report. With zero gappers, no next-earnings dates were pulled either.
+- **Tomorrow's events:** None in the calendar for Monday, July 13.
+- **Earnings:** No gapper-level earnings dates to report, zero gappers this scan. Worth flagging from the news feed though: five big U.S. banks are reporting results on the same day this week, with Citigroup called out as the one to watch.
 
 ## Skips and Traps
 
-Nothing to flag. There were no candidates to screen for bad-news pops or missing catalysts. If anything counts as a trap today, it's treating this report as a quiet-market signal. It isn't one, it's an empty data packet.
+Nothing to flag. There were no candidates to screen for bad-news pops or missing catalysts this scan.
 
 ## Where the Two Brains Landed
 
