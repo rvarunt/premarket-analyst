@@ -4,6 +4,7 @@ All judgment (conviction, buckets, narrative) happens later in the AI prompts.""
 
 import json
 import os
+import random
 import re
 import time
 from datetime import datetime, timedelta
@@ -91,9 +92,14 @@ GAP_MIN_ABS_PCT = 4
 GAP_MIN_PRICE = 3
 GAP_TOP_N = 12
 
+# Labels of calls that exhausted all retries this run, so main() can write an
+# honest note into gaps_to_fill instead of silently shipping a thin packet.
+RATE_LIMIT_FAILURES = []
 
-def with_retries(fn, attempts=3, base_delay=3, label=""):
-    """Run fn, retrying on any exception. Returns None (and prints) if all attempts fail."""
+
+def with_retries(fn, attempts=4, base_delay=2, label=""):
+    """Run fn, retrying with exponential backoff plus jitter. Returns None
+    (and records the failure) if every attempt fails."""
     last_err = None
     for attempt in range(1, attempts + 1):
         try:
@@ -101,19 +107,69 @@ def with_retries(fn, attempts=3, base_delay=3, label=""):
         except Exception as e:
             last_err = e
             if attempt < attempts:
-                delay = base_delay * attempt
-                print(f"    retry {attempt}/{attempts - 1} for {label}: {e} (waiting {delay}s)")
+                delay = base_delay * (2 ** (attempt - 1)) + random.uniform(0, 1.5)
+                print(f"    retry {attempt}/{attempts - 1} for {label}: {e} (waiting {delay:.1f}s)")
                 time.sleep(delay)
     print(f"    giving up on {label}: {last_err}")
+    RATE_LIMIT_FAILURES.append(label)
     return None
+
+
+def polite_delay(low=0.4, high=1.2):
+    # A small random gap between per-ticker requests, on top of retry backoff,
+    # so the scanner doesn't hammer Yahoo in a tight loop and trip the limiter
+    # in the first place.
+    time.sleep(random.uniform(low, high))
 
 
 def new_yf_session():
     # yfinance defaults to a curl_cffi session that impersonates a browser TLS
     # fingerprint. That impersonation breaks under many corporate/agent proxies
     # (connection reset during the TLS handshake). A plain requests.Session
-    # avoids the impersonation layer and just does normal HTTPS.
+    # avoids the impersonation layer and just does normal HTTPS. Reused across
+    # every call in this module so we're not opening a fresh connection per ticker.
     return requests.Session()
+
+
+def _slice_batch(batch, ticker):
+    """Pull one ticker's OHLCV frame out of a yf.download(group_by='ticker')
+    result. A single-ticker batch comes back as a flat frame instead of
+    ticker-indexed columns, so that case is treated as already being that
+    ticker's data. A genuinely missing ticker in a multi-ticker batch (not
+    just a single-ticker shape) returns None rather than the whole batch."""
+    if batch is None:
+        return None
+    if getattr(batch.columns, "nlevels", 1) > 1:
+        if ticker not in batch.columns.get_level_values(0):
+            return None
+        sub = batch[ticker]
+    else:
+        sub = batch
+    if sub is None or sub.empty:
+        return None
+    return sub.dropna(how="all")
+
+
+def batch_fetch_daily_bars(tickers, session, period="5d", label="daily bars batch"):
+    """One yf.download call for many tickers' daily bars, instead of one
+    Ticker.history() call per ticker. Returns {ticker: DataFrame or None}."""
+    if not tickers:
+        return {}
+
+    def fetch():
+        return yf.download(
+            tickers=" ".join(tickers),
+            period=period,
+            interval="1d",
+            session=session,
+            group_by="ticker",
+            threads=False,
+            progress=False,
+            auto_adjust=True,
+        )
+
+    raw = with_retries(fetch, label=label)
+    return {t: _slice_batch(raw, t) for t in tickers}
 
 
 # ---------------------------------------------------------------------------
@@ -121,23 +177,18 @@ def new_yf_session():
 # ---------------------------------------------------------------------------
 
 def get_market_snapshot(session):
-    print("Fetching market snapshot...")
+    print("Fetching market snapshot (one batched call for all instruments)...")
+    symbols = list(MARKET_SNAPSHOT_SYMBOLS.values())
+    batch = batch_fetch_daily_bars(symbols, session, period="5d", label="market snapshot batch")
+
     snapshot = {}
     for name, symbol in MARKET_SNAPSHOT_SYMBOLS.items():
-        def fetch(symbol=symbol):
-            t = yf.Ticker(symbol, session=session)
-            hist = t.history(period="5d", interval="1d")
-            if hist is None or len(hist) < 2:
-                raise ValueError("not enough daily bars")
-            last = float(hist["Close"].iloc[-1])
-            prev_close = float(hist["Close"].iloc[-2])
-            return last, prev_close
-
-        result = with_retries(fetch, label=f"snapshot {name}")
-        if result is None:
+        hist = batch.get(symbol)
+        if hist is None or len(hist) < 2:
             snapshot[name] = {"symbol": symbol, "last": None, "prev_close": None, "change_pct": None}
             continue
-        last, prev_close = result
+        last = float(hist["Close"].iloc[-1])
+        prev_close = float(hist["Close"].iloc[-2])
         change_pct = round((last - prev_close) / prev_close * 100, 2) if prev_close else None
         snapshot[name] = {
             "symbol": symbol,
@@ -190,22 +241,27 @@ def get_live_movers(session):
 
 def get_static_universe_movers(session):
     print(f"Falling back to static universe ({len(STATIC_UNIVERSE)} tickers)...")
+    batch = batch_fetch_daily_bars(STATIC_UNIVERSE, session, period="5d", label="static universe daily bars batch")
+
     movers = []
     for ticker in STATIC_UNIVERSE:
-        def fetch(ticker=ticker):
-            t = yf.Ticker(ticker, session=session)
-            hist = t.history(period="5d", interval="1d")
-            if hist is None or len(hist) < 2:
-                raise ValueError("not enough daily bars")
-            info = t.info or {}
-            return hist, info
-
-        result = with_retries(fetch, label=f"static {ticker}")
-        if result is None:
+        hist = batch.get(ticker)
+        if hist is None or len(hist) < 2:
+            print(f"    skipping {ticker}, no batched daily bars")
             continue
-        hist, info = result
         price = float(hist["Close"].iloc[-1])
         prev_close = float(hist["Close"].iloc[-2])
+
+        def fetch_info(ticker=ticker):
+            t = yf.Ticker(ticker, session=session)
+            return t.info or {}
+
+        # Name and market cap aren't in the batched daily bars, so this stays
+        # a per-ticker call. The delay after it keeps the whole loop from
+        # firing 40 requests back to back.
+        info = with_retries(fetch_info, attempts=2, label=f"static info {ticker}") or {}
+        polite_delay()
+
         gap_pct = round((price - prev_close) / prev_close * 100, 2) if prev_close else None
         movers.append({
             "ticker": ticker,
@@ -495,20 +551,18 @@ def get_intraday_levels(ticker, session):
     }
 
 
-def get_daily_metrics(ticker, session, current_price):
-    def fetch():
-        t = yf.Ticker(ticker, session=session)
-        hist = t.history(period="1y", interval="1d")
-        if hist is None or hist.empty:
-            raise ValueError("no daily bars")
-        return hist.tz_localize(None) if hist.index.tz is not None else hist
-
-    hist = with_retries(fetch, label=f"daily {ticker}")
+def get_daily_metrics(ticker, current_price, daily_bars_batch):
+    # 1y daily bars come from a single batched yf.download call made once for
+    # all gappers up front (see batch_fetch_daily_bars in main), not a
+    # per-ticker fetch here.
+    hist = daily_bars_batch.get(ticker)
     if hist is None:
         return {
             "sma_200": None, "prior_day_high": None, "prior_close": None,
             "today_open": None, "avg_volume_20d": None,
         }
+    if hist.index.tz is not None:
+        hist = hist.tz_localize(None)
 
     today = datetime.now(ET).date()
     today_open = None
@@ -561,13 +615,15 @@ def get_next_earnings_date(ticker, session):
     return min(upcoming).date().isoformat()
 
 
-def enrich_gapper(gapper, session, market_news):
+def enrich_gapper(gapper, session, market_news, daily_bars_batch):
     ticker = gapper["ticker"]
     print(f"  enriching {ticker}...")
 
-    daily = get_daily_metrics(ticker, session, gapper.get("price"))
+    daily = get_daily_metrics(ticker, gapper.get("price"), daily_bars_batch)
     intraday = get_intraday_levels(ticker, session)
+    polite_delay()
     catalysts = get_catalyst_headlines(ticker, gapper.get("name", ticker), session, market_news)
+    polite_delay()
     next_earnings = get_next_earnings_date(ticker, session)
 
     avg_vol = daily.get("avg_volume_20d")
@@ -661,6 +717,7 @@ def trading_day_note(now_et):
 
 
 def main():
+    RATE_LIMIT_FAILURES.clear()
     now_et = datetime.now(ET)
     session = new_yf_session()
 
@@ -669,12 +726,18 @@ def main():
     market_news = gather_market_news(session)
     econ_calendar = fetch_econ_calendar(session)
 
+    gapper_tickers = [g["ticker"] for g in gappers]
+    daily_bars_batch = batch_fetch_daily_bars(
+        gapper_tickers, session, period="1y", label="gapper daily bars batch"
+    )
+
     print(f"Enriching {len(gappers)} gappers...")
     for g in gappers:
-        enrich_gapper(g, session, market_news)
+        enrich_gapper(g, session, market_news, daily_bars_batch)
         day_eligible, swing_eligible = compute_eligibility(g)
         g["day_eligible"] = day_eligible
         g["swing_eligible"] = swing_eligible
+        polite_delay()
 
     gaps_to_fill = [
         "Market-wide earnings coverage is partial (only per-gapper next earnings date is pulled, "
@@ -687,6 +750,15 @@ def main():
         "Before 9:30am ET, today's open is not real yet. The scanner uses the current gap "
         "price as a stand-in for swing eligibility until the actual open prints.",
     ]
+
+    if RATE_LIMIT_FAILURES:
+        preview = ", ".join(RATE_LIMIT_FAILURES[:8])
+        more = f" and {len(RATE_LIMIT_FAILURES) - 8} more" if len(RATE_LIMIT_FAILURES) > 8 else ""
+        gaps_to_fill.append(
+            f"Yahoo rate-limited {len(RATE_LIMIT_FAILURES)} request(s) even after retries this "
+            f"scan ({preview}{more}). Fields tied to those calls are null or missing rather than "
+            "guessed at."
+        )
 
     packet = {
         "generated_at": now_et.isoformat(),
