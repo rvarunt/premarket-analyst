@@ -141,6 +141,15 @@ ECON_CALENDAR_URL = "https://nfs.faireconomy.media/ff_calendar_thisweek.json"
 ECON_CACHE_FILE = Path(".econ_calendar_cache.json")
 ECON_CACHE_TTL_SECONDS = 4 * 60 * 60
 
+SEC_TICKERS_URL = "https://www.sec.gov/files/company_tickers.json"
+SEC_TICKERS_CACHE_FILE = Path(".sec_tickers_cache.json")
+SEC_TICKERS_CACHE_TTL_SECONDS = 7 * 24 * 60 * 60
+# SEC requires a descriptive User-Agent identifying the requester on every
+# request; override with a real contact address via env if you have one.
+SEC_USER_AGENT = os.environ.get("SEC_EDGAR_USER_AGENT", "premarket-analyst research contact@example.com")
+SEC_HEADERS = {"User-Agent": SEC_USER_AGENT}
+SEC_MIN_REQUEST_INTERVAL = 0.11  # stay under SEC's 10 req/sec limit
+
 GAP_MIN_ABS_PCT = 4
 GAP_MIN_PRICE = 3
 GAP_TOP_N = 12
@@ -392,6 +401,124 @@ def batch_fetch_daily_metrics_bars(tickers, session, lookback_days=380, label="d
 
 
 # ---------------------------------------------------------------------------
+# 0b. SEC EDGAR market cap fallback
+#
+# yfinance is keyless but frequently rate-limited, and Alpaca's free tier has
+# no fundamentals data, so market cap (needed for both eligibility flags) can
+# end up null from either source. SEC EDGAR's XBRL company-facts API is a
+# third, always-keyless option: shares outstanding x current price. It's a
+# last resort, not a primary, since it requires a per-ticker CIK lookup and a
+# dei filing that not every issuer makes (foreign private issuers file
+# different forms; ETFs don't file this concept at all).
+# ---------------------------------------------------------------------------
+
+_sec_last_request_at = [0.0]
+
+
+def _sec_throttle():
+    elapsed = time.time() - _sec_last_request_at[0]
+    if elapsed < SEC_MIN_REQUEST_INTERVAL:
+        time.sleep(SEC_MIN_REQUEST_INTERVAL - elapsed)
+    _sec_last_request_at[0] = time.time()
+
+
+def _load_sec_ticker_map(session):
+    """Ticker -> {"cik": zero-padded 10-digit str, "name": str}, built from
+    SEC's company_tickers.json and cached locally with a 7-day TTL."""
+    cached = None
+    if SEC_TICKERS_CACHE_FILE.exists():
+        try:
+            cached = json.loads(SEC_TICKERS_CACHE_FILE.read_text())
+        except Exception:
+            cached = None
+
+    if cached and (time.time() - cached.get("fetched_at", 0)) < SEC_TICKERS_CACHE_TTL_SECONDS:
+        return cached["data"]
+
+    def fetch():
+        _sec_throttle()
+        resp = session.get(SEC_TICKERS_URL, headers=SEC_HEADERS, timeout=20)
+        resp.raise_for_status()
+        return resp.json()
+
+    raw = with_retries(fetch, attempts=2, label="sec company_tickers.json")
+    if raw is None:
+        if cached:
+            print("  SEC ticker map fetch failed, using stale cache")
+            return cached["data"]
+        return {}
+
+    ticker_map = {}
+    for entry in raw.values():
+        ticker = (entry.get("ticker") or "").upper()
+        if not ticker:
+            continue
+        ticker_map[ticker] = {
+            "cik": str(entry.get("cik_str")).zfill(10),
+            "name": entry.get("title") or ticker,
+        }
+
+    SEC_TICKERS_CACHE_FILE.write_text(json.dumps({"fetched_at": time.time(), "data": ticker_map}))
+    print(f"  SEC ticker map refreshed, {len(ticker_map)} tickers")
+    return ticker_map
+
+
+def get_sec_shares_outstanding(ticker, cik, session):
+    """Most recent dei:EntityCommonStockSharesOutstanding value for a CIK. A
+    404 here is a routine, permanent miss (issuer doesn't file this concept)
+    rather than a transient failure, so it's returned as a clean None instead
+    of being retried or recorded as a rate-limit failure."""
+
+    def fetch():
+        _sec_throttle()
+        url = f"https://data.sec.gov/api/xbrl/companyconcept/CIK{cik}/dei/EntityCommonStockSharesOutstanding.json"
+        resp = session.get(url, headers=SEC_HEADERS, timeout=20)
+        if resp.status_code == 404:
+            return None
+        resp.raise_for_status()
+        return resp.json()
+
+    data = with_retries(fetch, attempts=2, label=f"sec shares outstanding {ticker}")
+    if not data:
+        return None
+    shares_entries = (data.get("units") or {}).get("shares") or []
+    if not shares_entries:
+        return None
+    latest = max(shares_entries, key=lambda e: e.get("end", ""))
+    return latest.get("val")
+
+
+def backfill_market_cap_via_sec(gappers, session):
+    missing = [g for g in gappers if g.get("market_cap") is None]
+    if not missing:
+        return
+    print(f"  backfilling market cap via SEC EDGAR for {len(missing)} gapper(s) still missing it...")
+    ticker_map = _load_sec_ticker_map(session)
+    for g in missing:
+        ticker = g["ticker"]
+        entry = ticker_map.get(ticker.upper())
+        if not entry:
+            g["market_cap_source"] = "sec_unavailable_no_cik"
+            continue
+
+        shares = get_sec_shares_outstanding(ticker, entry["cik"], session)
+        if shares is None:
+            g["market_cap_source"] = "sec_unavailable_no_concept"
+            continue
+
+        price = g.get("price")
+        if price is None:
+            g["market_cap_source"] = "sec_unavailable_no_price"
+            continue
+
+        g["market_cap"] = int(shares * price)
+        g["market_cap_source"] = "sec_edgar"
+        if not g.get("name") or g.get("name") == ticker:
+            g["name"] = entry["name"]
+        print(f"    {ticker}: market cap ${g['market_cap']:,} via SEC ({shares:,} shares x ${price})")
+
+
+# ---------------------------------------------------------------------------
 # 1. Market snapshot
 # ---------------------------------------------------------------------------
 
@@ -496,6 +623,7 @@ def get_alpaca_movers(top=50):
                     "prev_close": prev_close,
                     "gap_pct": q.get("percent_change"),
                     "market_cap": None,
+                    "market_cap_source": None,
                     "volume": None,
                     "candidate_data_source": "alpaca_movers",
                 }
@@ -527,6 +655,7 @@ def get_alpaca_movers(top=50):
                 "prev_close": prev_close,
                 "gap_pct": gap_pct,
                 "market_cap": None,
+                "market_cap_source": None,
                 "volume": q.get("volume"),
                 "candidate_data_source": "alpaca_most_actives",
             }
@@ -570,6 +699,7 @@ def get_static_universe_movers(session):
             "prev_close": round(prev_close, 2),
             "gap_pct": gap_pct,
             "market_cap": info.get("marketCap"),
+            "market_cap_source": "yfinance" if info.get("marketCap") is not None else None,
             "volume": info.get("regularMarketVolume") or int(volume),
             "candidate_data_source": price_source,
         })
@@ -581,6 +711,7 @@ def backfill_name_and_market_cap(gappers, session):
     # Alpaca's free screener/snapshot endpoints carry no company name or
     # market cap, so pull those from yfinance .info -- but only for the
     # handful of names that survive the gap filter, not the whole screener.
+    # Anything yfinance can't fill here still gets a shot via SEC EDGAR next.
     print(f"  backfilling name/market cap for {len(gappers)} gapper(s) via yfinance...")
     for g in gappers:
         ticker = g["ticker"]
@@ -593,7 +724,10 @@ def backfill_name_and_market_cap(gappers, session):
         polite_delay()
         if info.get("shortName") or info.get("longName"):
             g["name"] = info.get("shortName") or info.get("longName")
-        g["market_cap"] = info.get("marketCap")
+        market_cap = info.get("marketCap")
+        if market_cap is not None:
+            g["market_cap"] = market_cap
+            g["market_cap_source"] = "yfinance"
         if g.get("volume") is None:
             g["volume"] = info.get("regularMarketVolume")
 
@@ -627,6 +761,11 @@ def get_gappers(session):
 
     if candidate_source == "alpaca_screener" and gappers:
         backfill_name_and_market_cap(gappers, session)
+
+    # Order of preference for market cap: yfinance (already tried above, or in
+    # get_static_universe_movers), then SEC EDGAR for whatever's still missing.
+    if gappers:
+        backfill_market_cap_via_sec(gappers, session)
 
     print(f"Gap filter kept {len(gappers)} of {len(movers)} candidates (source: {candidate_source})")
     return gappers, candidate_source
@@ -1204,6 +1343,15 @@ def main():
             f"({preview}{more}). Fields tied to those calls are null or missing rather than guessed at."
         )
 
+    sec_misses = [g["ticker"] for g in gappers if g.get("market_cap") is None]
+    if sec_misses:
+        gaps_to_fill.append(
+            f"Market cap unavailable for {len(sec_misses)} gapper(s) even after the SEC EDGAR "
+            f"fallback ({', '.join(sec_misses)}): likely a missing CIK, or an issuer/instrument "
+            "that doesn't file the dei:EntityCommonStockSharesOutstanding concept (foreign private "
+            "issuers, ETFs, some SPACs/warrants). Their eligibility flags are false rather than guessed."
+        )
+
     data_sources = {
         "market_snapshot": "yfinance for index/futures rows; Alpaca ETF proxies (SPY/DIA/QQQ/IWM) "
                             "fill in S&P 500/Dow/Nasdaq/Russell 2000 whenever the yfinance leg fails.",
@@ -1213,7 +1361,11 @@ def main():
         "market_news": "rss",
         "per_ticker_news": "yfinance + alpaca (v1beta1/news), merged and deduped; RSS market_news "
                             "matches added on top",
-        "company_name_market_cap": "yfinance (Alpaca free tier has no fundamentals)",
+        "company_name": "yfinance primary, SEC EDGAR company_tickers.json name as a byproduct of the "
+                         "market cap fallback",
+        "market_cap": "yfinance primary; SEC EDGAR fallback (dei:EntityCommonStockSharesOutstanding "
+                       "shares outstanding x Alpaca/yfinance price) when yfinance is unavailable; null "
+                       "with a gaps_to_fill note for issuers SEC doesn't cover",
         "alpaca_credentials_present": alpaca_available(),
     }
 
