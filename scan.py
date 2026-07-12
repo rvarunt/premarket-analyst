@@ -157,7 +157,7 @@ def batch_fetch_daily_bars(tickers, session, period="5d", label="daily bars batc
         return {}
 
     def fetch():
-        return yf.download(
+        df = yf.download(
             tickers=" ".join(tickers),
             period=period,
             interval="1d",
@@ -167,6 +167,13 @@ def batch_fetch_daily_bars(tickers, session, period="5d", label="daily bars batc
             progress=False,
             auto_adjust=True,
         )
+        # yf.download swallows per-ticker failures (including rate limits)
+        # internally and returns an empty/all-NaN frame instead of raising,
+        # so a totally failed batch has to be turned into an exception here
+        # for with_retries to actually retry it.
+        if df is None or df.empty or df.isna().all().all():
+            raise ValueError("batch download returned no usable data (likely rate limited)")
+        return df
 
     raw = with_retries(fetch, label=label)
     return {t: _slice_batch(raw, t) for t in tickers}
