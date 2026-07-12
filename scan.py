@@ -7,7 +7,7 @@ import os
 import random
 import re
 import time
-from datetime import datetime, timedelta
+from datetime import datetime, timedelta, timezone
 from html import unescape
 from pathlib import Path
 from urllib.parse import quote
@@ -59,6 +59,19 @@ SPAM_PATTERNS = [
     re.compile(r"price prediction", re.I),
     re.compile(r"\b20\d{2}-20\d{2}\b"),
 ]
+
+# Personal-finance advice columns show up in the same RSS feeds as real market
+# news (MarketWatch runs both). They're not catalysts for anything, so keep
+# them out of market_news entirely rather than let them dilute it.
+PERSONAL_FINANCE_PATTERNS = [
+    re.compile(r"\bretir\w*\b", re.I),  # retirement, retiree(s), retiring, retired
+    re.compile(r"\bsocial security\b", re.I),
+    re.compile(r"\b401\(?k\)?\b", re.I),
+    re.compile(r"\bfinancial[\s-]literacy\b", re.I),
+    re.compile(r"\bcredit[\s-]card\b", re.I),
+]
+
+MAX_NEWS_AGE = timedelta(hours=36)
 
 # A headline only counts as a catalyst if it names the ticker on a word
 # boundary, or contains a distinctive company-name token (4+ letters, not in
@@ -325,6 +338,21 @@ def is_spam(title):
     return any(p.search(title) for p in SPAM_PATTERNS)
 
 
+def is_personal_finance(title):
+    return any(p.search(title) for p in PERSONAL_FINANCE_PATTERNS)
+
+
+def is_too_old(entry, max_age=MAX_NEWS_AGE):
+    # feedparser normalizes the published/updated date into a UTC struct_time
+    # when it can parse it. No parseable date means we can't verify freshness,
+    # so treat it as stale rather than risk a zombie headline slipping through.
+    parsed = entry.get("published_parsed") or entry.get("updated_parsed")
+    if not parsed:
+        return True
+    published_at = datetime(*parsed[:6], tzinfo=timezone.utc)
+    return (datetime.now(timezone.utc) - published_at) > max_age
+
+
 def gather_market_news(session):
     print("Gathering market-wide news...")
     items = []
@@ -340,7 +368,9 @@ def gather_market_news(session):
         count = 0
         for e in entries:
             title = (e.get("title") or "").strip()
-            if not title or is_spam(title):
+            if not title or is_spam(title) or is_personal_finance(title):
+                continue
+            if is_too_old(e):
                 continue
             summary = strip_html(e.get("summary") or e.get("description") or "")
             items.append({
