@@ -152,7 +152,14 @@ SEC_MIN_REQUEST_INTERVAL = 0.11  # stay under SEC's 10 req/sec limit
 
 GAP_MIN_ABS_PCT = 4
 GAP_MIN_PRICE = 3
-GAP_TOP_N = 12
+
+# Final gapper selection is a two-pool split so rule-eligible names can't be
+# crowded out by micro-cap gap noise: pool A (market cap >= the swing floor)
+# is kept in full up to POOL_A_MAX, pool B (everything else) fills whatever's
+# left up to GAPPERS_MAX_TOTAL. Both pools are ranked by abs(gap_pct).
+POOL_A_MIN_MARKET_CAP = 800_000_000
+POOL_A_MAX = 15
+GAPPERS_MAX_TOTAL = 20
 
 # Labels of calls that exhausted all retries this run, so main() can write an
 # honest note into gaps_to_fill instead of silently shipping a thin packet.
@@ -732,7 +739,11 @@ def backfill_name_and_market_cap(gappers, session):
             g["volume"] = info.get("regularMarketVolume")
 
 
-def gap_filter(movers):
+def gap_price_filter(movers):
+    """Threshold-only filter (abs gap / min price), sorted by abs(gap_pct)
+    descending. No count cap here -- the count cap happens after market cap
+    is known, in select_gappers_by_cap, so cap-qualified names can't be
+    squeezed out by a top-N cut applied before cap is even computed."""
     kept = []
     for m in movers:
         gap = m.get("gap_pct")
@@ -742,7 +753,31 @@ def gap_filter(movers):
         if abs(gap) >= GAP_MIN_ABS_PCT and price >= GAP_MIN_PRICE:
             kept.append(m)
     kept.sort(key=lambda m: abs(m["gap_pct"]), reverse=True)
-    return kept[:GAP_TOP_N]
+    return kept
+
+
+def select_gappers_by_cap(candidates):
+    """Split gap/price-filtered candidates into pool A (market cap >= the
+    swing-eligibility floor) and pool B (everything else, including unknown
+    cap). Pool A is kept in full up to POOL_A_MAX; pool B fills whatever's
+    left up to GAPPERS_MAX_TOTAL. Both pools arrive pre-sorted by abs(gap_pct)
+    from gap_price_filter, so slicing each pool keeps the biggest gaps first
+    within it."""
+    pool_a = [c for c in candidates if (c.get("market_cap") or 0) >= POOL_A_MIN_MARKET_CAP]
+    pool_b = [c for c in candidates if (c.get("market_cap") or 0) < POOL_A_MIN_MARKET_CAP]
+
+    kept_a = pool_a[:POOL_A_MAX]
+    remaining_slots = max(GAPPERS_MAX_TOTAL - len(kept_a), 0)
+    kept_b = pool_b[:remaining_slots]
+
+    for c in kept_a:
+        c["selection_pool"] = "A_cap_qualified"
+    for c in kept_b:
+        c["selection_pool"] = "B_micro_cap_or_unknown"
+
+    selected = kept_a + kept_b
+    selected.sort(key=lambda c: abs(c["gap_pct"]), reverse=True)
+    return selected, len(pool_a), len(pool_b)
 
 
 def get_gappers(session):
@@ -757,17 +792,25 @@ def get_gappers(session):
         candidate_source = "static_universe_fallback"
         movers = get_static_universe_movers(session)
 
-    gappers = gap_filter(movers)
+    candidates = gap_price_filter(movers)
+    print(f"Gap/price filter kept {len(candidates)} of {len(movers)} candidates above threshold "
+          f"(source: {candidate_source})")
 
-    if candidate_source == "alpaca_screener" and gappers:
-        backfill_name_and_market_cap(gappers, session)
+    # Market cap has to be known before pool selection, so the backfill now
+    # runs on every threshold-passing candidate, not just the final cut --
+    # still far short of the full movers list, which is what keeps this fast.
+    if candidate_source == "alpaca_screener" and candidates:
+        backfill_name_and_market_cap(candidates, session)
 
     # Order of preference for market cap: yfinance (already tried above, or in
     # get_static_universe_movers), then SEC EDGAR for whatever's still missing.
-    if gappers:
-        backfill_market_cap_via_sec(gappers, session)
+    if candidates:
+        backfill_market_cap_via_sec(candidates, session)
 
-    print(f"Gap filter kept {len(gappers)} of {len(movers)} candidates (source: {candidate_source})")
+    gappers, pool_a_count, pool_b_count = select_gappers_by_cap(candidates)
+    print(f"Selected {len(gappers)} gapper(s): {pool_a_count} pool A (cap-qualified, "
+          f"kept {min(pool_a_count, POOL_A_MAX)}) + {pool_b_count} pool B (micro-cap, "
+          f"kept {len(gappers) - min(pool_a_count, POOL_A_MAX)})")
     return gappers, candidate_source
 
 
@@ -1376,7 +1419,9 @@ def main():
         "scan_params": {
             "gap_filter_min_abs_pct": GAP_MIN_ABS_PCT,
             "gap_filter_min_price": GAP_MIN_PRICE,
-            "gap_filter_top_n": GAP_TOP_N,
+            "pool_a_min_market_cap": POOL_A_MIN_MARKET_CAP,
+            "pool_a_max": POOL_A_MAX,
+            "gappers_max_total": GAPPERS_MAX_TOTAL,
         },
         "criteria": CRITERIA_TEXT,
         "data_sources": data_sources,
