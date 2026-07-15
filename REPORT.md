@@ -1,4 +1,4 @@
-# Premarket Report: July 14, 2026
+# Premarket Report: July 15, 2026
 
 *Two-brain pass: Claude and GPT independently review the tape, then compare notes.*
 
@@ -6,88 +6,92 @@
 
 ## Summary
 
-- **The tape in one line:** Green across the board into the close: S&P proxy (SPY) +0.38%, Dow proxy (DIA) +0.06%, Nasdaq proxy (QQQ) +1.10%, Russell proxy (IWM) +0.35%. Nasdaq led.
-- **The catch we're watching:** Today's CPI print and Fed Chairman Warsh's testimony already happened (both were on today's calendar and both show up in the news feed: "Warsh Says No Tolerance For Inflation"). Tomorrow brings PPI data and a second day of Warsh testimony, plus IBM just had its "worst day ever" (-25.21%) and is dragging software stocks with it, worth watching for follow-through.
+- **The tape in one line:** Mixed: S&P proxy (SPY) +0.38%, Dow proxy (DIA) +0.24%, Russell proxy (IWM) +0.43%, but Nasdaq proxy (QQQ) -0.28%, dragged down by a real memory-chip selloff (Micron -8.02%, Intel -4.43%).
+- **The catch we're watching:** Today's PPI print came in cooler than forecast ("US Producer Prices Fall 0.3% In June" shows up across several tickers' feeds, beating the 0.0% consensus) and Fed Chairman Warsh testified at 10am ET. Tomorrow's calendar is empty, so the next real catalyst is whatever headlines carry over from today's chip selloff and the PayPal takeover chatter.
 - **Two-brain verdict:** Single-brain run, no GPT pass to compare against yet.
 
 ## Pre-Market Gappers
 
-- **NXTC** +201.83% — "Nextcure Transforms Into Avere as Investors Back Oral Psoriasis Therapy"
-- **VEEE** +54.91% — "10 Consumer Discretionary Stocks Moving In Tuesday's Intraday Session"
-- **IBX** -50.38% — no catalyst headline in the feed
-- **CRMT** +41.72% — "10 Consumer Discretionary Stocks Moving In Tuesday's Intraday Session"
-- **LESL** -41.07% — "10 Consumer Discretionary Stocks Moving In Tuesday's Intraday Session"
-- **FXHO** +33.72% — "12 Information Technology Stocks Moving In Tuesday's Intraday Session"
-- **BMGL** +32.25% — "12 Health Care Stocks Moving In Monday's Pre-Market Session"
-- **AXTC** +29.84% — no catalyst headline in the feed
-- **WYFL** -29.06% — no catalyst headline in the feed
-- **IBM** -25.21% — "BMW's U.S. business is delivering when it matters most"
-- **BWET** +21.99% — "Why Did the Commodity Complex Remind Me of the Bangles to Start the Week?"
-- **LCID** -16.15% — "Lucid Stock Dives After Report Claims EV Company Is Weighing Strategic Options"
-- **BMNR** +11.46% — "Why Is BitMine Stock Gaining Tuesday?"
-- **CLSK** +8.44% — "BTIG Reiterates Buy on Cleanspark, Maintains $26 Price Target"
-- **WULF** -7.13% — "Why Is TeraWulf Stock Falling on Tuesday?"
-- **ETHA** +5.83% — "Bitcoin and ethereum prices today, Monday, July 13, 2026: Strong price openings backtracking this morning"
-- **ONDS** +5.38% — "Squeeze Watch: 10 Stocks Bears Love to Hate Most Right Now"
-- **JOBY** +5.35% — "Joby Aviation Stock Tests $8 Support Zone: What's Driving the Air Taxi Pullback?"
-- **INTC** +4.59% — "10 Information Technology Stocks With Whale Alerts In Today's Session"
-- **NVDA** +4.08% — "Bank Earnings Indicate Strong Economy; IBM Drops Dragging Software; Warsh Says No Tolerance For Inflation"
+- **SOXS** +968.84% — "EXCLUSIVE: SK Hynix Is Where AI Infrastructure, Chips, Memory Converge, Says Direxion as It Launches Leveraged ETF"
+- **ELVA** +49.05% — "12 Industrials Stocks Moving In Wednesday's Intraday Session"
+- **AEHG** +42.21% — "Aehr Test Systems Gets New 2X Leveraged ETF Amid AI Semiconductor Rally"
+- **SNWV** -39.21% — "Will the Market Recognize the True Potential of Elevance Health (ELV)?"
+- **NVVE** +36.46% — "Nuvve Holding Q1 EPS $(28.96) Up From $(2.79 thousand) YoY, Sales $1.393M Up From $900.000K YoY"
+- **JLHL** +36.08% — "12 Industrials Stocks Moving In Wednesday's After-Market Session"
+- **JTAI** -35.52% — "12 Industrials Stocks Moving In Wednesday's Intraday Session"
+- **PYPU** +35.0% — "Adobe, PayPal, UnitedHealth Just Got 2X ETFs — Direxion Builds Out The Leverage Trade"
+- **PYPG** +34.37% — no catalyst headline in the feed
+- **VEEE** -30.95% — "10 Consumer Discretionary Stocks Moving In Wednesday's Intraday Session"
+- **GRRR** -29.1% — "Why Gorilla Technology Stock Is Falling Wednesday"
+- **LCID** +28.79% — "Lucid Motors CEO Silvio Napoli Issues Satement Regarding Recent Rumors And Speculation"
+- **CHRN** +28.77% — "12 Information Technology Stocks Moving In Wednesday's After-Market Session"
+- **AAOG** -26.47% — "Seagate, SanDisk Stocks Get 2X ETF Boost As Themes Expands Leveraged AI Trade With 9 Funds"
+- **AEHR** +21.91% — "12 Information Technology Stocks Moving In Wednesday's Intraday Session"
+- **IOVA** +20.61% — "Iovance Biotherapeutics Files Prospectus For Offering Mixed Shelf; Terms Undisclosed"
+- **PYPL** +17.2% — "Wall Street Gave Up on PayPal, But the Stock Just Had Its Best Day Ever"
+- **MU** -8.02% — "$100 Invested In Micron Technology 5 Years Ago Would Be Worth This Much Today"
+- **INTC** -4.43% — "Intel Has Reached 'Very Important Milestone' With Its $400 Million Chipmaking Machine, ASML CEO Says"
+- **AAPL** +4.02% — "New Magnificent 10 ETF Targets Nvidia, Microsoft and AI Leaders With Daily Income Strategy"
 
 ## Day Trading Watchlist
 
 `day_eligible` encodes the Trend Join Long rule: gap > 3%, price > $3, market cap > $1B, premarket RVOL > 1.5, and price already breaking above yesterday's high.
 
-No names cleared the day-trading bar today. Every cap-qualified up gapper (NVDA, INTC, ONDS, JOBY, BMNR, ETHA, CLSK) came in with an RVOL at or near 0 in the packet (0.0 for most, 0.01 for BMNR and ETHA), so none of them clear the RVOL > 1.5 leg of the rule even though several are up and holding above yesterday's high.
+One name cleared it.
+
+| Ticker | Catalyst | Levels | Plan | Second-brain check | Conviction |
+|---|---|---|---|---|---|
+| LCID | CEO Silvio Napoli directly denied bankruptcy/going-private rumors as "completely false," and the stock is rebounding hard off that denial (RVOL 78.81). | Prior day's high is $5.76, price ($5.95) is already above it. Today's HOD so far is $6.00, price is $0.05 below that. VWAP is $5.52, price is holding above it. Premarket high isn't in the packet (zero premarket volume logged), so that leg of the trigger can't be pinned to a number. | Rule calls for a break of premarket high and prior HOD inside the 10am-3:30pm ET window; the prior-HOD leg ($5.76) is already cleared, the premarket-high leg is unknown. Stop (1R) is 1% below premarket high or the LOD, whichever is lower; with premarket high unavailable, the only computable reference is the LOD ($4.63). Scale 1/3 off at +1R, 1/3 at +2R, trail the rest on the 21-EMA (not in the packet, watch it live), flat by 3:51pm ET. | n/a, single-brain run | 🟡 |
 
 ## Swing Watchlist
 
 `swing_eligible` encodes: gap >= 8%, price > $3, open > yesterday's high, open > the 200-day SMA, market cap >= $800M, and a real catalyst.
 
-Two names cleared it. Both were checked against the standing red-flag rule (market cap under $2B, or a catalyst headline quoting near-zero revenue against the market cap) and neither triggered it: BWET's market cap is $2.37B and CLSK's is $3.44B, both above the $2B floor, and no catalyst headline for either quotes a revenue figure.
+Two names cleared it. Both were checked against the standing red-flag rule (market cap under $2B, or a catalyst headline quoting near-zero revenue against the market cap) and neither triggered it: AEHR's market cap is $2.76B and PYPL's is $48.97B, both above the $2B floor, and no catalyst headline for either quotes a revenue figure.
 
 | Ticker | Catalyst | Trend context | Idea | Second-brain check | Conviction |
 |---|---|---|---|---|---|
-| BWET | "BWET Soars 615% As Freight Rates Triple, Turning Shipping ETFs Into The Hottest Geopolitical Trade" | Open ($264.80) is well above the 200-day SMA ($81.88) and above yesterday's high ($214.90). | News catalyst, no earnings involved: a geopolitical freight-rate spike, not a company-specific story (this is Amplify Commodity Trust, a commodity/shipping trust product, not an operating company). Price ($257.35) is currently sitting just below VWAP ($261.13) with zero premarket volume logged, so there's no live confirmation the move is holding. Watch-and-build-a-plan only, no stop, no target. | n/a, single-brain run | 🟡 |
-| CLSK | "CleanSpark Stock Jumps After Inking $6.6 Billion, 20-Year Data Center Lease in Georgia" | Open ($14.66) is above the 200-day SMA ($13.30) and above yesterday's high ($12.75). | News catalyst: a real, dollar-figure data center lease deal, plus BTIG reiterating Buy with a $26 target (about 2x the current price). But the stock already made a high of $15.09 today and faded back to $13.42, an 11%+ pullback off the high by the time of this after-hours snapshot, so the move isn't holding its best levels. Watch-and-build-a-plan only, no stop, no target. | n/a, single-brain run | 🟡 |
+| AEHR | No company-specific headline in the packet, every matched item is a generic "stocks moving" wrap or general AI-semiconductor-rally coverage. The one real signal is that a new 2X leveraged ETF tracking AEHR just launched (that headline landed under a different ticker, AEHG, in the packet, but it names AEHR directly). | Open ($98.16) is well above the 200-day SMA ($49.68) and above yesterday's high ($73.37). | The trend legs both clear, but price ($87.79) has already faded about 20% off today's high ($109.88) and sits below VWAP ($95.94). Thin, non-specific catalyst plus a hard fade off highs, this clears the rule on a technicality more than on conviction. Watch-and-build-a-plan only, no stop, no target. | n/a, single-brain run | 🔴 |
+| PYPL | "Stripe Proposes $53 Billion PayPal Acquisition: What Do Prediction Markets Say About the Deal?" and "Wall Street Gave Up on PayPal, But the Stock Just Had Its Best Day Ever." | Open ($54.80) is just above the 200-day SMA ($53.01) and comfortably above yesterday's high ($47.38). | News catalyst, no earnings involved: real, named takeover speculation. Price ($55.52) is sitting right at VWAP ($55.08) and within $0.36 of today's HOD ($55.88), holding near the top of the range, and it's moving against a red Nasdaq today, not just riding sector beta. Watch-and-build-a-plan only, no stop, no target. | n/a, single-brain run | 🟢 |
 
 ## Market Trends of the Day
 
-Broad tape was green today, Nasdaq (QQQ proxy, +1.10%) led the other three. A bank-earnings-beat thread runs through several matched headlines: "Bank Earnings Indicate Strong Economy," "Bank of America Earnings Top Views," and "Goldman Sachs Posts Upbeat Q2 Earnings" all show up across different tickers' catalyst feeds today.
+Today split by index: Dow, S&P, and Russell all green, but Nasdaq (QQQ proxy) was the one red at -0.28%, dragged by a real memory-chip selloff. Micron fell 8.02% and Intel fell 4.43%, and the feed ties both to the same story: "Memory-Chip Selloff Drags Nasdaq 100 Lower, SanDisk Sinks 13%."
 
-Crypto-adjacent names were unusually active: BMNR, WULF, CLSK, and ETHA all moved on Bitcoin/Ethereum-linked news, against a backdrop of a "Trump Reinstates Strait of Hormuz Blockade" headline that reportedly knocked Bitcoin, Ethereum, XRP, and Dogecoin lower. That same Hormuz headline connects to the other big theme in the feed: a freight and oil trade, with BWET's catalyst citing freight rates tripling and crude gains showing up in more than one other ticker's matched headlines.
+A second theme: a wave of brand-new leveraged single-stock ETFs (Direxion, Themes) launched today tracking names like PayPal and Aehr Test Systems. Several of today's biggest gappers (SOXS, AEHG, PYPU, AAOG) are catalyst-matched almost entirely to these ETF-launch headlines rather than to any news about an actual operating business, worth keeping in mind since their gap size is closer to mechanical leverage than a stock-specific story.
 
-The one gap-down that stands out from the crowd is IBM, off -25.21% on a headline literally calling it IBM's "worst day ever," dragging software stocks with it and lifting cybersecurity names like Palo Alto by contrast.
+PYPL stands out as the one clean, idiosyncratic mover: a Stripe acquisition proposal reported at $53 billion, driving what one headline calls PayPal's best day ever, and it's doing that against a red Nasdaq rather than riding a sector wave.
+
+LCID is rebounding hard (+28.79%) off Monday's bankruptcy-rumor-driven selloff, after the CEO directly denied the rumor. VEEE, flagged as a trap in each of the last two reports over its reverse-merger structure, gave back 30.95% today after its multi-day run.
 
 ## Technical Signals for Today
 
-- S&P 500 proxy (SPY): 751.94, +0.38% from prior close (749.13).
-- Dow proxy (DIA): 524.75, +0.06% from prior close (524.45).
-- Nasdaq proxy (QQQ): 719.71, +1.10% from prior close (711.85). Strongest of the four.
-- Russell 2000 proxy (IWM): 294.49, +0.35% from prior close (293.46).
+- S&P 500 proxy (SPY): 754.77, +0.38% from prior close (751.94).
+- Dow proxy (DIA): 526.00, +0.24% from prior close (524.75).
+- Nasdaq proxy (QQQ): 717.70, -0.28% from prior close (719.71). The one laggard of the four.
+- Russell 2000 proxy (IWM): 295.77, +0.43% from prior close (294.49). Strongest of the four.
 - VIX, 10-year yield, 3-month yield, WTI crude, and the dollar index all failed to load this run (data source outage), so there's no vol or rates read to lean on today.
-- NVDA closed near its high of day ($212.55 HOD vs. $211.79 last) and well above its 200-day SMA ($191.79), holding its gap rather than fading.
-- INTC is up at $107.76, close to its HOD of $109.17, and sitting far above its 200-day SMA ($62.83), a continuation of the move flagged in yesterday's report.
-- IBM is trading at $217.07, well below its 200-day SMA ($275.24), so today's drop breaks it further into a downtrend rather than just a one-day air pocket.
+- Micron ($903.84) is still far above its 200-day SMA ($472.39) even after today's 8.02% drop, a pullback inside an uptrend, not a trend break.
+- Apple closed within $1.12 of today's high ($328.70 HOD vs. $327.58 last) and well above its 200-day SMA ($273.06), holding its gap into the close.
+- Intel ($102.99) is now trading below both today's own prior-day-high reference ($109.17) and its VWAP ($102.13 is basically where it's sitting), a weaker close than two sessions ago when it held near its highs.
 
 ## Economic Data, Rates and the Fed
 
-Today already had its main events: CPI m/m (forecast -0.1% vs. previous 0.5%), CPI y/y (forecast 3.8% vs. previous 4.2%), Core CPI m/m (forecast 0.2%, flat with previous), Core CPI y/y (forecast 2.8% vs. previous 2.9%), and Fed Chairman Warsh testifying at 10am ET. The feed shows the market's reaction was choppy: one headline has the Dow falling over 100 points "Following Inflation Data," another has the Nasdaq surging over 100 points on bank earnings the same day, and a third quotes Warsh saying he has "No Tolerance For Inflation."
+Today already had its events: Core PPI m/m (forecast 0.3% vs. previous 0.4%), PPI m/m (forecast 0.0% vs. previous 1.1%), and Fed Chairman Warsh testifying at 10am ET. The actual print looks like it beat the cooler forecast: "US Producer Prices Fall 0.3% In June" shows up across several tickers' matched headlines, a bigger deceleration than the flat 0.0% consensus.
 
-Tomorrow: Core PPI m/m (forecast 0.3% vs. previous 0.4%) and PPI m/m (forecast 0.0% vs. previous 1.1%, a sharp deceleration if it holds) both at 8:30am ET, plus Warsh testifies again at 10:00am ET, a second day in a row.
+Tomorrow: nothing on the calendar.
 
 ## Coming Up
 
-- **Tomorrow's events:** Core PPI m/m, PPI m/m (both 8:30am ET), Fed Chairman Warsh testifies again (10:00am ET).
-- **Earnings:** The structured next-earnings-date field is null for all 20 gappers this run, the per-ticker lookup was rate-limited across the board, so this is a data gap, not a finding that nothing's on the calendar. One exception worth flagging from the catalyst text itself: CRMT's own headlines show it already reported Q4 earnings today, July 14 ("Earnings Scheduled For July 14, 2026," plus the actual EPS/sales prints).
+- **Tomorrow's events:** None in the calendar for July 16.
+- **Earnings:** The structured next-earnings-date field is null for all 20 gappers again this run, the per-ticker lookup was rate-limited across the board, so this is a data gap, not a finding that nothing's on the calendar.
 
 ## Skips and Traps
 
-- **CRMT (+41.72%):** One headline reports a real miss, "Q4 EPS $(3.56) Misses $(0.66) Estimate, Sales $302.826M Miss $339.989M Estimate," while another says an adjusted EPS number beat. Stock's up over 40% regardless. A GAAP miss dressed up by an adjusted beat is exactly the kind of mixed quarter that shouldn't be chased just because the headline number everyone's looking at is green.
-- **NXTC (+201.83%):** A $23.7M market cap name up over 200% with an RVOL of 14.58. Extreme, thin, and speculative even though there's a real story behind it (a company rebrand tied to a drug candidate). Not a name to size into on a gap this size in a stock this small.
-- **VEEE (+54.91%):** Continuation of the reverse-merger story already flagged as a trap in the last report; today's headlines are just recaps of the same move ("Here's Why It's Still Trending"). Same caution applies: the underlying deal leaves existing shareholders with a minority stake in the surviving entity.
-- **FXHO (+33.72%):** Every matched headline is a generic "stocks moving" wrap piece, nothing specific to this ticker's own news. Thin story.
-- **BMGL (+32.25%):** The catalyst is procedural, regaining Nasdaq listing compliance, not a fundamental driver. A 32% pop on housekeeping news like that looks like an overreaction.
-- **IBX, AXTC, WYFL:** No catalyst found in the feed for any of the three. No story, no trade, regardless of the size of the gap.
+- **SOXS, AEHG, PYPU, AAOG:** All four are catalyst-matched almost entirely to brand-new leveraged ETF product launches (Direxion, Themes) tracking other names, not to news about their own underlying business. Treat the size of these gaps as mechanical leverage, not a stock story.
+- **PYPG (+34.37%):** No catalyst found in the feed. No story, no trade, regardless of the size of the gap.
+- **NVVE (+36.46%):** An $11.3M market cap name that reported a Q1 EPS of $(28.96) and was halted on upside circuit breakers twice in the same session (first at +100.76%, then again at +44.05%). Extreme, thin, and speculative.
+- **ELVA (+49.05%):** The headline Amazon commercial relationship is real, but the company is paying for it with 13,880,345 warrants to purchase its own shares, real dilution attached to otherwise good news.
 
 ## Where the Two Brains Landed
 
