@@ -4,3 +4,4 @@ reports/
 __pycache__
 .env
 .econ_calendar_cache.json
+.sec_tickers_cache.json
