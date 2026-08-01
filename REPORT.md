@@ -1,4 +1,4 @@
-# Premarket Report: July 12, 2026
+# Premarket Report: August 1, 2026
 
 *Two-brain pass: Claude and GPT independently review the tape, then compare notes.*
 
@@ -6,13 +6,13 @@
 
 ## Summary
 
-- **The tape in one line:** No live tape today. It's Sunday, July 12, so markets are closed anyway, and on top of that the price feed hit its rate limit again on this run, so the index snapshot is empty regardless.
-- **The catch we're watching:** Bank earnings season opens this week, with five big U.S. banks reporting on the same day and Citigroup singled out as the one to watch. Layer that on top of a market news feed that's leaning hard on one theme: the rally right now is running on AI demand more than anything else.
+- **The tape in one line:** No live tape today. It's Saturday, August 1, so markets are closed, and Yahoo rate-limited every price request on this run anyway, so the index snapshot is empty regardless of the calendar.
+- **The catch we're watching:** Earnings season is running hot in the background. Silicon Motion beat and EPAM Systems popped this week, and a Dow Jones Futures piece flags SpaceX, AMD, Sandisk, and Eli Lilly earnings coming up.
 - **Two-brain verdict:** Single brain, no second opinion to compare.
 
 ## Pre-Market Gappers
 
-No gappers made it through the pipeline this scan. Candidate source was the static universe fallback, and Yahoo rate-limited every batched daily-bars request and both live screener calls even after retries with backoff. Zero candidates reached the gap filter.
+No gappers made it through the pipeline this scan. Candidate source was the static universe fallback (the live day_gainers/most_actives screeners were rate-limited too), and Yahoo rate-limited every batched daily-bars request even after three retries with backoff. Zero candidates reached the gap filter (gap filter kept 0 of 0).
 
 ## Day Trading Watchlist
 
@@ -24,26 +24,26 @@ No names cleared the swing bar either. That flag encodes gap of 8% or more, pric
 
 ## Market Trends of the Day
 
-The news feed is actually useful this run. Two threads stand out:
+The gapper pipeline is empty, but the news feed still has a few real threads worth flagging:
 
-Earnings season is kicking off, with a MarketWatch piece flagging five big U.S. banks reporting on the same day and calling out Citigroup as the name to watch for margin improvement. A second piece notes analyst estimates have climbed into this earnings season instead of the usual pre-earnings drift lower, credited to strength in energy and tech.
+Earnings season is grinding forward. Silicon Motion beat estimates and surprised the memory-chip bears, and EPAM Systems rocketed higher this week on its own report. Looking ahead, a Dow Jones Futures piece calls out SpaceX, AMD, Sandisk, and Eli Lilly earnings as the ones to watch coming up.
 
-AI demand is the dominant story across sectors, not just chipmakers. MarketWatch is running it straight: "the stock-market rally now hinges more on AI than oil." That shows up across the individual headlines too: Micron is being framed around $22 billion in AI memory customer commitments, Western Digital around tight HDD supply from AI-driven storage demand, and AppLovin around pushing its AI ad tooling past mobile gaming into e-commerce. Salesforce is the counter-note here, taking "a double blow" on one of its AI products.
+A couple of single-name items stand out from the feed: Vertiv's CEO made a comment described as "critical" right as the stock crashed, and there's a bullish case circulating for Arm Holdings tied to a "$2 billion reason" to buy, plus a note that BlackRock is betting big on Ondas.
 
-Outside of AI, there's real corporate-action flow in the feed: Clarivate selling its life sciences and healthcare business to Altaris for $600 million, a fast-food franchisee filing Chapter 11, and a cluster of small-cap mining and energy items (First Majestic Silver, Ur-Energy, NVRO Metals, Borr Drilling) hitting regulatory or operational milestones.
+Most of the rest of the feed (MarketWatch's top stories on tax policy, estate planning, Medicare premiums, and a passport-website scam) is general personal-finance content, not market-moving news, so it's being left out of this section rather than padded in.
 
 ## Technical Signals for Today
 
-No data. All nine readings in the market snapshot (S&P 500, Dow, Nasdaq, Russell 2000, VIX, 10-year yield, 3-month yield, WTI crude, dollar index) came back null, same rate limit as the gappers. Nothing to call on breadth, VIX, or index levels.
+No data. All nine readings in the market snapshot (S&P 500, Dow, Nasdaq, Russell 2000, VIX, 10-year yield, 3-month yield, WTI crude, dollar index) came back null, same Yahoo rate limit that killed the gapper scan. Nothing to call on breadth, VIX, or index levels.
 
 ## Economic Data, Rates and the Fed
 
-Nothing on deck. The econ calendar shows zero USD high-impact events for today (Sunday, July 12) or tomorrow (Monday, July 13). Markets are closed today regardless, and Monday's calendar is just quiet, not broken.
+Nothing on deck. The econ calendar shows zero USD high-impact events for today (Saturday, August 1) or tomorrow (Sunday, August 2). Markets are closed both days regardless.
 
 ## Coming Up
 
-- **Tomorrow's events:** None in the calendar for Monday, July 13.
-- **Earnings:** No gapper-level earnings dates to report, zero gappers this scan. Worth flagging from the news feed though: five big U.S. banks are reporting results on the same day this week, with Citigroup called out as the one to watch.
+- **Tomorrow's events:** None in the calendar for Sunday, August 2.
+- **Earnings:** No gapper-level earnings dates to report, zero gappers this scan. Worth flagging from the news feed though: SpaceX, AMD, Sandisk, and Eli Lilly earnings are coming up per the Dow Jones Futures piece in today's feed.
 
 ## Skips and Traps
 
