@@ -1,4 +1,4 @@
-# Premarket Report: August 3, 2026
+# Premarket Report: August 4, 2026
 
 *Two-brain pass: Claude and GPT independently review the tape, then compare notes.*
 
@@ -6,77 +6,72 @@
 
 ## Summary
 
-- **The tape in one line:** Futures are green into the open (S&P proxy +0.7%, Dow proxy +0.55%, Nasdaq proxy +0.63% via Alpaca ETF proxies), Russell proxy is the outlier at -0.46%, and it's tracking a Mideast de-escalation headline (Trump calling off a planned Iran attack) plus oil sliding to a three-week low.
-- **The catch we're watching:** The screener found 20 real gappers this morning, several with genuine catalysts (a KKR buyout of Integer Holdings at $127/share, a positive FDA panel vote for Replimune), but yfinance got rate-limited on every single per-ticker enrichment call. That means premarket high, VWAP, HOD/LOD are null across the board, so neither watchlist can technically trigger no matter how good the catalyst looks.
-- **Two-brain verdict:** Single brain, no second opinion to compare.
+- **The tape in one line:** Broad green premarket. S&P 500 proxy +1.46%, Nasdaq proxy +1.77%, Dow proxy +1.32%, Russell 2000 proxy +1.71% (all via Alpaca ETF proxies, SPY/QQQ/DIA/IWM, since direct index data failed this scan).
+- **The catch we're watching:** Intraday level data (premarket high, HOD, LOD, VWAP) came back empty for all 20 gappers this scan, yfinance got rate limited on every single enrichment call. That means neither watchlist could be built today, not because nothing gapped, but because the trigger prices the rules need aren't in the packet.
+- **Two-brain verdict:** N/A, single-brain run today.
 
 ## Pre-Market Gappers
 
-- **FCUV** +517.0%: "Why Is Focus Universal Stock Soaring on Monday?"
-- **REPL** +107.0%: "Replimune Skin Cancer Therapy Hopes Revive After Positive FDA Panel Vote"
-- **JDZG** -88.0%: "JIADE Says Trading In Shares Resumes At 12:00 P.M. ET July 31 After June 4 Nasdaq Halt"
-- **DFNS** -67.4%: "T3 Defense Stock Continues Surge: What's Driving the Momentum?" (headline says "surge," packet shows the stock down 67.4%, see Skips and Traps)
-- **BIOA** -63.6%: "Why Is BioAge Labs Stock Sinking Friday?"
-- **FWAC** +63.1%: no catalyst headline in the packet is actually about FWAC (see Skips and Traps)
-- **TCX** +59.2%: "Tucows Announces $40M Buyback Plan Through February 2027" (this headline is from February, stale relative to today's move, see Skips and Traps)
-- **AXTC** +57.9%: no catalyst headline found for this ticker
-- **AXTU** +56.9%: "These AXT ETFs Turned a 30% Stock Rally Into Nearly 50% Returns"
-- **AXTX** +56.2%: no catalyst headline found for this ticker
-- **INHD** -54.4%: "Inno Holdings Says Texas Court Temporary Restraining Order No Longer In Effect Following Magistrate Judge's Recommendation"
-- **IESC** +30.3%: "CORRECTION: IES Hldgs Q3 Adj. EPS $6.70 Beats $4.83 Estimate, Sales $1.243B Beat $1.080B Estimate"
-- **AXTI** +28.7%: "B. Riley Securities Maintains Neutral on AXT, Raises Price Target to $55"
-- **GLUE** -27.2%: "Monte Rosa Therapeutics Q1 EPS $(0.45) Misses $(0.37) Estimate, Sales $4.210M Miss $10.883M Estimate"
-- **ITGR** +20.2%: "Integer Holdings To Be Acquired By KKR For $127 Per Share Cash In Transaction Valued At EV Of ~$5.7B"
-- **WU** -17.2%: "Why Is Western Union Stock Falling on Friday?"
-- **AMZN** +15.2%: "Stock Market Today: Amazon Jumps 15%, Apple Wipes Out $475 Billion"
-- **AAPL** -7.3%: "Stock Market Today: Amazon Jumps 15%, Apple Wipes Out $475 Billion"
-- **MU** -5.9%: "Micron Technology Stock Is Falling Monday: What's Going On?"
-- **RIG** +4.8%: "Susquehanna Maintains Positive on Transocean, Lowers Price Target to $7"
+- **DFNS** +122.2%: "From Reverse Splits to Goodwill Surge - Fugazi Research Claims T3 Defense Is "Uninvestable""
+- **UPC** +105.1%: "12 Health Care Stocks Moving In Monday's Pre-Market Session"
+- **PN** -51.2%: "Apple, Stryker, Coinbase And Other Big Stocks Moving Lower In Friday's Pre-Market Session"
+- **IPCX** -48.8%: "A1R WATER To Go Public Via SPAC Deal With Inflection Point Acquisition Corp. III, Trading As "WATR" On Nasdaq Post-Close; Closing Expected in 2025"
+- **INHD** -47.7%: "INNO HOLDINGS Resumes Nasdaq Trading"
+- **CORD** -39.0%: "REX Shares Drops Three ETFs To Bet Big On Bitcoin Mining, AI Cloud, Stablecoins"
+- **CRWU** +38.9%: "REX Shares Drops Three ETFs To Bet Big On Bitcoin Mining, AI Cloud, Stablecoins"
+- **CWVX** +38.8%: "CoreWeave Stock Jumps as AI Data-Center Demand Skyrockets Ahead of Q2 Earnings"
+- **CRWG** +38.7%: "Why Is CoreWeave Stock Soaring Friday?"
+- **CRWX** +37.9%: no catalyst headline in the packet
+- **ATKR** +28.2%: "Roth Capital Downgrades Atkore to Neutral, Raises Price Target to $92"
+- **TE** +18.6%: "T1 Energy Shares Jump as Q2 Sales Beat Estimates, Microsoft AI Capex Lifts Sector"
+- **ONDS** +11.8%: "What's Going on With Ondas Stock Monday?"
+- **EOSE** +11.1%: "Eos Energy Enterprises Announces A Strategic Partnership With The Department Of War To Enhance The Resilience Of National Defense Infrastructure"
+- **SOFI** +10.6%: "SoFi Stock Surges Monday: What's Driving the Post-Earnings Rebound?"
+- **ORCL** +9.2%: "Careful MSFT, AMZN, ORCL Bulls: Trouble at OpenAI, Anthropic Could Trigger 'Sustained' AI Selloff, 'Big Short' Legend Says"
+- **IREN** +8.0%: "Stock Market Today: Microsoft Ignites Chip Rebound as SanDisk Jumps 24%"
+- **AAL** +5.1%: "American Airlines, Citi, Mastercard Rolling Out New Enhanced Premium Travel, Lifestyle Upgrades For American Airlines Travelers"
+- **MSFT** +4.9%: "Stock Market Today: S&P 500, Dow and Nasdaq Futures Rise After Strong Monday Gains, McDonald's, AMD, Palantir in Focus"
+- **AMZN** +4.7%: "Amazon CEO Andy Jassy's AI Spending Pitch Won Wall Street Over, Jim Cramer Says, While Meta and Alphabet Are Still Struggling to Explain Theirs: 'The Same Numbers...'"
 
 ## Day Trading Watchlist
 
-No names cleared the day-trading bar this scan. That flag encodes gap over 3%, price over $3, market cap over $1B, premarket RVOL over 1.5, and price already breaking above yesterday's high, computed straight from the packet.
+Rule: gap > 3%, price > $3, market cap > $1B, premarket RVOL > 1.5, and price already breaking above yesterday's high. This is the "Trend Join Long" setup.
 
-This one comes with a real caveat: intraday data (VWAP, HOD, LOD, premarket high) is null for all 20 gappers, yfinance rate-limited every single enrichment call this run. So even names with strong catalysts and big gaps, like ITGR (KKR buyout, gap to $121.21, prior day high $122.56, only about a dollar away) or REPL (FDA panel win, gap to $11.20, prior day high $12.46), can't be confirmed against the breakout rule with the data this scan actually has.
-
-One name is worth a manual look: AXTC is already trading above its prior day's high ($17.20 vs $11.04) on price alone, but it's correctly excluded because it has no market cap (SEC EDGAR has no CIK on file for it) and no matched catalyst headline. Rules engine working as designed, but flag it if you have another way to check its float and market cap.
+No names cleared the day-trading bar today. Every gapper in the packet came back `day_eligible: false`. Worth flagging: `premarket_high`, `hod`, `lod`, and `vwap` are null for all 20 names because the intraday-levels fetch failed across the board (`intraday_data_source: "unavailable"` on every one). The breakout-above-yesterday's-high leg of this rule can't be confirmed without that data, so today's empty list is partly a real "nothing qualified" and partly "the data to check couldn't be pulled." Not overriding the flags either way, just flagging why the list looks the way it does.
 
 ## Swing Watchlist
 
-No names cleared the swing bar either. That flag encodes gap of 8% or more, price over $3, open above yesterday's high, open above the 200-day SMA, market cap of $800M or more, and a real catalyst. Same blocker as the day list, nobody's confirmed above their prior day's high with today's data gap. ITGR is the name worth watching if that changes: real M&A catalyst (KKR at $127/share, about 5% above the current $121.21), market cap $4.1B (clears the swing floor easily), sitting only about 1% under its prior day's high.
+Rule: gap >= 8%, price > $3, open > yesterday's high, open > the 200-day SMA, market cap >= $800M, and a real catalyst. Entry/exit management for swing names isn't built yet either way, these would be watch-and-build-a-plan names, not full trade plans.
+
+No names cleared the swing bar today. Every gapper came back `swing_eligible: false`. Same caveat as above: today's open (`today_open`) is null for every ticker (premarket, not printed yet) and the scanner falls back to the current gap price as a stand-in per its own documented limitation, plus the intraday level outage above. So this is also a mix of genuinely-not-qualifying names (several are gapping down, several have no real catalyst, see Skips and Traps) and names where the data needed to check the rule cleanly wasn't available.
 
 ## Market Trends of the Day
 
-Geopolitics is doing the heavy lifting in the news feed today. Trump reportedly called off a planned attack on Iran, and that's showing up everywhere: oil down to a three-week low, futures reported higher across the board, and a separate piece on a joint U.S.-Japanese yen intervention questioning whether it'll hold. On the Fed side, Williams is quoted expecting inflation to ease with the Fed ready to act if it doesn't, while a bond-market column argues Warsh has effectively tightened policy just by pausing instead of cutting.
-
-The AXT cluster is one story, not four, same pattern as recent scans: AXTI (AXT Inc) is up nearly 29% on an upbeat Q2 and analyst price-target raises, while AXTC, AXTU, and AXTX are almost certainly leveraged single-stock products tracking AXTI, all posting outsized moves off the same underlying beat, and two of the three (AXTC, AXTX) don't even have a catalyst headline of their own in this packet.
-
-Big tech earnings from last week are still working through the tape. Amazon and Apple's post-earnings reaction (Amazon up big, Apple down over 7%) shows up as today's reference gap, and Micron is sliding on a DRAM/memory-stocks caution piece even as AMD's Q2 earnings, due out this week, get previewed in the news feed as the next test for the AI trade.
-
-A KKR buyout of Integer Holdings at $127/share and an AstraZeneca/Bristol-Myers Squibb tie-up rumor are the two live M&A stories moving individual names outside of that group.
+Q2 earnings season is in full swing (`market_news` literally has a Reuters "Morning Bid: Earnings overload" headline) and it's dragging the tape green pretty broadly, all four index proxies are up over 1% premarket. AI infrastructure and AI capex is the thread running through a lot of today's movers: T1 Energy cites "Microsoft AI Capex Lifts Sector" in its own catalyst, CoreWeave-linked names (CWVX, CRWG) are up double digits on Q2 earnings anticipation and AI data-center demand headlines, and Amazon's catalyst is Andy Jassy's AI spending pitch landing well with investors. Palantir's "otherworldly" quarter gets name-checked across several unrelated tickers' catalyst lists (MSFT, AMZN), which tells you it's a sentiment driver for the whole tape today, not just PLTR. On the pharma side, Pfizer and Merck both beat on earnings per `market_news`, adding to the general "beats are landing well" mood.
 
 ## Technical Signals for Today
 
-Partial data this run. S&P 500, Dow, Nasdaq, and Russell 2000 came through via Alpaca's ETF proxies (SPY/DIA/QQQ/IWM) since the raw index symbols hit yfinance's rate limit: S&P proxy +0.7%, Dow proxy +0.55%, Nasdaq proxy +0.63%, Russell proxy -0.46%. VIX, the 10-year, the 3-month, WTI crude, and the dollar index all came back null, same rate limit, Alpaca's free tier doesn't cover those instrument types. No breadth or VIX read possible today.
+All four major index proxies are green: S&P 500 (via SPY) +1.46%, Dow (via DIA) +1.32%, Nasdaq (via QQQ) +1.77%, Russell 2000 (via IWM) +1.71%. That's the full extent of what's usable today. VIX, US 10Y, US 3M, WTI oil, and the dollar index (DXY) all came back null, `data_source: "yfinance_failed"` on every one, so there's no breadth or rates read to offer this morning. Note also that oil gets a mention in `market_news` ("Oil prices rise after vessel reports being hit in Strait of Hormuz") but there's no actual WTI print in the packet to attach a number to that.
 
 ## Economic Data, Rates and the Fed
 
-One event on today's calendar: ISM Manufacturing PMI at 10:00 AM ET, forecast 54.0, previous 53.3. Nothing else listed for today, and nothing listed for tomorrow. On the Fed commentary side, from the news feed rather than the econ calendar, Fed's Williams is quoted expecting inflation to ease with the Fed ready to act if it doesn't.
+Empty. The econ calendar in the packet has no high-impact USD releases listed for today or tomorrow (`econ_calendar.today` and `econ_calendar.tomorrow` are both empty arrays). Nothing to read into the rates path off today's calendar.
 
 ## Coming Up
 
-- **Tomorrow's events:** None in the calendar for tomorrow.
-- **Earnings:** No gapper-level next-earnings dates came through clean this scan, that field in the packet is still partial (see gaps_to_fill). Worth flagging from the news feed though: AMD is set to report Q2 results this week, with chip stocks described as "continuing to waver" heading in.
+- **Tomorrow's events:** None listed. The econ calendar's `tomorrow` field is empty, no high-impact USD releases flagged for August 5.
+- **Earnings:** No dates available. `next_earnings_date` is null for all 20 gappers in this packet, the earnings-calendar pull failed across the board this scan (same yfinance rate limiting as the intraday levels).
 
 ## Skips and Traps
 
-- **AXTC, AXTX:** no catalyst headline matched either ticker. Per the rules, no catalyst is a skip regardless of the gap size.
-- **FWAC:** has catalyst headlines attached, but none of them are actually about FWAC, they're about PhenomeX, 22nd Century Group, and ON Semiconductor moving on unrelated days back in 2023. Treat this as no real catalyst.
-- **DFNS:** the best-matched headline calls it a "surge" and asks what's "driving the momentum," but the packet has this ticker down 67.4%. Either a stale headline or a mismatch, don't trust it as an explanation for today's move.
-- **TCX:** the only distinctly TCX-specific headline is a $40M buyback plan announced back in February, well before today's 59.2% gap. Nothing in the packet actually explains today's move.
-- **FCUV:** the catalyst is real (an AI product story plus circuit-breaker halts to the upside repeatedly this week), but this is a $24M market cap stock up over 500% on 6,774x relative volume. That's outside anything either watchlist's market cap floor is built for, extreme speculative risk.
-- **RIG:** the only Transocean-specific headline is an analyst note that's mixed on its face (price target lowered to $7 even while the rating stays positive). Thin conviction if you were tempted to chase the 4.8% gap.
-- No up-gapper in this batch showed a clear "bad news pop" pattern (dilution, a probe, or a miss paired with a gap up), so that specific trap check didn't fire today. The bigger caution across the board: intraday data (premarket high, VWAP, HOD/LOD) is null for all 20 names this run, so nothing on this list has actually been confirmed against the breakout rules either watchlist is built on.
+- **DFNS** (+122.2%): This is the one to actually watch out for. The gap looks explosive, but the real news behind it is a short-seller report from Fugazi Research titled "T3 Defense Is 'Uninvestable'" and a follow-up piece "Running Back the Same Ruthless Scheme," plus a headline noting shares got halted on a circuit breaker to the upside. Up huge on a short attack, not on good news, that's the up-on-bad-news trap pattern by the book. Skip.
+- **UPC** (+105.1%): Market cap is $3,650,430, under four million dollars. None of its five catalyst headlines actually mention UPC by name, they're generic "12 Health Care Stocks Moving" listicles that happen to include it. A double-digit percent move with essentially no real story behind it and a market cap that thin is a pass.
+- **CRWX** (+37.9%): `catalyst_found: false`. No catalyst headlines came back for it at all. Per the ground rules, no catalyst means no story, this one gets skipped outright regardless of what the gap number looks like.
+- **CORD** (-39.0%) and **CRWU** (+38.9%): Both only matched the same single generic headline about REX Shares launching new Bitcoin mining/AI cloud/stablecoin ETFs, a headline that doesn't name either ticker specifically. Thin, keyword-matched "catalyst" at best.
+- **PN** (-51.2%), **IPCX** (-48.8%), **INHD** (-47.7%): All gapping down hard, not long setups either way. IPCX and INHD do have real news behind the move (IPCX is a completed SPAC merger resuming trade as WATR, INHD is resuming from a trading halt), PN's headlines are generic "stocks moving lower" listicles with nothing PN-specific.
+- **ATKR** (+28.2%): Roth Capital just downgraded it to Neutral, with a $92 price target that's already below where it's trading ($93.55). An analyst calling the stock fully priced right as it pops is worth a second look before chasing it.
+- **ONDS** (+11.8%) and **ORCL** (+9.2%): Neither has a headline that reads like real, specific news. ONDS's catalyst list is all competitor-comparison and "stock whisper index" pieces. ORCL's top match is actually a bearish AI-selloff warning piece ("Trouble at OpenAI, Anthropic Could Trigger 'Sustained' AI Selloff"), not a bullish story, odd thing to be the top catalyst match on a stock that's up 9.2%.
+- **IREN** (+8.0%), **MSFT** (+4.9%), **AAL** (+5.1%): Catalyst headlines for all three are mostly market-wide or sector context (chip-sector rebound, general futures-up pieces, a travel-perks product announcement) rather than a discrete, ticker-specific reason for the gap. These read more like broad-tape and AI-theme sympathy than a standalone catalyst.
 
 ## Where the Two Brains Landed
 
@@ -85,7 +80,3 @@ Single-brain run, second brain not wired in yet.
 ---
 
 **Conviction key:** 🟢 high conviction &nbsp;&nbsp; 🟡 mixed signals, size down &nbsp;&nbsp; 🔴 low conviction, watch only
-
----
-
-**Pipeline note:** yfinance rate-limited every per-ticker enrichment call this run (intraday bars, per-ticker news, and earnings dates for all 20 gappers, 108 failed requests total even after retries). The gapper list, catalyst headlines, and market snapshot above came through via Alpaca and SEC EDGAR instead, which is why the gap list and headlines are real but every VWAP/HOD/LOD/premarket high field is null. No price, level, or catalyst data was invented to fill those gaps, they're reported as null where the packet has them as null.
