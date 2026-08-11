@@ -1,4 +1,4 @@
-# Premarket Report: July 12, 2026
+# Premarket Report: August 11, 2026
 
 *Two-brain pass: Claude and GPT independently review the tape, then compare notes.*
 
@@ -6,13 +6,13 @@
 
 ## Summary
 
-- **The tape in one line:** No live tape today. It's Sunday, July 12, so markets are closed anyway, and on top of that the price feed hit its rate limit again on this run, so the index snapshot is empty regardless.
-- **The catch we're watching:** Bank earnings season opens this week, with five big U.S. banks reporting on the same day and Citigroup singled out as the one to watch. Layer that on top of a market news feed that's leaning hard on one theme: the rally right now is running on AI demand more than anything else.
+- **The tape in one line:** No index read this morning. Futures are choppy on hardening US-Iran stances per the news feed, but the actual snapshot (S&P 500, Dow, Nasdaq, VIX, yields, oil, dollar) came back empty, Yahoo rate-limited every request on this run.
+- **The catch we're watching:** Tomorrow brings the CPI print (core and headline, both m/m and y/y), and the news feed is already leaning into it. Wells Fargo's sentiment gauge just hit its highest sell-trigger level in eight years and the bank is telling clients to hedge into it, while Fed's Schmid is on record saying inflation, not growth, is his main worry even with mortgages at 6.69%.
 - **Two-brain verdict:** Single brain, no second opinion to compare.
 
 ## Pre-Market Gappers
 
-No gappers made it through the pipeline this scan. Candidate source was the static universe fallback, and Yahoo rate-limited every batched daily-bars request and both live screener calls even after retries with backoff. Zero candidates reached the gap filter.
+No gappers made it through the pipeline this scan. Candidate source was the static universe fallback, and Yahoo rate-limited the market snapshot batch, both live screener calls (day_gainers, most_actives), and the static universe daily bars batch, even after retries with backoff. Zero candidates reached the gap filter.
 
 ## Day Trading Watchlist
 
@@ -24,26 +24,28 @@ No names cleared the swing bar either. That flag encodes gap of 8% or more, pric
 
 ## Market Trends of the Day
 
-The news feed is actually useful this run. Two threads stand out:
+The news feed still has real signal even with the tape blacked out. Four threads stand out:
 
-Earnings season is kicking off, with a MarketWatch piece flagging five big U.S. banks reporting on the same day and calling out Citigroup as the name to watch for margin improvement. A second piece notes analyst estimates have climbed into this earnings season instead of the usual pre-earnings drift lower, credited to strength in energy and tech.
+Geopolitics is back in the mix. A Yahoo Finance piece has Dow, S&P 500 and Nasdaq futures wavering as the US and Iran harden their stances, which is likely part of why the broader market snapshot would matter today if it weren't rate-limited.
 
-AI demand is the dominant story across sectors, not just chipmakers. MarketWatch is running it straight: "the stock-market rally now hinges more on AI than oil." That shows up across the individual headlines too: Micron is being framed around $22 billion in AI memory customer commitments, Western Digital around tight HDD supply from AI-driven storage demand, and AppLovin around pushing its AI ad tooling past mobile gaming into e-commerce. Salesforce is the counter-note here, taking "a double blow" on one of its AI products.
+Rates and the Fed are the loudest theme. Fed's Schmid says inflation is his primary concern and wants rates higher even with mortgages at 6.69%. Wells Fargo is flagging a sentiment sell-trigger at its highest level in eight years and telling clients to hedge into the CPI print. Both stories point straight at tomorrow's CPI data on the econ calendar.
 
-Outside of AI, there's real corporate-action flow in the feed: Clarivate selling its life sciences and healthcare business to Altaris for $600 million, a fast-food franchisee filing Chapter 11, and a cluster of small-cap mining and energy items (First Majestic Silver, Ur-Energy, NVRO Metals, Borr Drilling) hitting regulatory or operational milestones.
+AI capex has a two-sided story running today. Nvidia signed a batch of MoUs with financial firms to fund AI infrastructure expansion, and Cramer's getting asked whether Lam Research, KLA, or Applied Materials is the best chip-equipment name to play that build-out. On the other side, a Lazard fund manager is out arguing plain infrastructure (roads, water, telecom towers) beats the AI hype trade, and a separate piece is questioning whether Roku's AI-driven Fairground TV push is "AI slop or streaming's future."
+
+There's real corporate-action and earnings flow too: Uniper's profits are surging as Germany preps to sell the energy giant, Alcon raised its 2026 earnings growth outlook on a strong Q2, and Rocket Lab sank on possible Neutron delays inside a mixed batch of earnings from SpaceX rivals.
 
 ## Technical Signals for Today
 
-No data. All nine readings in the market snapshot (S&P 500, Dow, Nasdaq, Russell 2000, VIX, 10-year yield, 3-month yield, WTI crude, dollar index) came back null, same rate limit as the gappers. Nothing to call on breadth, VIX, or index levels.
+No data. All nine readings in the market snapshot (S&P 500, Dow, Nasdaq, Russell 2000, VIX, 10-year yield, 3-month yield, WTI crude, dollar index) came back null, Yahoo rate-limited the batch even after three retries with backoff. Nothing to call on breadth, VIX, or index levels this run.
 
 ## Economic Data, Rates and the Fed
 
-Nothing on deck. The econ calendar shows zero USD high-impact events for today (Sunday, July 12) or tomorrow (Monday, July 13). Markets are closed today regardless, and Monday's calendar is just quiet, not broken.
+Today (Tuesday, August 11) has zero USD high-impact events on the calendar. Tomorrow (Wednesday, August 12) is the load-bearing day: Core CPI m/m (forecast 0.2%, previous 0.0%), Core CPI y/y (forecast 2.5%, previous 2.6%), CPI m/m (forecast 0.1%, previous -0.4%) and CPI y/y (forecast 3.4%, previous 3.5%), all at 8:30am ET. That lines up with the hedging and rate-path headlines already showing up in today's news feed.
 
 ## Coming Up
 
-- **Tomorrow's events:** None in the calendar for Monday, July 13.
-- **Earnings:** No gapper-level earnings dates to report, zero gappers this scan. Worth flagging from the news feed though: five big U.S. banks are reporting results on the same day this week, with Citigroup called out as the one to watch.
+- **Tomorrow's events:** CPI m/m, Core CPI m/m, CPI y/y and Core CPI y/y, all 8:30am ET Wednesday, August 12.
+- **Earnings:** No gapper-level earnings dates to report, zero gappers this scan. Worth flagging from the news feed though: SpaceX rivals reported a mixed batch of earnings, with Rocket Lab selling off on possible Neutron delays.
 
 ## Skips and Traps
 
