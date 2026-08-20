@@ -1,4 +1,4 @@
-# Premarket Report: August 19, 2026
+# Premarket Report: August 20, 2026
 
 *Two-brain pass: Claude and GPT independently review the tape, then compare notes.*
 
@@ -6,85 +6,85 @@
 
 ## Summary
 
-- **The tape in one line:** Red across every index proxy this morning (the raw index feed failed, so these are ETF proxies): S&P 500 proxy SPY -0.68%, Dow proxy DIA -0.24%, Nasdaq proxy QQQ -1.67%, Russell 2000 proxy IWM -1.25%. Nasdaq's the laggard, and the news feed backs that up: "Dow Jones Futures Fall After Sandisk, Micron, Credo Lead AI Losses."
-- **The catch we're watching:** Total intraday blackout again. Every one of today's 20 gappers has `intraday_data_source: unavailable`, so premarket high, VWAP, HOD and LOD are null across the board and both watchlists come back empty. On top of that, the packet's own note says 120 requests failed even after retries this scan. FOMC Meeting Minutes drop at 2:00 PM ET today, the only high-impact event on the calendar, so whatever direction the tape takes into 2pm could flip fast.
+- **The tape in one line:** Index proxies are mixed and barely moving: S&P 500 proxy SPY +0.22%, Dow proxy DIA +0.24%, Russell 2000 proxy IWM +0.49%, Nasdaq proxy QQQ -0.24% is the lone laggard. Nothing dramatic in the index tape itself this morning.
+- **The catch we're watching:** Total intraday blackout again, third session in a row for this scanner. All 20 gappers today have `intraday_data_source: unavailable`, so premarket high, VWAP, HOD and LOD are null across the board and both watchlists come back empty. The packet also flags 120 failed requests even after retries this scan, and VIX, the 10-year, the 3-month, oil and the dollar all came back null too (same yfinance rate limit). No high-impact USD econ events today or tomorrow, so the calendar itself isn't the catalyst. Watch Moderna: it's reportedly doubled (per a sister ETF's own headline, "FDA Decision Nears"), but nothing in Moderna's own catalyst list in the packet actually names what decision or when.
 - **Two-brain verdict:** Single-brain run today, no second opinion to compare against.
 
 ## Pre-Market Gappers
 
-- **PFSA** +506.62% - "Profusa Stock Dips After Hours As Whopping 506% Rally Cools: Here Is Why PFSA Is Trending" (the packet's own headline says the rally is already fading after hours, classic blow-off top territory)
-- **IPST** +113.26% - "Why Is IP Strategy Stock Falling Today?" (headline title contradicts today's up gap, doesn't explain the current move)
-- **XOS** +112.44% - "Xos Stock Surges on US Air Force Contract Win"
-- **SLE** +82.12% - "Super League Enterprise Announces Definitive Agreement For Metaplanet To Contribute 2,100 Bitcoin Valued At About $132.1M Plus $2.5M Cash For 44,859,400 Shares At $3.00/Share, Taking About 95.7% Stake; Company To Be Renamed Superplanet"
-- **AMLX** +63.84% - "Amylyx Pharmaceuticals Announces $350M Common Stock Offering" (a dilutive offering, though the same packet also carries "Baird Maintains Outperform on Amylyx Pharmaceuticals, Raises Price Target to $52" and "HC Wainwright & Co. Maintains Buy on Amylyx Pharmaceuticals, Raises Price Target to $55")
-- **GNLN** +51.74% - "Greenlane Hldgs Q2 EPS $(6.06) Up From $(25.46) YoY, Sales $82.000K Down From $788.000K YoY" (EPS "improved" off a smaller loss base, but sales cratered year over year)
-- **FNG** -38.72% - no ticker-specific headline in the packet, the only headlines attached are about an unrelated FANG-themed ETF
-- **SXTC** +36.8% - no ticker-specific headline in the packet, only generic "Health Care Stocks Moving" mover-list mentions
-- **WETO** +34.2% - no ticker-specific headline in the packet, only generic "Industrials Stocks Moving" mover-list mentions
-- **XTLB** +24.23% - "President Trump Say In A Social Media Post That The University Of Miami Shared Its 1994 Ibogaine Investigational New Drug Application With The Government, Which Will Help Accelerate Development As A Medical Treatment In The U.S." (the headline doesn't name XTL Biopharmaceuticals directly, link to today's move is unclear)
-- **KEEL** -15.82% - "Keel Infrastructure Q2 Earnings Miss Estimates as Bitcoin Wind-Down Continues" (same week as a CEO Form 4 buy: "CEO Benjamin Gagnon Purchases 58,888 Shares At An Average Price Of $3.33")
-- **CIFR** -12.97% - "Cipher Digital Stock Slides Tuesday: What's Happening?"
-- **AUR** -11.82% - "Nasdaq Drops, Chip Stocks Crater As Bond Yields Bite: Stock Market Today" (also carries "Aurora Innovation Says It Expects 2026 Revenue Of $14M To $16M, Up 400% Year-Over-Year At Midpoint," a bullish guide that isn't stopping today's slide)
-- **WULF** -11.42% - "TeraWulf Stock Falls as Inflation Fears Squeeze Growth Stocks"
-- **MARA** -7.72% - "What's Going On With the Fall in MARA Shares?"
-- **INTC** -6.55% - "What's Going On With Intel Stock Tuesday?"
-- **IREN** -6.54% - "IREN Stock: Earnings Could Spark Big Move as Short Interest Reaches 26%"
-- **OPEN** -5.5% - "UBS Maintains Neutral on Opendoor Technologies, Lowers Price Target to $4.5"
-- **HL** -4.63% - "Hecla Mining Q2 EPS $0.17 Misses $0.21 Estimate, Sales $333.851M Beat $73.600M Estimate"
-- **CDE** -4.19% - "Scotiabank Maintains Sector Outperform on Coeur Mining, Lowers Price Target to $26.5"
+- **FIXX** +1413.65% - "Trading Halt: Halted at 7:50:00 p.m. ET - Trading Halt: Halt News Pending" (the only other headlines attached are a stale Nasdaq minimum-bid-price deficiency notice and generic mover-list mentions, nothing that explains a gap this size)
+- **MRNX** +352.09% - "Bulls Pile Into Moderna As FDA Decision Nears, Ignites 60% Surge In This ETF" (MRNX is a 2x leveraged single-stock ETF tracking Moderna, not Moderna itself)
+- **MRNA** +176.97% - "Morgan Stanley Maintains Equal-Weight on Moderna, Raises Price Target to $89" (this is the top headline in the packet for MRNA itself, but it's a routine PT raise, nothing in Moderna's own catalyst list explains a move this size; the FDA-decision framing above comes from MRNX's headline, not Moderna's)
+- **ZSTK** +169.55% - "ZeroStack (ZSTK) Stock Skyrockets Wednesday: What's Driving the Action?" (headline doesn't actually answer its own question)
+- **MRNY** +169.23% - "ETFs Shine As S&P 500 Hits Record High: Top 5 ETFs With Best Gains From Last Week" (a generic ETF roundup, not a story specific to this move)
+- **YJ** +144.25% - "Yunji H1 Adj. EPS $(2.16) Up From $(4.00) YoY, Sales $14.192M Down From $22.102M YoY" (a narrower loss, but sales fell about 36% year over year)
+- **TNON** +109.36% - "Tenon Medical Stock Surges on Key Patent News: What Investors Need to Know"
+- **PUR** +61.31% - no catalyst headline in the packet at all
+- **PFSA** -50.62% - "Mercury Systems Posts Mixed Q4 Results, Joins WhiteFiber And Other Big Stocks Moving Lower In Wednesday's Pre-Market Session"
+- **PURR** +30.42% - "Stan Druckenmiller Reveals $23 Million PURR Bet as Hyperliquid Takes On Polymarket"
+- **GDXD** -27.95% - "New ETNs Bring Leverage, Spice To Gold Miners" (packet's company match for this ticker is "BANK OF MONTREAL /CAN/", see data quality note below)
+- **GDXU** +27.75% - "This ETF Has Surged An Eye-Watering 470% - And It's Not Even Tech" (same Bank of Montreal company-match issue as GDXD)
+- **WYFI** -21.02% - "WhiteFiber Stock Sinks After Raising $270 Million via Convertible Unsecured Debt" (a dilutive financing event, explains the drop)
+- **HL** +14.38% - "Aramco and Maaden Move Ahead With Saudi Copper Mining Venture" (not really about Hecla; the more relevant headline in its list is "Gold Miners Eye Best Month Since April 2020: 5 Stocks Are Already Up 30% In August")
+- **CDE** +12.99% - "Aramco and Maaden Move Ahead With Saudi Copper Mining Venture" (same generic top headline as HL, same gold-miner sector story underneath)
+- **BMNR** +10.73% - "BTC Digital Stock Soars Over 111% After-Hours, BitMine Shares Trending as Bitcoin and Ethereum Regain Their Mojo"
+- **ETHA** +9.99% - "Jane Street's Q2 Filing Reveals Nearly $1 Billion Bet on These Bitcoin ETFs - and a Major Stake in Michael Saylor's MSTR"
+- **MRVL** +9.87% - "Broadcom Rival Marvell Surges After Google Strikes AI Chip Deal, Gets Option to Buy $12.2B Stake"
+- **MARA** +7.70% - "Bitcoin ETFs See $486M Inflows in 2 Days: Could This Be the Best Week Since January?"
+- **IBIT** +6.00% - "Bitcoin Surges Above $71,000 as Raoul Pal Says It's The 'Bessent Put' and 'The Signal Is Enormous'"
 
 ## Day Trading Watchlist
 
 The "Trend Join Long" rule: gap over 3%, price over $3, market cap over $1B, premarket RVOL over 1.5, and price already breaking above yesterday's high.
 
-No names cleared the day-trading bar today. This is a total intraday blackout: every one of today's 20 gappers has `intraday_data_source: unavailable`, so there's no premarket high, VWAP, HOD or LOD to check a break against for anyone. But even setting that aside, the packet's own numbers show none of today's 12 cap-qualified names (all clear $1B) would have cleared the "already breaking above yesterday's high" leg anyway: the two closest are AMLX ($35.11 vs a `prior_day_high` of $35.38) and XTLB ($3.23 vs a `prior_day_high` of $3.31), both still sitting under yesterday's high by a few cents. Everything else that gapped is running into resistance from well below, not through it.
+No names cleared the day-trading bar today. This is a total intraday blackout: every one of today's 20 gappers has `intraday_data_source: unavailable`, so there's no premarket high, VWAP, HOD or LOD to check a break against, and no RVOL to confirm volume for anyone. Even setting the blackout aside, only one of today's ten cap-qualified, gap-qualified names (MRNA, PURR, GDXU, HL, CDE, BMNR, ETHA, MRVL, MARA, IBIT) is actually sitting above yesterday's high: GDXU at 158.63 vs. a `prior_day_high` of 158.18. But GDXU's market cap in the packet ($112.45B) is the SEC filer match for "BANK OF MONTREAL /CAN/", not a real market cap for this leveraged gold-miner ETN, so that cap-qualified read is itself suspect (see the data quality note in Skips and Traps). Everything else is still running into resistance from below: MRNA ($174.38 vs. $176.59), CDE ($20.92 vs. $21.31), BMNR ($20.23 vs. $20.89), MRVL ($237.35 vs. $245.35), IBIT ($38.78 vs. $39.47), HL ($20.52 vs. $20.56), MARA ($9.65 vs. $9.88) and ETHA ($15.86 vs. $15.96) are all a few cents to a few dollars short of yesterday's high, and PURR ($9.39 vs. $9.44) is close but not through.
 
 ## Swing Watchlist
 
 The swing rule: gap of 8% or more, price over $3, open above yesterday's high, open above the 200-day SMA, market cap of $800M or more, and a real catalyst.
 
-No names cleared the swing bar either. AMLX is the only cap-qualified name with an 8%+ gap (+63.84%) and a real catalyst, but it fails the same "open above yesterday's high" leg as above ($35.11 effective open vs a $35.38 prior high), so it's a watch-if-it-clears-$35.38 name, not a qualifier. Everything else either doesn't clear the 8% gap floor on the cap-qualified side, or is a micro-cap name (PFSA, IPST, XOS, SLE, GNLN, FNG, SXTC, WETO) sitting well under the $800M cap floor.
+No names cleared the swing bar. The closest call is MRNX: it clears the 8% gap floor (+352.09%), sits above both yesterday's high ($141.64 vs. $136.85) and the 200-day SMA ($141.64 vs. $29.95), and has a catalyst in the packet, but `market_cap` came back null (`sec_unavailable_no_cik`), so there's no way to confirm it clears the $800M floor and it can't be waved through. MRNY has the same story: above yesterday's high, above the 200-day SMA, catalyst present, but market cap null. GDXU clears yesterday's high but sits well below its 200-day SMA ($158.63 vs. $209.05), so it fails that leg outright even setting the bad market-cap-source issue aside. Everything else with a confirmed market cap over $800M (MRNA, PURR, HL, CDE, BMNR, ETHA, MRVL) is still trading under yesterday's high, and the smaller names that clear the 8% gap (FIXX, ZSTK, TNON) either have no market cap on file or fall well short of $800M.
 
 ## Market Trends of the Day
 
-No hard index data beyond the ETF proxies, but the news feed and the gapper list together paint a fairly consistent picture.
+Crypto and bitcoin-adjacent names are the clear group move this morning. BMNR (+10.73%), ETHA (+9.99%), MARA (+7.70%) and IBIT (+6.00%) are all green together, and the news backing it up is consistent: "Bitcoin Surges Above $71,000 as Raoul Pal Says It's The 'Bessent Put' and 'The Signal Is Enormous'," "Bitcoin ETFs See $486M Inflows in 2 Days," and BitMine's own headline calling out bitcoin and ethereum "regaining their mojo." PURR (Hyperliquid Strategies) rides the same wave with Druckenmiller's reported $23M bet.
 
-AI infrastructure and chip names are under pressure. The Dow futures headline puts it plainly: "Dow Jones Futures Fall After Sandisk, Micron, Credo Lead AI Losses; Target Earnings Beat." That's showing up in the gapper list too, Aurora's own catalyst headline reads "Nasdaq Drops, Chip Stocks Crater As Bond Yields Bite," and bitcoin/AI-infra miners are broadly red this morning: CIFR -12.97%, AUR -11.82%, WULF -11.42%, MARA -7.72%, INTC -6.55%, IREN -6.54%. Rising yields squeezing growth and AI-adjacent names is the through-line, per TeraWulf's own headline: "TeraWulf Stock Falls as Inflation Fears Squeeze Growth Stocks."
+Gold and precious metals have a real macro tailwind. HL and CDE both carry "Gold Miners Eye Best Month Since April 2020: 5 Stocks Are Already Up 30% In August" in their catalyst lists, and the market news feed backs it up directly: "Why Bessent's Treasury operations have breathed life back into the gold trade." Worth noting GDXD/GDXU (the leveraged gold-miner ETNs) moved in opposite directions as expected for a 2x/-2x pair, but their market cap data in the packet is unreliable, see Skips and Traps.
 
-Gold miners are the counter-trend. Both HL and CDE carry the same market-wide headline in their catalyst lists: "Gold Miners Eye Best Month Since April 2020: 5 Stocks Are Already Up 30% In August." Both are only down modestly today (-4.63% and -4.19%) despite the broader risk-off tone, consistent with gold acting as a hedge while growth names sell off.
+Rates and the dollar are the macro backdrop even without hard numbers today (VIX, 10-year, 3-month, oil and dollar index all failed to load). The news feed flags "Treasury's bond buyback blitz may end up driving yields higher, warns JPMorgan" and a separate Yahoo Finance piece from the past two days notes the 30-year yield touching a 19-year high as US debt approaches $40 trillion. Oil is also in the mix: "Oil prices jump after Trump declares economic war on Iran," a fresh geopolitical headline as of this morning.
 
-Retail earnings are diverging hard from price action. Target's earnings doubled and guidance was raised amid tariff refunds, but the stock is falling anyway ("Target Earnings Double, Guidance Raised Amid Tariff Refunds, But TGT Stock Falls"). Lowe's sent its stock lower on a cautious outlook, flagging "pressure" in DIY spending. Two different retailers, two different setups, both stocks moving against the headline number.
-
-Trade and rates are the macro backdrop. Trump is holding off on new 50% tariffs for Canadian goods per MarketWatch, and futures "stalled" on that news rather than rallying. The dollar is described as softening while the bond market "steadies" ahead of the Fed minutes this afternoon, and a separate piece argues the bond selloff shouldn't be read as a signal of a deeper stock downturn. Outside those threads: a Chinese robotics company's stock soared over 600% on its trading debut, and Cerebras's post-IPO stock is still a bust, with its comeback hinging on a new chip per MarketWatch.
+AI capex financing is a live worry, not a straightforward bull story. "AMD is betting on dirt-cheap AI chips, but financing them is a major question mark" raises exactly the kind of funding-risk question that's been dogging the AI trade, even as MRVL's own catalyst is bullish on its face: "Broadcom Rival Marvell Surges After Google Strikes AI Chip Deal, Gets Option to Buy $12.2B Stake."
 
 ## Technical Signals for Today
 
-Only the four major index proxies came through this run, and all four are red: S&P 500 proxy SPY 767.37 (-0.68%), Dow proxy DIA 532.96 (-0.24%), Nasdaq proxy QQQ 717.76 (-1.67%), Russell 2000 proxy IWM 300.24 (-1.25%). Nasdaq's the clear laggard, consistent with the AI/chip-loss headline above. VIX, the 10-year yield, the 3-month yield, WTI crude and the dollar index all came back null, same Yahoo rate limit that hit the gapper enrichment.
+Only the four major index proxies came through this run, and they're mixed: S&P 500 proxy SPY 769.09 (+0.22%), Dow proxy DIA 534.24 (+0.24%), Russell 2000 proxy IWM 301.72 (+0.49%), Nasdaq proxy QQQ 716.03 (-0.24%). Nasdaq is the lone red one, but the move is small either way. VIX, the 10-year yield, the 3-month yield, WTI crude and the dollar index all came back null, same yfinance rate limit that hit the gapper enrichment.
 
 ## Economic Data, Rates and the Fed
 
-One high-impact USD event today: FOMC Meeting Minutes at 2:00 PM ET. The calendar doesn't carry a forecast or previous figure for this release. The news feed adds context even without hard numbers: the dollar is described as softening while the bond market "steadies" ahead of the minutes, so positioning looks like the market is waiting on this release rather than fighting it into the print.
+The high-impact USD calendar is empty for both today and tomorrow, `econ_calendar.today` and `econ_calendar.tomorrow` both came back as empty lists in the packet. That's not the same as "nothing happening": the news feed independently flags a JPMorgan warning that Treasury's bond buyback program could push yields higher, and (per Yahoo Finance coverage from the past two days) the 30-year yield already sitting at a 19-year high with US debt near $40 trillion. None of that is on today's or tomorrow's scheduled-release calendar, it's ongoing market commentary, not a print to trade around.
 
 ## Coming Up
 
-- **Tomorrow's events:** None on the high-impact USD calendar for August 20.
-- **Earnings:** No gapper-level next earnings dates to report, every one of today's 20 gappers came back with `next_earnings_date: null`. Worth flagging from the news feed though: Target and Lowe's both already reported this morning, Target beat and raised guidance while Lowe's came in cautious on DIY spending, and both stocks fell regardless of the numbers.
+- **Tomorrow's events:** None on the high-impact USD calendar for August 21.
+- **Earnings:** No gapper-level next earnings dates to report, every one of today's 20 gappers came back with `next_earnings_date: null` in the packet.
 
 ## Skips and Traps
 
-**PFSA** (+506.62%): the packet's own headline says the rally is already cooling after hours, that's a parabolic move fading in real time, not a fresh setup to chase.
+**FIXX** (+1413.65%): the only headline that's actually current is a trading halt with "Halt News Pending," meaning no news has actually been released yet to explain the halt. The other headline attached is a stale Nasdaq minimum-bid-price deficiency notice, which is bad news, not good. No market cap on file. A gap this large with no real explanation and no size data is not tradeable, it's noise or a data artifact.
 
-**IPST** (+113.26%): the only headline in the packet ("Why Is IP Strategy Stock Falling Today?") contradicts today's up gap and doesn't explain the current move. $10.8M market cap, no volume figure in the packet. Skip.
+**PUR** (+61.31%): no catalyst headline in the packet at all. Per the rules, no catalyst means no story, skip regardless of what the gap or eligibility flags say.
 
-**FNG** (-38.72%): every headline attached to this ticker is about an unrelated FANG-themed ETF, not this stock. No real catalyst behind the move as reported.
+**ZSTK** (+169.55%) and **MRNY** (+169.23%): both have headlines that don't actually explain the move ("Stock Skyrockets: What's Driving the Action?" and a generic ETF roundup, respectively). ZSTK's market cap is $86.7M, well under any watchlist floor. MRNY's market cap is unavailable entirely.
 
-**SXTC** (+36.8%) and **WETO** (+34.2%): no ticker-specific headlines in the packet, only generic sector mover-list mentions that don't name either ticker. No story to trade.
+**YJ** (+144.25%): the headline quotes the actual numbers, adjusted EPS loss narrowed to $(2.16) from $(4.00) year over year, but sales fell from $22.102M to $14.192M, about 36% down. A smaller loss on shrinking sales isn't a clean beat-and-raise story, and market cap isn't available in the packet to size the move against.
 
-**XTLB** (+24.23%): the one headline in its catalyst list (a Trump social media post about an Ibogaine drug application from the University of Miami) never names XTL Biopharmaceuticals directly, the connection to today's gap is unconfirmed. Also worth noting: `avg_volume_20d` is just 20 shares, this name is barely liquid.
+**TNON** (+109.36%): real-sounding catalyst (patent news), but market cap is $7.6M. Even if it cleared every other bar, this is a microcap that would get the automatic red-flag treatment under this repo's data integrity rules for being well under $2B.
 
-**GNLN** (+51.74%): the EPS figure "improved" only because last year's loss was even bigger. Sales fell from $788K to $82K year over year. A shrinking business, not a turnaround story, whatever the EPS headline implies.
+**GDXD** (-27.95%) and **GDXU** (+27.75%): these are leveraged gold-miner ETNs, but the packet's SEC EDGAR company match for both is "BANK OF MONTREAL /CAN/," the ETN issuer, not the ETN itself. That means the market cap figures attached to these two ($13.03B for GDXD, $112.45B for GDXU) are Bank of Montreal's own market cap, not any measure of the ETNs' actual tradeable size. Don't use those cap numbers for anything, including the near-miss read on GDXU in the Day Trading section above.
 
-**AMLX** (+63.84%): real bullish catalysts here (two analyst price-target raises), but also a same-day $350M dilutive stock offering. Worth watching if it clears $35.38 (yesterday's high), but the offering is a real overhang, not a footnote.
+**WYFI** (-21.02%): down on real bad news, a $270M convertible unsecured debt raise. Dilutive financing event, not a dip to buy.
+
+**PFSA** (-50.62%): down alongside other names on a mixed Mercury Systems earnings reaction, no ticker-specific bullish story here, just moving with a sour tape for its peer group.
 
 ## Where the Two Brains Landed
 
