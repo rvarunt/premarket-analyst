@@ -1,4 +1,4 @@
-# Premarket Report: July 12, 2026
+# Premarket Report: August 25, 2026
 
 *Two-brain pass: Claude and GPT independently review the tape, then compare notes.*
 
@@ -6,13 +6,13 @@
 
 ## Summary
 
-- **The tape in one line:** No live tape today. It's Sunday, July 12, so markets are closed anyway, and on top of that the price feed hit its rate limit again on this run, so the index snapshot is empty regardless.
-- **The catch we're watching:** Bank earnings season opens this week, with five big U.S. banks reporting on the same day and Citigroup singled out as the one to watch. Layer that on top of a market news feed that's leaning hard on one theme: the rally right now is running on AI demand more than anything else.
+- **The tape in one line:** No numbers today. Every price call in the scan hit Yahoo's rate limit even after three retries with backoff, so there's no index snapshot, no gapper list, nothing quantitative to report. One headline in the packet says S&P 500 and Nasdaq futures are recovering into Nvidia earnings and the Fed's Jackson Hole summit, but that's a secondhand claim from a news feed, not data we pulled ourselves.
+- **The catch we're watching:** Nvidia earnings and Jackson Hole land this week, right on top of a market where the surface looks fine but the internals don't: one piece in the feed says nearly two-thirds of the S&P 500 has already sold off, and a separate market fragility gauge just hit its highest possible reading for the first time since December 2024.
 - **Two-brain verdict:** Single brain, no second opinion to compare.
 
 ## Pre-Market Gappers
 
-No gappers made it through the pipeline this scan. Candidate source was the static universe fallback, and Yahoo rate-limited every batched daily-bars request and both live screener calls even after retries with backoff. Zero candidates reached the gap filter.
+No gappers made it through the pipeline this scan. Candidate source was the static universe fallback (the live day_gainers and most_actives screeners were rate-limited too), and Yahoo rate-limited the batched daily-bars request for all 40 tickers in that fallback universe, three retries in a row, before the scan gave up. Zero candidates reached the gap filter. This is a data outage, not a quiet market: it's a Tuesday and markets are open.
 
 ## Day Trading Watchlist
 
@@ -24,26 +24,28 @@ No names cleared the swing bar either. That flag encodes gap of 8% or more, pric
 
 ## Market Trends of the Day
 
-The news feed is actually useful this run. Two threads stand out:
+No price data this run, but the news feed still gives a read on what's in the air:
 
-Earnings season is kicking off, with a MarketWatch piece flagging five big U.S. banks reporting on the same day and calling out Citigroup as the name to watch for margin improvement. A second piece notes analyst estimates have climbed into this earnings season instead of the usual pre-earnings drift lower, credited to strength in energy and tech.
+AI spending is getting more scrutiny, not less. One piece flags that "the debt-fueled AI build-out may already be too big to fail," pointing to the Fed's pandemic-era corporate credit facilities as a backstop that's still on the table. Nvidia itself is framed as facing a "growth test" heading into earnings, with its Rubin chip debut running into AI-financing scrutiny. Layer on an AI chipmaker (Enflame) pricing a near-$900 million Shanghai IPO, and the AI-financing theme shows up from multiple angles at once, not just one story.
 
-AI demand is the dominant story across sectors, not just chipmakers. MarketWatch is running it straight: "the stock-market rally now hinges more on AI than oil." That shows up across the individual headlines too: Micron is being framed around $22 billion in AI memory customer commitments, Western Digital around tight HDD supply from AI-driven storage demand, and AppLovin around pushing its AI ad tooling past mobile gaming into e-commerce. Salesforce is the counter-note here, taking "a double blow" on one of its AI products.
+Under the surface, breadth looks worse than the headline indexes suggest. One report says nearly two-thirds of the S&P 500 has already sold off in a big way, and a separate market fragility measure hit its highest possible reading on August 19, the first time since December 2024, with a note that the last time it hit that level, volatility spiked.
 
-Outside of AI, there's real corporate-action flow in the feed: Clarivate selling its life sciences and healthcare business to Altaris for $600 million, a fast-food franchisee filing Chapter 11, and a cluster of small-cap mining and energy items (First Majestic Silver, Ur-Energy, NVRO Metals, Borr Drilling) hitting regulatory or operational milestones.
+There's tension in the rates and policy story too. Treasury Secretary Bessent's plan to double the buyback of longer-dated Treasurys is being credited with part of Bitcoin's push to the $80,000 level, but the same policy is drawing public criticism from Stanley Druckenmiller, who used to mentor Bessent. Oil is sliding (WTI and Brent both down roughly 3% on their October contracts) as investors shrug off Bessent's "economic D-Day" rhetoric on Iran. And a value-stocks call from BofA is making the case that value still works better than growth in a higher-rate, higher-inflation regime, which cuts against the AI-growth story above.
+
+On trade, US-Canada talks broke down right after investors had piled into Canadian ETFs, so that's a position that just got caught offside.
 
 ## Technical Signals for Today
 
-No data. All nine readings in the market snapshot (S&P 500, Dow, Nasdaq, Russell 2000, VIX, 10-year yield, 3-month yield, WTI crude, dollar index) came back null, same rate limit as the gappers. Nothing to call on breadth, VIX, or index levels.
+No data. All nine readings in the market snapshot (S&P 500, Dow, Nasdaq, Russell 2000, VIX, 10-year yield, 3-month yield, WTI crude, dollar index) came back null, same Yahoo rate limit that killed the gapper scan. Nothing to call on breadth, VIX, or index levels from this packet.
 
 ## Economic Data, Rates and the Fed
 
-Nothing on deck. The econ calendar shows zero USD high-impact events for today (Sunday, July 12) or tomorrow (Monday, July 13). Markets are closed today regardless, and Monday's calendar is just quiet, not broken.
+Nothing on the calendar today (Tuesday, August 25). Tomorrow (Wednesday, August 26) has two high-impact USD releases, both at 8:30 AM ET: Core PCE Price Index m/m (forecast 0.2%, previous 0.1%) and Prelim GDP q/q (forecast 1.5%, previous 1.5%). Separately, the news feed flags the Fed's Jackson Hole summit as happening this week, alongside Nvidia's earnings, though neither of those has a packet-sourced date or time attached.
 
 ## Coming Up
 
-- **Tomorrow's events:** None in the calendar for Monday, July 13.
-- **Earnings:** No gapper-level earnings dates to report, zero gappers this scan. Worth flagging from the news feed though: five big U.S. banks are reporting results on the same day this week, with Citigroup called out as the one to watch.
+- **Tomorrow's events:** Core PCE Price Index m/m (forecast 0.2%, previous 0.1%) and Prelim GDP q/q (forecast 1.5%, previous 1.5%), both 8:30 AM ET.
+- **Earnings:** No gapper-level earnings dates to report, zero gappers this scan. Worth flagging from the news feed: Nvidia earnings are described as landing this week, framed as a "growth test" for the stock around its Rubin chip debut.
 
 ## Skips and Traps
 
