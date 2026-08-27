@@ -1,4 +1,4 @@
-# Premarket Report: August 26, 2026
+# Premarket Report: August 27, 2026
 
 *Two-brain pass: Claude and GPT independently review the tape, then compare notes.*
 
@@ -6,103 +6,83 @@
 
 ## Summary
 
-- **The tape in one line:** All four index proxies are green and clustered tight this morning: S&P 500 proxy SPY +0.31%, Dow proxy DIA +0.29%, Nasdaq proxy QQQ +0.61%, Russell 2000 proxy IWM +0.43%. Nasdaq's leading by a little, otherwise a broad, mild risk-on tone with no single index running away from the pack.
-- **The catch we're watching:** Total intraday blackout again, all 20 of today's gappers came back `intraday_data_source: unavailable`, so premarket high, VWAP, HOD and LOD are null across the board and the Day Trading Watchlist is empty outright. The Swing Watchlist is also empty, every ticker comes back `swing_eligible: false`. The closest miss is MRNA: it clears the gap, price, market cap and 200-SMA lines but its stand-in open ($158.815) sits about $2.48 under yesterday's high ($161.29). Separately, NCTY's $19.96B market cap looks like a bad SEC EDGAR fallback number for a company this size, the same kind of data-quality issue flagged in recent reports (GDXD/GDXU, STKH/SVRE, and NCTY itself on 8/24). VIX, the 10-year, the 3-month, oil and the dollar all came back null too (93 failed requests even after retries this scan), and every gapper's `next_earnings_date` is null.
+- **The tape in one line:** Quiet and mixed by the numbers. Index proxies show S&P (SPY) +0.02%, Nasdaq (QQQ) +0.09%, Dow (DIA) -0.16% and Russell 2000 (IWM) -0.11%, basically flat. Single names are doing the work today: Nvidia and Salesforce are both getting called out for strong earnings reactions, and Abercrombie & Fitch (ANF) is up 35.67% premarket on a beat-and-raise plus a $100M tariff refund.
+- **The catch we're watching:** Total intraday blackout again. All 20 gappers come back `intraday_data_source: unavailable`, so there's no premarket high, VWAP, HOD or LOD to check a breakout against, and both watchlists are empty as a result. Even setting that aside, no positive-gap name clears every rule: ANF is the closest miss on the swing bar, its stand-in open ($147.75) is only about 4.5% under yesterday's high ($154.44), everything else it clears. VIX, the 10-year, the 3-month, oil and the dollar all came back null too (95 failed requests even after retries), and market cap is missing for 8 of the 20 gappers.
 - **Two-brain verdict:** Single-brain run today, no second opinion to compare against.
 
 ## Pre-Market Gappers
 
-- **BTA** +153.57% - "Stocks That Hit 52-Week Lows On Monday" (all five headlines the packet has for BTA are stale 2021-2022 sector listicles, none explain today's 153% move)
-- **DAIC** +124.28% - "Why Cadeler Shares Are Trading Higher By 6%; Here Are 20 Stocks Moving Premarket" (none of DAIC's five headlines actually name DAIC or CID Holdco, just generic mover-list mentions)
-- **PMI** +86.16% - "Why Is Picard Medical Stock Gaining Monday?" (names the company but the headline never answers its own question, no stated reason in the packet)
-- **JEM** +77.88% - "707 Cayman Holdings Signs Term Sheet To Acquire Pharmaceutical Botanicals Firm Crucial Innovation ; Backed By $10.25M Committed Financing Led By GeoNova Holdings Together With Its Co-Investors"
-- **FVN** -52.47% - "Future Vision II Acquisition Receives Merger Termination Notification From VIWO Technology"
-- **CRMX** +42.39% - "Tradr Fires Up High-Octane 2x ETFs Targeting Rare Earths, AI, Defense" (the packet's only CRMX headline, not clearly CRMX-specific)
-- **EXYN** +40% - "Exyn Technologies Says Nexys Handheld LiDAR Scanner Selected By Unnamed US Government Research Organization After Competitive Benchmark Against Rival Commercial Systems; Terms Not Disclosed"
-- **PSNYW** +37.07% - "Trading Halt: Halt status updated at 9:00:00 AM ET: Quotation Resumption: News and Resumption Times" (a Polestar-linked warrant, halted then resumed, no headline in the packet spells out the underlying news)
-- **LHSW** +36.1% - "Lianhe Sowell Intl FY EPS $(1.74) Down From $1.00 YoY, Sales $43.270M Up From $36.540M YoY"
-- **AMIX** +33.89% - "Reported Earlier, Autonomix Medical To Issue New Series E-1 And E-2 Warrants For 535,913 Shares Each At $6.25 Per Share In Exchange For Immediate Cash Exercise Of Existing Warrants"
-- **BRNX** +33.01% - "12 Industrials Stocks Moving In Tuesday's Intraday Session" (no BRENX-specific headline anywhere in the packet's five entries)
-- **DKS** -30.68% - "Dick's Sporting Goods Stock Sinks To 52-Week Low - Here's Why" (tied to "US Stocks Higher; Dick's Sporting Goods Shares Tumble After Weak Q2 Results" elsewhere in the packet)
-- **SHMD** -29.48% - "Schmid Group Lowers FY26 Adjusted EBITDA Margin Guidance to 6%-9%; Reaffirms Revenue Guidance Above €100M"
-- **SDOT** -29.4% - "Sadot CFO Resigns for 'Personal Reasons,' Stock Falls" (also a same-day dilutive resale prospectus in the packet, see Skips and Traps)
-- **NCTY** -21.54% - "The9 Says RF Acquisition Corp II Shareholders Approved Business Combination With Nanyang Biologics On August 19; Expects To Hold About 15% To 16% Of Combined Nasdaq-Listed Company"
-- **MRNA** +14.4% - "Wolfe Research Upgrades Moderna to Peer Perform"
-- **SMCI** +9.43% - "Cisco Expands Rack-Scale AI Computing With Nvidia, Supermicro"
-- **MARA** +5.86% - "Why Is MARA Stock Surging Friday?" (headline is stale, dated Friday's session, not today's)
-- **DNN** +4.8% - "Denison Mines Begins Full-Scale Construction At Its Phoenix In-Situ Recovery Uranium Project"
-- **SOFI** +4.31% - "Sofi Stock Is Trending: A Key Level Just Came Into Play" (a technical framing, not a fundamental catalyst)
+- **CRE** +164.98% - "Why Is Cre8 Enterprise Stock Gaining Wednesday?" (the only CRE-specific headline in the packet, and it never actually answers its own question)
+- **CAPA** +133.15% - "Cathie Wood Added To Stake In This Medical Technology Company As Its Shares Surged 6% On Friday" (all five of CAPA's headlines in the packet are 2021 Butterfly Network/Quantum-Si stories, none are dated today or clearly about CAPA itself)
+- **XPON** +74% - "12 Industrials Stocks Moving In Wednesday's Intraday Session" (none of XPON's five headlines name the company specifically, all generic mover-list mentions)
+- **RDIB** +61.89% - "Why Salesforce Shares Are Trading Higher By Over 11%; Here Are 20 Stocks Moving Premarket" (none of RDIB's headlines are ticker-specific either)
+- **GRML** -48.09% - "Greenland Mines Prices Its $20M Public Offering Of 4M Shares"
+- **PSNYW** +44.24% - "What's Going On With Polestar Shares On Monday?" (a Polestar-linked warrant, the rest of its headlines are a stale halt notice and a 52-week-low listicle from 2023)
+- **WETO** -38.96% - "Wetour Robotics Enters Sales Agreement With Rodman & Renshaw To Sell Up To $75M Of Shares"
+- **ANF** +35.67% - "Abercrombie's $100 Million Tariff Refund Stole the Headlines. The Business Did Even Better."
+- **DAIC** +32.73% - "12 Information Technology Stocks Moving In Wednesday's After-Market Session" (no DAIC-specific headline in the packet)
+- **WSHP** +31.88% - "12 Communication Services Stocks Moving In Wednesday's After-Market Session" (no WSHP-specific headline in the packet)
+- **DVXB** -31.44% - no catalyst found in the packet
+- **DVXV** -31.02% - no catalyst found in the packet
+- **DVIN** -31.02% - no catalyst found in the packet
+- **WVVIP** +24.61% - "Willamette Valley Vineyards Announces $1.75M Offering Of Preferred Stock At $3.45 Per Share"
+- **GENB** -20.8% - "Generate Biomedicines Q2 EPS $(0.52) Beats $(0.57) Estimate, Sales $6.314M Miss $6.625M Estimate"
+- **BWET** -20.53% - "BWET ETF Up More Than 1,600% in 2026: Here's Why It's Beating QQQ and SPY" (that's about its 2026 run, not today's -20.53% move)
+- **QFIN** -18.91% - "JP Morgan Downgrades Qfin Holdings to Underweight, Lowers Price Target to $9"
+- **BHVN** +17.87% - "Biohaven Licenses Kv7 Platform And Epilepsy Candidate Opakalim To SK Biopharmaceuticals In Deal Worth Up To $795M, Biohaven To Receive $400M Upfront"
+- **IREN** -6.23% - "IREN Missed Last Quarter's Estimates by 16 Cents. Can It Turn the Page Thursday?" (a preview of today's earnings, not a result yet)
+- **MARA** -5.11% - "Why Is MARA Stock Surging Friday?" (stale, dated last Friday's session, not today's)
 
 ## Day Trading Watchlist
 
 The "Trend Join Long" rule: gap over 3%, price over $3, market cap over $1B, premarket RVOL over 1.5, and price already breaking above yesterday's high.
 
-No names cleared the day-trading bar today. This is a total intraday blackout, all 20 of today's gappers have `intraday_data_source: unavailable`, so there's no premarket high, VWAP, HOD or LOD to check a breakout against, and no RVOL to confirm volume for anyone. Even setting the blackout aside, none of the cap-qualified, positive-gap names (MRNA, SMCI, MARA, DNN, SOFI, all over $1B market cap and gapping up more than 3%) are sitting above yesterday's high using the pre-open stand-in price: MRNA ($158.815 vs. a `prior_day_high` of $161.29), SMCI ($38.465 vs. $38.6), MARA ($11.835 vs. $12.15), DNN ($3.71 vs. $3.83) and SOFI ($19.01 vs. $19.02, essentially a penny short). DKS would otherwise be in this cap-qualified group but its market cap came back null (`sec_unavailable_no_concept`), a clear data gap for a name this size and liquid, so it can't be confirmed cap-qualified off the packet alone, and it's gapping down anyway.
+No names cleared the day-trading bar today. This is a total intraday blackout, all 20 gappers have `intraday_data_source: unavailable`, so there's no premarket high, VWAP, HOD or LOD to check a breakout against, and no RVOL confirmation for anyone. Even setting the blackout aside, the only two positive-gap names with market cap over $1B are ANF ($6.56B) and BHVN ($2.56B), and neither is above yesterday's high using the pre-open stand-in price: ANF ($147.75 vs. a prior day high of $154.44) and BHVN ($16.95 vs. $18.23).
 
 ## Swing Watchlist
 
 The swing rule: gap of 8% or more, price over $3, open above yesterday's high, open above the 200-day SMA, market cap of $800M or more, and a real catalyst.
 
-No names cleared the swing bar today, everyone in the packet comes back `swing_eligible: false`. The closest miss is **MRNA**: its gap of 14.4% clears the 8% floor, its price ($158.815) and market cap ($63.4B) clear easily, its stand-in open sits way above its 200-day SMA ($158.815 vs. $49.98), and it has real, named catalysts (a Wolfe Research upgrade to Peer Perform plus a headline flagging "a key trading signal"). It fails on exactly one line: open above yesterday's high. The stand-in open of $158.815 is about $2.48 under the `prior_day_high` of $161.29. No other gapper with a positive 8%+ gap has a market cap anywhere close to the $800M floor (the next closest, JEM at $179M, is still off by more than 4x).
+No names cleared the swing bar today, every gapper comes back `swing_eligible: false`. The closest miss is **ANF**: its gap of 35.67% clears the 8% floor, its price ($147.75) and market cap ($6.56B) clear easily, its stand-in open sits well above its 200-day SMA ($147.75 vs. $94.50), and it has a real, named catalyst (a beat-and-raise quarter plus a $100M tariff refund). It fails on exactly one line: open above yesterday's high. The stand-in open of $147.75 is about 4.5% under the prior day high of $154.44. **BHVN** is a similar near miss on the same line (open $16.95 vs. prior day high $18.23, about 7% short) with its own real catalyst, a $795M SK Biopharmaceuticals licensing deal with $400M upfront. No other positive-gap name in the packet clears the $800M market cap floor: the next closest by gap size, WVVIP, has a market cap of just $20.7M.
 
 ## Market Trends of the Day
 
-The RF Acquisition Corp II tie-up with Nanyang Biologics is still working its way through the tape. NCTY's own headline spells it out: "The9 Says RF Acquisition Corp II Shareholders Approved Business Combination With Nanyang Biologics On August 19; Expects To Hold About 15% To 16% Of Combined Nasdaq-Listed Company." NCTY is gapping down 21.54% today, not up, so this looks like the news getting digested rather than chased further, and it's a leftover story from the same deal flagged in the 8/24 report.
+AI earnings are still the dominant force. Nvidia is described as climbing premarket after "another set of blockbuster results," and Salesforce stock is jumping too, tied to both its earnings and its Anthropic relationship. The Bank of Korea hiked rates a second straight time while raising growth forecasts, credited directly to an "Nvidia-led AI expansion." Hugging Face, the open-source AI startup, is reportedly catching Nvidia's eye for a deal.
 
-SPAC and shell-company churn is a bigger theme than any single sector today. DAIC, PMI, JEM, FVN, CRMX, PSNYW and LHSW are all sub-$200M names (or market cap unavailable) making triple-digit or near-triple-digit percentage moves, and several of them (DAIC, PMI, BRNX) don't even have a ticker-specific headline in the packet, just generic "stocks moving" listicle mentions that happened to sweep them up. FVN's move is explained (a terminated SPAC merger), but the rest of this cluster reads as thin, illiquid churn rather than a coherent story.
+Retail earnings are the other big story, and it shows up directly in the gapper list. Abercrombie & Fitch (ANF) is up 35.67% premarket on a strong quarter plus a $100M tariff refund, with headlines noting it's being priced at higher price points and customers are still buying.
 
-AI infrastructure buildout has one clean thread: SMCI's gap ties directly to "Cisco Expands Rack-Scale AI Computing With Nvidia, Supermicro," which names Supermicro specifically, alongside a separate Nvidia liquid-cooling headline in the same packet. Crypto-adjacent names (MARA, and DNN via the uranium/nuclear angle) are also green, but MARA's own headline is stale (dated Friday) and DNN pairs its uranium-project news with a same-packet Q2 miss on both EPS and sales.
+Energy has its own cluster of stories, mostly framed around AI-driven demand or standalone catalysts: Baker Hughes is called a "key winner from the AI boom," Morgan Stanley sees ExxonMobil breaking its record high, Expand Energy is building out natural gas (with a note the growth story may be at risk), Ventural Global is riding the LNG boom, and Talen Energy (down 23% this year) is flagged by Mizuho for a possible rebound. Big oil is also reportedly betting billions on nuclear fusion.
 
-Retail earnings reactions cut both ways in the packet: DKS is down sharply on what the news feed calls "Weak Q2 Results," while MRNA is up on an analyst upgrade rather than a fundamental print. No broader single macro narrative ties the whole gapper list together today beyond "small/micro caps swinging hard, mega caps barely moving."
+Healthcare and biotech had real deal and earnings flow: Biohaven's $795M SK Biopharmaceuticals licensing deal (BHVN +17.87%), Novo Nordisk getting downgraded to sell by Deutsche Bank after a 70% drop from its peak, and Generate Biomedicines posting an EPS beat but a revenue miss (GENB -20.8%).
+
+Crypto sentiment is split in the feed: one MarketWatch piece has analysts calling for bitcoin to double by next year and reach $500,000 by the end of the decade, while a Benzinga piece quotes Peter Schiff calling the AI-bitcoin pairing "a threat," not bullish. MARA (-5.11% today) shows up in both sides of that debate without a same-day, ticker-specific catalyst of its own.
 
 ## Technical Signals for Today
 
-Only the four major index proxies came through this run, and all four are green: S&P 500 proxy SPY 765.79 (+0.31%), Dow proxy DIA 535.15 (+0.29%), Nasdaq proxy QQQ 710.66 (+0.61%), Russell 2000 proxy IWM 299.25 (+0.43%). Nasdaq leading by a bit but nothing close to a tech blowout, the four are within half a point of each other. VIX, the 10-year yield, the 3-month yield, WTI crude and the dollar index all came back null, the same rate-limit issue that hit gapper enrichment, so there's no vol or rates read to lean on today.
+Index proxies are flat to mixed: S&P 500 proxy SPY +0.02%, Nasdaq proxy QQQ +0.09%, Dow proxy DIA -0.16%, Russell 2000 proxy IWM -0.11%. No index is running away from the pack, all four are within a quarter point of flat. VIX, the 10-year yield, the 3-month yield, WTI crude and the dollar index all came back null, yfinance failed on every one of those even after retries, so there's nothing to call on volatility, rates or the dollar this run.
 
 ## Economic Data, Rates and the Fed
 
-Two high-impact USD releases today per the packet's calendar: Core PCE Price Index m/m at 8:30am ET (forecast 0.2%, previous 0.1%) and Prelim GDP q/q at 8:30am ET (forecast 1.5%, previous 1.5%). Both land right at the open, so any repricing on an inflation or growth surprise will hit before or right as the bell rings. Tomorrow's calendar is empty in the packet.
+Nothing on the calendar for today. For tomorrow, August 28, two high-impact USD events land at the same time, 10:00 AM ET: new Fed Chairman Kevin Warsh speaks, and the Preliminary Benchmark Payrolls Revision prints (previous reading was -911K, no forecast given). The news feed frames tomorrow's Warsh appearance, tied to Jackson Hole, as his chance to build credibility with Fed colleagues and markets still wary of his inflation approach and prior ties.
 
 ## Coming Up
 
-- **Tomorrow's events:** None on the high-impact USD calendar for August 27.
-- **Earnings:** No gapper-level next earnings dates to report, every one of today's 20 gappers came back with `next_earnings_date: null` in the packet.
+- **Tomorrow's events:** Fed Chairman Kevin Warsh speaks (10:00 AM ET). Preliminary Benchmark Payrolls Revision (10:00 AM ET, previous -911K).
+- **Earnings:** No gapper in the packet has a populated `next_earnings_date`. Worth flagging from the headlines though: IREN's own coverage frames today, Thursday, as its earnings day ("Can It Turn the Page Thursday?"), and SelectQuote's Q4 2026 earnings call is in the news feed as already having happened.
 
 ## Skips and Traps
 
-**BTA** (+153.57%): market cap unavailable (`sec_unavailable_no_cik`) and every headline in the packet is a stale 2021-2022 "52-week high/low" listicle mention. No real catalyst tied to today's 153% move, skip on thin, stale data.
+**WVVIP** (+24.61%) is up on a dilutive preferred stock offering, "$1.75M Offering Of Preferred Stock At $3.45 Per Share," priced well under its current $4.15 price. A capital raise priced below the market is normally a reason for a stock to gap down, not up, so this pop looks worth treating with suspicion rather than chasing.
 
-**DAIC** (+124.28%): market cap is $117.4M, well under either floor, and none of its five packet headlines actually name DAIC or CID Holdco, just generic "stocks moving" sector-list mentions. No real story to trade.
+Several names cleared the gap filter but the packet has no headline that actually explains today's specific move: **CAPA** (all five headlines are 2021 stories about a different company entirely), **XPON**, **RDIB**, **DAIC** and **WSHP** (all generic "stocks moving" listicle mentions with no ticker-specific line), **PSNYW** (a stale halt notice and a 2023 52-week-low listicle, nothing dated today), **BWET** (its headlines are about a 1,600% 2026 run, not today's -20.53% drop) and **MARA** (general AI/bitcoin sentiment pieces, no same-day MARA-specific news). **CRE**'s only ticker-specific headline asks "Why Is Cre8 Enterprise Stock Gaining Wednesday?" without ever answering it.
 
-**PMI** (+86.16%): market cap is $22.3M. The one company-specific headline, "Why Is Picard Medical Stock Gaining Monday?", never answers its own question. Thin data, thin story.
+**DVXB**, **DVXV** and **DVIN** have `catalyst_found: false`, no headline in the packet at all. Per the ground rules that's an automatic skip regardless of gap size.
 
-**JEM** (+77.88%): a real, specific catalyst (a term sheet to acquire Crucial Innovation backed by $10.25M in financing), but market cap is $179M, far under the $800M swing floor.
+**GRML** and **WETO** are both gapping down hard (-48.09% and -38.96%) on real, specific dilutive-offering news, a $20M public offering for GRML and a $75M share sale agreement for WETO. That's a coherent down move, not a trap, but neither watchlist here trades the short side so there's nothing to do with either name.
 
-**FVN** (-52.47%): down hard on a real, explained catalyst, "Future Vision II Acquisition Receives Merger Termination Notification From VIWO Technology." A down move that's actually explained, not a bad-news-pop trap since it isn't gapping up, just doesn't clear either bar (market cap $71.1M).
+**QFIN** is down 18.91% on a real JP Morgan downgrade plus a soft Qifu Technology earnings print (EPS and sales both down sharply year over year). Also a coherent, explained move, also not tradeable under either long-only rule set.
 
-**CRMX** (+42.39%): market cap unavailable (`sec_unavailable_no_cik`), and its one packet headline about Tradr's new leveraged ETFs isn't clearly CRMX-specific. Skip on thin data.
-
-**EXYN** (+40%): a real catalyst, a government research org selecting its Nexys LiDAR scanner, plus a Q2 print with an EPS miss but a sales beat. Market cap is $25.6M, nowhere near either floor.
-
-**PSNYW** (+37.07%): a Polestar-linked warrant that was halted and resumed, but no headline in the packet actually states the halt reason. Market cap is unavailable (`sec_unavailable_no_concept`). Skip on an unexplained halt-and-pop.
-
-**LHSW** (+36.1%): real earnings headline, but EPS swung from $1.00 to $(1.74) YoY even as sales rose, a mixed print. Market cap is $196M, under both floors.
-
-**AMIX** (+33.89%): the catalyst is a warrant exercise for cash, not a growth story, and it adds shares rather than removing overhang. Market cap is $6.98M, deep micro-cap. Not a name to chase on a warrant-exercise headline.
-
-**BRNX** (+33.01%): market cap is $3.98M and none of its five packet headlines name BRENX specifically, just generic industrials sector-list mentions. No real story, skip.
-
-**DKS** (-30.68%): a real, explained down move, "Dick's Sporting Goods Stock Sinks To 52-Week Low" tied to a weak Q2 print, but market cap came back null (`sec_unavailable_no_concept`) despite this being a well-known, liquid large-cap retailer, a clear data gap worth flagging on its own. Down not up, so not a bad-news-pop trap, just can't be watchlist-qualified off what's in the packet.
-
-**SHMD** (-29.48%): down on a real, explained catalyst, a guidance cut on FY26 EBITDA margin. Not a trap since it's gapping down, just doesn't clear either bar (market cap $147.3M).
-
-**SDOT** (-29.4%): two real, explained bad-news catalysts the same day, a CFO resignation and a dilutive resale prospectus for over 4.25M shares. Down not up, so not a bad-news-pop trap, just doesn't clear either bar (market cap $21.6M).
-
-**NCTY** (-21.54%): real catalyst (the RF Acquisition Corp II / Nanyang Biologics business combination), but it's gapping down, not up, so it misses the swing bar's gap-direction requirement outright. Worth flagging separately: NCTY's $19.96B market cap (`market_cap_source: sec_edgar`) looks wrong for a company this size, The9 Ltd is a small Chinese gaming name, and the same packet's own earnings headline quotes Q2 sales of just $712K against that supposed $19.96B cap, a massive mismatch. This is the same bad-SEC-EDGAR-fallback pattern called out for NCTY on 8/24 and for GDXD/GDXU and STKH/SVRE in earlier reports.
-
-**MRNA** (+14.4%): the closest miss on the Swing Watchlist (see above), misses only on open vs. yesterday's high. Its catalyst, an analyst upgrade rather than a fundamental beat, would only support a middling conviction score even if it had cleared.
-
-**SMCI** (+9.43%), **MARA** (+5.86%), **DNN** (+4.8%), **SOFI** (+4.31%): all four clear the day-trading market-cap floor but none clear yesterday's high on the pre-open stand-in price, and the day-trading bar is moot anyway with intraday data fully unavailable. MARA's own headline is stale (dated Friday), and SOFI's is a vague technical call rather than a hard catalyst.
+Market cap is missing for 8 of the 20 gappers even after the SEC EDGAR fallback (CRE, CAPA, RDIB, PSNYW, WSHP, DVXB, DVXV, DVIN), so eligibility for several of the largest percentage movers on this list can't actually be confirmed either way.
 
 ## Where the Two Brains Landed
 
