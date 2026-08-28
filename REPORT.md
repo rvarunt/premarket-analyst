@@ -1,4 +1,4 @@
-# Premarket Report: August 27, 2026
+# Premarket Report: August 28, 2026
 
 *Two-brain pass: Claude and GPT independently review the tape, then compare notes.*
 
@@ -6,83 +6,85 @@
 
 ## Summary
 
-- **The tape in one line:** Quiet and mixed by the numbers. Index proxies show S&P (SPY) +0.02%, Nasdaq (QQQ) +0.09%, Dow (DIA) -0.16% and Russell 2000 (IWM) -0.11%, basically flat. Single names are doing the work today: Nvidia and Salesforce are both getting called out for strong earnings reactions, and Abercrombie & Fitch (ANF) is up 35.67% premarket on a beat-and-raise plus a $100M tariff refund.
-- **The catch we're watching:** Total intraday blackout again. All 20 gappers come back `intraday_data_source: unavailable`, so there's no premarket high, VWAP, HOD or LOD to check a breakout against, and both watchlists are empty as a result. Even setting that aside, no positive-gap name clears every rule: ANF is the closest miss on the swing bar, its stand-in open ($147.75) is only about 4.5% under yesterday's high ($154.44), everything else it clears. VIX, the 10-year, the 3-month, oil and the dollar all came back null too (95 failed requests even after retries), and market cap is missing for 8 of the 20 gappers.
+- **The tape in one line:** Green across the board but nothing dramatic. Index proxies show S&P (SPY) +0.68%, Nasdaq (QQQ) +1.39%, Dow (DIA) +0.17% and Russell 2000 (IWM) +0.29%. Nasdaq is the leader, tracking a wave of strong tech earnings from Nvidia, Salesforce, CrowdStrike and Okta.
+- **The catch we're watching:** Total intraday blackout again, all 20 gappers come back `intraday_data_source: unavailable`, so there's no premarket high, VWAP, HOD or LOD to confirm a breakout for anyone. On top of that, the rules engine flagged **GENVR** (mapped to Gen Digital Inc.) as `swing_eligible: true`, the first name to clear that bar in weeks, but none of its five headlines are actually about Gen Digital, they're all generic "stocks moving" listicles, and its 20-day average volume is a paper-thin 1,024 shares for a name carrying a $2.93B market cap. That combination looks like a bad ticker match more than a real trade, so it comes off the watchlist under the catalyst check. VIX, the 10-year, the 3-month, oil and the dollar all came back null again (113 failed requests even after retries), and market cap is missing for 7 of the 20 gappers.
 - **Two-brain verdict:** Single-brain run today, no second opinion to compare against.
 
 ## Pre-Market Gappers
 
-- **CRE** +164.98% - "Why Is Cre8 Enterprise Stock Gaining Wednesday?" (the only CRE-specific headline in the packet, and it never actually answers its own question)
-- **CAPA** +133.15% - "Cathie Wood Added To Stake In This Medical Technology Company As Its Shares Surged 6% On Friday" (all five of CAPA's headlines in the packet are 2021 Butterfly Network/Quantum-Si stories, none are dated today or clearly about CAPA itself)
-- **XPON** +74% - "12 Industrials Stocks Moving In Wednesday's Intraday Session" (none of XPON's five headlines name the company specifically, all generic mover-list mentions)
-- **RDIB** +61.89% - "Why Salesforce Shares Are Trading Higher By Over 11%; Here Are 20 Stocks Moving Premarket" (none of RDIB's headlines are ticker-specific either)
-- **GRML** -48.09% - "Greenland Mines Prices Its $20M Public Offering Of 4M Shares"
-- **PSNYW** +44.24% - "What's Going On With Polestar Shares On Monday?" (a Polestar-linked warrant, the rest of its headlines are a stale halt notice and a 52-week-low listicle from 2023)
-- **WETO** -38.96% - "Wetour Robotics Enters Sales Agreement With Rodman & Renshaw To Sell Up To $75M Of Shares"
-- **ANF** +35.67% - "Abercrombie's $100 Million Tariff Refund Stole the Headlines. The Business Did Even Better."
-- **DAIC** +32.73% - "12 Information Technology Stocks Moving In Wednesday's After-Market Session" (no DAIC-specific headline in the packet)
-- **WSHP** +31.88% - "12 Communication Services Stocks Moving In Wednesday's After-Market Session" (no WSHP-specific headline in the packet)
-- **DVXB** -31.44% - no catalyst found in the packet
-- **DVXV** -31.02% - no catalyst found in the packet
-- **DVIN** -31.02% - no catalyst found in the packet
-- **WVVIP** +24.61% - "Willamette Valley Vineyards Announces $1.75M Offering Of Preferred Stock At $3.45 Per Share"
-- **GENB** -20.8% - "Generate Biomedicines Q2 EPS $(0.52) Beats $(0.57) Estimate, Sales $6.314M Miss $6.625M Estimate"
-- **BWET** -20.53% - "BWET ETF Up More Than 1,600% in 2026: Here's Why It's Beating QQQ and SPY" (that's about its 2026 run, not today's -20.53% move)
-- **QFIN** -18.91% - "JP Morgan Downgrades Qfin Holdings to Underweight, Lowers Price Target to $9"
-- **BHVN** +17.87% - "Biohaven Licenses Kv7 Platform And Epilepsy Candidate Opakalim To SK Biopharmaceuticals In Deal Worth Up To $795M, Biohaven To Receive $400M Upfront"
-- **IREN** -6.23% - "IREN Missed Last Quarter's Estimates by 16 Cents. Can It Turn the Page Thursday?" (a preview of today's earnings, not a result yet)
-- **MARA** -5.11% - "Why Is MARA Stock Surging Friday?" (stale, dated last Friday's session, not today's)
+- **DSPC** +158.9% - "Want To Bet Against Cathie Wood? There's A New ETF For That" (all four of DSPC's headlines in the packet are 2021 SPAC-era stories, none dated today or specific to DSPC)
+- **OKTG** +56.94% - "Okta Earnings Spark 53% Surge in This ETF: What Traders Need to Know" (per the headline itself, a leveraged ETF tracking Okta, riding OKTA's earnings pop)
+- **CRMG** +44.26% - no catalyst found in the packet
+- **CRWL** +39.83% - "CrowdStrike's AI-Fueled Plot Twist Has These ETFs Flying 38% Higher" (per the headline, a leveraged ETF tracking CrowdStrike)
+- **CRWC** +39.7% - "CrowdStrike's AI-Fueled Plot Twist Has These ETFs Flying 38% Higher" (same story, a second leveraged CrowdStrike-linked ETF)
+- **BRNX** -38.14% - "BrenX Shares Halted On Circuit Breaker To The Upside, Stock Now Up 54.49%" (a stale halt notice describing an earlier upside move, contradicts today's -38.14% gap down)
+- **USDE** +34.95% - "12 Information Technology Stocks Moving In Thursday's Intraday Session" (none of USDE's five headlines name the company specifically, all generic mover-list mentions)
+- **WNW** +33.47% - "Meiwu Technology (WNW) Stock Soars 48% After Hours: Here's What You Need to Know"
+- **WETO** -33.45% - "12 Industrials Stocks Moving In Thursday's After-Market Session" (no WETO-specific headline dated today, the rest are generic listicles and a stale Fed inflation-gauge market summary)
+- **FVNNU** -33.31% - "Trading Halt: Halt status updated at 10:35:00 AM ET: Quotation Resumption: IPO Security - Released for Quotation" (dated 2024, unrelated to today's move)
+- **OKTA** +28.63% - "Macquarie Maintains Outperform on Okta, Raises Price Target to $185"
+- **BBW** -27.26% - "Build-A-Bear Stock Sinks as Weak Traffic, Guidance Cut Hit Sentiment"
+- **GENVR** +24.37% - "12 Information Technology Stocks Moving In Tuesday's Intraday Session" (none of GENVR's five headlines name Gen Digital specifically, all generic mover-list mentions)
+- **CRM** +22.58% - "Snowflake Stock Rises as Salesforce's Beat Lifts Enterprise Software"
+- **PURR** +10.86% - "Hyperliquid Strategies Q4 EPS $6.24, Sales $6.334M Beat $3.000M Estimate"
+- **NVDA** +8.77% - "Nvidia Posts Record $96.2B Revenue, Shares Jump on $108B Outlook"
+- **ONDS** +6.7% - "Reported Earlier \"US Expanding Long-Range Commercial Drone Testing Program\" - Bloomberg News"
+- **MARA** +5.61% - "Why Is MARA Stock Surging Friday?" (this headline's article ID places it a week before today, it reads like it's about last Friday, not a same-day catalyst)
+- **KEEL** +4.32% - "Keel Infrastructure Q2 Earnings Miss Estimates as Bitcoin Wind-Down Continues" (an older headline in the packet, not dated to today's specific move)
+- **INTC** +4.28% - "Why Is Intel Stock Surging on Thursday?" (yesterday's session, carrying over into today's premarket, tied to Nvidia's reported equity stake in Intel)
 
 ## Day Trading Watchlist
 
 The "Trend Join Long" rule: gap over 3%, price over $3, market cap over $1B, premarket RVOL over 1.5, and price already breaking above yesterday's high.
 
-No names cleared the day-trading bar today. This is a total intraday blackout, all 20 gappers have `intraday_data_source: unavailable`, so there's no premarket high, VWAP, HOD or LOD to check a breakout against, and no RVOL confirmation for anyone. Even setting the blackout aside, the only two positive-gap names with market cap over $1B are ANF ($6.56B) and BHVN ($2.56B), and neither is above yesterday's high using the pre-open stand-in price: ANF ($147.75 vs. a prior day high of $154.44) and BHVN ($16.95 vs. $18.23).
+No names cleared the day-trading bar today. This is a total intraday blackout, all 20 gappers have `intraday_data_source: unavailable`, so there's no premarket high, VWAP, HOD or LOD to check a breakout against. Even setting the blackout aside, every large-cap name with a real catalyst is sitting below yesterday's high on its stand-in price: NVDA ($228.17 vs. prior day high $230.47), CRM ($252.05 vs. $254.36), ONDS ($8.76 vs. $8.84), INTC ($92.03 vs. $92.94) and KEEL ($3.50 vs. $3.77) all miss on that one line.
 
 ## Swing Watchlist
 
 The swing rule: gap of 8% or more, price over $3, open above yesterday's high, open above the 200-day SMA, market cap of $800M or more, and a real catalyst.
 
-No names cleared the swing bar today, every gapper comes back `swing_eligible: false`. The closest miss is **ANF**: its gap of 35.67% clears the 8% floor, its price ($147.75) and market cap ($6.56B) clear easily, its stand-in open sits well above its 200-day SMA ($147.75 vs. $94.50), and it has a real, named catalyst (a beat-and-raise quarter plus a $100M tariff refund). It fails on exactly one line: open above yesterday's high. The stand-in open of $147.75 is about 4.5% under the prior day high of $154.44. **BHVN** is a similar near miss on the same line (open $16.95 vs. prior day high $18.23, about 7% short) with its own real catalyst, a $795M SK Biopharmaceuticals licensing deal with $400M upfront. No other positive-gap name in the packet clears the $800M market cap floor: the next closest by gap size, WVVIP, has a market cap of just $20.7M.
+The packet flags **GENVR** as `swing_eligible: true`, the first name to clear this bar in weeks. It's the only one, and it doesn't hold up. Yes, it clears every numeric line: gap of 24.37% well over the 8% floor, price ($4.90) and market cap ($2.93B) both clear, its stand-in open sits above both yesterday's high ($4.90 vs. $4.46) and its 200-day SMA ($4.90 vs. $2.30). But there is no real catalyst behind it. All five headlines attached to it in the packet are generic "12 Information Technology Stocks Moving" listicles from earlier in the week, none of them name Gen Digital specifically or explain why it's up 24.37% today. Its 20-day average volume is also just 1,024 shares, oddly thin for a name mapped to a $2.93B market cap, which points to a likely bad ticker match (GENVR isn't Gen Digital's actual common stock ticker, GEN is) rather than a real story. Per the catalyst-found judgment rule, this is a skip, not a swing trade, so the watchlist is empty today. No other positive-gap name in the packet clears the $800M market cap floor with a same-day catalyst: PURR (10.86% gap, real earnings beat) and NVDA (8.77% gap, real earnings beat) both clear the gap, price, market cap and catalyst bars but fail on open vs. yesterday's high (PURR $12.815 vs. $14.14, NVDA $228.17 vs. $230.47).
 
 ## Market Trends of the Day
 
-AI earnings are still the dominant force. Nvidia is described as climbing premarket after "another set of blockbuster results," and Salesforce stock is jumping too, tied to both its earnings and its Anthropic relationship. The Bank of Korea hiked rates a second straight time while raising growth forecasts, credited directly to an "Nvidia-led AI expansion." Hugging Face, the open-source AI startup, is reportedly catching Nvidia's eye for a deal.
+AI earnings are the dominant force again. Nvidia posted record $96.2B revenue with shares jumping on a $108B outlook, Bank of America is doubling down on the stock, and Nvidia also reported $7.8B in Q2 equity-portfolio gains from stakes that include Intel, SpaceX and CoreWeave, which is showing up as a secondary lift in INTC's own gap. Salesforce jumped on its earnings beat, with Snowflake and the rest of enterprise software getting pulled up alongside it, and headlines also tie Salesforce to Anthropic, whose $2 trillion valuation is separately drawing coverage of how it trades in a new tokenized market. CrowdStrike and Okta both had strong earnings reactions that spilled into leveraged single-stock ETFs (CRWL, CRWC, OKTG), which is where most of today's biggest percentage gappers actually come from rather than the underlying names themselves.
 
-Retail earnings are the other big story, and it shows up directly in the gapper list. Abercrombie & Fitch (ANF) is up 35.67% premarket on a strong quarter plus a $100M tariff refund, with headlines noting it's being priced at higher price points and customers are still buying.
+Fed and rates news centers on tomorrow's setup: the market_news feed reports Fed Chair Kevin Warsh and Treasury Secretary Scott Bessent are said to be acting in a coordinated way to push down long-term bond yields, a story framed as good news for bank stocks like Bank of America.
 
-Energy has its own cluster of stories, mostly framed around AI-driven demand or standalone catalysts: Baker Hughes is called a "key winner from the AI boom," Morgan Stanley sees ExxonMobil breaking its record high, Expand Energy is building out natural gas (with a note the growth story may be at risk), Ventural Global is riding the LNG boom, and Talen Energy (down 23% this year) is flagged by Mizuho for a possible rebound. Big oil is also reportedly betting billions on nuclear fusion.
+Retail and consumer had a mixed session: Build-A-Bear (BBW) is down 27.26% on weak traffic and a guidance cut, while PayPal is reportedly sinking after suitors walked away from a takeover bid.
 
-Healthcare and biotech had real deal and earnings flow: Biohaven's $795M SK Biopharmaceuticals licensing deal (BHVN +17.87%), Novo Nordisk getting downgraded to sell by Deutsche Bank after a 70% drop from its peak, and Generate Biomedicines posting an EPS beat but a revenue miss (GENB -20.8%).
-
-Crypto sentiment is split in the feed: one MarketWatch piece has analysts calling for bitcoin to double by next year and reach $500,000 by the end of the decade, while a Benzinga piece quotes Peter Schiff calling the AI-bitcoin pairing "a threat," not bullish. MARA (-5.11% today) shows up in both sides of that debate without a same-day, ticker-specific catalyst of its own.
+Crypto sentiment is still split, with MARA caught in the middle of an AI-bitcoin debate (bulls calling for bitcoin to double, Peter Schiff calling the AI pairing a "threat") without a same-day, ticker-specific catalyst of its own today.
 
 ## Technical Signals for Today
 
-Index proxies are flat to mixed: S&P 500 proxy SPY +0.02%, Nasdaq proxy QQQ +0.09%, Dow proxy DIA -0.16%, Russell 2000 proxy IWM -0.11%. No index is running away from the pack, all four are within a quarter point of flat. VIX, the 10-year yield, the 3-month yield, WTI crude and the dollar index all came back null, yfinance failed on every one of those even after retries, so there's nothing to call on volatility, rates or the dollar this run.
+Index proxies are green across the board: S&P 500 proxy SPY +0.68%, Nasdaq proxy QQQ +1.39%, Dow proxy DIA +0.17%, Russell 2000 proxy IWM +0.29%. Nasdaq is out front, consistent with the tech-earnings story driving today's gappers. VIX, the 10-year yield, the 3-month yield, WTI crude and the dollar index all came back null, yfinance failed on every one of those even after retries, so there's nothing to call on volatility, rates or the dollar this run.
 
 ## Economic Data, Rates and the Fed
 
-Nothing on the calendar for today. For tomorrow, August 28, two high-impact USD events land at the same time, 10:00 AM ET: new Fed Chairman Kevin Warsh speaks, and the Preliminary Benchmark Payrolls Revision prints (previous reading was -911K, no forecast given). The news feed frames tomorrow's Warsh appearance, tied to Jackson Hole, as his chance to build credibility with Fed colleagues and markets still wary of his inflation approach and prior ties.
+Two high-impact USD events land at the same time today, 10:00 AM ET: new Fed Chairman Kevin Warsh speaks, and the Preliminary Benchmark Payrolls Revision prints (previous reading was -911K, no forecast given). The news feed separately reports Warsh and Treasury Secretary Bessent are seen as coordinating to bring down long-term bond yields, which gives his 10am appearance some added weight. Nothing is on the calendar for tomorrow.
 
 ## Coming Up
 
-- **Tomorrow's events:** Fed Chairman Kevin Warsh speaks (10:00 AM ET). Preliminary Benchmark Payrolls Revision (10:00 AM ET, previous -911K).
-- **Earnings:** No gapper in the packet has a populated `next_earnings_date`. Worth flagging from the headlines though: IREN's own coverage frames today, Thursday, as its earnings day ("Can It Turn the Page Thursday?"), and SelectQuote's Q4 2026 earnings call is in the news feed as already having happened.
+- **Tomorrow's events:** Nothing on the calendar for August 29.
+- **Earnings:** No gapper in the packet has a populated `next_earnings_date`. Worth flagging from the headlines though: Intel's coverage frames Nvidia's reported equity stake as a factor in its own move, and a Benzinga options piece on INTC ("The IV Crush Is Only Half The Story") suggests earnings-related option positioning is still active in the name.
 
 ## Skips and Traps
 
-**WVVIP** (+24.61%) is up on a dilutive preferred stock offering, "$1.75M Offering Of Preferred Stock At $3.45 Per Share," priced well under its current $4.15 price. A capital raise priced below the market is normally a reason for a stock to gap down, not up, so this pop looks worth treating with suspicion rather than chasing.
+**GENVR** (+24.37%) is the biggest miss of the day. It clears every numeric line on the swing rule including `swing_eligible: true` in the packet, but none of its five headlines are actually about Gen Digital, they're all generic mover-list mentions, and its 20-day average volume of 1,024 shares is far too thin for a name carrying a $2.93B market cap. That combination reads like a ticker mismatch (Gen Digital's real ticker is GEN, not GENVR) rather than a genuine catalyst, so it's a skip under the catalyst-found rule despite the flag.
 
-Several names cleared the gap filter but the packet has no headline that actually explains today's specific move: **CAPA** (all five headlines are 2021 stories about a different company entirely), **XPON**, **RDIB**, **DAIC** and **WSHP** (all generic "stocks moving" listicle mentions with no ticker-specific line), **PSNYW** (a stale halt notice and a 2023 52-week-low listicle, nothing dated today), **BWET** (its headlines are about a 1,600% 2026 run, not today's -20.53% drop) and **MARA** (general AI/bitcoin sentiment pieces, no same-day MARA-specific news). **CRE**'s only ticker-specific headline asks "Why Is Cre8 Enterprise Stock Gaining Wednesday?" without ever answering it.
+**CRMG** (+44.26%) has `catalyst_found: false`, no headline in the packet at all. Per the ground rules that's an automatic skip regardless of gap size.
 
-**DVXB**, **DVXV** and **DVIN** have `catalyst_found: false`, no headline in the packet at all. Per the ground rules that's an automatic skip regardless of gap size.
+Several names cleared the gap filter but the packet has no headline that actually explains today's specific move: **DSPC** (headlines are all 2021 SPAC-era stories), **USDE** (generic "stocks moving" listicles, no USDE-specific line), **WETO** (generic listicles and a stale market summary, no headline dated to today's -33.45% drop), **MARA** (its "surging Friday" headline reads like it's from a week ago, not today) and **KEEL** (its most specific headlines, an earnings miss and a CEO buy, are both older and don't line up with today's 4.32% pop).
 
-**GRML** and **WETO** are both gapping down hard (-48.09% and -38.96%) on real, specific dilutive-offering news, a $20M public offering for GRML and a $75M share sale agreement for WETO. That's a coherent down move, not a trap, but neither watchlist here trades the short side so there's nothing to do with either name.
+**FVNNU** (-33.31%) and **BRNX** (-38.14%) are both gapping down on headlines that don't match today's move: FVNNU's only headline is a 2024 IPO trading-halt notice, and BRNX's most specific headline describes an earlier circuit-breaker halt to the upside, the opposite direction of today's gap. BRNX also carries a market cap of just $2.76M, well under any threshold here.
 
-**QFIN** is down 18.91% on a real JP Morgan downgrade plus a soft Qifu Technology earnings print (EPS and sales both down sharply year over year). Also a coherent, explained move, also not tradeable under either long-only rule set.
+**BBW** (-27.26%) is down on real, specific news, weak traffic and a guidance cut on its Q2 call. That's a coherent move, not a trap, but neither watchlist here trades the short side so there's nothing to do with it.
 
-Market cap is missing for 8 of the 20 gappers even after the SEC EDGAR fallback (CRE, CAPA, RDIB, PSNYW, WSHP, DVXB, DVXV, DVIN), so eligibility for several of the largest percentage movers on this list can't actually be confirmed either way.
+**OKTG**, **CRWL** and **CRWC** are real moves tied to real earnings (Okta and CrowdStrike), but per their own headlines they're leveraged single-stock ETFs, not the underlying companies, and all three come back with no market cap (`sec_unavailable_no_cik`) since ETFs don't file the SEC concept the fallback needs. None of them have live intraday data either, so there's no way to confirm a breakout even if they were otherwise in scope.
+
+**OKTA**, **CRM**, **NVDA**, **ONDS**, **INTC** and **PURR** all have real, well-sourced catalysts (earnings beats, analyst price-target raises, a drone-testing contract) but every one of them is sitting below yesterday's high on today's stand-in price, so none of them clear either watchlist's trend requirement. See the Day Trading and Swing sections above for the exact numbers.
+
+Market cap is missing for 7 of the 20 gappers even after the SEC EDGAR fallback (DSPC, OKTG, CRMG, CRWL, CRWC, USDE, OKTA), so eligibility for several of the largest percentage movers on this list, including OKTA itself, can't actually be confirmed either way.
 
 ## Where the Two Brains Landed
 
