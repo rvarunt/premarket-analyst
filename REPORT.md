@@ -1,4 +1,4 @@
-# Premarket Report: September 9, 2026
+# Premarket Report: September 10, 2026
 
 *Two-brain pass: Claude and GPT independently review the tape, then compare notes.*
 
@@ -6,50 +6,43 @@
 
 ## Summary
 
-- **The tape in one line:** Soft, risk-off open. The S&P and Dow proxies (SPY/DIA) are down about 0.5% and 1.1%, Nasdaq and Russell proxies (QQQ/IWM) are only fractionally lower, and Brent crude has pushed above $100 a barrel as the Middle East conflict intensifies.
-- **The catch we're watching:** Zero names cleared either watchlist bar, but a cluster of high-RVOL megacaps (TSLA, INTC, RGTI, IREN, MARA, NOK, KEEL, EOSE) are all gapping up on heavy premarket volume and sitting just under yesterday's high. Watch that group for a break, since the setup is right there even if the flag isn't lit yet.
+- **The tape in one line:** Broad, quiet risk-off open. S&P proxy (SPY) -0.47%, Dow proxy (DIA) -0.76%, Nasdaq proxy (QQQ) -0.29%, Russell proxy (IWM) -1.36%, small caps leading the slide. Nothing in today's news pull points to a single driver behind it.
+- **The catch we're watching:** Both watchlists are basically empty. SIG and YQ are the only cap-qualified up-gappers, and both are missing on a technicality rather than a clean fail: SIG is $0.51 under yesterday's high, and premarket RVOL is null for the entire packet this run (Yahoo rate-limited again), so the RVOL leg couldn't even be checked for either name. Also worth flagging: most of the per-ticker catalyst headlines in this packet are dated to Wednesday's session, not this Thursday premarket, so treat them as the most recent available news, not confirmed fresh catalysts for today's gap.
 - **Two-brain verdict:** Single brain, no second opinion to compare.
 
 ## Pre-Market Gappers
 
-- **CYCN** -88.7% - "Cyclerion Therapeutics Announces September 4 Record Date For Contingent Value Rights Distribution To Common And Series A Preferred Holders In Connection With Planned Korsana Biosciences Merger"
-- **FCUV** -65.2% - "12 Information Technology Stocks Moving In Tuesday's Pre-Market Session"
-- **CHAD** -56.9% - "Trading Halt: Halt status updated at 9:40:00 AM ET: Quotation Resumption: New Issue Available"
-- **BNC** +50.4% - "CEA Industries Regains Nasdaq Compliance"
-- **WYHG** +44.8% - "Why Mission Produce Shares Are Trading Higher By Over 5%; Here Are 20 Stocks Moving Premarket"
-- **TDOT** +41.7% - no catalyst headline in the packet
-- **BIAF** -41.5% - "12 Health Care Stocks Moving In Tuesday's Intraday Session"
-- **LEXX** -33.8% - "Lexaria Bioscience Announces Warrant Inducement Repricing 453,969 Warrants To $12.92/Share From Original Prices Of $17.85 To $45.90, For About $5.9M Gross Proceeds; Issues New Series A, Series B Warrants At $12.67/Share"
-- **SMRX** +32.3% - "NuScale And Oklo Heat Up, These Leveraged Nuclear ETFs Are Soaring Past 30%"
-- **SST** +30.6% - "System1 Says MapQuest Surpassed 2 Million New iOS And Android App Users Over Past Week"
-- **YQ** +29.8% - "17 Education & Technology Q2 Adj. EPS $0.06 Up From $(0.29) YoY, Sales $13.278M Up From $3.547M YoY"
-- **EOSE** +11.0% - "Eos Energy Stock Surges On Google Clean Energy Deal"
-- **INTC** +9.0% - "Intel Jumps 10% as Analyst Says Musk's Terafab Could Give Foundry Much-Needed Scale"
-- **KEEL** +7.2% - "Keel Infrastructure Form4 Filing Shows CEO Benjamin Gagnon Purchases 58,888 Shares At An Average Price Of $3.33, Raising Direct Holdings To 1.35M Shares"
-- **NOK** +6.1% - "Nokia Announced Mobile Core Early Access, A Live Hosted Environment That Provides An Up-close Look At The Software Driving Advanced Network Connectivity In The AI Era"
-- **IREN** +5.1% - "IREN's 2GW Sweetwater Hub Conditionally Included In Electric Reliability Council Of Texas Batch Zero Process As Base Load"
-- **MARA** +4.7% - "Why Is MARA Stock Surging Friday?"
-- **RGTI** +4.1% - "Rigetti Computing Announces Definitive Agreement With Commerce Department For $100M CHIPS Act Award To Accelerate Superconducting Quantum R&D"
-- **F** -4.1% - "Trump Administration Sends Letter To CEO Criticizing Ford Motor Partnerships With Chinese Companies; U.S. Transportation Department Says It Is 'Deeply Alarmed' By Ford's Reliance On Chinese Battery Maker CATL; Ford's Joint Venture With Geely In Spain 'Helps Strategic Adversaries Secure Vital Foothold In Western Europe'"
-- **TSLA** +4.0% - "Elon Musk Says Tesla's Cybercab Production Is 'Over 5 Times Faster,' Hopes for Europe Launch Soon"
+- **SUNE** +90.3% - "Why Is SUNation Energy Stock Soaring Wednesday?"
+- **RIBBU** +47.4% - "Reported Earlier, Ribbon Acquisition Corp Prices $50M Initial Public Offering Of 5M Units At $10/Unit"
+- **DICE** -47.1% - "What 9 Analyst Ratings Have To Say About DICE Therapeutics"
+- **IRD** +32.0% - "Gene Therapy at Lower Dose Shows Vision Improvements, Opus Genetics Says"
+- **TTAN** -30.0% - "Why Is ServiceTitan Stock Sinking Wednesday?"
+- **GRNQ** -29.6% - "Trading Halt: Halt status updated at 8:55:00 AM ET: Quotation Resumption: News and Resumption Times"
+- **LEXX** -29.6% - "12 Health Care Stocks Moving In Wednesday's Intraday Session"
+- **ODD** +26.5% - "Short Squeeze And Earnings: Why ODDITY Tech Stock Spiked Wednesday"
+- **RIBB** +25.7% - "Nasdaq (NDAQ) Completed the Dasseti Acquisition to Deepen eVestment's Private-Market Capabilities"
+- **WZRD** -24.1% - no catalyst headline in the packet
+- **SIG** +24.0% - "Signet CEO Says 'Value' Will Rule Holiday Shopping As Consumers Feel the Squeeze"
+- **BBOT** -23.8% - "Stifel Maintains Buy on BridgeBio Oncology, Lowers Price Target to $15"
+- **TBBK** -22.3% - "Bancorp Bank To Exit SBL Loan Origination By Year-End 2026; Cuts 64 Jobs, Or 9% Of Workforce; Expects $5.6M Restructuring Charges; Targets $14M Annualized Savings, Or Over $20M Including Prior Reorganization"
+- **BRZE** -21.7% - "Braze Stock Falls After Q2 Beat, Guidance Raise: Why Analysts See Buying Opportunity"
+- **YQ** +20.6% - "17 Education & Technology Q2 Adj. EPS $0.06 Up From $(0.29) YoY, Sales $13.278M Up From $3.547M YoY"
+- **TYRA** -17.7% - "Why Is Tyra Biosciences Stock Sinking Wednesday?"
+- **CIFR** -8.8% - "What's Going On With Cipher Digital Stock Wednesday?"
+- **CMCSA** -6.7% - "Comcast CFO Says Q3 Broadband Subscriber Losses Unlikely To Improve Year-Over-Year, Citing Pressure From Factors Including Rational Fiber Pricing"
+- **ONDS** -4.5% - "Reported Earlier 'US Expanding Long-Range Commercial Drone Testing Program' - Bloomberg News"
+- **PCG** -4.2% - "B of A Securities Maintains Neutral on PG&E, Raises Price Target to $14"
 
 ## Day Trading Watchlist
 
 The "Trend Join Long" rule: gap over 3%, price over $3, market cap over $1B, premarket RVOL over 1.5, and price already breaking above yesterday's high.
 
-No names cleared the day-trading bar today. The packet marks `day_eligible: false` on all 20 gappers. The interesting part is why: it's not RVOL or market cap knocking these out, it's the last leg, price breaking above yesterday's high. A whole cluster of large caps are gapping up on real volume but sitting just under that line:
+No names cleared the day-trading bar today. The packet marks `day_eligible: false` on all 20 gappers. Only two up-gappers are even cap-qualified (over $1B) to begin with:
 
-- **TSLA** $368.18 vs prior high $370.00 (RVOL 64.9x)
-- **RGTI** $15.83 vs prior high $17.05 (RVOL 68.3x)
-- **EOSE** $4.295 vs prior high $4.59 (RVOL 50.6x)
-- **IREN** $46.93 vs prior high $49.29 (RVOL 41.5x)
-- **INTC** $104.46 vs prior high $106.07 (RVOL 41.6x)
-- **MARA** $11.825 vs prior high $12.05 (RVOL 34.8x)
-- **F** $14.02 vs prior high $14.59 (RVOL 28.3x, gapping down not up)
-- **KEEL** $3.725 vs prior high $3.90 (RVOL 24.9x)
-- **NOK** $10.655 vs prior high $10.86 (RVOL 24.5x)
+- **SIG** $102.48 vs prior high $102.99 (still under by about $0.51, RVOL unavailable)
+- **YQ** $4.57 vs prior high $4.47 (already clears the prior-high leg, RVOL unavailable)
 
-That's a real setup to watch for a live break later in the session, just not one the rules can put on the list yet. Note also that `intraday_data_source` is `unavailable` for every gapper this run, so there's no premarket high or VWAP in the packet to build an actual entry plan around even for these names. These prices are the current gap price, not a confirmed premarket high.
+`intraday_data_source` is `unavailable` for every gapper this run, so premarket RVOL, premarket high, VWAP, HOD and LOD are all null across the board. That means the RVOL > 1.5 leg genuinely can't be checked for either name today, not that it failed. SIG also still needs about half a percent more to clear yesterday's high. Nothing here to trade off the packet as it stands; watch $102.99 on SIG for a live break later in the session.
 
 ## Swing Watchlist
 
@@ -59,49 +52,49 @@ The swing rule: gap of 8% or more, price over $3, open above yesterday's high, o
 
 | Ticker | Catalyst | Trend context | Idea | Second-brain check | Conviction |
 |---|---|---|---|---|---|
-| YQ | Earnings on the gap day: Q2 adj. EPS $0.06, up from a $(0.29) loss a year ago, sales $13.278M vs $3.547M a year ago (a ~274% jump). A separate headline notes the board approved a $10M share buyback. | Current price $3.79 is above yesterday's high of $3.69 and above the 200-day SMA of $2.92. Note the market hasn't opened yet, so this is the gap price standing in for the open, not a confirmed print. | Starter watch-and-build idea only off a real beat-and-raise-style print. No stop, no target, swing management isn't built yet. | No second brain wired in, nothing to compare. | 🔴 |
+| YQ | Earnings on the gap day: Q2 adj. EPS $0.06, up from a $(0.29) loss a year ago, sales $13.278M vs $3.547M a year ago (a real, sizable jump, not a rounding-error beat). | Current price $4.57 is above yesterday's high of $4.47 and above the 200-day SMA of $2.92. Market hasn't opened yet, so this is the gap price standing in for the open, not a confirmed print. | Starter watch-and-build idea only off a real earnings beat. No stop, no target, swing management isn't built yet. | No second brain wired in, nothing to compare. | 🟡 |
 
-**Why 🔴 despite a real catalyst:** market cap is $1,925,440,086, under the $2B floor this repo's data-integrity rule uses to auto-flag swing names as suspect regardless of how the confluence score would otherwise read. The catalyst itself looks legitimate (real earnings beat, real buyback), so this isn't a "bad news pop" trap, it's a size-based caution: sub-$2B names can gap hard and reverse just as fast, so size down and don't treat this as a clean signal.
+**Why 🟡:** the catalyst itself is solid and doesn't trip either data-integrity red flag: market cap is $2,321,704,800 (over the $2B floor), and the $13.278M sales figure quoted in the headline is a real, growing revenue base, not a near-zero number dressed up against a big market cap. What's holding this back from 🟢 is that `intraday_data_source` is `unavailable` for YQ, so there's no premarket high, VWAP, HOD or LOD in the packet to confirm the gap is actually holding rather than fading. Real story, no live price confirmation yet, size down accordingly.
 
 ## Market Trends of the Day
 
-Oil and the Middle East are the dominant thread today. MarketWatch and Yahoo Finance both have Brent crude crossing $100 a barrel as the conflict in the region intensifies, and Yahoo separately notes ongoing Middle East escalation is "keeping a lid on crypto." One Yahoo headline frames it as oil pushing stocks "toward a breaking point," which lines up with a couple of gapper-attached headlines pointing to a rough recent session: one referencing the Dow tumbling over 600 points ahead of inflation data with sentiment in the "fear" zone, another citing $98 Brent (a slightly different level than the $100 headlines, so treat the exact oil print as unsettled rather than picking one number as gospel).
+Today's news pull is thinner on a single macro thread than most days. The clearest recurring items: the ECB looking "virtually certain" to raise rates with Wall Street bracing for what follows, and diesel prices hitting another record high, which MarketWatch frames as a lead-in to higher grocery costs. Both tie loosely into the inflation conversation ahead of tomorrow's CPI print. Copper is also flagged as trading at all-time highs, a commodities-strength data point sitting alongside the diesel story.
 
-AI infrastructure sentiment is a second thread, and it's mixed rather than one-directional. Rigetti's $100M CHIPS Act award and IREN's Sweetwater grid inclusion are both framed as bullish AI-infra buildout news, but a headline attached to IREN also flags Sam Altman calling out "first signs of a bubble" in neoclouds, and a Tesla-adjacent headline warns the AI arms race "has a familiar trap." So the same theme is showing up as both the bull case and the risk case in the same news pull.
+On the skepticism side, Bank of America is quoted saying the bar to disrupt AI "is surprisingly high," a mild counterpoint to the AI-buildout enthusiasm that's shown up in other days' feeds. Elsewhere, the DOJ is reportedly widening its probe into Fox's Roku deal, a regulatory story rather than a broad-tape one, and several of the Yahoo Finance headlines are single-company earnings reactions (Planet Labs, Zscaler, Capital Southwest, Roivant, Genworth, Tilly's, Methode, Yatsen) rather than anything that reads as a sector-wide theme.
 
-A strategist debate over the S&P 500's next leg is also in the feed: MarketWatch has strategists calling for the index to top 8,000 while flagging mounting pullback risk, a fits-the-moment tension given oil is spiking at the same time.
-
-Elsewhere: Ford is getting public pressure from the Trump administration over its Chinese battery supplier (CATL) and its Geely joint venture in Spain, a trade-and-geopolitics headline rather than a business-fundamentals one. Oracle got an early warning from EU regulators ahead of its own earnings. Bitcoin's pullback is weighing on MARA even as the stock itself is gapping up this morning.
+Nothing in this pull directly explains the across-the-board red proxy prints below. Worth noting plainly rather than reaching for a story that isn't in the packet.
 
 ## Technical Signals for Today
 
-The four major index rows in the packet are all Alpaca ETF proxies, not the underlying indices, because the direct index pulls failed: S&P 500 proxy (SPY) 766.06, down 0.53%; Dow proxy (DIA) 528.07, down 1.12%; Nasdaq proxy (QQQ) 718.43, down 0.09%; Russell 2000 proxy (IWM) 294.69, down 0.42%. Treat these as ETF price levels, not literal index points.
+The four major index rows in the packet are Alpaca ETF proxies, not the underlying indices, because the direct index pulls failed: S&P 500 proxy (SPY) 762.42, down 0.47%; Dow proxy (DIA) 524.05, down 0.76%; Nasdaq proxy (QQQ) 716.35, down 0.29%; Russell 2000 proxy (IWM) 290.69, down 1.36%. Treat these as ETF price levels, not literal index points. Russell/small-caps are underperforming the other three by a wide margin this morning.
 
-VIX, the 10-year yield, the 3-month yield, WTI crude, and the Dollar Index all came back null this run (`yfinance_failed`), so there's nothing to report on volatility, rates, or the dollar directly from the packet today, despite oil clearly being a live story in the news feed above.
+VIX, the 10-year yield, the 3-month yield, WTI crude, and the Dollar Index all came back null this run (`yfinance_failed`), so there's nothing to report on volatility, rates, or the dollar directly from the packet today.
 
-As covered in the Day Trading Watchlist section, the clearest technical signal in the packet itself is the cluster of megacaps (TSLA, RGTI, EOSE, IREN, INTC, MARA, KEEL, NOK) running 25x to 68x their 20-day average volume this morning while sitting within a few percent of yesterday's high. That's the tape to watch once the open confirms real premarket levels.
+As covered above, SIG and YQ are the only two levels-based signals worth watching live: SIG needs about $0.51 more to clear yesterday's $102.99 high, and YQ is already through its $4.47 prior high on the gap price alone.
 
 ## Economic Data, Rates and the Fed
 
-Nothing high-impact on the USD calendar today, September 9. Tomorrow, September 10, brings two releases, both at 8:30am ET: Core PPI m/m (forecast 0.3%, previous 0.2%) and headline PPI m/m (forecast 0.4%, previous 0.0%). Both forecasts step up from last month's actuals, and given the news feed's own inflation-fear framing tied to the oil spike, tomorrow's PPI print is the next real catalyst for the rates conversation.
+Today, September 10, brings two releases, both at 8:30am ET: Core PPI m/m (forecast 0.3%, previous 0.2%) and headline PPI m/m (forecast 0.4%, previous 0.0%). Both forecasts step up from last month's actuals. Tomorrow, September 11, is the bigger one: Core CPI m/m (forecast 0.2%, previous 0.2%), Core CPI y/y (forecast 2.4%, previous 2.5%), CPI m/m (forecast 0.4%, previous 0.1%), and CPI y/y (forecast 3.4%, previous 3.4%), all at 8:30am ET. The CPI m/m forecast stepping up 0.3 points from last month is the number to watch given the diesel/inflation framing in today's news pull.
 
 ## Coming Up
 
-- **Tomorrow's events:** Core PPI m/m and headline PPI m/m, both 8:30am ET, September 10.
-- **Earnings:** `next_earnings_date` is null for every gapper in today's packet, so there's no confirmed date to flag for any of these names from the packet's own data. Worth flagging from the news feed instead: Oracle has earnings coming up, with EU regulators already sending an early warning ahead of that report.
+- **Tomorrow's events:** Core CPI m/m, Core CPI y/y, CPI m/m, and CPI y/y, all 8:30am ET, September 11.
+- **Earnings:** `next_earnings_date` is null for every gapper in today's packet, so there's no confirmed date to flag for any of these names from the packet's own data.
 
 ## Skips and Traps
 
-- **CYCN** -88.7%: The only headline that's actually about CYCN is a September 4 record-date notice for a Contingent Value Rights distribution tied to the Korsana Biosciences merger, not new news today. A move this size right around a CVR/merger restructuring event smells like a corporate-action artifact in the price series, not a real intraday crash. Don't trust the -88.7% number at face value, and there's no catalyst here worth trading either way.
-- **FCUV** -65.2%: Every headline attached to this ticker is a generic sector "stocks moving" roundup or an unrelated story about a different company (Aquestive Therapeutics). Nothing in the packet actually explains a 65% drop in Focus Universal specifically. Market cap is $4.2M, a nano-cap regardless. No real catalyst, skip.
-- **CHAD** -56.9%: No company name resolved (SEC has no CIK on file), and the only headline tying to this ticker is a trading halt notice for "New Issue Available," with the rest of the news being unrelated China-ETF pieces (CHAU, not CHAD). This reads like a new listing settling into its first prints after a halt, not a tradeable catalyst.
-- **BNC** +50.4%: CEA Industries regaining Nasdaq compliance is a real, if minor, positive catalyst, and the RVOL print (1818x) is enormous. But market cap is $217M, under both the day ($1B) and swing ($800M) floors, so it's too small for either playbook no matter how loud the volume is.
-- **WYHG** +44.8%: Every headline is a generic "stocks moving" roundup that mentions Wing Yip only in passing among a list of 20 names; nothing is specific to this company. Market cap ($296M) is under both floors anyway. No real catalyst, skip.
-- **TDOT** +41.7%: `catalyst_found: false` in the packet. No catalyst means no story, skip automatically per the rules.
-- **BIAF** -41.5%: All headlines are generic health care sector roundups, nothing bioAffinity-specific. Market cap is $72M. No real catalyst, skip.
-- **LEXX** -33.8%: This one has a real catalyst, and it's bad news: a warrant inducement repricing that drops the strike from $17.85-$45.90 down to $12.92 and issues new warrants, a dilutive financing move. That explains the drop honestly, but dilutive financing plus a $232M market cap (under both floors) makes this a name to avoid, not a dip to buy.
-- **SMRX** +32.3%: No company name or CIK on file, and the one relevant headline describes leveraged nuclear-sector ETFs "soaring past 30%," which suggests SMRX is itself one of those leveraged products moving mechanically with the sector rather than a single-company story. No market cap data either. Skip.
-- **SST** +30.6%: This one actually has a legitimate catalyst, MapQuest crossing 2 million new app downloads in a week plus a viral Trump/Lake Ontario naming story driving that traffic. But market cap is $457M, under both the day ($1B) and swing ($800M) floors. Real story, wrong size for either watchlist.
+- **DICE** -47.1%: Every headline attached is about "DICE Therapeutics," an old ticker/entity, plus an unrelated election-betting ETF piece. Nothing in the packet actually dates to or explains today's -47% move on the current DICE. Market cap is unavailable (no CIK on file at SEC). Catalyst headline mismatch, don't trust the story here.
+- **RIBBU** +47.4% / **RIBB** +25.7%: Same underlying company, Ribbon Acquisition Corp. RIBBU's real catalyst is a fresh $50M SPAC IPO (5M units at $10) with a halt notice showing the IPO security was just "Released for Quotation," so this reads like a brand-new listing finding its first trading range, not a tradeable gap. RIBB (the common shares) doesn't carry that headline at all, just generic sector-acquisition roundups (Nasdaq/Dasseti, LTC senior-housing, Ryman Grande Lakes) that aren't about Ribbon specifically. Market caps ($74.7M / $68.6M) are under both floors regardless.
+- **GRNQ** -29.6%: Only ticker-specific item is a bare trading-halt/resumption notice, no explanation of why. Market cap $239.8M is under both floors anyway. No real story to trade.
+- **LEXX** -29.6%: `catalyst_found: true` but every headline attached is a generic "Health Care Stocks Moving" sector roundup, nothing Lexaria-specific in this packet. Market cap $163.6M, under both floors.
+- **WZRD** -24.1%: `catalyst_found: false`, no headlines in the packet at all. Skip automatically per the rules.
+- **CIFR** -8.8%: The Cipher Digital headlines ask "why is it surging" on Tuesday and again on Thursday, other days, not an explanation for today's -8.8% red print specifically. Not eligible for either watchlist anyway since it's a down gap.
+- **SIG** +24.0%: Covered above as the closest Day Trading miss. Worth repeating here: the one ticker-specific headline is CEO commentary about "value" ruling holiday shopping, thin and not clearly bullish, doesn't obviously explain a 24% pop on its own.
+- **TBBK** -22.3%: Real catalyst, and it's bad news: exiting SBL loan origination, cutting 64 jobs (9% of headcount), a $5.6M restructuring charge. That honestly explains the drop, this isn't a trap, it's a name reacting rationally to bad news. Down gap, not eligible for either list.
+- **BRZE** -21.7%: Textbook sell-the-news setup. The headline itself says Braze beat Q2 and raised guidance, and the stock is still down over 21%, with the same headline noting analysts see it as a buying opportunity. Not something either rule-based playbook here is built to catch.
+- **CMCSA** -6.7%: Comcast's own CFO flagged Q3 broadband subscriber losses "unlikely to improve," real negative guidance behind the drop. Down gap, not eligible for either list.
+- **ONDS** -4.5%: Catalyst mismatch. The Bloomberg drone-testing-expansion headline is genuinely Ondas-relevant, but it's framed as positive news attached to a stock that's gapping down, and a separate headline literally asks "why is Ondas falling on Monday," a different day entirely. Nothing here cleanly explains this morning's red print.
+- **PCG** -4.2%: Catalyst is BofA maintaining Neutral with a $14 price target, close to where it's already trading. Thin, not a real driver of a 4% move either way, and it's a down gap regardless.
 
 ## Where the Two Brains Landed
 
