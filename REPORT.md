@@ -1,4 +1,4 @@
-# Premarket Report: September 14, 2026
+# Premarket Report: September 15, 2026
 
 *Two-brain pass: Claude and GPT independently review the tape, then compare notes.*
 
@@ -6,83 +6,82 @@
 
 ## Summary
 
-- **The tape in one line:** Packet's own index proxies are green this morning, S&P proxy (SPY) +0.83%, Dow proxy (DIA) +0.94%, Nasdaq proxy (QQQ) +0.87%, Russell proxy (IWM) +0.4%, but that sits flat against a market news feed dominated by "Dow, S&P 500, Nasdaq futures fall as Anthropic's AI warning spooks tech traders" and "AI stocks get drilled because of Anthropic CEO Dario Amodei's 3,800 word warning."
-- **The catch we're watching:** That mismatch is real, not a data error on our end, both pulls are literally in the packet. The index proxies show gains while the news wire is all AI-slowdown fear. Take the green proxy numbers as the actual premarket tape and the "futures fall" headlines as sentiment color that hasn't shown up in the proxy prices yet, or hadn't as of this scan's timestamp. Both watchlists are empty today: `day_eligible` and `swing_eligible` are `false` on all 20 gappers in the packet, and `intraday_data_source` is `unavailable` across the board again, so premarket high, VWAP, HOD and LOD are null for every name.
+- **The tape in one line:** All four index proxies are red this morning: S&P proxy (SPY) -0.44%, Dow proxy (DIA) -0.24%, Nasdaq proxy (QQQ) -0.79%, Russell proxy (IWM) -0.35%. For once the tape and the news feed actually agree, no mismatch to flag today.
+- **The catch we're watching:** FOMC's two-day meeting wraps up tomorrow, September 16. The packet's own econ calendar has the Federal Funds Rate decision forecast at 4.00% versus a 3.75% previous, so the market's pricing a hike. That sits on top of a news pull full of AI-slowdown fear, Fed-mistake warnings from Moody's and other economists, and oil spiking on Saudi supply concerns.
 - **Two-brain verdict:** Single brain, no second opinion to compare.
 
 ## Pre-Market Gappers
 
-- **MKDW** +52.0% - "Why Scholar Rock Shares Are Trading Higher By Around 12%; Here Are 20 Stocks Moving Premarket"
-- **ACVA** +44.2% - "Frequency Electronics, ACV Auctions, HP And Other Big Stocks Moving Higher On Friday"
-- **FEIM** +42.4% - "Frequency Electronics, ACV Auctions, HP And Other Big Stocks Moving Higher On Friday"
-- **GTBP** +39.3% - "GT Biopharma Q2 EPS $(0.12) Misses $(0.08) Estimate"
-- **SMZ** +35.5% - "NuScale Stock Ticks Higher as AI Integration Promises 80% Efficiency Gain"
-- **VACI.U** -34.3% - no catalyst headline in the packet
-- **SMUP** -31.4% - no catalyst headline in the packet
-- **SMU** -31.2% - "NuScale And Oklo Heat Up, These Leveraged Nuclear ETFs Are Soaring Past 30%"
-- **SMRX** -31.0% - "NuScale And Oklo Heat Up, These Leveraged Nuclear ETFs Are Soaring Past 30%"
-- **KRSA** +29.9% - "Trading Halt: Halt status updated at 8:55:00 AM ET: Quotation Resumption: News and Resumption Times"
-- **COLA** +27.8% - "WISeKey Unit Files Amended Registration for WISeSat SPAC Deal, Business Combination Expected to Trade on Nasdaq Under WSAT"
-- **CVV** -25.4% - "CVD Equipment Says Following Quarter-End, The Customer Associated With The $800K System Order Filed A Prepackaged Chapter 11 Bankruptcy Proceeding. Although Unsecured Trade Creditors Are Expected To Be Unimpaired Under The Proposed Plan, The Company Is Evaluating The Potential Impact On The Order And Its Backlog, Financial Results, Financial Position, And Cash Flows."
-- **HPEL** +24.8% - no catalyst headline in the packet
-- **DLLL** +23.5% - "Why Is Dell Technologies Stock Falling Monday?"
-- **ATEC** +19.7% - "UBS Maintains Buy on Alphatec Holdings, Raises Price Target to $16"
-- **HPE** +12.4% - "Hewlett Packard Enterprise (HPE) Surges 19% in a Week — What to Watch For Next?"
-- **SMCI** +7.2% - "What Is Going On With SMCI Stock on Friday?"
-- **CIFR** +5.7% - "Why Is Cipher Mining Stock Surging on Friday?"
-- **NOK** +5.0% - "What's Going On With Nokia Stock Friday?"
-- **MARA** +4.8% - "MARA Holdings, Coinbase Global, Ternium And Other Big Stocks Moving Higher On Friday"
+- **FTFT** +179.2% - "Future FinTech Shares Resume Trade"
+- **BMGL** +55.9% - "12 Health Care Stocks Moving In Monday's After-Market Session"
+- **VNCE** +46.0% - "Vince Holding Announces Acquisition Of OVO Operating Business, Will Serve As Core Apparel Licensee Overseeing Design, Merchandising, And Retail Stores; Terms Not Disclosed"
+- **HQWWW** -44.2% - no catalyst headline in the packet
+- **GENVR** +35.9% - "12 Information Technology Stocks Moving In Monday's Intraday Session"
+- **GTBP** +35.1% - "GT Biopharma Q2 EPS $(0.12) Misses $(0.08) Estimate"
+- **ELMT** +32.8% - "Tungsten-Supplier Elmet Stock Rallies on Defense Funding - Here's Why"
+- **SIMX** -32.1% - no catalyst headline in the packet
+- **HQ** -32.1% - "Horizon Quantum Holdings Q2 EPS $(2.20) Down From $(0.07) YoY"
+- **XHLD** -28.8% - "Short Seller Raises Concerns About TEN Holdings Stock: Potential 'Pump-and-Dump Scheme'"
+- **CRWC** +28.0% - "CrowdStrike's AI-Fueled Plot Twist Has These ETFs Flying 38% Higher"
+- **CRWL** +27.7% - "CrowdStrike's AI-Fueled Plot Twist Has These ETFs Flying 38% Higher"
+- **GLWG** -27.5% - no catalyst headline in the packet
+- **PANG** +26.7% - no catalyst headline in the packet
+- **TERC** -26.3% - no catalyst headline in the packet
+- **RPD** +24.1% - "Jana Partners Takes New Stake In Rapid7 Inc With 6,749,936 Shares."
+- **NOK** -13.3% - "What's Going On With Nokia Stock Monday?"
+- **SMCI** -8.3% - "Why Is Super Micro Computer Stock Falling Monday?"
+- **INTC** -5.6% - "NVIDIA Isn't 'so Expensive,' but Crowded AI Trade Could Unwind Quickly, Fund Manager Warns"
+- **BAC** -5.1% - "Why Is Bank of America Stock Falling Tuesday?"
 
 ## Day Trading Watchlist
 
 The "Trend Join Long" rule: gap over 3%, price over $3, market cap over $1B, premarket RVOL over 1.5, and price already breaking above yesterday's high.
 
-No names cleared the bar today, `day_eligible: false` across all 20 gappers. But this run isn't the usual blackout, five megacaps actually have real market cap and RVOL data and are just missing the last leg. HPE ($82.4B cap, RVOL 34.9x) is sitting at $62.08 against a prior-day high of $62.15, about 0.1% away. NOK ($63.9B cap, RVOL 21.7x) is at $11.135 against a $11.16 prior high, also about 0.2% away. ATEC ($1.63B cap) is at $10.58 against a $10.60 prior high, 0.2% away, though its RVOL field is null so we can't confirm the volume leg. SMCI ($26.3B cap, RVOL 28.2x) and CIFR ($6.99B cap, RVOL 19.2x) and MARA ($4.6B cap, RVOL 29.8x) are further back, roughly 1 to 4% under their respective prior highs. None of these have a confirmed premarket high in the packet (`intraday_data_source: unavailable` on all of them), so there's no live level to actually trade off, but if you're watching for a break of yesterday's high once the open prints, HPE, NOK and ATEC are the closest.
+No names cleared the bar today, `day_eligible: false` on all 20 gappers, and `intraday_data_source` is `unavailable` across the board again so premarket high, VWAP, HOD and LOD are null everywhere. Only two up-gappers even have real cap data above the floor to begin with: **GENVR** ($3.53B cap) and **RPD** ($862M cap, under the $1B day floor anyway). GENVR is the closest thing to a live miss: price is $5.90 against a prior-day high of $5.98, about 1.3% away, but its RVOL field is null so the volume leg can't be confirmed either way. And even if it cleared, none of GENVR's headlines in the packet are actually about GENVR, they're all generic "Information Technology Stocks Moving" roundups, so this wouldn't pass the catalyst check regardless. Nothing tradeable here this morning.
 
 ## Swing Watchlist
 
 The swing rule: gap of 8% or more, price over $3, open above yesterday's high, open above the 200-day SMA, market cap of $800M or more, and a real catalyst.
 
-No names clear it, `swing_eligible: false` across all 20. Closest fit is **ACVA** (ACV Auctions): +44.2% gap, price $10.41 already above the 200-day SMA ($6.70), and only $0.05 below yesterday's high ($10.46), practically a rounding error. It fails purely on that last tick. The catalyst headline that names it, "Frequency Electronics, ACV Auctions, HP And Other Big Stocks Moving Higher On Friday," is a shared movers roundup rather than an ACVA-specific story, so even setting the price gap aside, there's no real explanation in the packet for a 44% move. **MKDW** and **FEIM** are the same shape: both clear market cap ($1.09B and $872M) and 200-day SMA, both sit a few dollars under yesterday's high ($8.11 vs $7.75 for MKDW, $89.25 vs $88.375 for FEIM), and neither has a headline in the packet that actually explains the gap. Nothing here to build a swing thesis on today.
+No names clear it, `swing_eligible: false` across all 20. Closest fit is **RPD** (Rapid7): gap +24.1%, cap $862M clears the $800M floor, price $12.79 is well above the 200-day SMA ($9.77), and only $0.16 below yesterday's high ($12.95), about 1.2% away. Unlike most of today's list it also has a real, ticker-specific catalyst in the packet: Jana Partners taking a new stake of 6,749,936 shares, plus two analyst notes (Susquehanna neutral with PT raised to $15, Canaccord Genuity hold with PT raised to $14). It just misses on that last tick against yesterday's high. Nothing else on the list gets this close with a story this clean.
 
 ## Market Trends of the Day
 
-The news pull is almost entirely AI-slowdown fear. Anthropic CEO Dario Amodei published a 3,800-word warning calling for a pause in frontier AI development, and it's driving most of today's market copy: "AI stocks get drilled," "Dow Jones Futures: Techs Tumble As Anthropic Leads Call For AI Slowdown," "How investors are reacting to the AI pause calls from Anthropic and other frontier labs" (described as a negative but not catastrophic reaction), and Citigroup separately warning that a pause in AI development could hit the earnings revisions that have been driving stock gains this year. There's also a report that Anthropic itself was profitable for a second straight quarter, with the piece flagging "a very important caveat" that isn't detailed further in the packet's summary field.
+Today's news pull is dominated by Fed-hike fear feeding off the FOMC's two-day meeting, which wraps tomorrow. "Stock market today: Dow, S&P 500, Nasdaq futures retreat ahead of Fed meeting amid AI safety fears," "Morgan Stanley joins Goldman Sachs in 11th-hour switch to predict a Fed hike," and on the other side of the debate, "The Fed may be on the verge of a serious mistake, prominent economists warn" and "Moody's Mark Zandi warns of a 'serious' mistake if the Fed hikes rates as Wall Street expects a quarter-point increase." The packet's own econ calendar backs the hike framing: Federal Funds Rate forecast 4.00% against a 3.75% previous for tomorrow.
 
-Set against all that AI-fear copy, the packet's own index proxies (S&P, Dow, Nasdaq, Russell) are all positive premarket, see Summary. We're not going to reconcile that tension with a story that isn't in the packet, just flagging it plainly.
+AI-slowdown fear from yesterday hasn't gone away either: "AI doomsday fears are arriving at the worst possible time for the stock market," and on the INTC gapper specifically, "NVIDIA Isn't 'so Expensive,' but Crowded AI Trade Could Unwind Quickly, Fund Manager Warns." Worth flagging that none of INTC's five headlines in the packet actually name INTC directly, they're all broader AI-trade-unwind pieces (ASML, KLA, Lam, Nvidia, Broadcom), so INTC's -5.6% gap is riding the sector story rather than a confirmed INTC-specific catalyst.
 
-On rates and energy: one headline citing "Rate Hike Odds Jump to 90% as Record Diesel Lifts Inflation," and a separate MarketWatch piece saying the 10-year Treasury yield is "sitting on the doorstep of 5%" and framing it as the bond market pushing for Fed rate hikes despite hikes not bringing down gas prices. Neither the fed-funds odds number nor the 10-year yield level is confirmed anywhere in the packet's own market_snapshot (`US 10Y` came back null, `yfinance_failed`), so treat those as headline claims we can't verify against the packet's own numbers this run, not confirmed data.
-
-Nuclear/AI-power names (NuScale, Oklo, Bloom Energy) show up repeatedly in the news pull and are the source of the catalyst matches on SMZ, SMU and SMRX below, none of which are actually about those three tickers themselves, see Skips and Traps.
+Elsewhere: "Brent rises above $107 as attacks, pipeline outage deepen Saudi supply concerns" (oil catalyst headline, not confirmed against the packet's own WTI field, which came back null), "Surging US Treasury yields are starting to spook investors," and bank stocks under pressure specifically, "QUICK SPARK: Big Bank Stocks Tumble After Moynihan's Grim Outlook," which lines up with BAC's -5.1% gap and its own "Why Is Bank of America Stock Falling Tuesday?" headline. Unlike yesterday, the packet's own index proxies actually agree with this risk-off news pull instead of contradicting it.
 
 ## Technical Signals for Today
 
-Index proxies: S&P proxy (SPY) 764.14, up 0.83%; Dow proxy (DIA) 525.79, up 0.94%; Nasdaq proxy (QQQ) 714.89, up 0.87%; Russell proxy (IWM) 288.89, up 0.4%. These are Alpaca ETF proxies standing in for the underlying indices, not the indices themselves.
+Index proxies: S&P proxy (SPY) 760.75, down 0.44%; Dow proxy (DIA) 524.51, down 0.24%; Nasdaq proxy (QQQ) 709.24, down 0.79%; Russell proxy (IWM) 287.89, down 0.35%. These are Alpaca ETF proxies standing in for the underlying indices, not the indices themselves.
 
 VIX, the 10-year yield, the 3-month yield, WTI crude and the Dollar Index all came back null this run (`yfinance_failed`), so there's nothing to report on volatility, rates or the dollar directly from the packet.
 
-Five names carry confirmed RVOL despite HOD/LOD/VWAP being null everywhere: HPE (34.9x), MARA (29.8x), SMCI (28.2x), NOK (21.7x) and CIFR (19.2x), all megacaps trading many multiples of their 20-day average volume this morning.
+Four megacaps carry confirmed RVOL despite HOD/LOD/VWAP being null everywhere: INTC (33.52x), BAC (32.21x), NOK (30.55x) and SMCI (25.52x), all down gaps trading many multiples of their 20-day average volume this morning.
 
 ## Economic Data, Rates and the Fed
 
-The packet's own econ calendar (`ff_calendar_thisweek.json`, USD/high-impact only) is empty for both today, September 14, and tomorrow, September 15. No scheduled high-impact releases either day per that source. That sits oddly next to the "Fed Meeting Ahead" and "Rate Hike Odds Jump to 90%" language showing up in today's news pull, but the packet's calendar itself doesn't carry a dated Fed event this week, so we can't confirm a specific date or time for it from the data we have. Flagging the gap rather than guessing a date.
+The packet's own econ calendar (`ff_calendar_thisweek.json`, USD/high-impact only) is empty for today, September 15. Tomorrow, September 16, it's a full FOMC docket: Federal Funds Rate at 2:00pm ET (forecast 4.00%, previous 3.75%), FOMC Economic Projections at 2:00pm ET, FOMC Statement at 2:00pm ET, and the FOMC Press Conference at 2:30pm ET. The forecast field implies a quarter-point hike from 3.75% to 4.00%, matching the "Morgan Stanley joins Goldman Sachs" hike-prediction headline in the news pull.
 
 ## Coming Up
 
-- **Tomorrow's events:** None. The packet's econ calendar has no high-impact USD releases listed for September 15.
+- **Tomorrow's events:** Federal Funds Rate decision (2:00pm ET, forecast 4.00% vs. 3.75% previous), FOMC Economic Projections (2:00pm ET), FOMC Statement (2:00pm ET), FOMC Press Conference (2:30pm ET).
 - **Earnings:** `next_earnings_date` is null for every one of today's 20 gappers, so there's no confirmed date to flag for any of these names from the packet's own data.
 
 ## Skips and Traps
 
-- **GTBP** +39.3%: Bad-news-pop. The only ticker-specific headline in the packet is a Q2 earnings miss ("EPS $(0.12) Misses $(0.08) Estimate"), and the stock is gapping up 39% on it. That's a trap shape, not a green light, even though it wouldn't have cleared either watchlist anyway (cap $388M is under both floors).
-- **MKDW, ACVA, FEIM**: All three clear real market cap floors ($1.09B, $1.77B, $872M) and all three have `catalyst_found: true`, but none of the attached headlines actually explain a 40 to 52% move. They're all shared "stocks moving" roundups or a market-wide futures piece. Treat these the same as no catalyst until a ticker-specific story shows up.
-- **SMZ, SMU, SMRX**: `catalyst_found: true` only because the packet matched them to NuScale/Oklo/Bloom Energy nuclear-power headlines, not stories about SMZ, SMU or SMRX themselves. No real catalyst behind any of these three moves per the packet.
-- **VACI.U, SMUP, HPEL**: `catalyst_found: false`, no headlines in the packet at all. Skip automatically per the rules.
-- **KRSA** +29.9%: Only headline is a trading-halt resumption notice with no news content attached, no real story, and market cap ($149M) is well under both floors anyway.
-- **COLA** +27.8%: Real, ticker-specific catalyst, WISeKey's SPAC merger into Columbus Acquisition Corp. But market cap is $47.7M, far under both the $1B day-trading and $800M swing floors.
-- **CVV** -25.4%: Down gap explained by real bad news, a customer's Chapter 11 bankruptcy tied to an $800K order. Rational sell-off, not a trap, just not eligible for either list since it's a down gap.
-- **DLLL** +23.5%: The only headline attached is "Why Is Dell Technologies Stock Falling Monday?" describing Dell (DELL) falling, while DLLL itself is gapping up 23.5%. The packet has no DLLL-specific headline, so this looks like a ticker/headline mismatch rather than a confirmed catalyst. Not asserting what DLLL actually is since that's not in the packet.
-- **HPE** +12.4%: Headline set is internally split, "Hewlett Packard Enterprise (HPE) Surges 19% in a Week" alongside "Why Is Hewlett Packard Stock Falling Monday?" The packet's own gap for HPE this morning is +12.4%, up, matching the surge headline, not the falling one. Also a near-miss on the day-trading bar, see Day Trading Watchlist.
+- **GTBP** +35.1%: Bad-news-pop. The only ticker-specific headline in the packet is a Q2 earnings miss ("EPS $(0.12) Misses $(0.08) Estimate"), and the stock is gapping up 35% on it. Trap shape, not a green light, and it wouldn't have cleared either watchlist anyway (cap $524M is under both floors).
+- **FTFT** +179.2%: `catalyst_found: true` but nothing in the packet actually explains a move this size. The headlines are a Veea roundup, a broad Nasdaq-down piece, a financials-movers roundup, a bare ticker page, and a reverse-split announcement from a prior month. Treat as no real catalyst behind today's number until a ticker-specific story shows up.
+- **BMGL** +55.9%, **GENVR** +35.9%: Same shape as FTFT, `catalyst_found: true` only because the packet matched them to generic "stocks moving" sector roundups, not stories about BMGL or GENVR themselves.
+- **CRWC** +28.0%, **CRWL** +27.7%: Both matched to the identical single headline about CrowdStrike-adjacent ETFs, not stories about CRWC or CRWL. Looks like a ticker/headline mismatch, and neither has market cap data (SEC EDGAR has no CIK for either).
+- **HQWWW** -44.2%, **SIMX** -32.1%, **GLWG** -27.5%, **PANG** +26.7%, **TERC** -26.3%: `catalyst_found: false`, no headlines in the packet at all. Skip automatically per the rules. HQWWW's market cap field also came back as $4, clearly bad data, likely tied to the same reverse-split/thin-float pattern seen in prior sessions.
+- **HQ** -32.1%: Down gap explained by a real earnings miss (Q2 EPS $(2.20) versus $(0.07) a year ago). Rational sell-off, not a trap, just not eligible since it's a down gap. Market cap field ($10) also looks like bad SEC EDGAR data.
+- **XHLD** -28.8%: Down gap with two short-seller reports in the packet directly alleging a "pump-and-dump scheme." Rational decline given the news, not a trap, and not eligible either way since it's gapping down.
+- **VNCE** +46.0%: Real, ticker-specific catalyst, an acquisition of the OVO operating business. But market cap is $99M, far under both the $1B day-trading and $800M swing floors.
+- **ELMT** +32.8%: Real, ticker-specific catalyst on defense-funding-driven demand for tungsten. Market cap is $654.9M, under both floors but not by much, worth a re-look if it grows into the cap floor on a future gap.
+- **RPD** +24.1%: Closest swing miss today, covered above. No catalyst issue here, just misses on price versus yesterday's high.
 
 ## Where the Two Brains Landed
 
