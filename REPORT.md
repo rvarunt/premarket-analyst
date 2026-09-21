@@ -1,4 +1,4 @@
-# Premarket Report: September 18, 2026
+# Premarket Report: September 21, 2026
 
 *Two-brain pass: Claude and GPT independently review the tape, then compare notes.*
 
@@ -6,97 +6,98 @@
 
 ## Summary
 
-- **The tape in one line:** Green across the board on the proxies that came through: S&P 500 (via SPY) +1.14%, Nasdaq (via QQQ) +1.73%, Dow (via DIA) +0.59%, Russell 2000 (via IWM) +0.51%. VIX, the 10-year, the 3-month, oil, and the dollar all came back null, rate-limited even after retries, so there's no read on volatility or rates this morning.
-- **The catch we're watching:** Twenty gappers made it through the scan this time (Alpaca screener, not the static fallback), several of them with real, specific catalysts. But none of them cleared either watchlist bar. The big movers are all sub-$1B names, and every cap-qualified large name (SMCI, INTC, HL, CDE, MARA, NOK, KEEL) is still sitting just under yesterday's high in the premarket quote, HL the closest miss at about 1% under.
+- **The tape in one line:** Mixed open on the proxies that came through: S&P 500 (via SPY) -0.13%, Dow (via DIA) -0.48%, Russell 2000 (via IWM) -0.46%, only Nasdaq (via QQQ) +0.62% in the green. VIX, the 10 year, the 3 month, oil, and the dollar all came back null again, yfinance rate limited every one of them even after retries.
+- **The catch we're watching:** Twenty gappers came through the Alpaca screener, and four large caps (MARA, KEEL, PURR, BMNR) clear every leg of both watchlist bars except one: their premarket quote is still just under yesterday's high. IBIT and ETHA are even closer misses on the day trading bar alone. Neither watchlist cleared.
 - **Two-brain verdict:** Single brain, no second opinion to compare.
 
 ## Pre-Market Gappers
 
-- **AEMD** +374.1% — "Aethlon Medical Q1 2027 Earnings Call Transcript"
-- **PAAI** +271.2% — "Why Paradium.AI Stock Skyrocketed Thursday: Inside the $1 Billion Deal and Complex Corporate Reunion"
-- **DAIC** +163.7% — "Aethlon Medical, Oklo, CID HoldCo, Xenon Pharmaceuticals and Moderna: Why These 5 Stocks Are on Investors' Radars Today"
-- **BIAF** +63.6% — "BioAffinity Technologies Stock Surges Following Hong Kong Patent Grant"
-- **NGHT** +45.5% — "Bitcoin After Dark: New NGHT ETF Targets Overnight Alpha With Treasury Twist"
-- **MNOV** +36.9% — "12 Health Care Stocks Moving In Thursday's Intraday Session"
-- **AEHL** +33.3% — "Antelope Enterprise Stock Surges Thursday: What's Driving the Move?"
-- **TEMC** +29.1% — no catalyst found
-- **TEMT** +28.9% — "High Altitude, Higher Risk: Tradr Launches Leveraged Plays On Archer Aviation, Upstart"
-- **HSCS** +27.7% — "HeartSciences Announces Fortitude Mining Holdings Purchased 411,522 Shares For About $1M At $2.43/Share, A 22% Premium, Bringing Stake To About 9.4%"
-- **SDGR** +26.4% — "Schrödinger Announces Formation Of Tectora, New Biotechnology Company; Tectora Secures $55M Series A Investment From NEA And RA Capital Management"
-- **CYPH** +25.8% — "8 Health Care Stocks Whale Activity In Today's Session"
-- **MTC** +25.4% — "12 Information Technology Stocks Moving In Wednesday's Intraday Session"
-- **SMCI** +9.5% — "Super Micro Computer Stock Climbs Thursday: What's Going On?"
-- **INTC** +7.7% — "SK hynix's Solidigm Eyes New York for US Chip Factory"
-- **KEEL** +6.0% — "Southern Company's Subsidiary PowerSecure Agrees To Provide Fully Integrated Backup Resiliency Solution For Keel Infrastructure's Data Center Campus In Moses Lake, Washington"
-- **MARA** +5.4% — "Why Is MARA Stock Falling on Thursday?"
-- **HL** +5.3% — "Warsh's Remarks Are Sinking Mining Stocks: Here's Why"
-- **CDE** +5.2% — "Chips, Asset Managers and Consumer Names Slide After Warsh's Press Conference: The 10 Biggest Losers"
-- **NOK** +4.6% — "Nokia Stock Jumps as Microsoft Deal Deepens Its AI Network Push"
+- **OIG** +2967.6%: "12 Industrials Stocks Moving In Friday's After-Market Session"
+- **IMCC** +143.1%: "Why Lobo Technologies Shares Are Trading Higher By Around 32%; Here Are 20 Stocks Moving Premarket"
+- **GEMG** +60.4%: "Trading Halt: Halted at 7:50:00 p.m. ET - Trading Halt: Halt News Pending"
+- **TJGC** +53.0%: "TJGC Group Files Prospectus For Offering $100M Mixed Shelf"
+- **PCTTU** -50.7%: "8 Stocks Halted In Tuesday's Session"
+- **TNMG** +43.9%: "TNL Mediagene To Implement 1-for-8 Share Consolidation Effective September 8"
+- **SVRN** +43.2%: "12 Industrials Stocks Moving In Friday's Intraday Session"
+- **AUC** +39.5%: "ATIF Holdings Appoints CEO Kamran Khan As Interim CFO, Succeeding Shibin Yu"
+- **HUHU** +39.0%: "HUHUTECH International Says Japanese Subsidiary Selected For Unnamed Hiroshima Semiconductor Manufacturer's Tool Hook-Up Program Spanning FY2027 And FY2028; No Minimum Volume Or Value Committed"
+- **PRPL** +34.3%: "Purple Innovation Q2 Adj. EPS $(1.52) Beats $(1.67) Estimate, Sales $98.270M Miss $105.687M Estimate"
+- **DAIC** -33.0%: "Aethlon Medical, Oklo, CID HoldCo, Xenon Pharmaceuticals and Moderna: Why These 5 Stocks Are on Investors' Radars Today"
+- **MSTP** +32.7%: "Trading Halt: Halt status updated at 8:55:00 AM ET: Quotation Resumption: News and Resumption Times"
+- **XENE** -30.7%: "Dow Falls Over 200 Points; Xenon Pharmaceuticals Shares Plunge"
+- **MARA** +13.7%: "Why Is MARA Stock Surging on Friday?"
+- **KEEL** +10.7%: "Southern Company's Subsidiary PowerSecure Agrees To Provide Fully Integrated Backup Resiliency Solution For Keel Infrastructure's Data Center Campus In Moses Lake, Washington"
+- **PURR** +9.8%: "PURR Jumps 8% as SEC Approves 'Innovation Exemption' for Tokenized Stock Trading"
+- **BMNR** +8.7%: "Why Is BitMine Stock Surging on Friday?"
+- **ETHA** +7.8%: "Ethereum's Layer-2 Tokens Rallied Up to 26% in a Day. Why Ethereum Only Managed 7%"
+- **IBIT** +6.2%: "JPMorgan Says Bitcoin Could Beat Gold as Analyst Predicts It'll 'Triple' Gold"
+- **NFLX** -4.6%: "Why Is Netflix Stock Falling Friday?"
 
 ## Day Trading Watchlist
 
 No names cleared the day-trading bar today. That flag encodes gap over 3%, price over $3, market cap over $1B, premarket RVOL over 1.5, and price already breaking above yesterday's high.
 
-Seven names actually clear every leg of that rule except the last one. SMCI, INTC, KEEL, MARA, HL, CDE, and NOK all have market cap over $1B, gap over 3%, and heavy RVOL (41x to 56x on the megacaps), but the premarket quote is still sitting under yesterday's high on every single one:
+Six names clear every leg of that rule except the last one. All six have market cap well over $1B and heavy RVOL (27x to 57x), but the premarket quote is still sitting just under yesterday's high on every one of them:
 
 | Ticker | Price now | Prior day high | Gap to clear |
 |---|---|---|---|
-| HL | $18.95 | $19.14 | -1.0% |
-| SMCI | $40.34 | $41.00 | -1.6% |
-| CDE | $19.99 | $20.30 | -1.5% |
-| MARA | $11.65 | $11.88 | -1.9% |
-| NOK | $10.605 | $10.86 | -2.3% |
-| INTC | $108.75 | $111.36 | -2.3% |
-| KEEL | $3.615 | $3.75 | -3.6% |
+| IBIT | $46.01 | $46.12 | -0.2% |
+| ETHA | $19.90 | $19.97 | -0.4% |
+| MARA | $13.24 | $13.31 | -0.5% |
+| BMNR | $25.95 | $26.36 | -1.6% |
+| KEEL | $4.00 | $4.08 | -2.0% |
+| PURR | $14.075 | $14.46 | -2.7% |
 
-HL is the closest. Worth a look if it actually trades through $19.14 once the session opens, but as of this scan (7:22am ET) none of them have triggered.
+IBIT is the closest, less than a quarter percent under yesterday's high. But this scan ran at 7:18am ET, well before the open, so none of these are real trades yet, they're names to watch for a break the moment the session starts.
+
+One more note: the scanner marks `today_open` as null for every gapper (no real print yet) and uses the premarket quote as a stand-in per the packet's own gaps-to-fill note. Treat the table above as directional, not exact, until the actual open prints.
 
 ## Swing Watchlist
 
 No names cleared the swing bar either. That flag encodes gap of 8% or more, price over $3, open above yesterday's high, open above the 200-day SMA, market cap of $800M or more, and a real catalyst behind the move.
 
-Plenty of names clear the 8% gap threshold (AEMD, PAAI, DAIC, BIAF, NGHT, MNOV, AEHL, TEMT, HSCS, SDGR, CYPH, MTC), but every one of them is under the $800M market cap floor, MTC is the closest at $653M. None of them have a premarket quote above yesterday's high either. So the gap size is there on paper, but the size and the level aren't.
+MARA, KEEL, PURR, and BMNR all clear the 8% gap floor and the $800M cap floor, and all four are above their 200-day SMA. But they're the same four names sitting just under yesterday's high from the table above, so none of them clear the swing bar either. ETHA and IBIT don't even reach the 8% swing floor (7.8% and 6.2%), so they're day-trading-only near-misses, not swing near-misses.
+
+Plenty of the smaller names clear the 8% gap threshold on paper (IMCC, GEMG, TJGC, TNMG, SVRN, AUC, HUHU, PRPL, MSTP), but every one of them is under the $800M market cap floor, TJGC is the closest at $258M. So the gap size is there, the level and the size aren't.
 
 ## Market Trends of the Day
 
-The Fed is still the dominant story in the news feed, and it's a split read. One MarketWatch piece has the FOMC sounding "never been so confident on economic growth" per KKR, while another calls this week's rate statement the tersest since 2007, just 130 words, per Bank of America. A third headline says the Fed raised rates for the first time in three years as diesel and gas prices surge, and a fourth flags the 10-year Treasury having its worst run in over 100 years, with the framing that investors are buying bonds anyway.
+Today's `market_news` feed leans general finance and lifestyle, not a tight macro thread like some prior runs, but a few real market items surface. Futures sentiment into the week: "Dow, S&P 500, Nasdaq futures rise as oil falls, anticipation builds for Trump-Xi summit," and a separate item flags "Trump and Xi dine with AI titans and Meta takes the stage" as the thing to watch this week. That framing doesn't quite match what the packet's own index proxies show as of the scan (S&P, Dow, and Russell proxies all slightly red, only Nasdaq green), so treat the futures-rally headline as a different moment in the morning than this scan's snapshot.
 
-Chips and AI are the second thread. "Micron, Intel and other chip stocks are furthering their strong comebacks" per MarketWatch, and Nvidia's Jensen Huang is quoted in the feed calling Elon Musk's "Terafab" audacious but plausible: "If anybody could do it, he can." That lines up with what's actually gapping this morning too: SMCI and INTC are both on today's gapper list, though neither has cleared its trigger yet (see Day Trading Watchlist above).
+Consumer stress is a visible thread: "Key Christmas retailer files for Chapter 11 bankruptcy" and "Dollar General CEO raises major red flag about consumers" both point the same direction. Goldman strategists are flagging that "corporate earnings are growing much faster than the economy," a bubble-concern framing worth keeping in mind against any single hot gapper. Novo Nordisk is down on its 2030 goals reveal, and Chevron's CEO is out with commentary on oil price and the economy, both worth a glance if energy or healthcare context matters to your other positions.
 
-Energy has its own thread: Standard Chartered sees a higher oil floor as the Hormuz Strait crisis spreads to Saudi export routes, and a separate piece asks whether investors should keep climbing on Exxon (XOM) as it keeps climbing.
-
-Corporate-action flow: Warren Buffett has stepped aside as Berkshire Hathaway chairman with his son Howard taking over, GE Vernova and Vineyard Wind settled a $300M-plus offshore wind dispute, and Liberty Global is weighing whether £600M of proposed Virgin Media O2 cuts can reduce debt. Also in the feed: the Clarity Act (crypto market structure bill) failed to advance, described as "business as usual."
+Crypto is the real story behind today's biggest qualified gappers: MARA, KEEL, PURR, BMNR, ETHA, and IBIT all show up on the gapper list together, and their own catalyst headlines point at a Bitcoin and Ethereum rally (Bitcoin topping $80,000, Ethereum eyeing a $3,000 rebound, JPMorgan calling for Bitcoin to triple gold). That's a coherent group move, not six unrelated coincidences.
 
 ## Technical Signals for Today
 
-Partial data this morning. The four major index proxies came through via Alpaca ETF data and are all green: S&P 500 (SPY proxy) +1.14%, Dow (DIA proxy) +0.59%, Nasdaq (QQQ proxy) +1.73%, Russell 2000 (IWM proxy) +0.51%. These are ETF stand-ins, not the actual index prints, so treat them as directional, not exact.
+Partial data again this morning. The four major index proxies came through via Alpaca ETF data: S&P 500 (SPY proxy) -0.13%, Dow (DIA proxy) -0.48%, Nasdaq (QQQ proxy) +0.62%, Russell 2000 (IWM proxy) -0.46%. Mixed, not a clean risk-on or risk-off tape. These are ETF stand-ins, not the actual index prints, so treat them as directional.
 
-VIX, the 10-year yield, the 3-month yield, WTI crude, and the dollar index all came back null, yfinance rate-limited them even after retries. No read on volatility or rates levels this morning.
+VIX, the 10-year yield, the 3-month yield, WTI crude, and the dollar index all came back null, yfinance rate limited them even after retries. No read on volatility or rates levels this morning.
 
 ## Economic Data, Rates and the Fed
 
-Nothing on the calendar. The econ calendar (high-impact USD only) shows zero events for today, September 18, or tomorrow, September 19.
+Nothing on the calendar. The econ calendar (high-impact USD only) shows zero events for today, September 21, and zero for tomorrow, September 22.
 
 ## Coming Up
 
-- **Tomorrow's events:** None in the calendar for September 19.
-- **Earnings:** No earnings dates available. Every gapper's `next_earnings_date` field came back null this run, the enrichment step that pulls it got rate-limited across the board (103 failed requests total this scan, per the packet's own gaps-to-fill note).
+- **Tomorrow's events:** None in the calendar for September 22.
+- **Earnings:** No earnings dates available. Every gapper's `next_earnings_date` field came back null this run. The packet's own gaps-to-fill note says 106 requests failed even after retries this scan, and the per-ticker enrichment log shows yfinance returning "Too Many Requests" on every single ticker's intraday, news, and earnings pull.
 
 ## Skips and Traps
 
-A few things stand out enough to call out by name, even though nothing here made either watchlist:
+**OIG is close to a total data blackout.** A +2967.6% gap off a $0.38 prior close, but there's no market cap, no volume, no RVOL, and no intraday data at all, both the daily bars and intraday sources came back "unavailable." The only catalyst headlines on file are stale, dated August 2023 and generic ("12 Industrials Stocks Moving," a Dow/NVIDIA market recap). Nothing in the packet explains today's move. Don't touch this one.
 
-**MARA, HL, and CDE are up against their own headlines.** MARA's catalyst text is literally "Why Is MARA Stock Falling on Thursday?" and "MARA Holdings Stock Slides Amid Bitcoin Pullback," while the packet has it gapping +5.4%. HL's lead headline is "Warsh's Remarks Are Sinking Mining Stocks," paired with a +5.3% gap. CDE's is "Chips, Asset Managers and Consumer Names Slide After Warsh's Press Conference: The 10 Biggest Losers," paired with a +5.2% gap. All three have a catalyst headline that describes the stock or its sector going down, attached to a gap that's going up. That's a mismatch worth treating with suspicion rather than as a real bullish catalyst, whatever's actually printed on the tape may not match the story behind it.
+**PRPL and TJGC are up on news that isn't clean good news.** PRPL beat on EPS but missed on sales and cut its FY2026 sales guidance from $465-485M down to $420-440M, guidance cuts are explicitly the kind of headline that should make a gap-up suspicious, not confirm it, even though the packet also shows a genuine EPS beat in the mix. TJGC's most recent headline is a $100M mixed shelf prospectus, a dilutive filing, while the stock is gapping up 53%; there's an older AI/robotics IP licensing headline in the same ticker's history that could be the real story, but the freshest item on file is the shelf filing. Both are worth a second look before trusting the pop, though neither clears the cap floor for either watchlist anyway.
 
-**NGHT and TEMT look like data artifacts, not single-stock gappers.** NGHT's own headline is "Bitcoin After Dark: New NGHT ETF Targets Overnight Alpha," and there's a trading-halt note about it being released for quotation, this reads like a brand-new ETF listing, not a normal gap. TEMT's headline is about Tradr launching leveraged ETF products. Both have no market cap data (SEC EDGAR has nothing to backfill), consistent with them not being ordinary operating companies.
+**IMCC, SVRN, AUC, and GEMG have thin or mismatched catalysts.** `catalyst_found` is true for all four, but IMCC's most relevant headline is actually about Lobo Technologies, a different company, and SVRN's includes a headline about iSpecimen, also a different company. AUC's only ticker-specific item is a CEO appointment from earlier this year, not a same-day story. GEMG has no market cap data (SEC EDGAR has no CIK for it) and its two headlines are a stale trading halt notice and an unrelated leveraged-ETF product launch. None of these four have a real, fresh, ticker-specific reason for today's move sitting in the packet.
 
-**CYPH, MTC, DAIC, and MNOV have thin or generic catalysts.** `catalyst_found` is technically true for all four, but the actual headlines are sector roundup mentions ("12 Health Care Stocks Moving," "12 Information Technology Stocks Moving") or a stock-radar list, not a story specific to the ticker. CYPH in particular is filed under health care roundups despite being Cypherpunk Technologies, a naming mismatch worth a second look before trusting the sector tag.
+**TNMG and MSTP look like corporate-action or product artifacts.** TNMG just implemented a 1-for-8 reverse share consolidation effective September 8, which can distort gap and RVOL math for a while after the fact. MSTP has no market cap data at all and its only non-halt headline is about a different, similarly-named leveraged crypto ETF product crashing, consistent with MSTP itself being a fund or derivative product rather than an operating company.
 
-**INTC's catalyst is indirect.** The lead headline is about SK hynix's Solidigm looking at a competitor factory, not Intel news, plus general market-sentiment and whale-alert list items. Nothing in the packet is an Intel-specific story behind today's gap.
+**PCTTU's catalyst is three years stale.** The only headline on file is "8 Stocks Halted In Tuesday's Session" from 2022. Nothing in the packet explains today's -50.7% move.
 
-**TEMC has no catalyst at all.** `catalyst_found: false` despite a 29.1% gap, so it's a skip regardless of what the numbers say.
+**HUHU has real, specific catalysts** (semiconductor subsidiary contract wins, a purchase order, a construction milestone) but sits at a $141M market cap, well under both watchlist floors. Worth knowing the name, but the rules aren't built to size it.
 
-**AEMD, PAAI, and BIAF have real, specific catalysts** (an earnings call transcript, a named $1B deal, a Hong Kong patent grant) but are all far under the $1B/$800M caps either rules bar requires, AEMD's market cap is $4.8M, PAAI's is $159M, BIAF's is $71M. Worth knowing the names, but the rules-based watchlists aren't built to size these.
+**XENE, DAIC, and NFLX are down moves with catalysts that actually match the direction**, not traps, just not gap-up candidates. XENE's headlines ("Xenon Pharmaceuticals Shares Plunge," "Xenon Stock Reaction Is Overblown: Analyst") line up with its -30.7% gap. NFLX's headlines ("Why Is Netflix Stock Falling Friday?", a Wells Fargo target cut) line up with its -4.6% gap. DAIC only shows up in a generic radar-list headline, no clear reason for its -33.0% drop in the packet.
 
 ## Where the Two Brains Landed
 
