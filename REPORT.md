@@ -1,4 +1,4 @@
-# Premarket Report: September 21, 2026
+# Premarket Report: September 22, 2026
 
 *Two-brain pass: Claude and GPT independently review the tape, then compare notes.*
 
@@ -6,98 +6,111 @@
 
 ## Summary
 
-- **The tape in one line:** Mixed open on the proxies that came through: S&P 500 (via SPY) -0.13%, Dow (via DIA) -0.48%, Russell 2000 (via IWM) -0.46%, only Nasdaq (via QQQ) +0.62% in the green. VIX, the 10 year, the 3 month, oil, and the dollar all came back null again, yfinance rate limited every one of them even after retries.
-- **The catch we're watching:** Twenty gappers came through the Alpaca screener, and four large caps (MARA, KEEL, PURR, BMNR) clear every leg of both watchlist bars except one: their premarket quote is still just under yesterday's high. IBIT and ETHA are even closer misses on the day trading bar alone. Neither watchlist cleared.
+- **The tape in one line:** All four index proxies are green: S&P 500 (via SPY) +1.56%, Dow (via DIA) +0.77%, Nasdaq (via QQQ) +2.78%, Russell 2000 (via IWM) +0.52%. Tech is leading. VIX, the 10 year, the 3 month, oil, and the dollar all came back null, yfinance rate limited every one of them even after retries.
+- **The catch we're watching:** Seven large caps (AAL, BMNR, WBD, IBIT, SMCI, INTC, GRAL) are sitting between dead even and 2.4% under yesterday's high, real names with real stories (crypto, AI/chips, an M&A ruling), but this scan ran at 7:13am ET, before the open, so none of them have actually broken through yet. Both watchlists are empty for now.
 - **Two-brain verdict:** Single brain, no second opinion to compare.
 
 ## Pre-Market Gappers
 
-- **OIG** +2967.6%: "12 Industrials Stocks Moving In Friday's After-Market Session"
-- **IMCC** +143.1%: "Why Lobo Technologies Shares Are Trading Higher By Around 32%; Here Are 20 Stocks Moving Premarket"
-- **GEMG** +60.4%: "Trading Halt: Halted at 7:50:00 p.m. ET - Trading Halt: Halt News Pending"
-- **TJGC** +53.0%: "TJGC Group Files Prospectus For Offering $100M Mixed Shelf"
-- **PCTTU** -50.7%: "8 Stocks Halted In Tuesday's Session"
-- **TNMG** +43.9%: "TNL Mediagene To Implement 1-for-8 Share Consolidation Effective September 8"
-- **SVRN** +43.2%: "12 Industrials Stocks Moving In Friday's Intraday Session"
-- **AUC** +39.5%: "ATIF Holdings Appoints CEO Kamran Khan As Interim CFO, Succeeding Shibin Yu"
-- **HUHU** +39.0%: "HUHUTECH International Says Japanese Subsidiary Selected For Unnamed Hiroshima Semiconductor Manufacturer's Tool Hook-Up Program Spanning FY2027 And FY2028; No Minimum Volume Or Value Committed"
-- **PRPL** +34.3%: "Purple Innovation Q2 Adj. EPS $(1.52) Beats $(1.67) Estimate, Sales $98.270M Miss $105.687M Estimate"
-- **DAIC** -33.0%: "Aethlon Medical, Oklo, CID HoldCo, Xenon Pharmaceuticals and Moderna: Why These 5 Stocks Are on Investors' Radars Today"
-- **MSTP** +32.7%: "Trading Halt: Halt status updated at 8:55:00 AM ET: Quotation Resumption: News and Resumption Times"
-- **XENE** -30.7%: "Dow Falls Over 200 Points; Xenon Pharmaceuticals Shares Plunge"
-- **MARA** +13.7%: "Why Is MARA Stock Surging on Friday?"
-- **KEEL** +10.7%: "Southern Company's Subsidiary PowerSecure Agrees To Provide Fully Integrated Backup Resiliency Solution For Keel Infrastructure's Data Center Campus In Moses Lake, Washington"
-- **PURR** +9.8%: "PURR Jumps 8% as SEC Approves 'Innovation Exemption' for Tokenized Stock Trading"
-- **BMNR** +8.7%: "Why Is BitMine Stock Surging on Friday?"
-- **ETHA** +7.8%: "Ethereum's Layer-2 Tokens Rallied Up to 26% in a Day. Why Ethereum Only Managed 7%"
-- **IBIT** +6.2%: "JPMorgan Says Bitcoin Could Beat Gold as Analyst Predicts It'll 'Triple' Gold"
-- **NFLX** -4.6%: "Why Is Netflix Stock Falling Friday?"
+- **GRML** +230.5%: "Greenland Stocks Explode After Trump's Denmark Deal — GRML Up 245%"
+- **VEEE** +100.9%: "12 Consumer Discretionary Stocks Moving In Monday's After-Market Session"
+- **CRMU** +76.0%: "Trump, Greenland Deal Sparks CRML Trading Frenzy: These ETFs Rocket 75%"
+- **CRMX** +74.8%: "Trump, Greenland Deal Sparks CRML Trading Frenzy: These ETFs Rocket 75%"
+- **AVAZ** +70.7%: no catalyst headline in the packet (`catalyst_found: false`)
+- **CRMLW** +65.0%: no catalyst headline in the packet (`catalyst_found: false`)
+- **TXXS** +53.7%: "Trading Halt: Halt status updated at 9:40:00 AM ET: Quotation Resumption: New Issue Available"
+- **SUIL** +53.7%: no catalyst headline in the packet (`catalyst_found: false`)
+- **SVRN** +45.2%: "12 Industrials Stocks Moving In Monday's Intraday Session"
+- **CRML** +38.6%: "Trump, Greenland Deal Sparks CRML Trading Frenzy: These ETFs Rocket 75%"
+- **ARMA** +35.6%: "Corgi's ETF Pack Grows Yet Again with 24 New Leveraged and Buffer Launches"
+- **SMX** -35.5%: "SMX Says Digital Material Passport Platform Can Support Tokenization Of Real-World Assets By Linking Authenticated Physical Materials To Digital Records; Extending Infrastructure Through Plastic Cycle Token"
+- **GRAL** +33.7%: "Low False Positives and High Accuracy: FDA Document Fueling Grail Stock Surge"
+- **NUAI** +30.6%: "New Era Locks in 20-Year Vistra Power Deal for Texas AI Data Center"
+- **INTC** +12.0%: "Intel Shares Rise Over 5% After Key Trading Signal"
+- **WBD** +10.7%: "Paramount's $110B Warner Bros. Discovery Merger Clears Legal Hurdle; Elizabeth Warren Says Letting Trump-Aligned Entity 'Dominate' News Is 'Disastrous'"
+- **BMNR** +8.8%: "Why Is BitMine Immersion Stock Surging Monday?"
+- **IBIT** +6.5%: "Bitcoin and ethereum prices today, Monday, September 21, 2026: Crypto prices hit highest levels in 8 months"
+- **SMCI** +5.3%: "Super Micro Says AI Opportunity Could Reach $4 Trillion: 'The Sky's the Limit'"
+- **AAL** +4.8%: "Why Is American Airlines Stock Surging on Thursday?"
 
 ## Day Trading Watchlist
 
 No names cleared the day-trading bar today. That flag encodes gap over 3%, price over $3, market cap over $1B, premarket RVOL over 1.5, and price already breaking above yesterday's high.
 
-Six names clear every leg of that rule except the last one. All six have market cap well over $1B and heavy RVOL (27x to 57x), but the premarket quote is still sitting just under yesterday's high on every one of them:
+Six of the cap-qualified names clear every leg of that rule except the last one, they just haven't broken above yesterday's high yet:
 
 | Ticker | Price now | Prior day high | Gap to clear |
 |---|---|---|---|
-| IBIT | $46.01 | $46.12 | -0.2% |
-| ETHA | $19.90 | $19.97 | -0.4% |
-| MARA | $13.24 | $13.31 | -0.5% |
-| BMNR | $25.95 | $26.36 | -1.6% |
-| KEEL | $4.00 | $4.08 | -2.0% |
-| PURR | $14.075 | $14.46 | -2.7% |
+| AAL | $13.59 | $13.59 | 0.0% |
+| BMNR | $28.235 | $28.33 | -0.3% |
+| WBD | $30.80 | $30.92 | -0.4% |
+| IBIT | $48.99 | $49.22 | -0.5% |
+| SMCI | $41.18 | $41.72 | -1.3% |
+| INTC | $121.73 | $124.69 | -2.4% |
+| GRML | $9.42 | $11.64 | -19.1% |
 
-IBIT is the closest, less than a quarter percent under yesterday's high. But this scan ran at 7:18am ET, well before the open, so none of these are real trades yet, they're names to watch for a break the moment the session starts.
+AAL is sitting exactly on yesterday's high, it just needs one tick up to trigger. Two more names are close but incomplete on other legs: CRML is only 3.1% under its prior day high but its $978M market cap misses the $1B day-trading floor, and GRAL is only 3.0% under its prior day high but its RVOL field came back null this run (yfinance rate limited), so it can't be confirmed as clearing that leg either way.
 
-One more note: the scanner marks `today_open` as null for every gapper (no real print yet) and uses the premarket quote as a stand-in per the packet's own gaps-to-fill note. Treat the table above as directional, not exact, until the actual open prints.
+GRML is the biggest gap of the day by far but it's the least close of this group, still 19.1% under yesterday's high, so despite RVOL of 2922x its 20-day average, it's not a near-miss.
+
+This scan ran at 7:13am ET, well before the open, and the packet's own gaps-to-fill note says the scanner uses the current gap price as a stand-in for the real open. Treat the table above as directional, not exact, until the actual open prints.
 
 ## Swing Watchlist
 
 No names cleared the swing bar either. That flag encodes gap of 8% or more, price over $3, open above yesterday's high, open above the 200-day SMA, market cap of $800M or more, and a real catalyst behind the move.
 
-MARA, KEEL, PURR, and BMNR all clear the 8% gap floor and the $800M cap floor, and all four are above their 200-day SMA. But they're the same four names sitting just under yesterday's high from the table above, so none of them clear the swing bar either. ETHA and IBIT don't even reach the 8% swing floor (7.8% and 6.2%), so they're day-trading-only near-misses, not swing near-misses.
+BMNR, WBD, GRAL, INTC, and NUAI all clear the 8% gap floor, the $800M cap floor, the 200-day SMA, and the catalyst check. All five are blocked only by the same "open above yesterday's high" leg as the day-trading table above, from -0.3% (BMNR) to -3.5% (NUAI, see the Skips and Traps note on that one).
 
-Plenty of the smaller names clear the 8% gap threshold on paper (IMCC, GEMG, TJGC, TNMG, SVRN, AUC, HUHU, PRPL, MSTP), but every one of them is under the $800M market cap floor, TJGC is the closest at $258M. So the gap size is there, the level and the size aren't.
+CRML clears the gap, price, cap, and catalyst legs but fails two at once: its open ($9.33) is below both its prior day high ($9.63) and its own 200-day SMA ($9.67).
+
+GRML clears the cap and catalyst legs easily and its 200-day SMA is tiny ($0.78) so that leg isn't close, but it's 19.1% under yesterday's high on the open-vs-high leg, same gap as the day-trading table.
+
+IBIT, SMCI, and AAL don't even reach the 8% swing floor (6.5%, 5.3%, 4.8%), so they're day-trading-only near-misses, not swing near-misses.
 
 ## Market Trends of the Day
 
-Today's `market_news` feed leans general finance and lifestyle, not a tight macro thread like some prior runs, but a few real market items surface. Futures sentiment into the week: "Dow, S&P 500, Nasdaq futures rise as oil falls, anticipation builds for Trump-Xi summit," and a separate item flags "Trump and Xi dine with AI titans and Meta takes the stage" as the thing to watch this week. That framing doesn't quite match what the packet's own index proxies show as of the scan (S&P, Dow, and Russell proxies all slightly red, only Nasdaq green), so treat the futures-rally headline as a different moment in the morning than this scan's snapshot.
+Tech is doing the heavy lifting this morning. Nasdaq (QQQ proxy) is up 2.78%, well ahead of the other three indices, and the market news feed backs that up: "Meta's stock is enjoying its best month in 13 years thanks to the company's hot new AI assistant," and INTC's own catalyst headline references "Meta's Muse Hits No. 1, Carrying AMD Into the $1-Trillion Club." AI infrastructure names (INTC, SMCI, NUAI's Vistra power deal) are all part of the same thread.
 
-Consumer stress is a visible thread: "Key Christmas retailer files for Chapter 11 bankruptcy" and "Dollar General CEO raises major red flag about consumers" both point the same direction. Goldman strategists are flagging that "corporate earnings are growing much faster than the economy," a bubble-concern framing worth keeping in mind against any single hot gapper. Novo Nordisk is down on its 2030 goals reveal, and Chevron's CEO is out with commentary on oil price and the economy, both worth a glance if energy or healthcare context matters to your other positions.
+Crypto is the other clear group move. Bitcoin is at an 8-month high per the market news feed, "extreme greed" language is showing up in BMNR's own catalyst headlines, and both BMNR (+8.8%) and IBIT (+6.5%) are gapping up on it together, a coherent pair, not a coincidence.
 
-Crypto is the real story behind today's biggest qualified gappers: MARA, KEEL, PURR, BMNR, ETHA, and IBIT all show up on the gapper list together, and their own catalyst headlines point at a Bitcoin and Ethereum rally (Bitcoin topping $80,000, Ethereum eyeing a $3,000 rebound, JPMorgan calling for Bitcoin to triple gold). That's a coherent group move, not six unrelated coincidences.
+Energy is a cross-current. "Morning Bid: As oil swoons, AI recharges" suggests oil is falling even as stocks rally, but the packet's own WTI Oil field came back null (yfinance rate limited), so there's no number to confirm that today. A separate item warns "Global diesel shortage from Iran, Ukraine wars to last into 2027," and airlines are "cutting capacity again amid $1B surge in Q4 fuel costs," a headline that lines up with AAL sitting on today's gapper list.
+
+There's also a small geopolitical cluster driving several of today's biggest gap percentages: the Trump administration's Denmark/Greenland deal is the named catalyst behind GRML (+230.5%) and CRML (+38.6%), and that same CRML rally is what's cited (not always cleanly) for CRMU and CRMX too, see Skips and Traps.
+
+Elsewhere, gold is "holding as Chinese gold imports set record" (a risk hedge even during a risk-on tech rally), and Home Depot's CFO is flagging a "frozen" housing market with a key metric at a historic low, worth knowing if that's relevant to any other positions.
 
 ## Technical Signals for Today
 
-Partial data again this morning. The four major index proxies came through via Alpaca ETF data: S&P 500 (SPY proxy) -0.13%, Dow (DIA proxy) -0.48%, Nasdaq (QQQ proxy) +0.62%, Russell 2000 (IWM proxy) -0.46%. Mixed, not a clean risk-on or risk-off tape. These are ETF stand-ins, not the actual index prints, so treat them as directional.
+All four major index proxies came through green via Alpaca ETF data: S&P 500 (SPY proxy) +1.56%, Dow (DIA proxy) +0.77%, Nasdaq (QQQ proxy) +2.78%, Russell 2000 (IWM proxy) +0.52%. Nasdaq's lead over the other three is the clearest signal here, a tech-led tape. These are ETF stand-ins, not the actual index prints, so treat them as directional.
 
-VIX, the 10-year yield, the 3-month yield, WTI crude, and the dollar index all came back null, yfinance rate limited them even after retries. No read on volatility or rates levels this morning.
+VIX, the 10-year yield, the 3-month yield, WTI crude, and the dollar index all came back null, yfinance rate limited them even after retries. No read on volatility, rates, or the dollar this morning.
 
 ## Economic Data, Rates and the Fed
 
-Nothing on the calendar. The econ calendar (high-impact USD only) shows zero events for today, September 21, and zero for tomorrow, September 22.
+Nothing on the calendar. The econ calendar (high-impact USD only) shows zero events for today, September 22, and zero for tomorrow, September 23.
 
 ## Coming Up
 
-- **Tomorrow's events:** None in the calendar for September 22.
-- **Earnings:** No earnings dates available. Every gapper's `next_earnings_date` field came back null this run. The packet's own gaps-to-fill note says 106 requests failed even after retries this scan, and the per-ticker enrichment log shows yfinance returning "Too Many Requests" on every single ticker's intraday, news, and earnings pull.
+- **Tomorrow's events:** None in the calendar for September 23.
+- **Earnings:** No forward earnings dates available. Every gapper's `next_earnings_date` field came back null this run. The packet's own gaps-to-fill note says 108 requests failed even after retries this scan, and the per-ticker enrichment log shows yfinance returning "Too Many Requests" on every single ticker's intraday, news, and earnings pull.
 
 ## Skips and Traps
 
-**OIG is close to a total data blackout.** A +2967.6% gap off a $0.38 prior close, but there's no market cap, no volume, no RVOL, and no intraday data at all, both the daily bars and intraday sources came back "unavailable." The only catalyst headlines on file are stale, dated August 2023 and generic ("12 Industrials Stocks Moving," a Dow/NVIDIA market recap). Nothing in the packet explains today's move. Don't touch this one.
+**NUAI's gap has a real catalyst and a real red flag sitting side by side.** The Vistra 20-year power deal for a Texas AI data center is a genuine, specific, bullish catalyst and is likely what's actually driving the +30.6% move. But the packet also carries a fresh headline on the same ticker: "New Era Energy & Digital Q2 EPS $(0.21) Misses $(0.09) Estimate, Sales $36.497K Miss $433.333K Estimate," sales in the thousands against an $815M market cap. That's the kind of mismatch worth being suspicious of even though it's not the headline driving today's pop. NUAI was also the closest swing near-miss after BMNR/WBD/GRAL/INTC, 3.5% under its prior day high, so keep this one on the "watch, don't trust blindly" list if it does clear that leg later.
 
-**PRPL and TJGC are up on news that isn't clean good news.** PRPL beat on EPS but missed on sales and cut its FY2026 sales guidance from $465-485M down to $420-440M, guidance cuts are explicitly the kind of headline that should make a gap-up suspicious, not confirm it, even though the packet also shows a genuine EPS beat in the mix. TJGC's most recent headline is a $100M mixed shelf prospectus, a dilutive filing, while the stock is gapping up 53%; there's an older AI/robotics IP licensing headline in the same ticker's history that could be the real story, but the freshest item on file is the shelf filing. Both are worth a second look before trusting the pop, though neither clears the cap floor for either watchlist anyway.
+**CRMU and CRMX don't have their own news, they're riding CRML's.** Both tickers' only catalyst headline on file is "Trump, Greenland Deal Sparks CRML Trading Frenzy: These ETFs Rocket 75%," a story about CRML, a different ticker. Neither has market cap data (SEC EDGAR has no CIK for either, consistent with these being leveraged or derivative products rather than operating companies). If they're CRML-tracking products the indirect catalyst makes some sense, but there's nothing in the packet that says so directly. Thin data, don't treat as a clean trade.
 
-**IMCC, SVRN, AUC, and GEMG have thin or mismatched catalysts.** `catalyst_found` is true for all four, but IMCC's most relevant headline is actually about Lobo Technologies, a different company, and SVRN's includes a headline about iSpecimen, also a different company. AUC's only ticker-specific item is a CEO appointment from earlier this year, not a same-day story. GEMG has no market cap data (SEC EDGAR has no CIK for it) and its two headlines are a stale trading halt notice and an unrelated leveraged-ETF product launch. None of these four have a real, fresh, ticker-specific reason for today's move sitting in the packet.
+**AVAZ, CRMLW, and SUIL are automatic skips.** `catalyst_found` is false for all three despite gaps of 70.7%, 65.0%, and 53.7%. Nothing in the packet explains why any of them are moving. Per the rules, no catalyst means no story, and no story means don't trade it.
 
-**TNMG and MSTP look like corporate-action or product artifacts.** TNMG just implemented a 1-for-8 reverse share consolidation effective September 8, which can distort gap and RVOL math for a while after the fact. MSTP has no market cap data at all and its only non-halt headline is about a different, similarly-named leveraged crypto ETF product crashing, consistent with MSTP itself being a fund or derivative product rather than an operating company.
+**VEEE, SVRN, and ARMA have thin or generic catalysts.** VEEE and SVRN's only headlines are "stocks moving" roundup mentions, not distinct company news. ARMA's only headline is a generic leveraged-ETF product launch announcement, not anything specific to ARMA. `catalyst_found` is technically true for all three, but there's no real, fresh, ticker-specific story behind any of them in the packet.
 
-**PCTTU's catalyst is three years stale.** The only headline on file is "8 Stocks Halted In Tuesday's Session" from 2022. Nothing in the packet explains today's -50.7% move.
+**TXXS looks like a brand-new ETF listing, not a company move.** Its headlines are a "21shares 1-For-10 Reverse Stock Split" announcement and a trading halt tied to a new issue resuming quotation, alongside coverage of a new Sui-token leveraged ETF launch. A reverse split plus a new-issue halt right out of the gate makes gap and volume math unreliable here.
 
-**HUHU has real, specific catalysts** (semiconductor subsidiary contract wins, a purchase order, a construction milestone) but sits at a $141M market cap, well under both watchlist floors. Worth knowing the name, but the rules aren't built to size it.
+**GRML is the biggest gap on the board with a real catalyst, but it's not close to either bar.** The Trump-Denmark/Greenland deal is a genuine, fresh, ticker-specific story, but GRML is still 19.1% under yesterday's high, the furthest of any cap-qualified name, and RVOL is 2922x its 20-day average, extreme even for a gapper. Watch it, don't chase it.
 
-**XENE, DAIC, and NFLX are down moves with catalysts that actually match the direction**, not traps, just not gap-up candidates. XENE's headlines ("Xenon Pharmaceuticals Shares Plunge," "Xenon Stock Reaction Is Overblown: Analyst") line up with its -30.7% gap. NFLX's headlines ("Why Is Netflix Stock Falling Friday?", a Wells Fargo target cut) line up with its -4.6% gap. DAIC only shows up in a generic radar-list headline, no clear reason for its -33.0% drop in the packet.
+**AAL's featured headline is stale.** "Why Is American Airlines Stock Surging on Thursday?" predates this scan by several sessions, today is Tuesday. The gap and price numbers are current, but the catalyst text on file isn't necessarily what's moving the stock this morning.
+
+**Wide data blackout this run.** yfinance rate limited essentially every per-ticker intraday, news, and earnings pull, 108 requests failed even after retries. That's why VWAP, high/low of day, premarket high, premarket volume, and next earnings date are null for every single gapper, and why VIX, the 10-year, the 3-month, oil, and the dollar are all null too. Catalyst headlines mostly survived because they came from Alpaca and RSS, not yfinance.
 
 ## Where the Two Brains Landed
 
