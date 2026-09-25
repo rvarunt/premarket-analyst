@@ -1,4 +1,4 @@
-# Premarket Report: September 24, 2026
+# Premarket Report: September 25, 2026
 
 *Two-brain pass: Claude and GPT independently review the tape, then compare notes.*
 
@@ -6,101 +6,87 @@
 
 ## Summary
 
-- **The tape in one line:** Broad red morning via the ETF proxies. Russell 2000 (IWM proxy) leads down at -1.8%, Nasdaq (QQQ proxy) -0.84%, S&P 500 (SPY proxy) -0.71%, Dow (DIA proxy) -0.67%. VIX, the 10 year, the 3 month, oil, and the dollar all came back null, yfinance rate limited every one of them even after retries.
-- **The catch we're watching:** Almost none of today's gapper list is actually gapping. 18 of 20 names show a real move under 2% versus the packet's own `prior_close` field, while `gap_pct` (computed off a stale `prev_close`) shows double or triple digits for the same names. Only **HVIIU** (a real -58.6% crash tied to a SPAC unit resuming quotation) and **AIFU** (a real +13.0% move) are genuinely moving today. See Skips and Traps for the full breakdown, this is why both watchlists came back empty.
+- **The tape in one line:** Index proxies are basically dead flat: S&P 500 (SPY proxy) -0.08%, Nasdaq (QQQ proxy) -0.01%, Russell 2000 (IWM proxy) -0.12%, Dow (DIA proxy) -0.34%. No risk-on or risk-off lean here, this is a quiet morning by any of the four.
+- **The catch we're watching:** Same data problem as the last few sessions. The packet's `gap_pct` field is computed off a stale `prev_close`, not last session's real close. Comparing `price` against the packet's own `prior_close` field instead, 19 of today's 20 gappers show a real move under 3.4%, nowhere close to a gap. Only IPEXU is genuinely moving (-48.6% versus `prior_close`), and it has zero catalyst headlines in the packet. That's the real reason both watchlists came back empty, most of today's list isn't actually gapping at all.
 - **Two-brain verdict:** Single brain, no second opinion to compare.
 
 ## Pre-Market Gappers
 
-- **WHLR** +190.9%: "Wheeler Real Estate Investment Trust Announces 1-For-9 Reverse Stock Split Effective September 21, 2026"
-- **VSA** +83.8%: "VisionSys AI Shares Halted On Circuit Breaker To The Upside, Stock Now Up 87.88%"
-- **ARTL** +76.1%: "Artelo Biosciences Files Provisional Patent Application For ART27.13 As Monotherapy And In Combination With GLP-1 Receptor Agonists"
-- **JAGX** -74.1%: "Jaguar Health Stock Plunges Wednesday: What's Happening?"
-- **HVIIU** -55.3%: "Trading Halt: Halt status updated at 10:35:00 AM ET: Quotation Resumption: IPO Security - Released for Quotation"
-- **HVII** -50.9%: "Hennessy Capital Investment (HVII) Rebounds 17% After Hours — ONE Nuclear Merger Complete"
-- **IPDN** +39.0%: "12 Industrials Stocks Moving In Wednesday's Pre-Market Session"
-- **TJGC** +37.8%: "TJGC Group Announces $2M Stock Repurchase Program"
-- **HUBC** -24.3%: "Hub Cyber Security Announces 1-For-25 Reverse Stock Split, Effective Sept. 11"
-- **DCOY** +24.2%: "12 Health Care Stocks Moving In Wednesday's Pre-Market Session"
-- **EOSU** -23.4%: "New ETF Gives Traders 2X Exposure To A Buzzing Energy Storage Name"
-- **CGEM** -22.2%: "BTIG Maintains Buy on Cullinan Therapeutics, Raises Price Target to $40"
-- **NFE** -21.5%: "New Fortress Energy Announces 1-For-50 Reverse Stock Split Effective September 11"
-- **GRML** -20.9%: "Greenland Mines Fully Funds 2027 Milestones With $42M Raise At $12.00 Per Share, Wraps Sarfartoq NdPr Field Program"
-- **ALKT** -19.3%: "Alkami Concludes Strategic Review, Will Remain Independent Public Company; Reaffirms Full-Year Revenue Guidance Of $528M-$531M"
-- **AIFU** +19.0%: "AIFU Announces Appointment Of Shanyu Chang As CFO Effective Immediately"
-- **CDE** -5.7%: "Coeur Mining Says It Expects To Invest Record $158M In Exploration In 2026; Figure Reflects The Midpoint Of Guidance As Published By Coeur On August 5, 2026."
-- **ONDS** -4.5%: "Ondas Acquires Three Defense Businesses, Insignito, Ottopia Defense And Caribou Labs, For $56M In Cash Or ONDS Stock With Total Potential Earnout Of Up To $32M"
-- **IONQ** +4.4%: "IonQ Removes Major Quantum Barrier, Driving Investor Debate Over Commercial Timelines"
-- **HL** -4.0%: "RBC Capital Maintains Outperform on Hecla Mining, Lowers Price Target to $20"
+- **APUS** +114.9%: "Apimeds Pharmaceuticals Stock Skyrockets Thursday: What's Happening?"
+- **SRZN** +108.4%: "Surrozen Gains Momentum as FDA Submission Opens Path for Lead Therapy"
+- **GLND** +83.9%: "Greenland Energy Enters Farm-Out Agreement With 80 Mile And March GL On The Jameson Land Basin, With The Company Assuming March GL's Rights And Obligations"
+- **PFSA** +47.8%: "Profusa Says It Received Positive Quality System Certification Decision From EU Certifier GMED; Lumee CE Mark Still Pending"
+- **YDES** +47.7%: "YD Bio Publishes Review Article Titled Beyond Bone Health: Exploring The 'Heart-Brain-Bone' Axis Modulated By Lipid-Soluble Nutrients"
+- **TRT** -36.6%: "CORRECTION: Trio-Tech Intl Q4 EPS $(0.02) Down From $0.02 YoY, Sales $14.931M Up From $10.671M YoY"
+- **SPHL** +35.7%: "12 Consumer Discretionary Stocks Moving In Thursday's Intraday Session"
+- **GRML** +33.1%: "Greenland Mines Fully Funds 2027 Milestones With $42M Raise At $12.00 Per Share, Wraps Sarfartoq NdPr Field Program"
+- **AVX** +32.9%: "AVAX One Technology Authorizes $40M Buyback"
+- **IPEXU** -32.0%: no catalyst headline in the packet
+- **WHLR** -31.3%: "Wheeler Real Estate Investment Trust Announces 1-For-9 Reverse Stock Split Effective September 21, 2026"
+- **SVRN** +29.7%: "12 Industrials Stocks Moving In Thursday's After-Market Session"
+- **ARTL** -29.3%: "12 Health Care Stocks Moving In Thursday's Intraday Session"
+- **VBIO** +27.5%: "Valion Bio Appoints Dean Zikria Interim CEO, Thomas Jensen As Board Chair"
+- **ZSQR** +25.3%: "Z Squared Announces Closing Of All-Stock Acquisition Of Paradox Data From Paradox Infrastructure, Adding El Dorado, Arkansas Union County Campus With About 8.0 MW Energized Service; No Cash Paid, No Debt Incurred"
+- **ALP** +23.6%: "Alpha Compute Executes Definitive Real Estate And Operating Oil and Gas Asset Purchase Agreements in Pennsylvania"
+- **IPDN** -23.1%: "12 Industrials Stocks Moving In Thursday's After-Market Session"
+- **JAGX** -20.8%: "Jaguar Health Files Supplement To Offer Up To ~$9.82M Of Common Stock Under At-The-Market Offering Program"
+- **EOSE** -9.2%: "Eos Energy Announces Receipt Of $87M First Advance Under Second Tranche Of DOE Loan Agreement, Bringing Total Drawn To About $178M Since 2024"
+- **IONQ** +5.7%: "IonQ Removes Major Quantum Barrier, Driving Investor Debate Over Commercial Timelines"
 
 ## Day Trading Watchlist
 
 No names cleared the day-trading bar today. That flag encodes gap over 3%, price over $3, market cap over $1B, premarket RVOL over 1.5, and price already breaking above yesterday's high.
 
-One name is a genuine near miss, blocked on a leg the data can't confirm either way:
+IONQ is the closest thing to a candidate on paper: market cap $17.1B clears the floor easily, and it's one of the only tickers today where premarket RVOL actually came through (67.46, well above the 1.5 bar) instead of null. But its real move versus `prior_close` is flat at 0.0%, and its current price ($44.99) sits just under its prior day high ($45.65). There's no actual gap to trade here, just above-average volume in a stock sitting at yesterday's close.
 
-| Ticker | Price now | Prior day high | Above prior high | RVOL | Market cap |
-|---|---|---|---|---|---|
-| AIFU | $10.17 | $9.00 | +13.0% | null (yfinance rate limited) | $11.5B |
-
-AIFU is the only ticker on today's list actually sitting above its prior day high right now, and its $11.5B market cap clears the $1B floor easily. The only leg keeping it off the list is premarket RVOL, which came back null this run, so it can't be confirmed above the 1.5x bar or ruled out. Its catalyst is a CFO appointment, thin on its own for a real 13% move, and there's also a same-morning trading halt/resumption notice in the packet, so there's real volatility here even if the "why" isn't fully nailed down. Watch it, don't assume the setup is live until RVOL confirms.
-
-TJGC's price ($23.28) sits exactly at its prior day high ($23.28), not above it, so it doesn't clear this leg either.
-
-This scan ran premarket (7:21am ET), before the real open prints. Treat this as directional until the actual open is in.
+This scan ran premarket (7:23am ET), before the real open prints.
 
 ## Swing Watchlist
 
-No names cleared the swing bar either. That flag encodes gap of 8% or more, price over $3, open above yesterday's high, open above the 200-day SMA, market cap of $800M or more, and a real catalyst behind the move.
+No names cleared the swing bar either. That flag encodes gap of 8% or more, price over $3, open above yesterday's high, open above the 200-day SMA, market cap of $800M or more, and a real catalyst.
 
-AIFU is the closest thing to a candidate: its real move (+13.0% versus `prior_close`) clears the 8% floor, price is over $3, market cap is $11.5B, and it has a catalyst. But its open ($10.17, standing in for the real open since it's still premarket) sits below its 200-day SMA ($12.51), about 19% under, so it fails that leg outright. No other name on the list shows a real move anywhere close to 8%, see Skips and Traps below for why the headline `gap_pct` numbers can't be trusted for that check today.
+GRML looks closest on the surface: market cap $2.37B clears the $800M floor and it has a genuine catalyst (a $42M raise at $12/share funding 2027 rare-earth milestones). But its real move versus `prior_close` is flat (0.0%), and its price ($14.89) sits below yesterday's high ($15.96), so it fails that leg outright. It's not a near miss so much as a name that isn't actually gapping today. Worth flagging separately: GRML's `sma_200` field reads $0.97 against a $14.89 stock, that gap is wide enough to look like a stale or bad data point rather than a real 200-day average, so don't lean on it either way. No other name comes within reach of a real 8% move today.
 
 ## Market Trends of the Day
 
-This is a risk-off morning led by small caps: the Russell 2000 (IWM proxy) is down 1.8%, worse than the Nasdaq (-0.84%), S&P 500 (-0.71%), and Dow (-0.67%). The market news feed backs up a rates-driven story behind it: "The market is pricing in too many Fed hikes, says one former Dallas Fed chief" and "Black Monday's stock-market warning signal came from the bond market, and it's back, says Wall Street veteran" both point at rate anxiety as the pressure point, and a headline surfaced in IONQ's own catalyst list, "Nasdaq 100 Slips, 10-Year Yields Hit 19-Year Highs," lines up with that.
-
-Mining and metals are taking it on the chin specifically: HL's catalyst headlines include "Warsh's Remarks Are Sinking Mining Stocks: Here's Why," and both HL and CDE are red this morning, a sector-specific hit layered on top of the broader risk-off tape (see Skips and Traps for a note on RBC and Jefferies still carrying constructive ratings on HL despite the drop).
-
-There's an AI-trade undercurrent running against the risk-off grain: "As the Trump-Xi meetings unfold, investors should watch for this hidden AI trade" and "Meta sees a price-target boost as JPMorgan says Muse agent has potential to become the top AI application since ChatGPT" are both in today's news feed, and IONQ's quantum-computing catalyst cluster ("IonQ Removes Major Quantum Barrier," "IonQ Makes First On-Premise Quantum Deployment At NVIDIA Research Center") fits the same AI-adjacent theme, though IONQ's real gap (+4.4%) isn't big enough to clear either watchlist.
+Nothing distinctive at the index level, all four proxies are within a third of a point of flat. The real color today is in the news feed rather than the tape. Rates anxiety is still the background hum: "Why the alternative to the 'clear and present' danger from bond yields is this AI-fueled market that's quietly outperformed" and "'We were wrong.' Why Morgan Stanley changed its tune on the U.S. dollar" both point at rising yields and Fed-hike expectations reshaping positioning. Against that, there's a real AI-infrastructure thread running through both the news feed and today's gapper list: Akamai's stock is surging on a reported $12 billion cloud deal with Anthropic, and separately ZSQR (an all-stock data center acquisition) and ALP (a natural-gas-powered data center campus deal in Pennsylvania) are both leaning on the same buildout theme, alongside IONQ's quantum-computing headlines. On the earnings side, Costco beat expectations but the stock is reportedly down anyway, a "beat but sell it" reaction worth watching for a read on how forgiving this tape is toward good numbers.
 
 ## Technical Signals for Today
 
-Index proxies via Alpaca ETF data: S&P 500 (SPY) -0.71%, Dow (DIA) -0.67%, Nasdaq (QQQ) -0.84%, Russell 2000 (IWM) -1.8%. Small caps underperforming large caps by more than a point is a classic risk-off signature, not a narrow single-sector pullback.
+Index proxies via Alpaca ETF data: S&P 500 (SPY) -0.08%, Dow (DIA) -0.34%, Nasdaq (QQQ) -0.01%, Russell 2000 (IWM) -0.12%. All four are essentially flat, no breadth divergence between large caps and small caps today.
 
-VIX, the 10-year yield, the 3-month yield, WTI crude, and the dollar index all came back null, yfinance rate limited them even after retries. No direct read on volatility, rates, or the dollar this morning from the snapshot data. The one rates data point in the packet is secondhand, a headline in market_news referencing 10-year yields at 19-year highs, not a hard snapshot number, so treat it as color, not confirmed.
+VIX, the 10-year yield, the 3-month yield, WTI crude, and the dollar index all came back null, yfinance rate limited every one of them even after retries. No direct read on volatility, rates, or the dollar this morning from the snapshot data itself.
 
 ## Economic Data, Rates and the Fed
 
-The econ calendar came back completely empty. The packet's own note: "Live fetch failed and no cache available: 429 Client Error: Too Many Requests." Zero events for today, zero for tomorrow, and the calendar couldn't even resolve what "today" and "tomorrow" are supposed to be. No calendar read at all this morning.
-
-What color there is comes from the separate market_news feed, which did work: "The market is pricing in too many Fed hikes, says one former Dallas Fed chief" and "Black Monday's stock-market warning signal came from the bond market, and it's back, says Wall Street veteran" both point at hawkish Fed positioning as a live worry today, and mining stocks (HL, CDE) are reacting to "Warsh's Remarks" per HL's own catalyst headlines.
+The econ calendar came back empty for both today and tomorrow, and the packet's own note field is blank this time (no error message logged), so this looks like a legitimately quiet high-impact-USD calendar today rather than a failed fetch. No scheduled catalysts from the calendar to trade around this morning.
 
 ## Coming Up
 
-- **Tomorrow's events:** None available, the calendar fetch failed (429 rate limited, no cache to fall back on).
-- **Earnings:** No forward earnings dates available. Every gapper's `next_earnings_date` field came back null this run, part of the same request-failure count noted in the packet's gaps-to-fill.
+- **Tomorrow's events:** None in the econ calendar (empty, no note given by the packet).
+- **Earnings:** No gapper's `next_earnings_date` came back populated, every one is null (the packet's own gaps-to-fill note flags earnings coverage as partial). Separately, the market news feed mentions Micron reporting "next week" and ICF Announcing timing for its Q3 release, neither is a gapper on today's list, just loose color from the news feed, not the earnings calendar.
 
 ## Skips and Traps
 
-**Most of today's headline gap sizes are stale, not real.** Every gapper carries two different "yesterday" reference prices: `prev_close` (used to compute the `gap_pct` shown on the gapper list) and `prior_close` (pulled from the daily bars feed, the same source behind `prior_day_high`). For 18 of today's 20 names, the two disagree badly, real move versus `prior_close` is under 2% while `gap_pct` shows double or triple digits. WHLR is the extreme case: `gap_pct` says +190.9%, but price ($5.44) is actually 0.91% below `prior_close` ($5.49), a small decline, not a huge gap up. JAGX (`gap_pct` -74.1%, real move -0.45%), GRML (-20.9% vs +1.63% real), ARTL (+76.1% vs +0.55% real), CGEM (-22.2% vs 0.0% real), ALKT (-19.3% vs +0.07% real), IPDN, TJGC, HUBC, DCOY, EOSU, NFE, CDE, ONDS, IONQ, and HL all show the same shape. The eligibility engine correctly uses `prior_day_high`/`prior_close` rather than `gap_pct` for both watchlists, which is exactly why both came back empty despite the huge numbers up top. Treat the `gap_pct` column with real skepticism today.
+**Most of today's headline gap sizes are stale, not real, same issue as recent sessions.** Every gapper carries two different "yesterday" reference prices: `prev_close` (used to compute the `gap_pct` shown on the gapper list above) and `prior_close` (from the daily bars feed, the same source behind `prior_day_high`). For 19 of 20 names, the two disagree badly. APUS shows `gap_pct` +114.9% but is actually down 3.34% versus `prior_close`. SRZN (+108.4% vs -0.27% real), GLND (+83.9% vs +0.38%), PFSA (+47.8% vs +2.36%), YDES (+47.7% vs +0.63%), TRT (-36.6% vs +0.14%), SPHL (+35.7% vs -0.95%), GRML (+33.1% vs 0.0%), AVX (+32.9% vs -0.18%), WHLR (-31.3% vs -0.27%), SVRN (+29.7% vs -1.22%), ARTL (-29.3% vs +1.97%), VBIO (+27.5% vs -1.14%), ZSQR (+25.3% vs -0.54%), ALP (+23.6% vs -0.18%), IPDN (-23.1% vs +0.24%), JAGX (-20.8% vs +2.17%), EOSE (-9.2% vs -0.15%), and IONQ (+5.7% vs 0.0%) all show the same shape, real move near flat, headline percentage nowhere close. Treat the `gap_pct` column with real skepticism today, and lean on `prior_close` for anything you actually check.
 
-**AIFU and HVIIU are the two real movers.** AIFU is up a genuine 13.0% versus `prior_close`, discussed above as the lone day-trading-shape near miss. HVIIU is down a genuine 58.6%, its only headline is a trading-halt/quotation-resumption notice tagging it as an "IPO Security," and it's paired with HVII (same Hennessy Capital Investment/ONE Nuclear Energy complex) whose headlines show a shareholder vote approving the business combination and a "Rebounds 17% After Hours" note. This looks like a SPAC-to-operating-company conversion event, not a tradeable premarket gap, and HVIIU has no market cap data either (SEC EDGAR has no matching filing concept). Skip both, this is corporate-action noise, not a setup.
+**IPEXU has no catalyst and no market cap, skip outright.** `catalyst_found` is false, there isn't a single headline in the packet for it. It's also the one name with a real move today (-48.6% versus `prior_close`), `avg_volume_20d` of 0, and `market_cap_source: sec_unavailable_no_concept`. The U-suffix ticker and complete lack of trading history data point at a SPAC-unit-style structure, not an operating company with a story behind it. No catalyst means no trade, per the ground rules, regardless of how big the real move is.
 
-**WHLR has no real catalyst behind it, its own headlines are about other companies.** Three of its five headlines are generic "stocks moving premarket" roundups naming Worthington Enterprises, Alaunos Therapeutics, SAIC, and General Mills, not WHLR. The only WHLR-specific item is a week-old reverse split announcement (effective September 21). Combined with the stale `gap_pct` above and a $10.5M market cap, there's no story here.
+**JAGX's real news is dilution, not a headline number.** Its catalyst headlines show a fresh share issuance to retire ~$5.05M of a promissory note and a new ATM supplement to offer up to ~$9.82M more common stock. That's a dilution overhang independent of whatever the packet's -20.8% `gap_pct` implies (JAGX's real move versus `prior_close` is actually +2.17%, essentially flat). Either way, this is a name being diluted right now, not a dip to buy.
 
-**IPDN and DCOY have no ticker-specific catalyst at all.** Every headline the packet has for either is a generic sector "stocks moving" roundup or a mention of a different company (Worthington Enterprises, Thor Industries). `catalyst_found` is technically true because some headline exists, but neither headline explains what's actually happening at either company. Skip on catalyst quality.
+**TRT's own headline is a mixed earnings print, not a clean beat or miss.** The corrected release shows Q4 EPS of $(0.02), down from $0.02 a year ago, even as sales grew to $14.931M from $10.671M. Real move versus `prior_close` is flat (+0.14%), so nothing has actually reacted to this yet either way.
 
-**EOSU looks like a leveraged ETF, not the underlying stock.** Its only headline: "New ETF Gives Traders 2X Exposure To A Buzzing Energy Storage Name." It has no market cap (SEC EDGAR has no CIK for it) and no company name resolved in the packet. Same shape as leveraged single-stock ETPs flagged in prior sessions, treat this as a derivative product, not an operating company.
+**WHLR's only ticker-specific headline is four days old.** The 1-for-9 reverse split it references was effective September 21, this isn't fresh news explaining today's list entry, it's a stale corporate-action headline resurfacing in the scanner's catalyst match.
 
-**TJGC's catalyst is mixed, not clean.** Its headlines show both a $2M stock buyback (bullish signal) and a $100M mixed shelf prospectus filing (a large potential future dilution overhang) around the same time. Real move versus `prior_close` is 0.0% though, so nothing has actually happened price-wise yet, worth a watch for how the market resolves that tension, not a trade today.
+**SPHL, SVRN, ARTL, and IPDN have no ticker-specific catalyst at all.** Every headline the packet has for each of these four is a generic sector "stocks moving" roundup, none of them mention the company by name or explain what's actually happening there. `catalyst_found` reads true because a headline exists, not because there's a real story. Skip these on catalyst quality alone.
 
-**CGEM and ALKT are both down on `gap_pct` despite genuinely good news, and neither actually moved.** CGEM's headlines include a BTIG Buy reiteration with a $40 price target, an HC Wainwright Buy at $30, and positive Phase 3 trial data from earlier this month, none of that is bad news. ALKT's headline shows it concluded a strategic review by staying independent, reaffirmed full-year guidance of $528M-$531M, and got a JPMorgan price-target raise to $24. Both show a 0% real move versus `prior_close`, so the negative `gap_pct` numbers (-22.2% and -19.3%) are pure stale-reference artifacts, not a market reaction to bad news.
+**AVX, VBIO, and YDES are running on stale company news.** AVX's headlines (a $40M buyback authorization, a CFO departure, an August earnings transcript) predate today by weeks. VBIO's newest headline is a CEO/board appointment from earlier in September, alongside a NASDAQ compliance note and a reverse split effective back on Aug. 31. YD Bio's only ticker-specific headline is a review-article publication from late August. None of these explain a move specifically dated to today.
 
-**ARTL has a real, specific catalyst that the price hasn't caught up to.** "Artelo Biosciences Files Provisional Patent Application For ART27.13 As Monotherapy And In Combination With GLP-1 Receptor Agonists" is a genuine ARTL-specific headline, but the real move versus `prior_close` is only +0.55%. The +76.1% `gap_pct` number is noise from the stale reference price, not a reaction to this news.
+**ALP is a mixed bag, not a clean story either way.** It's carrying a real growth pitch (a $55M natural-gas-powered data center campus deal in Pennsylvania, seller financing the remaining $47M via a note) alongside a same-week Nasdaq minimum bid price compliance extension and a trading halt with news pending. Growth story and financial-distress signal both showing up in the same ticker's headline list, size any interest here accordingly.
 
-**HUBC and NFE both carry recent reverse splits, not fresh news, behind their large `gap_pct` numbers.** HUBC did a 1-for-25 split effective September 11, NFE did a 1-for-50 effective September 11 (NFE also shows a CFO resignation and a "halt news pending" notice). Both show real moves near flat versus `prior_close` (+1.26% and -1.54%), so today's headline percentages don't reflect anything new happening today.
+**APUS and PFSA are both sub-$10M market caps with extreme reported RVOL.** APUS shows a $7.4M market cap with `rvol` of 5,201.9x, PFSA shows $1.8M with `rvol` of 4,801.2x. Even with real moves close to flat today, numbers like that at this size usually mean either genuinely illiquid trading or a data quality issue, size down or skip entirely.
 
-**Wide data blackout this run.** The packet logs 87 failed requests even after retries, the per-ticker enrichment log shows yfinance returning "Too Many Requests" on essentially every ticker's intraday, news, and earnings pull. That's why RVOL, VWAP, high/low of day, and premarket high are null for nearly every gapper, why VIX, the 10-year, the 3-month, oil, and the dollar are all null, and why every `next_earnings_date` came back empty. The econ calendar failed outright (429, no cache). Market cap is unavailable even after the SEC EDGAR fallback for HVIIU, HVII, and EOSU specifically.
+**Wide data blackout again this run.** The per-ticker enrichment log shows yfinance returning "Too Many Requests" on nearly every ticker's intraday, news, and earnings pull, and the packet's own gaps-to-fill note counts 89 failed requests even after retries. That's why VWAP, high/low of day, and premarket high are null for every single gapper today, and why RVOL only came through for five names (APUS, GLND, PFSA, EOSE, IONQ). VIX, the 10-year, the 3-month, oil, and the dollar are all null for the same reason. Market cap is unavailable even after the SEC EDGAR fallback for IPEXU specifically.
 
 ## Where the Two Brains Landed
 
