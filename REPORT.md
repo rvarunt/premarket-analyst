@@ -1,4 +1,4 @@
-# Premarket Report: October 2, 2026
+# Premarket Report: October 5, 2026
 
 *Two-brain pass: Claude and GPT independently review the tape, then compare notes.*
 
@@ -6,53 +6,47 @@
 
 ## Summary
 
-- **The tape in one line:** No live tape numbers today. Yahoo rate-limited the market snapshot, so index, VIX, yield, oil and dollar levels are all empty. The news flow says stocks closed higher Thursday as surging Treasury yields receded (Reuters).
-- **The catch we're watching:** The September jobs report lands at 8:30 AM ET. Forecast is 89K non-farm jobs vs 162K prior, with unemployment at 4.1%. Bond yields have been swinging hard, so a surprise either way can move the open.
+- **The tape in one line:** No index or futures data today. Yahoo rate-limited the market snapshot (S&P, Dow, Nasdaq, Russell, VIX, 10Y, 3M, oil, dollar) even after three retries, so every value is null. The news feed points to a bond selloff with stocks treading water.
+- **The catch we're watching:** Rising bond yields. MarketWatch has "What Bessent is now saying after bond yields didn't stop rising on 'I am the house' remark" and Morningstar has "7 Charts on US Markets: Stocks Tread Water While the Bond Market Shudders".
 - **Two-brain verdict:** Single brain, no second opinion to compare.
 
 ## Pre-Market Gappers
 
-No gappers made it through the pipeline this scan. The candidate source was the static universe fallback, and Yahoo rate-limited the daily-bars batch and both live screener calls even after retries. Zero candidates reached the gap filter, so this is a data failure and not a read on the market.
+Scan failure: no gappers. Yahoo rate-limited both live screeners (day_gainers, most_actives) and every batched daily-bars request for the 40-ticker static fallback universe, even after retries. Zero candidates reached the gap filter. Nothing here is a statement about the market, only about the data feed.
 
 ## Day Trading Watchlist
 
-No names cleared the day-trading bar today. That flag encodes gap over 3%, price over $3, market cap over $1B, premarket RVOL over 1.5, and price already breaking above yesterday's high. With zero gappers in the packet, there's nothing to check that rule against.
+No names cleared the day-trading bar today. The flag encodes gap over 3%, price over $3, market cap over $1B, premarket RVOL over 1.5, and price breaking above yesterday's high. With zero gappers in the packet there is nothing to check against it.
 
 ## Swing Watchlist
 
-No names cleared the swing bar today. That flag encodes gap of 8% or more, price over $3, open above yesterday's high, open above the 200-day SMA, market cap of $800M or more, and a real catalyst. With zero gappers in the packet, there's nothing to check that rule against.
+No names cleared the swing bar today. The flag encodes gap of 8% or more, price over $3, open above yesterday's high, open above the 200-day SMA, market cap of $800M or more, and a real catalyst. Zero gappers in the packet.
 
 ## Market Trends of the Day
 
-The packet has no price data, so this is headline-driven only.
+Only headlines, no prices, so this is the narrative and nothing more.
 
-- **Bonds are the story.** Reuters says spiking bond yields, midterms and earnings will test the usual fourth-quarter strength in stocks. PBS reports more swings in yields rattling markets worldwide. Thursday's close was a rebound as surging Treasury yields receded. MarketWatch also carries a Jefferies view that G7 bonds are in a "structural bear market."
-- **AI financing worries.** MarketWatch: "Amazon is hiking chip-rental prices and reportedly moving Nvidia processors off the balance sheet." The summary frames it as a sign of the financing crunch facing the hyperscalers. Another viral AI-doomsday report is also making the rounds.
-- **Bullish counterpoint.** MarketWatch: a market-making strategist (Scott Rubner) says September was a reset and investors should reload on stocks now.
-- **Nike.** Yahoo Finance reports Nike stock sank after revenue missed estimates and it expects to cut jobs. Barron's says the sluggish turnaround remains an obstacle. No price or gap figure is in the packet.
+- **Bonds:** "The bond selloff is opening up rare opportunities for investors. Here is where to look, says major bank." (MarketWatch). Standard Chartered's summary says bond and money markets have been overly hawkish on the Fed.
+- **AI:** "An AI 'reality check' may take the S&P 500 to 5,000. Here's the trades to make, this strategist says." (MarketWatch). Also "This $23 billion software deal was struck at a decade-low valuation, as AI winner takes out loser": Schneider Electric buying an industrial-design software company.
+- **Sentiment:** "There's 'excessive pessimism' in the markets, says Fundstrat's Tom Lee" (CNBC). "Citi sees room for further equities upside in 2027 on resilient earnings growth" (Yahoo Finance). "The average U.S. stock is quietly getting crushed. Morgan Stanley says these ones are worth buying now." (MarketWatch).
+- **Other:** "Micron's historic cash bonanza is set to rain down on investors" (MarketWatch). "Bitcoin's big bounce has graduated to a longer-term uptrend. Is it too late to buy?" (MarketWatch).
 
 ## Technical Signals for Today
 
-No index levels, VIX, or breadth data this run. Every market snapshot field came back null because Yahoo rate-limited the batch. Nothing to report on levels. Check a live chart before trading.
+Not available. Every market snapshot field (last, prev close, change) came back null because of Yahoo rate limiting. No index levels, VIX, or breadth to report.
 
 ## Economic Data, Rates and the Fed
 
-Today, all at 8:30 AM ET (USD, high impact):
-
-- **Non-Farm Employment Change:** forecast 89K, previous 162K.
-- **Unemployment Rate:** forecast 4.1%, previous 4.1%.
-- **Average Hourly Earnings m/m:** forecast 0.3%, previous 0.3%.
-
-Forecast payrolls are well below the prior print, so a soft number is already expected. The packet has no Fed or rate-level data, so no read on the Fed path from the numbers. Given the bond volatility in the headlines, the wage and jobs surprise is what the rates market will react to.
+The econ calendar (USD, high impact only) shows no events today (2026-10-05) and none tomorrow (2026-10-06). Rates context is headlines only: the bond selloff and Bessent's comments noted above. No yield levels available in the packet.
 
 ## Coming Up
 
-- **Tomorrow's events:** None in the packet. Tomorrow is Saturday, October 3.
-- **Earnings:** No gapper earnings dates in the packet. Headlines mention Ares Capital scheduling its Q3 earnings release, but no date is given in the packet.
+- **Tomorrow's events:** No high-impact USD releases in the calendar.
+- **Earnings:** No gappers, so no per-ticker next earnings dates. The packet has no market-wide earnings calendar.
 
 ## Skips and Traps
 
-No gappers to skip. Worth noting: Nike is in the news after a revenue miss and job cuts, but the packet has no gap or price data for it, so it isn't on any list.
+Nothing to skip, since no gappers were scanned. Treat today as a data-outage day: don't read the empty watchlists as "nothing is moving." It means the scanner couldn't see.
 
 ## Where the Two Brains Landed
 
