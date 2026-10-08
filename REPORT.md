@@ -1,53 +1,57 @@
-# Premarket Report: October 7, 2026
+# Premarket Report: 2026-10-08
 
-*Two-brain pass: Claude and GPT independently review the tape, then compare notes.*
+*Single-brain run (Claude only).*
 
-> Rules pick the watchlist. Both AIs judge the quality of the setups. This is not financial advice.
+> Rules pick the watchlist. The AI judges the quality of the setups. This is not financial advice.
 
 ## Summary
 
-- **The tape in one line:** No tape data today. The price feed (Yahoo) was blocked on this run, so every index, VIX, yield, oil and dollar reading in the snapshot is null. Headlines only: one wire says world stocks fell back despite the latest earnings-driven rally on Wall Street.
-- **The catch we're watching:** FOMC Meeting Minutes at 2:00 PM ET, the only high-impact USD event today. Another headline in the feed says the dollar gained as oil climbed and investors focused on the Fed.
-- **Two-brain verdict:** Single brain, no second opinion to compare.
+- **The tape in one line:** No index or futures data. Yahoo rate-limited the market snapshot, so every index, VIX, yield, oil and dollar field in the packet is null.
+- **The catch we're watching:** Scan failure, not a market event. The gapper scan returned 0 candidates, so there is nothing to trade off this report.
+- **Two-brain verdict:** Single-brain run, second brain not wired in yet.
+
+**What failed:** Yahoo returned HTTP 429 (rate limited) on the market snapshot, the screeners (day_gainers, most_actives) and the static-universe daily bars. The scan fell back to the static universe, got no daily bars, and kept 0 of 0 candidates. `gappers` is empty. Nasdaq Markets RSS was blocked (403 via proxy) and Yahoo Finance RSS returned 404. The venv also had to be created fresh (no `.venv` or CLAUDE.md in this environment). Nothing below is filled in beyond what packet.json holds.
 
 ## Pre-Market Gappers
 
-Scan failure: zero gappers. The candidate source was the static universe fallback, and every batched daily-bars request came back empty (Yahoo blocked), so zero candidates reached the gap filter. No gap percentages, prices or levels exist in the packet, so none are quoted here.
+No gappers in the packet. Data unavailable.
 
 ## Day Trading Watchlist
 
-No names cleared the day-trading bar today. That flag encodes gap over 3%, price over $3, market cap over $1B, premarket RVOL over 1.5, and price already breaking above yesterday's high. With zero gappers in the packet, there's nothing to check that rule against.
+No names to evaluate. The gapper list is empty because of the data failure, not because nothing cleared the bar.
 
 ## Swing Watchlist
 
-No names cleared the swing bar either. That flag encodes gap of 8% or more, price over $3, open above yesterday's high, open above the 200-day SMA, market cap of $800M or more, and a real catalyst. Same story: no gappers means nothing to evaluate.
+No names to evaluate, same reason.
 
 ## Market Trends of the Day
 
-Headlines only, no price confirmation. Treat these as stories, not moves.
+No price data, so no sector or factor read. Headlines from the packet only:
 
-AI and chips lead the feed. MarketWatch: "SpaceX reportedly is looking to borrow as much money as the company generates in revenue to buy Nvidia chips" ($40 billion in talks with banks and investors, per a Financial Times report). "AMD's chief executive is planning to invest 'tens of billions' as Asian tour addresses supply-chain chokepoints." "Elon Musk and Intel CEO shore up chipmaker's role in Terafab project — and here's what the news is doing to the stock." "Meta stock scores a rare 'golden cross' buy signal as investors swarm to its top-charting AI agent." CNBC has Empower's Marta Norton saying the AI transformation has had a huge earnings impact this year.
+- "Rising yields are quietly crashing the stock market's earlier winners of 2026" (MarketWatch Top)
+- "Oil prices are jumping again. How the S&P 500 has performed on days crude has seen big gains may be surprising." (MarketWatch Top)
+- "French bonds are suffering through their worst decade since 1803 - and investors are bracing for more pain" (MarketWatch Top)
+- "Big investors 'bottom fish' in Eurozone bond markets after France sell-off - Financial Times"
+- "A true 'nuclear renaissance' is taking shape, and these stocks could be big winners" (MarketWatch Top)
 
-Earnings flow: "This Number Explains Why Constellation Brands Stock Is Down After Earnings" (Barron's), while Yahoo Finance reports "Constellation Maintains Full-Year Profit Outlook, Posts Surprise Fiscal Second-Quarter Earnings Growth." Mixed signals there. WSJ: "LG Electronics' Preliminary Earnings Disappoint." Barron's is pitching "How to Monetize Mastercard's Weakness Before It Reports Earnings." Otis has a third quarter earnings advisory out.
-
-Macro: Reuters has the dollar gaining as oil climbs and investors focus on the Fed, and the India RBI chief saying markets can be irrational as the rupee returns near record lows. WSJ runs "Weaning Markets Off Fed Speak."
+Theme from headlines only: rising yields and bond stress, oil bouncing, AI and nuclear themes still in the conversation. I can't confirm any of it in prices.
 
 ## Technical Signals for Today
 
-No data. All nine readings in the market snapshot (S&P 500, Dow, Nasdaq, Russell 2000, VIX, 10-year yield, 3-month yield, WTI crude, dollar index) came back null. Nothing to call on breadth, VIX, or index levels.
+Unavailable. S&P 500, Dow, Nasdaq, Russell 2000, VIX, 10Y, 3M, WTI and DXY are all null in the packet.
 
 ## Economic Data, Rates and the Fed
 
-One high-impact USD event today: FOMC Meeting Minutes at 2:00 PM ET. The packet has no forecast or previous value for it. Minutes are a look back at the last meeting, so the read is on tone about the rate path. Nothing else is on the calendar.
+The econ calendar fetched fine (83 events this week, USD high impact only). It lists no high-impact USD events for today (2026-10-08).
 
 ## Coming Up
 
-- **Tomorrow's events:** None in the calendar for Thursday, October 8 (USD, high impact).
-- **Earnings:** No gapper-level earnings dates, zero gappers this scan. From headlines only: Otis has issued a third quarter earnings advisory, NHI has announced third quarter release and call dates, and Barron's frames Mastercard as reporting soon. No dates are given in the packet, so none are stated here.
+- **Tomorrow's events (2026-10-09):** No high-impact USD events listed in the packet.
+- **Earnings:** No per-gapper earnings dates, since there are no gappers. Headlines in the packet mention PepsiCo cutting its earnings forecast (CNBC), Applied Digital (APLD) reporting fiscal Q1 2027 results, and Samsung Electronics issuing Q3 2026 guidance. No prices or gap sizes are available for any of them.
 
 ## Skips and Traps
 
-Nothing to flag. There were no candidates to screen for bad-news pops or missing catalysts this scan.
+Nothing to evaluate. Don't trade off this report. Re-run the scan once Yahoo's rate limit clears.
 
 ## Where the Two Brains Landed
 
