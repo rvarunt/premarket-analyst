@@ -1,57 +1,53 @@
-# Premarket Report: 2026-10-08
+# Premarket Report: October 9, 2026
 
-*Single-brain run (Claude only).*
+*Two-brain pass: Claude and GPT independently review the tape, then compare notes.*
 
-> Rules pick the watchlist. The AI judges the quality of the setups. This is not financial advice.
+> Rules pick the watchlist. Both AIs judge the quality of the setups. This is not financial advice.
 
 ## Summary
 
-- **The tape in one line:** No index or futures data. Yahoo rate-limited the market snapshot, so every index, VIX, yield, oil and dollar field in the packet is null.
-- **The catch we're watching:** Scan failure, not a market event. The gapper scan returned 0 candidates, so there is nothing to trade off this report.
-- **Two-brain verdict:** Single-brain run, second brain not wired in yet.
-
-**What failed:** Yahoo returned HTTP 429 (rate limited) on the market snapshot, the screeners (day_gainers, most_actives) and the static-universe daily bars. The scan fell back to the static universe, got no daily bars, and kept 0 of 0 candidates. `gappers` is empty. Nasdaq Markets RSS was blocked (403 via proxy) and Yahoo Finance RSS returned 404. The venv also had to be created fresh (no `.venv` or CLAUDE.md in this environment). Nothing below is filled in beyond what packet.json holds.
+- **The tape in one line:** No index snapshot today. Yahoo rate-limited the market snapshot batch, so every index, VIX, yield, oil and dollar field is null. The only read on direction is a headline: "US Stock Futures Rise as Investors Assess OpenAI Revenue Reports, Delta Earnings and Consumer Sentiment" (Yahoo Finance, via Google News). No futures numbers in the packet.
+- **The catch we're watching:** Scan data is degraded. No gappers made it through, so there are no setups to trade off this report. Headlines only.
+- **Two-brain verdict:** Single brain, no second opinion to compare.
 
 ## Pre-Market Gappers
 
-No gappers in the packet. Data unavailable.
+No gappers in the packet. Candidate source was the static universe fallback. Yahoo rate-limited the screener calls (day_gainers, most_actives) and the batched daily-bars request even after retries, so zero candidates reached the gap filter (kept 0 of 0). Nothing to list.
 
 ## Day Trading Watchlist
 
-No names to evaluate. The gapper list is empty because of the data failure, not because nothing cleared the bar.
+No names cleared the day-trading bar today. That bar is gap over 3%, price over $3, market cap over $1B, premarket RVOL over 1.5, and price already breaking above yesterday's high. With zero gappers in the packet, there's nothing to check against it.
 
 ## Swing Watchlist
 
-No names to evaluate, same reason.
+No names cleared the swing bar either. That bar is gap of 8% or more, price over $3, open above yesterday's high, open above the 200-day SMA, market cap of $800M or more, and a real catalyst. Same story: no gappers, nothing to evaluate.
 
 ## Market Trends of the Day
 
-No price data, so no sector or factor read. Headlines from the packet only:
+Headlines in the packet point to a few threads:
 
-- "Rising yields are quietly crashing the stock market's earlier winners of 2026" (MarketWatch Top)
-- "Oil prices are jumping again. How the S&P 500 has performed on days crude has seen big gains may be surprising." (MarketWatch Top)
-- "French bonds are suffering through their worst decade since 1803 - and investors are bracing for more pain" (MarketWatch Top)
-- "Big investors 'bottom fish' in Eurozone bond markets after France sell-off - Financial Times"
-- "A true 'nuclear renaissance' is taking shape, and these stocks could be big winners" (MarketWatch Top)
-
-Theme from headlines only: rising yields and bond stress, oil bouncing, AI and nuclear themes still in the conversation. I can't confirm any of it in prices.
+- **AI is carrying earnings.** Reuters and Yahoo Finance both run "AI-related companies to drive most third-quarter US earnings gains." Also in the feed: "Why one Wall Street firm sees parallels to the late 1970s and recommends shorting U.S. stocks" (MarketWatch), which frames the AI build-out as a high-inflation-era parallel. And "Aging bull: Why the four-year old stock-market rally can still pack a punch."
+- **Fuel costs hitting airlines.** "Delta Air Lines cuts 2026 forecast on fuel surge, but CEO says demand is still strong" (CNBC) and "Delta Air Lines Stock Falls After Earnings. The Impact of Surging Fuel Hikes Laid Bare." (Barron's).
+- **Apple supply chain.** "Is iPhone 18 demand cooling off? Here's how deep Apple reportedly is cutting component orders" (MarketWatch). Summary says Nikkei Asia reports Pro and Pro Max component orders down about 15% in October.
+- **Telecom.** "SpaceX's Starlink Mobile plans are pressuring AT&T and Verizon shares" (MarketWatch). Summary says SpaceX plans to buy Grain Management's 800 MHz spectrum, and the news is lifting cell-tower stocks.
+- **Earnings week ahead.** Reuters: "Wall St Week Ahead Bank earnings, CPI headline busy markets week as S&P 500 hovers near records." That's a week-ahead piece, so check its timing before leaning on it.
 
 ## Technical Signals for Today
 
-Unavailable. S&P 500, Dow, Nasdaq, Russell 2000, VIX, 10Y, 3M, WTI and DXY are all null in the packet.
+No data. Index levels, VIX and yields all came back null from the rate-limited snapshot. The only technical-ish mention in the packet is the Reuters headline saying the S&P 500 "hovers near records." No levels, no breadth.
 
 ## Economic Data, Rates and the Fed
 
-The econ calendar fetched fine (83 events this week, USD high impact only). It lists no high-impact USD events for today (2026-10-08).
+The econ calendar loaded (83 events this week, USD high-impact filter). It shows no high-impact USD events today (2026-10-09) and none tomorrow (2026-10-10). Yahoo's futures headline mentions consumer sentiment as something investors are assessing, but it isn't on the filtered calendar, and the packet has no figure for it. No rates or Fed data in the packet.
 
 ## Coming Up
 
-- **Tomorrow's events (2026-10-09):** No high-impact USD events listed in the packet.
-- **Earnings:** No per-gapper earnings dates, since there are no gappers. Headlines in the packet mention PepsiCo cutting its earnings forecast (CNBC), Applied Digital (APLD) reporting fiscal Q1 2027 results, and Samsung Electronics issuing Q3 2026 guidance. No prices or gap sizes are available for any of them.
+- **Tomorrow's events:** None on the high-impact USD calendar for 2026-10-10.
+- **Earnings:** No per-gapper earnings dates since there are no gappers. Headlines only mention bank earnings and CPI this week, with no dates or tickers in the packet.
 
 ## Skips and Traps
 
-Nothing to evaluate. Don't trade off this report. Re-run the scan once Yahoo's rate limit clears.
+Nothing to skip, since no gappers came through. One caution: don't treat the headlines above as setups. None of them comes with price, gap or volume data.
 
 ## Where the Two Brains Landed
 
