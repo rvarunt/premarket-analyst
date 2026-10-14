@@ -1,4 +1,4 @@
-# Premarket Report: October 13, 2026
+# Premarket Report: October 14, 2026
 
 *Two-brain pass: Claude and GPT independently review the tape, then compare notes.*
 
@@ -6,13 +6,13 @@
 
 ## Summary
 
-- **The tape in one line:** No index data today. The price feed (Yahoo) rate-limited the market snapshot batch even after retries, so S&P, Dow, Nasdaq, Russell, VIX, yields, oil and DXY are all null in the packet. Headlines only: Reuters (Tue 10:23 GMT) says S&P 500 futures are muted as investors await big bank earnings, with chip weakness weighing.
-- **The catch we're watching:** CPI tomorrow at 8:30 AM ET, with headline CPI m/m forecast at 0.6% vs 0.4% prior. That is a hot print if it lands. A MarketWatch headline also says options traders expect wild swings beginning later this month.
+- **The tape in one line:** No index or futures data today. Yahoo rate-limited every market snapshot call, so S&P, Dow, Nasdaq, Russell, VIX, yields, oil and the dollar all came back empty. The only read on direction is headlines: Reuters had the Nasdaq ending down on Tuesday as chipmakers fell and bank earnings rolled in.
+- **The catch we're watching:** CPI at 8:30 AM ET. Forecast is 0.6% m/m and 3.6% y/y, up from 0.4% and 3.4% prior. Core is forecast at 0.2% m/m and 2.5% y/y. The scan ran at 7:19 AM ET, so no actual print is in the packet.
 - **Two-brain verdict:** Single brain, no second opinion to compare.
 
 ## Pre-Market Gappers
 
-No gappers this scan. The scan failed to produce candidates: the candidate source was the static universe fallback, and Yahoo rate-limited the screener calls (day_gainers, most_actives) and the batched daily-bars request for the universe, so every ticker was skipped. Zero candidates reached the gap filter. Nothing here is a statement that no stocks are gapping, only that the scan could not see them.
+None. The scan failed to produce candidates: it fell back to the static universe, and Yahoo rate-limited the batched daily-bars requests, so every ticker was skipped for "no batched daily bars." The gap filter kept 0 of 0 candidates. This is a data failure, not a quiet tape. There may well be real gappers this morning that this scan could not see.
 
 ## Day Trading Watchlist
 
@@ -20,44 +20,40 @@ No names cleared the day-trading bar today. The flag encodes gap over 3%, price 
 
 ## Swing Watchlist
 
-No names cleared the swing bar today. The flag encodes gap of 8% or more, price over $3, open above yesterday's high, open above the 200-day SMA, market cap of $800M or more, and a real catalyst. With zero gappers in the packet, there is nothing to check against it.
+No names cleared the swing bar either. The flag encodes gap of 8% or more, price over $3, open above yesterday's high, open above the 200-day SMA, market cap of $800M or more, and a real catalyst. Same story: no gappers, nothing to evaluate.
 
 ## Market Trends of the Day
 
-Only headlines to go on, no price data. What the packet's news shows:
+Headlines only, since there is no price data. Two threads:
 
-- Earnings season is underway. "UnitedHealth Group raises profit forecast on third-quarter earnings beat - Reuters" and "J&J beats earnings estimates; Middle East conflict weighs on medical device sales - Reuters".
-- Chips look soft. "World stocks dip as chips slide, bonds rise - Reuters" and "S&P 500 futures muted as investors await big bank earnings; chip weakness weighs - Reuters".
-- Prior session: "Nasdaq falls ahead of earnings, economic data while oil rallies - Reuters" (Mon, Oct 12, 23:50 GMT).
-- Other: "Great results won't be good enough for this AI earnings season - Yahoo Finance", "The Korean stock market's in freefall, and these are the reasons why" (MarketWatch), and "J&J Is Leaning Toward Spinning Out Its Hips-And-Knees Business - WSJ".
+- **Chips are under pressure despite strong ASML news.** CNBC: "ASML says it's getting order interest through 2030 as profit smashes expectations." MarketWatch says customers are already asking to place orders for 2029 and 2030. But Yahoo Finance reports "ASML Raises Sales Forecast For A Third Time, But Q3 Revenue Miss Sends Stock Lower: Earnings Selloff Spreads To MU, SNDK, INTC," and Barron's runs "Why the Chip Stocks Slump Is Deepening After ASML's Strong Earnings." Good news, sold anyway.
+- **Bank and asset manager earnings are in full swing.** CNBC: "Bank of America posts third-quarter profit drop due to $1.2 billion Treasury fine." BlackRock reported Q3 with assets near $15.5 trillion after 15% growth, and Yahoo Finance says the stock jumps as earnings and inflows beat expectations.
+
+Also in the feed: Goldman Sachs economists put numbers on how much the AI boom is adding to inflation, which ties neatly into today's CPI. One strategist downgraded tech on slowing flows and deteriorating valuations. HSBC is quoted as expecting the market to broaden out, with Q3 earnings growth driven by energy and semiconductors.
 
 ## Technical Signals for Today
 
-None available. Index levels, VIX and breadth are all null in the packet because of the Yahoo rate limit. No levels are quoted here rather than guessing.
+No data. The market snapshot (index levels, VIX, yields) returned nothing because of rate limiting. No levels or breadth to report, and none are being made up.
 
 ## Economic Data, Rates and the Fed
 
-Today (Oct 13): no high-impact USD releases on the calendar.
+Today, Wednesday October 14 (all high-impact USD, forecasts only):
 
-Tomorrow (Oct 14), all 8:30 AM ET:
+- 8:30 AM ET Core CPI m/m: forecast 0.2%, previous 0.3%
+- 8:30 AM ET Core CPI y/y: forecast 2.5%, previous 2.4%
+- 8:30 AM ET CPI m/m: forecast 0.6%, previous 0.4%
+- 8:30 AM ET CPI y/y: forecast 3.6%, previous 3.4%
 
-| Release | Forecast | Previous |
-|---|---|---|
-| Core CPI m/m | 0.2% | 0.3% |
-| Core CPI y/y | 2.5% | 2.4% |
-| CPI m/m | 0.6% | 0.4% |
-| CPI y/y | 3.6% | 3.4% |
-
-Headline CPI is forecast to run hotter than the prior reading on both the monthly and yearly measures, while core m/m is forecast lower. Yields were not captured this run (US 10Y and 3M are null), so there is no rates read to give.
+Headline CPI is forecast to run hotter than the prior month, while core is forecast to cool on the monthly number but tick up on the yearly one. A Reuters headline notes gold fell for a third straight session as markets await US inflation data. The packet has no Fed pricing or rate data, so there is no read on what this means for the Fed path.
 
 ## Coming Up
 
-- **Tomorrow's events:** CPI and Core CPI at 8:30 AM ET (see table above). Big bank earnings are flagged in the headlines as the next catalyst, though the packet gives no tickers or dates.
-- **Earnings:** No per-ticker earnings dates, since there were no gappers. The packet also has no full market earnings calendar.
+- **Tomorrow's events (Thursday October 15), all 8:30 AM ET unless noted:** Core PPI m/m (forecast 0.3%, previous 0.2%), Core Retail Sales m/m (forecast 0.6%, previous 1.4%), PPI m/m (forecast 0.6%, previous 0.4%), Retail Sales m/m (forecast 0.3%, previous 1.2%). Fed Chairman Warsh speaks, listed at 11:30 PM ET.
+- **Earnings:** No per-ticker earnings dates, since there are no gappers. The packet has no market-wide earnings calendar.
 
 ## Skips and Traps
 
-Nothing to skip or flag, since no gappers came through. Treat today as a no-scan day for gap setups. Check a live screener before trading anything off this report.
+Nothing to skip: no gappers, no catalysts to vet. The one general warning from the headlines is the chip group, where good ASML numbers did not stop the selling. Do not assume good news means up today.
 
 ## Where the Two Brains Landed
 
