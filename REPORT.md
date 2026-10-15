@@ -1,4 +1,4 @@
-# Premarket Report: October 14, 2026
+# Premarket Report: October 15, 2026
 
 *Two-brain pass: Claude and GPT independently review the tape, then compare notes.*
 
@@ -6,54 +6,90 @@
 
 ## Summary
 
-- **The tape in one line:** No index or futures data today. Yahoo rate-limited every market snapshot call, so S&P, Dow, Nasdaq, Russell, VIX, yields, oil and the dollar all came back empty. The only read on direction is headlines: Reuters had the Nasdaq ending down on Tuesday as chipmakers fell and bank earnings rolled in.
-- **The catch we're watching:** CPI at 8:30 AM ET. Forecast is 0.6% m/m and 3.6% y/y, up from 0.4% and 3.4% prior. Core is forecast at 0.2% m/m and 2.5% y/y. The scan ran at 7:19 AM ET, so no actual print is in the packet.
+- **The tape in one line:** Risk-off. Using ETF proxies at scan time (07:20 ET), SPY is -1.08%, QQQ -1.97%, IWM -1.91%, DIA -0.08%. Tech is getting hit hardest.
+- **The catch we're watching:** Hot inflation plus AI funding worries. Headlines in the packet say chipmakers are being hammered, CoreWeave's bonds fell to 81 cents on the dollar, and today's PPI and Retail Sales prints land at 8:30 AM ET.
 - **Two-brain verdict:** Single brain, no second opinion to compare.
 
 ## Pre-Market Gappers
 
-None. The scan failed to produce candidates: it fell back to the static universe, and Yahoo rate-limited the batched daily-bars requests, so every ticker was skipped for "no batched daily bars." The gap filter kept 0 of 0 candidates. This is a data failure, not a quiet tape. There may well be real gappers this morning that this scan could not see.
+20 gappers in the packet (Alpaca screener). Premarket levels (VWAP, HOD, LOD, premarket high, premarket volume) came back null for every name, and yfinance was rate-limited for much of the enrichment, so treat the data as thin. Where a ticker had several headlines, the most relevant one is quoted in full.
+
+- **MGOL** +3838.8% (price 14.57 vs prev close 0.37, market cap $42.3M): "MGO Global's Stockholders Approve Business Combination With Heidmar". That gap is wildly out of scale. I can't verify from the packet whether it's a split or bad data, so don't trust it.
+- **GLND** +76.5%: "Greenland Energy Responds To Short-Seller Report, Defending Its Exploration Strategy, Finances And 13B-Barrel Potential; Says "GLND Is An Exploration-Stage Oil And Gas Company Focused On The Development And Advancement Of Its Exploration Activities In Greenland. We Currently Have No Earnings, No Production And No Proved Reserves. Our First Well Has Not Been Drilled. We Said All Of This Ourselves In Our Prospectus And Our 10-Q, In Plainer Language Than Fugazi Uses.""
+- **RPGL** -65.2%: no company-specific headline, only "12 Information Technology Stocks Moving In Wednesday's After-Market Session"
+- **BSP** +41.2%: "Berkshire Hathaway Doubles Down on Bending Spoons with $330 Million Investment, Sending Shares Soaring 45%"
+- **BKHA** -38.0%: "Black Hawk Acquisition Shareholders Approve Its Proposed Business Combination With Vesicor Therapeutics"
+- **NXGL** +34.8%: "NEXGEL Announces 1-For-20 Reverse Stock Split, Effective Immediately"
+- **AEHL** +34.4%: "Antelope Enterprise Shares Halted On Circuit Breaker To The Downside, Stock Now Up 45.96%"
+- **LQDA** +26.6%: "HC Wainwright & Co. Maintains Buy on Liquidia, Raises Price Target to $65"
+- **SKYD** -23.8%: "Skydance Stock Closes Down Nearly 24% Despite Warrant Clarification"
+- **WULF** -12.8%: "Morgan Stanley Maintains Overweight on TeraWulf, Raises Price Target to $65"
+- **CIFR** -12.5%: "Cipher Digital Prices $850M Offering Of Senior Notes Due 2032"
+- **IREN** -12.3%: "IREN Stock Tanks: What's Going On?"
+- **ORCL** -8.9%: "Oracle Stock Tumbles: What's Going On?"
+- **MMED** -8.8%: "Medtronic Announces Oversubscribed MiniMed Exchange Offer Results; Accepts 55,032,401 Of Its Shares For All Remaining 252,813,348 MiniMed Shares"
+- **ONDS** -8.4%: "Ondas Says European Aviation Regulator Certified Its Missile Protection System On Bombardier Global 7500 Jet"
+- **SOFI** -6.5%: "SoFi Stock Falls Toward Its 52-Week Low as BofA Miss Weighs on Banking Stocks"
+- **AAL** -5.7%: "American Airlines Cut 3 Destinations. What Does It Save Before Earnings?"
+- **BAC** -4.7%: "Baird Upgrades Bank of America to Outperform, Maintains Price Target to $62"
+- **NOK** -4.7%: "Nokia to Offload Private Wireless Business As It Sharpens Strategic Focus"
+- **INTC** -4.6%: "SK Hynix Stock Plunges 11% in Seoul, Slips After Hours in New York as Hot CPI, Fed Hike Bets and AI Funding Worries Weigh"
 
 ## Day Trading Watchlist
 
-No names cleared the day-trading bar today. The flag encodes gap over 3%, price over $3, market cap over $1B, premarket RVOL over 1.5, and price already breaking above yesterday's high. With zero gappers in the packet, there is nothing to check against it.
+No names cleared the day-trading bar today. That flag encodes a gap over 3%, price over $3, market cap over $1B, premarket RVOL over 1.5, and price already breaking above yesterday's high. Every gapper came back `day_eligible: false`.
 
 ## Swing Watchlist
 
-No names cleared the swing bar either. The flag encodes gap of 8% or more, price over $3, open above yesterday's high, open above the 200-day SMA, market cap of $800M or more, and a real catalyst. Same story: no gappers, nothing to evaluate.
+No names cleared the swing bar either. That flag encodes a gap of 8% or more, price over $3, open above yesterday's high, open above the 200-day SMA, market cap of $800M or more, and a real catalyst. Every gapper came back `swing_eligible: false`. Note the actual open hasn't printed yet at scan time, so the scanner used the current gap price as a stand-in.
 
 ## Market Trends of the Day
 
-Headlines only, since there is no price data. Two threads:
+It's a tech and AI sell-off. Headlines in the packet: "The AI trade is splintering as inflation fears rattle hyped-up tech stocks," "Tech sell-off gathers pace as chipmakers hammered" (Reuters), and "Global stocks sell-off deepens as chipmakers tumble" (Financial Times). MarketWatch has "CoreWeave's AI bonds tumble, raising red flags for the wider market" and "Why the AI trade is not set up for a rebound like July's, according to JPMorgan."
 
-- **Chips are under pressure despite strong ASML news.** CNBC: "ASML says it's getting order interest through 2030 as profit smashes expectations." MarketWatch says customers are already asking to place orders for 2029 and 2030. But Yahoo Finance reports "ASML Raises Sales Forecast For A Third Time, But Q3 Revenue Miss Sends Stock Lower: Earnings Selloff Spreads To MU, SNDK, INTC," and Barron's runs "Why the Chip Stocks Slump Is Deepening After ASML's Strong Earnings." Good news, sold anyway.
-- **Bank and asset manager earnings are in full swing.** CNBC: "Bank of America posts third-quarter profit drop due to $1.2 billion Treasury fine." BlackRock reported Q3 with assets near $15.5 trillion after 15% growth, and Yahoo Finance says the stock jumps as earnings and inflows beat expectations.
+The gapper list matches. Most of the cap-qualified names are down: the AI and bitcoin-miner/neocloud group (WULF, CIFR, IREN), plus ORCL, INTC and SOFI. Banks are weak too, with BAC down 4.7% and a headline pointing to its Q3 results.
 
-Also in the feed: Goldman Sachs economists put numbers on how much the AI boom is adding to inflation, which ties neatly into today's CPI. One strategist downgraded tech on slowing flows and deteriorating valuations. HSBC is quoted as expecting the market to broaden out, with Q3 earnings growth driven by energy and semiconductors.
+One bright spot is TSMC. The packet has "TSMC's CEO sees no sign of a slowdown as chip foundry reports record profit," but another headline says the stock fell anyway after the blowout earnings.
 
 ## Technical Signals for Today
 
-No data. The market snapshot (index levels, VIX, yields) returned nothing because of rate limiting. No levels or breadth to report, and none are being made up.
+Index levels below are ETF proxies (SPY, DIA, QQQ, IWM), not the actual indices. The prices are ETF prices.
+
+- S&P 500 proxy (SPY): 769.65, -1.08%
+- Dow proxy (DIA): 515.65, -0.08%
+- Nasdaq proxy (QQQ): 728.99, -1.97%
+- Russell 2000 proxy (IWM): 271.39, -1.91%
+
+VIX, 10-year yield, 3-month yield, WTI crude and the dollar index all came back null (yfinance failed). No breadth data in the packet. One headline cites "479 Stocks Hit 52-Week Lows on Wednesday, While Only 60 Set Highs."
 
 ## Economic Data, Rates and the Fed
 
-Today, Wednesday October 14 (all high-impact USD, forecasts only):
+Today (USD high impact), with forecast and previous:
 
-- 8:30 AM ET Core CPI m/m: forecast 0.2%, previous 0.3%
-- 8:30 AM ET Core CPI y/y: forecast 2.5%, previous 2.4%
-- 8:30 AM ET CPI m/m: forecast 0.6%, previous 0.4%
-- 8:30 AM ET CPI y/y: forecast 3.6%, previous 3.4%
+- 8:30 AM ET: Core PPI m/m, forecast 0.3%, previous 0.2%
+- 8:30 AM ET: Core Retail Sales m/m, forecast 0.6%, previous 1.4%
+- 8:30 AM ET: PPI m/m, forecast 0.6%, previous 0.4%
+- 8:30 AM ET: Retail Sales m/m, forecast 0.3%, previous 1.2%
+- 11:30 PM ET: Fed Chairman Warsh Speaks (time as listed in the calendar)
 
-Headline CPI is forecast to run hotter than the prior month, while core is forecast to cool on the monthly number but tick up on the yearly one. A Reuters headline notes gold fell for a third straight session as markets await US inflation data. The packet has no Fed pricing or rate data, so there is no read on what this means for the Fed path.
+The actual results aren't in the packet. With inflation worries already driving the tape ("Hot CPI, Fed Hike Bets" shows up in a headline), a hot PPI on top of the forecast 0.6% is the risk. The packet doesn't say more about the Fed path than that.
 
 ## Coming Up
 
-- **Tomorrow's events (Thursday October 15), all 8:30 AM ET unless noted:** Core PPI m/m (forecast 0.3%, previous 0.2%), Core Retail Sales m/m (forecast 0.6%, previous 1.4%), PPI m/m (forecast 0.6%, previous 0.4%), Retail Sales m/m (forecast 0.3%, previous 1.2%). Fed Chairman Warsh speaks, listed at 11:30 PM ET.
-- **Earnings:** No per-ticker earnings dates, since there are no gappers. The packet has no market-wide earnings calendar.
+- **Tomorrow's events:** None in the calendar for Friday, October 16.
+- **Earnings:** No `next_earnings_date` was populated for any gapper (enrichment calls were rate-limited). AAL has a headline saying "before earnings," but no date is in the packet.
 
 ## Skips and Traps
 
-Nothing to skip: no gappers, no catalysts to vet. The one general warning from the headlines is the chip group, where good ASML numbers did not stop the selling. Do not assume good news means up today.
+All 20 gappers get skipped, since none cleared either rules flag. Notes on the ones worth a warning:
+
+- **MGOL:** The +3838% gap is almost certainly not a real tradable move as shown. Market cap $42M, premarket data null. Skip.
+- **GLND:** Up 76% with a headline that is a response to a short-seller report. That's not a clean catalyst. Market cap $170M, below the bar. Skip.
+- **CIFR:** Down on an $850M senior notes offering. Financing overhang, no long.
+- **RPGL, BKHA, NXGL, AEHL:** Micro-cap or unknown cap, and the headlines are a SPAC deal vote, a reverse split and a circuit-breaker halt. Reverse-split and halt names are classic traps. Skip.
+- **RPGL and BSP:** Market cap unavailable from any source, so flags are false by default.
+- **LQDA:** Up 26.6% on analyst price-target moves, but it's sitting below its 200-day SMA (33.94 vs 53.92) and below yesterday's high (38.58). Not eligible.
+- **Down names (SKYD, WULF, IREN, ORCL, MMED, ONDS, SOFI, AAL, BAC, NOK, INTC):** The rules only build long watchlists. The gap-down moves are macro driven in most cases, and the packet doesn't give a setup for any of them.
 
 ## Where the Two Brains Landed
 
