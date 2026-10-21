@@ -1,93 +1,84 @@
-# Premarket Report: October 20, 2026
+# Premarket Report: 2026-10-21
 
-*Two-brain pass: Claude and GPT independently review the tape, then compare notes.*
+*Single-brain pass (Claude only).*
 
-> Rules pick the watchlist. Both AIs judge the quality of the setups. This is not financial advice.
+> Rules pick the watchlist. The AI judges the quality of the setups. This is not financial advice.
 
 ## Summary
 
-- **The tape in one line:** Tech-led bid. The packet's ETF proxies show Nasdaq (QQQ) +1.2%, S&P 500 (SPY) +0.43%, Russell 2000 (IWM) +0.31%, Dow (DIA) -0.02%. Headlines say Nasdaq futures dipped on oil and earnings, so read the proxies as a snapshot, not a settled direction.
-- **The catch we're watching:** AI earnings and oil. Reuters: "Shares slide again as oil stays high; AI earnings in focus". Sentiment is still in "Extreme Fear" per Benzinga even with the Nasdaq up.
-- **Two-brain verdict:** Single brain, no second opinion to compare.
+- **The tape in one line:** Index ETF proxies (SPY, DIA, QQQ, IWM) are mixed: S&P 500 proxy +0.32%, Dow proxy +1.01%, Nasdaq proxy -0.15%, Russell 2000 proxy +1.66%. Small caps are leading. VIX, 10Y, 3M, oil and DXY came back null (Yahoo rate limited), so there's no read on vol or rates.
+- **The catch we're watching:** Data quality. Several big gap numbers are measured against a stale `prev_close` that doesn't match `prior_close` (BRZE, SAIQ, ATGL, and others below), and 84 requests failed even after retries. Treat the percentages with suspicion.
+- **Two-brain verdict:** Single-brain run, no second opinion.
 
 ## Pre-Market Gappers
 
-Scan ran 07:11 EDT with the Alpaca screener as candidate source. 20 gappers came back. Intraday levels (VWAP, HOD, LOD, premarket high) are unavailable for all of them, and 88 requests failed after retries, so many fields are null. Most "catalysts" below are generic mover roundups, not company news.
+Source: Alpaca screener. Intraday levels (VWAP, premarket high, HOD, LOD) and RVOL are mostly null, so nothing could be tested on those. Headlines are quoted from the packet; many names only have generic "stocks moving" roundups.
 
-- **SLN** +125.6% "Why Is Silence Therapeutics Stock Skyrocketing Monday?"
-- **XHG** +60.0% "XChange TEC.INC Intends To Gradually Reduce Its Operations In Mainland China And Plans To Invest Between $5M And $10M In US Market"
-- **IRON** +38.9% "Disc Medicine Announces Proposed $350M Public Offering Of Common Stock And Pre-Funded Warrants"
-- **BKHA** -33.0% "Black Hawk Acquisition Shareholders Approve Its Proposed Business Combination With Vesicor Therapeutics"
-- **IAM** -31.4% "Iambic Therapeutics shares are trading lower amid post-IPO volatility."
-- **XLAB** +30.2% "What's Going On With Exascale Labs Stock Monday?"
-- **LCFYW** -27.4% No headline in the packet.
-- **TANH** -25.1% "Tantech Holdings Shares Fall 13% After Hours After Announcing 1-for-50 Reverse Split: What You Need To Know"
-- **AMRO** +24.7% "Why 3M Shares Are Trading Higher; Here Are 20 Stocks Moving Premarket"
-- **SVRN** -24.4% "Short Seller Says SVRN Stock Is 'Uninvestable'"
-- **MTEX** +22.7% "Mannatech Q2 EPS $0.53 Up From $(2.27) YoY, Sales $26.650M Up From $25.679M YoY"
-- **PMI** +21.2% "12 Health Care Stocks Moving In Friday's Pre-Market Session"
-- **AXTU** +21.1% "These AXT ETFs Turned a 30% Stock Rally Into Nearly 50% Returns"
-- **AXTX** +21.1% No headline in the packet.
-- **RFAIU** +21.0% "Reported Earlier, RF Acquisition Corp II Prices $100M Initial Public Offering Of 10M Units At $10/Unit"
-- **AKTX** +20.9% "Akari Therapeutics Submits PCT/US2026/45955 To Expand Its IP Portfolio"
-- **AXTC** +20.9% No headline in the packet.
-- **CLF** +16.2% "Barclays Maintains Underweight on Cleveland-Cliffs, Raises Price Target to $11"
-- **AMZN** +5.0% "Amazon Announces Plan To Invest More Than €16B ($18B) In Germany In 2027, Spanning Data Centers, AI, Satellite Internet, Logistics And Prime Video"
-- **RIG** +5.0% "Transocean Receives ~$62M Firm Contract Award Alongside Formal Approval Of Previously Announced Equinor Agreement; Converts $1B Contract Value To Firm Backlog"
+- **SAIQ** +100.6% : "WISeQey Remains WISeSat.Space's Largest Shareholder With Approximately 88.5% Beneficial Ownership, Targets Commercial Execution Across Secure Semiconductors, Digital Identity And Satellite Connectivity". Market cap null.
+- **ATGL** +52.6% : "Why Super Micro Computer Shares Are Trading Higher By 13%; Here Are 20 Stocks Moving Premarket" (generic roundup). Market cap $105.8M.
+- **BKHAU** -52.4% : "Reported Earlier, Black Hawk Revises Trust Amendment Proposal To Replace Per-Share Formula With Flat $150K Monthly Extension Deposit". SPAC unit, market cap $17.2M.
+- **BRZE** +51.7% : "BTIG Downgrades Braze to Neutral". Market cap $5.18B.
+- **AIXI** +40.9% : "12 Information Technology Stocks Moving In Tuesday's Intraday Session" (generic). Market cap $171.2M.
+- **WORX** +36.6% : "12 Health Care Stocks Moving In Tuesday's Intraday Session" (generic). Market cap $328,627.
+- **WLDSW** +34.2% : "Wearable Devices Receives Notice Of Allowance For Its Pressure-Based Gesture Control Patent Application From China's National Intellectual Property Administration". Market cap $94.6M.
+- **PMI** -32.2% : "12 Health Care Stocks Moving In Tuesday's After-Market Session" (generic). Market cap $24.5M.
+- **MYGN** +31.6% : "Myriad Genetics Offloads Struggling Prenatal Unit for $210 Million to Labcorp". Market cap $529.9M.
+- **RAIL** -31.4% : "FreightCar America Completes Acquisition Of Trinity Equipment Company, Terms Undisclosed; Transaction Expected To Be Immediately Accretive To FreightCar". Market cap $131.7M.
+- **PCTTU** +30.3% : "8 Stocks Halted In Tuesday's Session" (generic, from 2022 per the link). Market cap $916.1M.
+- **GOW** +29.5% : "GOWell Energy Technology Announces Nasdaq Trading Debut Under Ticker GOW Following Business Combination With Inflection Point Acquisition Corp. V". Market cap null.
+- **AIOK** +23.9% : no headline found. Market cap null.
+- **EVAX** +21.6% : "Evaxion Reports Sustained Clinical Responses in Three-Year Follow-Up of EVX-01 Phase 2 Trial". Market cap $1.69B.
+- **CD** +21.2% : "12 Financials Stocks Moving In Tuesday's Intraday Session" (generic). Market cap $931.7M.
+- **CCG** +20.7% : "12 Financials Stocks Moving In Tuesday's Intraday Session" (generic). Market cap null.
+- **LCU** -20.2% : "Lion Copper Corp. Commences Trading on Nasdaq". Market cap $1.96B. No daily bars or 200-day SMA in the packet.
+- **GLE** -19.2% : "BofA Projects Robust Q3 Results for Societe Generale" (unrelated roundup). Market cap $50.4M. Packet also shows a 1-for-10 reverse split effective Oct. 8.
+- **LVLU** -18.9% : "11 Consumer Discretionary Stocks Moving In Thursday's Intraday Session" (generic). Market cap $30.9M.
+- **IREN** -4.0% : "What's Going On With IREN Stock Tuesday?". Market cap $9.51B. Most-actives pick, not a true gapper.
 
 ## Day Trading Watchlist
 
-No names cleared the day-trading bar today. That flag encodes gap over 3%, price over $3, market cap over $1B, premarket RVOL over 1.5, and price already breaking above yesterday's high. Every gapper came back `day_eligible: false`. Premarket high and VWAP are null across the board, so no trigger levels exist to build a plan from.
+The day flag encodes Trend Join Long: gap > 3%, price > $3, market cap > $1B, premarket RVOL > 1.5, and price breaking above yesterday's high.
+
+No names cleared the day-trading bar today. Every gapper has `day_eligible: false`.
 
 ## Swing Watchlist
 
-That flag encodes gap of 8% or more, price over $3, open above yesterday's high, open above the 200-day SMA, market cap of $800M or more, and a real catalyst. One name came back `swing_eligible: true`, and it's a weak one.
+The swing flag encodes: gap >= 8%, price > $3, open above yesterday's high and the 200-day SMA, market cap >= $800M, and a real catalyst.
 
-| Ticker | Catalyst | Trend context | Idea | Second-brain check | Conviction |
-|---|---|---|---|---|---|
-| AKTX | News, no earnings: "Akari Therapeutics Submits PCT/US2026/45955 To Expand Its IP Portfolio". Theme: a patent filing. | Gap price $9.89 is above prior day high $9.17 and above the 200-day SMA $6.45. Gap +20.9%. | Watch only. Swing management isn't built yet, so this is a "watch and build a plan" name, not a trade. | None, single brain. | 🔴 |
-
-Why 🔴: the packet lists AKTX market cap as $1,540,451,857,081 (sec_edgar). That is about $1.54 trillion for a ~$10 biotech, which is clearly bad data, so the cap-based eligibility can't be trusted. Beyond that, a patent filing is a thin catalyst for a 20% gap. It's on the list on a technicality. The under-$2B market cap trigger can't be checked reliably, and the revenue-in-headline trigger doesn't apply (no revenue figure quoted).
+No names cleared the swing bar today. Every gapper has `swing_eligible: false`.
 
 ## Market Trends of the Day
 
-Tech and AI are doing the pushing. Nasdaq proxy +1.2% vs Dow flat. Benzinga: "Nasdaq Jumps Over 1% As Tech Stocks Gain" and "Nasdaq 100 Rises as AI Chip Rout Reverses, SanDisk Jumps 7%". But the AI trade is shaky. MarketWatch: "South Korean IPO flop is the latest in a string of disappointments for the global AI trade" and "Strategist Tom Lee says he's buying the AI stock dip". Oil is high and weighing on futures per Reuters. Small caps lag: "Why smaller stocks face worse prospects than the S&P 500 in the coming years". Earnings season is in motion: GM beat Q3 and narrowed full-year guidance, Synchrony and Equifax reported Q3.
+From the headlines in the packet:
+
+- AI and space are the loud theme. "Why SpaceX's stock is surging — and lifting the broader AI universe along with it" (MarketWatch), "SpaceX earnings soar past expectations as AI business surges - Axios". SAIQ's headlines are all SpaceX/satellite adjacent.
+- Earnings cheer is propping up the tape: "Stocks eke out modest gains thanks to earnings cheer - Reuters".
+- Netflix is the loser: "Netflix stock sinks after announcing Q3 earnings, Q4 revenue forecast falls short of estimates - Yahoo Finance".
+- Braze looks like a deal story: "After Braze, Could Klaviyo Be Big Tech's Next Billion-Dollar Bet?" plus a string of downgrades.
+- IREN is in AI-infrastructure credit worry territory: "'CoreWeave Is the Canary in the Coal Mine': Expert Warns More AI Debt Will Slide into Distress".
 
 ## Technical Signals for Today
 
-Index data is ETF proxies only, no levels beyond last and prior close:
-
-- S&P 500 (SPY): 766.60 vs 763.34 prior close, +0.43%
-- Nasdaq (QQQ): 718.31 vs 709.82, +1.2%
-- Russell 2000 (IWM): 271.30 vs 270.47, +0.31%
-- Dow (DIA): 518.98 vs 519.10, -0.02%
-
-VIX, US 10Y, US 3M, WTI oil and DXY all failed to load (null). No breadth or chart signals in the packet.
+Index levels are ETF proxies, not the real indexes: SPY 769.09 vs 766.60 prior close, DIA 524.21 vs 518.98, QQQ 717.21 vs 718.31, IWM 275.80 vs 271.30. VIX is null. No breadth data in the packet.
 
 ## Economic Data, Rates and the Fed
 
-No high-impact USD releases listed for today or tomorrow in the packet's econ calendar. Nothing on rates or the Fed from the packet either, and the 10Y and 3M yields came back null, so there's no rate read today.
+The packet's calendar (USD, high impact only) shows nothing today (2026-10-21). 10Y and 3M yields are null, so there's no rates read.
 
 ## Coming Up
 
-- **Tomorrow's events:** None listed (no high-impact USD releases for 2026-10-21).
-- **Earnings:** No `next_earnings_date` for any gapper. Headlines mention a "U.S. Earnings Preview: Before Market Open Oct. 20" and AI-name earnings ahead (Jim Cramer on MSFT, GOOGL, AMZN), but the packet gives no dates or tickers beyond that.
+- **Tomorrow's events:** No high-impact USD releases in the packet for 2026-10-22.
+- **Earnings:** No `next_earnings_date` for any gapper. From headlines only, Meta and IBM are being previewed ahead of earnings, per Barron's. Timing is not in the packet.
 
 ## Skips and Traps
 
-- **IRON** +38.9%: Up on bad news. Headline is "Disc Medicine Announces Proposed $350M Public Offering Of Common Stock And Pre-Funded Warrants". A dilutive raise. The BMO price target bump doesn't change that. Trap.
-- **SLN** +125.6%: Stock is up huge, but price $19.58 sits right at prior close $19.57 and prior-day high $19.61, so the "gap" looks like stale prior-day data. RVOL 401x on a 179K average volume. Headlines are roundups ("Why Is Silence Therapeutics Stock Skyrocketing Monday?") with no stated reason. Skip.
-- **XHG** +60%: Packet market cap is $82.8B for a $3 stock, which is bad data. Average volume is about 8K shares. Skip.
-- **XLAB, PMI, AMRO, AXTU:** Catalysts are generic mover roundups or an ETF article. No real story. Skip.
-- **AXTX, AXTC, LCFYW:** No catalyst found. Skip.
-- **SVRN** -24.4%: Short-seller report ("Short Seller Says SVRN Stock Is 'Uninvestable'") plus a co-CEO resignation. Down gap on a fraud-style allegation. Not a long.
-- **TANH** -25.1%: 1-for-50 reverse split news and a chairman change. Avoid.
-- **BKHA, IAM, RFAIU:** SPAC and fresh-IPO names with halts and thin floats. Skip.
-- **MTEX** +22.7%: Market cap $16.9M, and the headlines are months old (Q1 and Q2 results). Micro-cap, no fresh catalyst. Skip.
-- **CLF** +16.2%: Market cap $8.05B, RVOL 82x, but the headline is a Barclays Underweight with a $11 target, below the $14.11 price. Not a clean story, and no intraday levels. Skip.
-- **AMZN** +5.0%: Real news (Germany investment plan), but day-trade flag is false and no premarket levels exist. No setup today.
-- **RIG** +5.0%: Real contract news, but fails the day-trade flag and has no levels. No setup.
-- **AKTX:** See the Swing Watchlist. Watch only, and the data is suspect.
+- **BRZE:** The +51.7% is measured against a `prev_close` of $30.04, but `prior_close` is $45.58 and price is $45.57, so it's flat on the prior close. The move already happened. Headlines are four downgrades (BTIG to Neutral, Wells Fargo to Equal-Weight, Oppenheimer to Perform, Stifel to Hold) with targets at $47.5. That reads as a deal-capped stock. Skip.
+- **SAIQ, ATGL, AIXI, WORX, WLDSW, PMI, BKHAU, GLE, LVLU, RAIL:** Same pattern or micro-cap: sub-$500M market caps, most with near-zero 20-day average volume, and several with `prev_close` far from `prior_close`. Many have only generic roundup headlines, so effectively no catalyst. Skip.
+- **WLDSW:** Packet also shows "Wearable Devices Announces Warrant Inducement Agreement, Raising $1.2M In Gross Proceeds" and trading halts. A dilution-plus-halt microcap is a trap.
+- **MYGN:** Gap is real news (prenatal unit sale for $210M), but market cap is $529.9M, open is below yesterday's high ($5.54 vs $5.95), and it fails the swing rules. No setup.
+- **EVAX:** Good clinical headline, $1.69B cap, but price $4.05 is below yesterday's high of $4.11, and no premarket volume or RVOL. Close, but not through. Watch only.
+- **PCTTU, CD, GOW, CCG, AIOK, LCU:** SPAC/unit/new-listing or null-cap names with no usable catalyst or data. PCTTU's only headline is a 2022 halt roundup. AIOK has no catalyst at all. Skip.
+- **IREN:** Down 4.0%, below its 200-day SMA ($45.24), not a gap-up setup.
 
 ## Where the Two Brains Landed
 
