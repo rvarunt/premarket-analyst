@@ -1,53 +1,54 @@
-# Premarket Report: July 12, 2026
+# Premarket Report: 2026-10-21
 
-*Two-brain pass: Claude and GPT independently review the tape, then compare notes.*
+*Single-brain pass (Claude only).*
 
-> Rules pick the watchlist. Both AIs judge the quality of the setups. This is not financial advice.
+> **DEGRADED RUN: no gapper or price data today.** Yahoo Finance rate-limited every price call (market snapshot, day_gainers and most_actives screeners, and the static-universe daily bars), even after retries. `packet.json` has zero gappers and null index levels. Only headlines and the econ calendar came through. No watchlists today, and nothing below is a trade idea. This is not financial advice.
 
 ## Summary
 
-- **The tape in one line:** No live tape today. It's Sunday, July 12, so markets are closed anyway, and on top of that the price feed hit its rate limit again on this run, so the index snapshot is empty regardless.
-- **The catch we're watching:** Bank earnings season opens this week, with five big U.S. banks reporting on the same day and Citigroup singled out as the one to watch. Layer that on top of a market news feed that's leaning hard on one theme: the rally right now is running on AI demand more than anything else.
-- **Two-brain verdict:** Single brain, no second opinion to compare.
+- **The tape in one line:** No index, futures, or VIX data in the packet, so no read on the tape. The only color is a Reuters headline: "Stocks eke out modest gains thanks to earnings cheer - Reuters" (published 02:10 GMT, so it describes the prior session).
+- **The catch we're watching:** Earnings headlines on the wire: Netflix ("Netflix stock sinks after announcing Q3 earnings, Q4 revenue forecast falls short of estimates - Yahoo Finance"), SpaceX ("SpaceX earnings soar past expectations as AI business surges - Axios"), and Meta ("Meta at a Crossroads as It Reports Earnings - Barron's"). Without prices I can't tell you how any of them is actually trading.
+- **Two-brain verdict:** Single-brain run, no second opinion.
 
 ## Pre-Market Gappers
 
-No gappers made it through the pipeline this scan. Candidate source was the static universe fallback, and Yahoo rate-limited every batched daily-bars request and both live screener calls even after retries with backoff. Zero candidates reached the gap filter.
+None. The scanner found 0 candidates (source: static_universe_fallback) because Yahoo rate-limited the price data. Re-run the scan later to get real gap data.
 
 ## Day Trading Watchlist
 
-No names cleared the day-trading bar today. That flag encodes gap over 3%, price over $3, market cap over $1B, premarket RVOL over 1.5, and price already breaking above yesterday's high. With zero gappers in the packet, there's nothing to check that rule against.
+No names. No gapper data, so nothing could be tested against the Trend Join Long rule (gap > 3%, price > $3, market cap > $1B, premarket RVOL > 1.5, breaking above yesterday's high).
 
 ## Swing Watchlist
 
-No names cleared the swing bar either. That flag encodes gap of 8% or more, price over $3, open above yesterday's high, open above the 200-day SMA, market cap of $800M or more, and a real catalyst behind the move. Same story: no gappers means nothing to evaluate.
+No names. No gapper data, so nothing could be tested against the swing rule (gap >= 8%, price > $3, open above yesterday's high and the 200-day SMA, market cap >= $800M, real catalyst).
 
 ## Market Trends of the Day
 
-The news feed is actually useful this run. Two threads stand out:
+Only headlines, no price confirmation:
 
-Earnings season is kicking off, with a MarketWatch piece flagging five big U.S. banks reporting on the same day and calling out Citigroup as the name to watch for margin improvement. A second piece notes analyst estimates have climbed into this earnings season instead of the usual pre-earnings drift lower, credited to strength in energy and tech.
-
-AI demand is the dominant story across sectors, not just chipmakers. MarketWatch is running it straight: "the stock-market rally now hinges more on AI than oil." That shows up across the individual headlines too: Micron is being framed around $22 billion in AI memory customer commitments, Western Digital around tight HDD supply from AI-driven storage demand, and AppLovin around pushing its AI ad tooling past mobile gaming into e-commerce. Salesforce is the counter-note here, taking "a double blow" on one of its AI products.
-
-Outside of AI, there's real corporate-action flow in the feed: Clarivate selling its life sciences and healthcare business to Altaris for $600 million, a fast-food franchisee filing Chapter 11, and a cluster of small-cap mining and energy items (First Majestic Silver, Ur-Energy, NVRO Metals, Borr Drilling) hitting regulatory or operational milestones.
+- AI and SpaceX are the dominant theme. "Why SpaceX's stock is surging — and lifting the broader AI universe along with it" (MarketWatch), alongside "SpaceX earnings soar past expectations as AI business surges - Axios" and "Five Takeaways From SpaceX's Earnings Call - WSJ".
+- Data centers and inflation: "Opposition to data centers will drive up inflation, says BlackRock's Larry Fink" (MarketWatch).
+- Telecom: "AT&T shrugs off SpaceX fears with its own large haul of new internet subscribers" (MarketWatch).
+- Streaming: Netflix is getting punished on guidance per Yahoo Finance, with NPR noting a leadership shakeup and layoffs.
+- Outside the US: "DHL Group Lifts Guidance After Positive Earnings, Strong Peak-Season Forecast - WSJ" and "Bank Indonesia Holds Key Rate as MSCI Downgrade Threat Weighs on Markets - WSJ".
+- IBM earnings are previewed in "IBM Has a Chance to Rewrite Its Narrative. Can Earnings Spark a Comeback? - Barron's".
 
 ## Technical Signals for Today
 
-No data. All nine readings in the market snapshot (S&P 500, Dow, Nasdaq, Russell 2000, VIX, 10-year yield, 3-month yield, WTI crude, dollar index) came back null, same rate limit as the gappers. Nothing to call on breadth, VIX, or index levels.
+Not available. S&P 500, Dow, Nasdaq, Russell 2000, VIX, 10Y, 3M, WTI oil, and DXY all came back null (rate limited).
 
 ## Economic Data, Rates and the Fed
 
-Nothing on deck. The econ calendar shows zero USD high-impact events for today (Sunday, July 12) or tomorrow (Monday, July 13). Markets are closed today regardless, and Monday's calendar is just quiet, not broken.
+The packet's calendar (USD, high impact only) lists no events for today (2026-10-21) and none for tomorrow (2026-10-22). Nothing on rates or the Fed to report from the packet.
 
 ## Coming Up
 
-- **Tomorrow's events:** None in the calendar for Monday, July 13.
-- **Earnings:** No gapper-level earnings dates to report, zero gappers this scan. Worth flagging from the news feed though: five big U.S. banks are reporting results on the same day this week, with Citigroup called out as the one to watch.
+- **Tomorrow's events:** No high-impact USD releases in the packet.
+- **Earnings:** No per-gapper earnings dates (no gappers). From headlines only: Meta and IBM are being previewed as reporting, per Barron's. Timing is not in the packet.
 
 ## Skips and Traps
 
-Nothing to flag. There were no candidates to screen for bad-news pops or missing catalysts this scan.
+Nothing to screen, since there were no gappers. One general caution: Netflix is reported as sinking on a weak Q4 revenue forecast, so don't treat any bounce in it as a buy without data.
 
 ## Where the Two Brains Landed
 
