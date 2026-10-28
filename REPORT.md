@@ -1,53 +1,61 @@
-# Premarket Report: July 12, 2026
+# Premarket Report: 2026-10-28
 
 *Two-brain pass: Claude and GPT independently review the tape, then compare notes.*
 
 > Rules pick the watchlist. Both AIs judge the quality of the setups. This is not financial advice.
 
+**SCAN FAILED TO PRODUCE USABLE MARKET DATA.** Yahoo Finance rate-limited 4 requests even after retries (market snapshot batch, screener day_gainers, screener most_actives, static universe daily bars batch). The packet has zero gappers and every index, VIX, yield, oil and dollar field is null. Nothing below is a trade idea. No prices, gaps or levels are shown because none exist in the packet.
+
 ## Summary
 
-- **The tape in one line:** No live tape today. It's Sunday, July 12, so markets are closed anyway, and on top of that the price feed hit its rate limit again on this run, so the index snapshot is empty regardless.
-- **The catch we're watching:** Bank earnings season opens this week, with five big U.S. banks reporting on the same day and Citigroup singled out as the one to watch. Layer that on top of a market news feed that's leaning hard on one theme: the rally right now is running on AI demand more than anything else.
-- **Two-brain verdict:** Single brain, no second opinion to compare.
+- **The tape in one line:** No price data this morning. Headlines only: Nasdaq futures up on SK Hynix (Reuters), while CNBC has stock futures mixed ahead of the Fed decision and Big Tech earnings.
+- **The catch we're watching:** The Fed decision at 2:00 PM ET, with the FOMC press conference at 2:30 PM ET.
+- **Two-brain verdict:** Single-brain run, no gappers to judge.
 
 ## Pre-Market Gappers
 
-No gappers made it through the pipeline this scan. Candidate source was the static universe fallback, and Yahoo rate-limited every batched daily-bars request and both live screener calls even after retries with backoff. Zero candidates reached the gap filter.
+None. The scanner fell back to the static universe, daily bars failed to load, and the gap filter kept 0 of 0 candidates.
 
 ## Day Trading Watchlist
 
-No names cleared the day-trading bar today. That flag encodes gap over 3%, price over $3, market cap over $1B, premarket RVOL over 1.5, and price already breaking above yesterday's high. With zero gappers in the packet, there's nothing to check that rule against.
+No names to evaluate. Scan failed, so nothing cleared the day-trading bar.
 
 ## Swing Watchlist
 
-No names cleared the swing bar either. That flag encodes gap of 8% or more, price over $3, open above yesterday's high, open above the 200-day SMA, market cap of $800M or more, and a real catalyst behind the move. Same story: no gappers means nothing to evaluate.
+No names to evaluate. Scan failed, so nothing cleared the swing bar.
 
 ## Market Trends of the Day
 
-The news feed is actually useful this run. Two threads stand out:
+Only headline color is available, no price confirmation:
 
-Earnings season is kicking off, with a MarketWatch piece flagging five big U.S. banks reporting on the same day and calling out Citigroup as the name to watch for margin improvement. A second piece notes analyst estimates have climbed into this earnings season instead of the usual pre-earnings drift lower, credited to strength in energy and tech.
-
-AI demand is the dominant story across sectors, not just chipmakers. MarketWatch is running it straight: "the stock-market rally now hinges more on AI than oil." That shows up across the individual headlines too: Micron is being framed around $22 billion in AI memory customer commitments, Western Digital around tight HDD supply from AI-driven storage demand, and AppLovin around pushing its AI ad tooling past mobile gaming into e-commerce. Salesforce is the counter-note here, taking "a double blow" on one of its AI products.
-
-Outside of AI, there's real corporate-action flow in the feed: Clarivate selling its life sciences and healthcare business to Altaris for $600 million, a fast-food franchisee filing Chapter 11, and a cluster of small-cap mining and energy items (First Majestic Silver, Ur-Energy, NVRO Metals, Borr Drilling) hitting regulatory or operational milestones.
+- AI trade is the main theme. "SK Hynix delivered on third-quarter results — but the outlook is what really mattered to Wall Street and the AI trade" (MarketWatch). "SK Hynix Plans $75 Billion in Shareholder Returns After Blockbuster Earnings" (WSJ).
+- Mixed signals on AI. "Global stock markets rise as investors continue to bet on AI" (Al Jazeera), but also "China rushes to shore up markets as AI trade sours" (Financial Times) and "Microsoft and Alphabet Earnings Put Focus on AI Cash Flow Drain" (Bloomberg).
+- "Vertiv Stock Jumps 14% as Earnings Show Another Way to Play the AI Boom" (Barron's).
+- "STOXX 600 inches lower as investors sift through earnings, higher oil prices" (Reuters).
+- "Four reasons to start worrying about inflation, including the end of tariff refunds" (MarketWatch).
 
 ## Technical Signals for Today
 
-No data. All nine readings in the market snapshot (S&P 500, Dow, Nasdaq, Russell 2000, VIX, 10-year yield, 3-month yield, WTI crude, dollar index) came back null, same rate limit as the gappers. Nothing to call on breadth, VIX, or index levels.
+Unavailable. S&P 500, Dow, Nasdaq, Russell 2000, VIX, US 10Y, US 3M, WTI and DXY all came back null.
 
 ## Economic Data, Rates and the Fed
 
-Nothing on deck. The econ calendar shows zero USD high-impact events for today (Sunday, July 12) or tomorrow (Monday, July 13). Markets are closed today regardless, and Monday's calendar is just quiet, not broken.
+Today (2026-10-28), high-impact USD:
+
+- 2:00 PM ET: Federal Funds Rate, forecast 4.00%, previous 4.00%.
+- 2:00 PM ET: FOMC Statement.
+- 2:30 PM ET: FOMC Press Conference.
+
+The forecast is a hold at 4.00%. The press conference is the swing factor.
 
 ## Coming Up
 
-- **Tomorrow's events:** None in the calendar for Monday, July 13.
-- **Earnings:** No gapper-level earnings dates to report, zero gappers this scan. Worth flagging from the news feed though: five big U.S. banks are reporting results on the same day this week, with Citigroup called out as the one to watch.
+- **Tomorrow's events (2026-10-29):** 8:30 AM ET Advance GDP q/q (forecast 3.2%, previous 1.5%). 8:30 AM ET Core PCE Price Index m/m (forecast 0.3%, previous 0.2%).
+- **Earnings:** Headlines say Microsoft reports Q1 earnings with focus on Azure growth (Yahoo Finance via Google News). The packet has no gapper earnings dates and no full earnings calendar.
 
 ## Skips and Traps
 
-Nothing to flag. There were no candidates to screen for bad-news pops or missing catalysts this scan.
+Nothing to rank. Don't trade off this report. Check live data yourself.
 
 ## Where the Two Brains Landed
 
