@@ -1,4 +1,4 @@
-# Premarket Report: October 30, 2026
+# Premarket Report: November 02, 2026
 
 *Two-brain pass: Claude and GPT independently review the tape, then compare notes.*
 
@@ -6,50 +6,50 @@
 
 ## Summary
 
-- **The tape in one line:** No index data today, the price feed was rate limited and all nine market snapshot readings came back null. The headlines say risk-off: Bloomberg's wrap reads "Tech Stock Selloff Deepens on Earnings, Oil Rises: Markets Wrap."
-- **The catch we're watching:** Big-tech earnings reactions. CNBC's headline: "Amazon falls 7%, Intel plunges 25% in premarket trading, as pressure mounts after earnings." Those moves are from headlines only. The packet has no price data to confirm them.
+- **The tape in one line:** No index data. Yahoo rate-limited the market snapshot, so all nine readings are null. The only tape color is from headlines: Bloomberg has "US Stocks Halt Selloff as Oil Prices Retreat: Markets Wrap" and Yahoo Finance has "Dow Jones, S&P 500 Futures Rise Ahead of Apple, Palantir Earnings".
+- **The catch we're watching:** Midterm elections and oil. Goldman is quoted saying Brent could reach $140 a barrel next year if Middle East tensions worsen, while Reuters has gold rebounding from a one-year low "as oil slides ahead of US midterms".
 - **Two-brain verdict:** Single brain, no second opinion to compare.
 
 ## Pre-Market Gappers
 
-No gappers made it through the pipeline this scan. Candidate source was the static universe fallback. Yahoo rate-limited the batched daily-bars request and both live screener calls even after retries, so zero candidates reached the gap filter. Scan failed to produce usable price data. Any names mentioned below come from news headlines only.
+No gappers this scan. The data source failed: Yahoo rate-limited the static universe daily bars batch, both screener calls (day_gainers, most_actives) and the market snapshot, even after retries. Candidate source fell back to the static universe and zero candidates reached the gap filter. This is a data failure, not a quiet market. Nothing here was guessed.
 
 ## Day Trading Watchlist
 
-No names cleared the day-trading bar today. That flag encodes gap over 3%, price over $3, market cap over $1B, premarket RVOL over 1.5, and price already breaking above yesterday's high. With zero gappers in the packet, there is nothing to check that rule against.
+No names cleared the day-trading bar today. That flag encodes gap over 3%, price over $3, market cap over $1B, premarket RVOL over 1.5, and price already breaking above yesterday's high. With zero gappers in the packet, there is nothing to check against it.
 
 ## Swing Watchlist
 
-No names cleared the swing bar either. That flag encodes gap of 8% or more, price over $3, open above yesterday's high, open above the 200-day SMA, market cap of $800M or more, and a real catalyst. Same story: no gappers, nothing to evaluate.
+No names cleared the swing bar either. That flag encodes gap of 8% or more, price over $3, open above yesterday's high, open above the 200-day SMA, market cap of $800M or more, and a real catalyst. No gappers, nothing to evaluate.
 
 ## Market Trends of the Day
 
-Tech is getting hit on earnings, and the news feed is the only source we have. Headlines in the packet:
+Headlines only, no price confirmation.
 
-- Bloomberg: "Tech Stock Selloff Deepens on Earnings, Oil Rises: Markets Wrap."
-- Amazon: MarketWatch says "Amazon's stock drops, even in the face of a bold new cloud forecast," with modest AWS results and weak advertising growth disappointing Wall Street. Barron's: "Amazon Earnings: Why the Stock Is Tanking."
-- Intel: MarketWatch says "Why Intel's stock is sinking toward its worst drop in two years," citing PC business pressure as memory-chip prices dent demand and corporate IT budgets for laptops shrink.
-- Microsoft posted its FY27 Q1 press release. The packet has no figures or reaction.
-- Energy: Reuters says "Exxon, Chevron earnings propelled by war-driven refining surge." ExxonMobil announced Q3 2026 results.
-- Crypto: Binance suffered what MarketWatch calls the largest-ever $6.3 billion hack and plans to reopen within a couple of days. WSJ: "Cryptocurrencies Pare Losses After $6.3 Billion Hack Spooks Markets."
-- NYT: "Why the Markets Don't Care About the Midterms."
+Oil and geopolitics are the loud thread. Goldman says oil could average $130 per barrel next year (MarketWatch), and Bloomberg says stocks halted a selloff as oil retreated.
+
+Rotation is the other one. MarketWatch: "Citi throws in the towel on hyperscalers after a key market bet misfires", with hyperscalers and growth plays underperforming amid a sharp rotation. On the other side, "Deutsche Bank forecasts another bounce" in tech after five V-shaped rebounds in 30 months. Mixed views on tech.
+
+Earnings are in focus: Apple and Palantir report (Yahoo Finance headline), Morningstar asks whether Meta is a buy after falling since earnings, Microsoft posted FY27 Q1 press releases, SK Hynix plans $75 billion in shareholder returns after blockbuster earnings (WSJ), and NatWest fell after interest income guidance disappointed (WSJ).
+
+Elections: Morgan Stanley's Mike Wilson calls the midterms a "clearing event" whose outcome doesn't much matter. MarketWatch also ties the stock portfolio to the bond market and the midterms.
 
 ## Technical Signals for Today
 
-No data. All nine readings (S&P 500, Dow, Nasdaq, Russell 2000, VIX, 10-year yield, 3-month yield, WTI crude, dollar index) came back null from the Yahoo rate limit. Nothing to call on index levels, breadth, or VIX.
+No data. S&P 500, Dow, Nasdaq, Russell 2000, VIX, 10-year yield, 3-month yield, WTI crude and the dollar index all came back null from the rate limit. Nothing to call on levels, breadth or VIX.
 
 ## Economic Data, Rates and the Fed
 
-Nothing on deck. The econ calendar shows zero USD high-impact events for today (Friday, October 30) or tomorrow (Saturday, October 31).
+Nothing on deck. The calendar shows zero USD high-impact events for today, November 2. Tomorrow has one entry (see below). No forecast or previous figures are given.
 
 ## Coming Up
 
-- **Tomorrow's events:** None in the calendar for Saturday, October 31.
-- **Earnings:** No gapper-level earnings dates, zero gappers this scan. From headlines only: Novo Nordisk earnings preview (Morningstar) and IDEXX Laboratories "reports soon" (Yahoo Finance). No dates or timing in the packet.
+- **Tomorrow's events:** Congressional Elections, listed at 10:16 AM ET (November 3), no forecast or previous value.
+- **Earnings:** No gapper-level earnings dates, since there are zero gappers. From headlines only: Apple and Palantir are set to report.
 
 ## Skips and Traps
 
-Nothing screened, since there were no candidates. Headline-only caution: the Intel and Amazon moves are down on earnings, and the packet has no levels for them. Don't treat them as setups without real price data.
+Nothing to flag. No candidates were available to screen for bad-news pops or missing catalysts.
 
 ## Where the Two Brains Landed
 
