@@ -1,102 +1,85 @@
-# Premarket Report: November 03, 2026
+# Premarket Report: 2026-11-04
 
-*Single-brain pass: Claude only. Scan ran 06:12 ET, premarket.*
+*Single-brain run. Claude only.*
 
 > Rules pick the watchlist. The AI judges the quality of the setups. This is not financial advice.
 
 ## Summary
 
-- **The tape in one line:** Tech is the weak spot. Index readings are ETF proxies: SPY (S&P 500) 752.04, -0.49%. QQQ (Nasdaq) 681.22, -1.35%. DIA (Dow) 519.29, +0.44%. IWM (Russell 2000) 279.20, -0.06%. Bloomberg: "US Stocks Drift as Midterms Keep Traders Cautious: Markets Wrap".
-- **The catch we're watching:** AI worries. MarketWatch: "Nasdaq-100 tumbles into its third correction this year as AI worries mount". Reuters: "Global markets were already fragile. Big AI bets could break them".
-- **Two-brain verdict:** Single brain, no second opinion to compare.
-
-**Data gaps this scan:** VIX, 10-year, 3-month, WTI and the dollar index all came back null (Yahoo rate limited). Premarket levels (VWAP, premarket high, HOD, LOD) are null for every gapper, and `today_open` is null because the open hasn't printed yet. RVOL is null for all but the five large caps. No gapper has a next earnings date in the packet.
+- **The tape in one line:** Risk-on lean in the ETF proxies: SPY +0.31%, QQQ +0.6%, IWM +0.23%, DIA -0.44% (last vs prior close, ETF stand-ins for the indices). VIX, 10Y, 3M, oil and DXY came back null (Yahoo failed). Headline: "Stocks, Bonds Rally After US Vote as Dollar Falls: Markets Wrap - Bloomberg.com".
+- **The catch we're watching:** Midterm fallout for AI and data centres. Reuters: "Morning Bid: Markets fret blue wave will drown data centres". MarketWatch: "The AI trade has been 'sold to death' but Goldman strategist highlights silver lining from Democratic sweep".
+- **Two-brain verdict:** Single-brain run, no second opinion.
+- **Bottom line:** No name is eligible for either watchlist today. Both lists are empty.
 
 ## Pre-Market Gappers
 
-The packet has 20 gappers. Prices are the current gap price. Headlines are the first catalyst headline in the packet for each name, quoted as written.
+20 gappers in the packet. Intraday levels (VWAP, HOD, LOD, premarket high) are unavailable for all of them, and no open has printed yet. Headline shown is the first catalyst headline in the packet for each name.
 
-- **CASK** +2856.7% (price $17.74, prev close $0.60, market cap $17.7M): "Heritage Distilling To Change Ticker Symbol To IPST Effective September 22, Reflecting Strategic Focus Toward IP Token Treasury Model"
-- **VCIG** +168.4% ($8.16, market cap $214.7M): "VCI Global Announces 1-for-18 Reverse Stock Split, Effective November 2, 2026"
-- **CLRO** +65.7% ($5.65, market cap $15.1M): "Dow Jumps Over 400 Points; Marriott Posts Upbeat Q3 Earnings"
-- **LITZ** +38.0% ($35.79, market cap null): "Sandisk, Lumentum Rally Sparks Bearish Plays As Tradr Rolls Out 2X Short ETFs"
-- **MF** +37.6% ($11.49, market cap $238.8M): "12 Information Technology Stocks Moving In Monday's Intraday Session"
-- **DRUG** -52.4% ($26.20, market cap $118.5M): "FDA Setback Clouds Timeline For Bright Minds Biosciences' Pediatric Epilepsy Trials"
-- **AIOK** -47.8% ($12.63, market cap null): "AI OKTO Shares Halted On Circuit Breaker To The Upside, Stock Now Up 227.53%"
-- **SVRN** -39.7% ($17.78, market cap $133.4M): "SVRN Receives Nasdaq Delisting Determination"
-- **LITG** -38.0% ($7.99, market cap null): no catalyst headline in the packet
-- **LITU** -38.0% ($8.97, market cap null): "Lumentum, AST SpaceMobile Stocks Get Their 2X Funds As Traders Chase AI And Space Plays"
-- **LITX** -37.5% ($14.55, market cap null): "Hot Stocks, Double Exposure: Tradr's 2X ETFs Target Sandisk, Western Digital And Lumentum"
-- **XMAX** -37.5% ($4.01, market cap $258.7M): "XMax Enters 5-Yr AI Infrastructure Services Agreement With DSH HYPER For High-Performance Computing Capacity"
-- **LITC** -37.5% ($12.985, market cap null): no catalyst headline in the packet
-- **CMPS** -27.3% ($8.41, market cap $1.16B): "Compass Pathways to Announce Third Quarter 2026 Financial Results on November 3, 2026"
-- **PGEN** -25.9% ($5.14, market cap $1.84B): "Precigen Shares Decline Following Approval of Rival RRP Treatment"
-- **MRVL** -12.8% ($171.295, market cap $150.2B, RVOL 84.96): "B of A Securities Downgrades Marvell Technology to Neutral, Lowers Price Target to $225"
-- **INTC** -8.9% ($59.955, market cap $318.7B, RVOL 61.87): "GF Securities Downgrades Intel Price Target Following Q4 Outlook"
-- **ORCL** -8.9% ($119.115, market cap $360.2B, RVOL 53.64): "Oracle Announces $20 Billion Fundraising Plan for AI Cloud Expansion"
-- **IREN** -8.1% ($22.035, market cap $7.87B, RVOL 26.59): "B. Riley Securities Maintains Buy on IREN, Lowers Price Target to $64"
-- **CIFR** -5.8% ($6.865, market cap $3.13B, RVOL 22.05): "Keefe Bruyette Adjusts Price Target for Cipher Digital"
-
-Almost all of this is a down tape. Only five names are gapping up and four of those are micro caps. The big names in the packet (MRVL, INTC, ORCL, IREN, CIFR) are all lower. The packet is long on stale or generic headlines, so read the catalyst column with that in mind.
+- **RDAC** +121.6% "Rising Dragon Acquisition Corp. Mutually Terminates Merger Agreement with HZJL Cayman Limited"
+- **RDACU** +89.5% "Trading Halt: Halt status updated at 12:15:00 PM ET: Quotation Resumption: IPO Security - Released for Quotation"
+- **AEHG** +52.8% "Aehr Test Systems Gets New 2X Leveraged ETF Amid AI Semiconductor Rally"
+- **RIOX** +37.1% "Textbook Lesson: This Leveraged ETF Plunged 73% Since Inception – A Warning For Crypto Investors?"
+- **SUPN** -32.9% "Cantor Fitzgerald Maintains Overweight on Supernus, Raises Price Target to $87" (packet also lists "Supernus Pharmaceuticals Reports Third Quarter 2026 Financial Results", "Supernus Secures $650 Million Senior Secured Term Loan", "Supernus Pharmaceuticals Completes Merger with Indivior Pharmaceuticals")
+- **RZAI** -32.8% "12 Information Technology Stocks Moving In Tuesday's Intraday Session" (also: "Roze AI and BKB Energy Sign MOA to Evaluate AI Fire Forecasting System for AI Data Centers")
+- **FNG** +32.0% "A FANG ETF That Doesn't Hold Many of Those Stocks Scoops Up Beyond Meat Shares"
+- **HUTG** +31.0% "Rare Earths, Energy And Crypto: Themes ETFs Expands Leveraged Lineup With Six New Funds"
+- **CORZW** +30.6% "Trading Halt: Halted at 4:00:00 a.m. ET - Quotation Resumption: New Issue Available"
+- **VCIG** -30.3% "US Stocks Mixed; Apple Shares Slide After Q4 Results" (also: "VCI Global Announces 1-for-18 Reverse Stock Split, Effective November 2, 2026")
+- **GLX** +30.2% "Corgi's ETF Pack Grows Yet Again with 24 New Leveraged and Buffer Launches"
+- **WULX** +29.8% No catalyst headline in the packet
+- **STVN** -28.6% "Nasdaq Surges 1%; Pfizer Posts Upbeat Q3 Earnings" (also: "Stevanato Group Reports Q3 2026 Financial Results")
+- **AEHR** +26.5% "Nasdaq Jumps Over 200 Points as Chip Stocks Gain: Fear & Greed Index Remains in 'Extreme Fear' Zone" (also: "Lake Street Maintains Buy on Aehr Test System, Lowers Price Target to $90", "Jefferies Maintains Buy on Aehr Test System, Lowers Price Target to $140")
+- **CIFR** +18.6% "JP Morgan Maintains Overweight on Cipher Digital, Lowers Price Target to $18"
+- **RIOT** +18.5% "RIOT, COIN, MSTR Jump up to 16%: What Is Going On With Crypto Stocks?" (also: "Riot Platforms Stock Flies Ahead of Earnings: What's Going On?")
+- **WULF** +14.7% "Keefe Bruyette Adjusts Price Targets for Bitcoin Miners in Sector-Wide Reset"
+- **IREN** +11.1% "Jim Cramer Sees These 'Non-Magnificent' Tech Stocks Emerging as Market Leaders While Nvidia, Microsoft Struggle: 'It's Just Not The Tech That's Led Us'"
+- **ORCL** +6.0% "Jim Cramer Sees These 'Non-Magnificent' Tech Stocks Emerging as Market Leaders While Nvidia, Microsoft Struggle: 'It's Just Not The Tech That's Led Us'" (also: "'Oracle Cancels $7bn Tencent AI Deal Under Trump Pressure' - FT")
+- **STLA** -5.5% "Stellantis Appoints Sandeep Bhambra as Director of Design for Citroën and DS Automobiles"
 
 ## Day Trading Watchlist
 
-No names cleared the day-trading bar today. That flag encodes the "Trend Join Long" rule: gap over 3%, price over $3, market cap over $1B, premarket RVOL over 1.5, and price already breaking above yesterday's high. `day_eligible` is false for all 20 gappers. The only upside gappers are micro caps under $1B or with no market cap, and the large caps are all gapping down.
+Rule (Trend Join Long): gap > 3%, price > $3, market cap > $1B, premarket RVOL > 1.5, and price already breaking above yesterday's high.
+
+No names cleared the day-trading bar today. `day_eligible` is false for all 20. Note that intraday levels were unavailable and premarket RVOL is null for the micro-cap pool, so the rules engine had little to work with. I'm not overriding the flags.
 
 ## Swing Watchlist
 
-No names cleared the swing bar either. That flag encodes: gap of 8% or more, price over $3, open above yesterday's high, open above the 200-day SMA, market cap of $800M or more, and a real catalyst. `swing_eligible` is false for all 20 gappers. Note that `today_open` is null premarket, so the scanner used the gap price as a stand-in.
+Rule: gap >= 8%, price > $3, open > yesterday's high, open > the 200-day SMA, market cap >= $800M, and a real catalyst.
+
+No names cleared the swing bar today. `swing_eligible` is false for all 20. No open has printed yet, so the scanner used the current gap price as a stand-in. Every one of the big-cap upside gappers (AEHR, CIFR, RIOT, WULF, IREN, ORCL) is trading below its 200-day SMA in the packet, which is the reason they fail.
 
 ## Market Trends of the Day
 
-AI is the theme, and it's cutting the wrong way. Headlines in the packet:
-
-- "Nasdaq-100 tumbles into its third correction this year as AI worries mount" (MarketWatch)
-- "Apple and Palantir shares slide in premarket trading following post-bell earnings - CNBC"
-- "Here’s why Palantir’s stock is down despite a ‘bombastic’ quarter" (MarketWatch)
-- "Apple’s iPhone business is booming. Here’s why the stock is falling anyway." (MarketWatch)
-- "Marvell and Lumentum shareholders unite in panning merger deal: ‘It’s a trash offer’" (MarketWatch)
-- "Traders rushing into a leveraged ETF to make a bullish bet on the Nasdaq-100 just got burned" (MarketWatch)
-
-The gapper list matches. MRVL, ORCL, INTC, IREN and CIFR are all red on huge relative volume. ORCL's catalyst is "Oracle Announces $20 Billion Fundraising Plan for AI Cloud Expansion". Money is leaving AI infrastructure names.
-
-Outside tech, the packet shows "Bayer Shares Jump After Pharma Recovery Prompts Outlook Raise - WSJ" and "Samsung’s Chip Profit Drives Another Record Quarter - WSJ". MarketWatch has "Oil has had a massive run, but a prominent bull sees a turning point on midterm eve". Midterms have traders cautious.
+- **Bitcoin miners and AI hosting bounce.** CIFR, RIOT, WULF and IREN are all up 11% to 19% on huge volume (RVOL 16.7 to 35.8 per the packet). Headline: "RIOT, COIN, MSTR Jump up to 16%: What Is Going On With Crypto Stocks?" Analyst price target cuts are all over the group: Keefe Bruyette "Trims Price Targets for Bitcoin Miners Including Riot Platforms", JP Morgan, Wells Fargo and Needham all "Lower Price Target" on Cipher. So this is a bounce into target cuts, not a re-rating.
+- **Chips.** "Nasdaq Jumps Over 200 Points as Chip Stocks Gain: Fear & Greed Index Remains in 'Extreme Fear' Zone". AEHR is +26.5%.
+- **AI trade tone.** MarketWatch says it "has been 'sold to death'". Also "Here's why AMD's stock is rising" and "Super Micro's stock pops as earnings show booming demand for AI servers".
+- **Politics.** "Democrats win the House and Senate. Here's what it means for your finances." Asia had "Midterm Whiplash as Selloff Gives Way to Relief Rally" per WSJ.
+- **Earnings reactions:** Novo Nordisk lifted guidance on its Wegovy pill. Apple fell on gross margin outlook. Shopify "missed revenue expectations".
 
 ## Technical Signals for Today
 
-These are ETF proxies, not the index levels. Last price vs. prior close:
-
-- SPY 752.04 vs 755.72 (-0.49%)
-- QQQ 681.22 vs 690.54 (-1.35%)
-- DIA 519.29 vs 517.00 (+0.44%)
-- IWM 279.20 vs 279.37 (-0.06%)
-
-The split is clear: Nasdaq proxy weak, Dow proxy up, small caps flat. VIX, yields, oil and the dollar are null, so there's no read on those. No breadth data in the packet.
+- ETF proxies, last vs prior close: SPY 754.38 vs 752.04 (+0.31%), QQQ 685.32 vs 681.22 (+0.6%), IWM 279.83 vs 279.2 (+0.23%), DIA 517.02 vs 519.29 (-0.44%). These are ETF prices, not index levels.
+- VIX: null. Breadth: not in the packet.
+- Sentiment: "Fear & Greed Index Remains in 'Extreme Fear' Zone" per Benzinga.
 
 ## Economic Data, Rates and the Fed
 
-Today (high impact, USD): Congressional Elections, 10:16 AM ET. No forecast or previous value in the packet. Nothing else high impact is listed. No rates or Fed data in the packet.
+No high-impact USD releases in the packet for today (2026-11-04). 10Y and 3M yields are null, so I can't comment on rates.
 
 ## Coming Up
 
-- **Tomorrow's events:** No high-impact USD events in the calendar for 2026-11-04.
-- **Earnings:** No `next_earnings_date` in the packet for any gapper. CMPS has the headline "Compass Pathways to Announce Third Quarter 2026 Financial Results on November 3, 2026", which is today. The packet has no timing. INTC's catalysts include an AMD Q3 earnings preview for Tuesday, but AMD isn't a gapper in the packet.
+- **Tomorrow's events (2026-11-05):** No high-impact USD events in the packet.
+- **Earnings:** `next_earnings_date` is null for every gapper. Headlines say "Riot Platforms Stock Flies Ahead of Earnings" and Google News carries "Uber Q3 earnings preview", but the packet gives no date or timing, so I'm not stating one.
 
 ## Skips and Traps
 
-None of these are on a watchlist, but here is why the tempting ones are skips.
-
-- **CASK** (+2856.7%): market cap $17.7M. The headlines are about a ticker change and a token treasury, and some are dated well before today. Price $17.74 is below the 200-day SMA of $18.23. Skip.
-- **VCIG** (+168.4%): market cap $214.7M. The catalyst is "VCI Global Announces 1-for-18 Reverse Stock Split, Effective November 2, 2026". A reverse split is not a catalyst, and a gap this size is likely split math. Skip.
-- **CLRO** (+65.7%): market cap $15.1M. Headlines are generic market wraps, not about the company. Skip.
-- **MF** (+37.6%): market cap $238.8M. Headlines are generic "12 Information Technology Stocks Moving" lists. Skip.
-- **LITZ** (+38.0%): no market cap, headline is about leveraged ETF launches. Skip. **LITG, LITU, LITX, LITC** are the same family: no market cap, and LITG and LITC have no catalyst at all. Skip.
-- **SVRN** (-39.7%): "SVRN Receives Nasdaq Delisting Determination". Avoid.
-- **AIOK** (-47.8%): the headlines are about a halt on the upside at +227.53% and a CEO buying 130,000 shares at $8.15. Price is $12.63 and market cap is null. Messy and unclear. Skip.
-- **DRUG** (-52.4%): "FDA Setback Clouds Timeline For Bright Minds Biosciences' Pediatric Epilepsy Trials". Bad news and a micro cap. Skip.
-- **XMAX** (-37.5%): market cap $258.7M. The AI infrastructure deal headline is the catalyst, yet the stock is down. Skip.
-- **CMPS** (-27.3%) and **PGEN** (-25.9%): both gapping down, with an earnings date today for CMPS and a rival's approval for PGEN. No longs.
-- **MRVL, INTC, ORCL, IREN, CIFR**: all gapping down on heavy volume. The packet has no long setup in any of them. MRVL has a downgrade to Neutral, ORCL is raising $20 billion, and CIFR's headline reads "Cipher Digital's Revenue Plunges, but Its AI Data Center Ambitions Are Growing". No trades from the packet.
+- **Micro-cap and SPAC spikes: RDAC, RDACU, CORZW.** RDAC (+121.6%, market cap $38.8M) and RDACU (+89.5%, $37.1M) are tiny Rising Dragon acquisition-corp lines. RDAC's headline is a terminated merger, not a catalyst to chase. RDACU's headlines are an old IPO and halt notice from 2024. CORZW is a warrant line (market cap $2.41B in the packet) whose only headline is a 2024 halt notice. All skips.
+- **Leveraged ETF names with stale or off-topic news: AEHG, RIOX, FNG, HUTG, GLX.** Market cap is null for all of them and the "catalysts" are ETF launch stories, some dated 2025. Not real catalysts.
+- **WULX:** `catalyst_found: false`. No catalyst, skip.
+- **Gap downs: SUPN -32.9%, STVN -28.6%, RZAI -32.8%, VCIG -30.3%.** Long-only rules, nothing to buy. SUPN (market cap $1.64B) has an overweight and an $87 target from Cantor against a $28.15 price, and the packet shows a merger with Indivior and a $650M term loan, so I'm not reading more into it. STVN reported Q3 and says it "continues to expect revenue in the range of €1.260 billion to €1.280 billion". VCIG did a 1-for-18 reverse split effective Nov 2.
+- **The big-cap upside names (AEHR, CIFR, RIOT, WULF, IREN).** All trade below the 200-day SMA and the move leans on analyst target cuts or sympathy. Chasing is a trap until levels print. AEHR's analyst headlines are both target cuts ($90 and $140).
+- **ORCL +6.0%:** "'Oracle Cancels $7bn Tencent AI Deal Under Trump Pressure' - FT" is a bad-news headline sitting on a gap up. Price is below the 200-day SMA ($126.22 vs $156.29). Treat the pop as suspect.
+- **STLA -5.5%:** headline is a design director appointment. No real story.
 
 ## Where the Two Brains Landed
 
