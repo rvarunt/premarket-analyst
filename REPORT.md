@@ -1,82 +1,92 @@
-# Premarket Report: November 9, 2026
+# Premarket Report: 2026-11-10
 
-*Two-brain pass: Claude and GPT independently review the tape, then compare notes.*
+*Single-brain pass: Claude only. Second brain not wired in yet.*
 
-> Rules pick the watchlist. Both AIs judge the quality of the setups. This is not financial advice.
+> Rules pick the watchlist. The AI judges the quality of the setups. This is not financial advice.
+
+**Data warning:** the scan ran at 06:21 ET and Yahoo was rate-limited or blocked. 115 requests failed even after retries. VIX, 10Y, 3M, oil and dollar are null in the packet. Intraday levels (premarket high, VWAP, HOD, LOD) are null for every gapper, and premarket RVOL is null for the first 10 names. Nothing below is filled in. Where the packet is blank, this report says so.
 
 ## Summary
 
-- **The tape in one line:** Rebound attempt after last week's AI-led rout. ETF proxies in the packet: SPY +0.27%, QQQ +1.27%, IWM +0.95%, DIA -0.46%. VIX, 10Y, 3M, oil and dollar all came back null (Yahoo rate-limited), so no volatility or rates read today.
-- **The catch we're watching:** CPI at 8:30 AM ET tomorrow (CPI m/m forecast 0.3%, core 0.2%). Headlines say the strong jobs report keeps a December rate hike alive, so a hot print could hit a tape that's only just stabilizing.
-- **Two-brain verdict:** Single brain, no second opinion to compare.
+- **The tape in one line:** The packet shows S&P 500 +2.36%, Dow +2.17%, Nasdaq +3.42%, Russell 2000 +3.25%. VIX is null, so there's no read on fear. Headlines point to a tech and AI rebound ("Asian Stocks to Rally on US Tech Surge, Oil Slump: Markets Wrap - Bloomberg.com").
+- **The catch we're watching:** CPI at 8:30 AM ET (headline forecast 0.3% m/m, core forecast 0.2%). A hot print plus "Fed's Waller puts half-point rate hike into the mix for December" is the thing that could flip a tech-led bounce.
+- **Two-brain verdict:** Single-brain run, no second opinion.
 
 ## Pre-Market Gappers
 
-Data caveat first. Intraday fields (premarket high, VWAP, HOD, LOD, premarket volume, RVOL for the small caps) are all null. 118 requests failed even after retries. Also, for most names the packet's `price` sits at or near `prior_close`, so these gap percentages look like Friday's move versus Thursday's close, not a fresh overnight gap. Treat them as a "what moved last session" list.
+All 20 gappers from the packet. Gap % and price are from the packet. Market cap in parentheses where available.
 
-- **STAK** +82.1%: "STAK Inc. Discloses Initial Progress in Gas-Powered Generator Business"
-- **FLYT** +73.0%: "As With Stocks, Robinhood Users Like Their ETFs Risky"
-- **GOGO** +71.5%: "Gogo Inc. Announces Third Quarter 2026 Financial Results"
-- **LASC** +57.6%: no catalyst found in the packet
-- **BDSX** -57.0%: "Johnson Fistel, PLLP Initiates Investigation into Biodesix Following Stock Decline"
-- **SKIN** +51.8%: "Beauty Health Q3 EPS $(0.14) Beats $(0.26) Estimate, Sales $69.200M Beat $67.943M Estimate"
-- **QNTU** +51.1%: "Tradr Bets on Quantum Boom With 5 New 2X ETFs on Quantinuum, Ciena"
-- **OBX** +44.4%: "Obsidian Therapeutics Announces Positive Updated Results for Amsoki-cel in Advanced Melanoma"
-- **KRMN** +42.1%: "These Analysts Revise Their Forecasts On Karman After Upbeat Q3 Results"
-- **FLY** +36.8%: "Firefly Aerospace Onboarded as Vendor for NASA's $10 Billion CLPS 2 Contract"
-- **IRTC** -30.7%: "iRhythm Technologies Faces Investor Investigation Following Q3 Earnings Miss and Guidance Update"
-- **IREN** +20.1%: "Jones Trading Upgrades IREN to Buy, Announces $40 Price Target"
-- **CIFR** +18.1%: "AI Stocks Got Hammered After Midterms, but This Analyst Says the Panic Is Overblown"
-- **ONDS** +18.1%: "Ondas Inc. Announces Acquisition of Stemme GmbH and U.S. Manufacturing Expansion"
-- **WULF** +13.4%: "Needham Maintains Buy on TeraWulf, Lowers Price Target to $25"
-- **RIOT** +13.2%: "Needham Maintains Buy Rating and Raises Price Target on Riot Platforms"
-- **AMD** +10.9%: "Oppenheimer Upgrades Advanced Micro Devices to Outperform, Announces $600 Price Target"
-- **MCHP** -10.1%: "Jefferies Maintains Buy on Microchip Technology, Lowers Price Target to $85"
-- **INTC** +7.9%: "Micron, AMD, SanDisk Lead AI Stock Bounce as Investors Buy the Dip"
-- **MU** +4.7%: "Nasdaq Gains Over 1% as Chipmakers Recover: Investor Sentiment Improves, but Fear & Greed Index Remains in 'Extreme Fear' Zone"
+- **HYB** +205.9% (price 25.0845, prior close 8.2, market cap null) : "The New America High Income Fund To Pay A Special Dividend Of $0.0475 Per Share On Common Stock"
+- **WCT** +92.2% ($207M) : "Wellchange Holdings Company Limited Announces 1-for-10 Reverse Stock Split"
+- **SMX** +89.7% ($16.8M) : "SMX Announces Reverse Stock Split"
+- **TANH** +65.7% ($120M) : "Tantech Holdings LTD Announces Yefang Zhang Resigns As Chairman; Yao L Xu Appointed Chairman Effective Oct 1"
+- **CKX** +58.2% ($33.7M) : "CKX Lands Announces $1 Billion Investment Led by Brad Jacobs"
+- **TLS** +48.8% ($527M) : "Telos Corporation Reports Third Quarter 2026 Financial Results and Raises Full-Year Outlook"
+- **PCTTU** +46.6% ($898M) : "8 Stocks Halted In Tuesday's Session"
+- **GFR** +38.0% ($969M) : "Strathcona Resources to Acquire Greenfire Resources in C$2.7-C$2.9 Billion Deal"
+- **RGTIW** +32.4% ($1.12B) : no catalyst headline found
+- **UVIX** -27.2% ($3.86B) : "UVIX Jumps 13% As VIX Nears 'Fear Zone' Of 30, Volatility ETFs Surge"
+- **VISN** -25.0% ($839M) : "Vistance Networks Q3 2026 Earnings Call Transcript"
+- **IBRX** -17.6% ($7.56B) : "ImmunityBio Q3 Adj. EPS $(0.09) Misses $(0.08) Estimate, Sales $48.841M Miss $59.250M Estimate"
+- **AMD** +13.7% ($834B) : "Jim Cramer Calls AMD a Winner After 13% Surge, But Warns US Data Center Roadmap Is 'Suspect'"
+- **ONDS** +11.8% ($3.40B) : "Ondas Inc. Issues Third-Quarter Revenue Guidance"
+- **WULF** +8.8% ($6.20B) : "TeraWulf Analysts Stay Bullish After Google Backstops $19 Billion Anthropic Lease"
+- **AAL** +7.5% ($9.37B) : "Why Is American Airlines Stock Surging on Monday?"
+- **NOK** +7.0% ($47.0B) : "Nokia Deploys AI Agents to Enhance Telecom Network Engineering"
+- **INTC** +5.4% ($315.6B) : "Evercore ISI Adjusts Intel Price Target to $131 From $133"
+- **NVDA** -4.3% ($4.31T) : "Wells Fargo Maintains Overweight on NVIDIA, Lowers Price Target to $300"
+- **CIFR** +4.1% ($3.11B) : "Morgan Stanley Maintains Overweight on Cipher Digital, Lowers Price Target to $27.5"
 
 ## Day Trading Watchlist
 
-No names cleared the day-trading bar today. That flag encodes gap over 3%, price over $3, market cap over $1B, premarket RVOL over 1.5, and price already breaking above yesterday's high. Every gapper came back `day_eligible: false`. Note that with premarket high and VWAP null, the levels needed for a trigger aren't in the packet anyway.
+The bar is Trend Join Long: gap > 3%, price > $3, market cap > $1B, premarket RVOL > 1.5, and price already breaking above yesterday's high.
+
+No names cleared the day-trading bar today. Every gapper has `day_eligible: false`. Worth noting: for AMD, NOK, INTC, NVDA, WULF, AAL, ONDS and CIFR the price sits just under prior-day high (AMD 508.675 vs 515.1, INTC 59.37 vs 60.02, NOK 8.185 vs 8.28). No premarket high, VWAP, HOD or LOD data came through, so there are no levels to build a trigger from.
 
 ## Swing Watchlist
 
-No names cleared the swing bar either. That flag encodes gap of 8% or more, price over $3, open above yesterday's high, open above the 200-day SMA, market cap of $800M or more, and a real catalyst. Every gapper came back `swing_eligible: false`. The open isn't printed yet, so the scan used the current price as a stand-in.
+The bar is: gap >= 8%, price > $3, open above yesterday's high, open above the 200-day SMA, market cap >= $800M, and a real catalyst. Remember the real open hasn't printed yet, so the current gap price stands in for it.
+
+No names cleared the swing bar today. Every gapper has `swing_eligible: false`.
 
 ## Market Trends of the Day
 
-AI trade trying to bounce after a brutal week. Benzinga: "Nasdaq 100 Rebounds 2% After Worst Day Since 2020, Payrolls Smash Estimates: Stock Market Today" and "Nasdaq Gains Over 1% as Chipmakers Recover: Investor Sentiment Improves, but Fear & Greed Index Remains in 'Extreme Fear' Zone". Asian stocks climbed after the earlier tech rout (Al Jazeera), and US futures are mixed ahead of Berkshire earnings, Nvidia news and AI regulation plans (Yahoo Finance).
+AI and chips are the story, in both directions. AMD is +13.7% and the Cramer headline calls it a 13% surge. INTC is +5.4% and NOK +7.0%, while NVDA is -4.3% with Wells Fargo lowering its target to $300. AI-power and compute names TeraWulf (+8.8%) and Cipher Digital (+4.1%) are up despite target cuts. Headlines frame the backdrop as a post-midterm AI selloff ("AI Stocks Got Hammered After Midterms, but This Analyst Says the Panic Is Overblown") and a Morgan Stanley view that "Market Correction Nearing End". Also in the news: "Anthropic reportedly retracts IPO terms sent to banks by mistake, exposing jitters over AI investments" and a short-seller claim about Nvidia chips reaching China.
 
-Sentiment is still fragile. Citi says it's better to sit out the global tech trade until AI sentiment improves. Morgan Stanley's chief strategist says the correction is entering its final phase but to wait before buying the dip. MarketWatch also has "How Wall Street is reacting to the news of Nvidia's investigation into Jensen Huang spy claims".
-
-Group moves from the gapper list: chip names bounced (AMD +10.9%, INTC +7.9%, MU +4.7%) while MCHP is down 10.1% with a string of analyst price target cuts. Bitcoin miners and AI data-center names are up (IREN, CIFR, WULF, RIOT, all +13% to +20%), though IREN's headlines include "CoreWeave and IREN Stocks Face Pressure as Microsoft Reassesses Its Computing Deals".
+Airlines are bid (AAL +7.5%, "CORRECTION: Airline companies are trading higher") alongside "Crude Oil Falls Over 3%". Volatility products are getting crushed: UVIX -27.2% after a big run.
 
 ## Technical Signals for Today
 
-Only ETF proxies are available: SPY last 735.40 vs prev close 733.43 (+0.27%). QQQ 656.31 vs 648.05 (+1.27%). IWM 273.59 vs 271.01 (+0.95%). DIA 512.21 vs 514.56 (-0.46%). VIX is null. No breadth data in the packet. Nasdaq and small caps are leading, the Dow is lagging.
+Packet index changes: S&P 500 +2.36%, Dow +2.17%, Nasdaq +3.42%, Russell 2000 +3.25%. Index levels are null. VIX, 10Y, 3M, WTI and DXY are all null because the Yahoo batch failed, so there are no breadth, volatility or rate signals to report. The UVIX headline says "VIX Nears 'Fear Zone' Of 30", but that is a headline, not a packet VIX reading. Intraday levels for every gapper are null.
+
+Where the packet has daily context: AMD (508.675) is above its 200-day SMA of 417.2. NVDA (178.64), INTC (59.37), WULF (12.37), CIFR (6.805), NOK (8.185), ONDS (5.96) are all below their 200-day SMAs.
 
 ## Economic Data, Rates and the Fed
 
-Nothing high-impact on the USD calendar today. Headlines tie the jobs beat to rate-hike odds: Bloomberg via Google News, "Gold Holds Decline as US Jobs Data Fan December Rate Hike Bets", and Benzinga, "Nasdaq 100 Has Worst Day Since 2020, Jobs Beat Keeps Fed Hike Alive: This Week on Wall Street". Yields are null this scan.
+Today (the packet filters to USD high-impact only):
+- 8:30 AM ET, Core CPI m/m: forecast 0.2%, previous 0.3%.
+- 8:30 AM ET, CPI m/m: forecast 0.3%, previous 0.6%.
+
+The Fed angle: the MarketWatch headline reads "Fed's Waller puts half-point rate hike into the mix for December". No other rate figures are in the packet. A CPI above forecast fits that hawkish framing and is the main risk to the tech bounce.
 
 ## Coming Up
 
-- **Tomorrow's events (Nov 10):** 8:30 AM ET CPI m/m (forecast 0.3%, previous 0.6%). 8:30 AM ET Core CPI m/m (forecast 0.2%, previous 0.3%).
-- **Earnings:** `next_earnings_date` is null for every gapper. The only earnings mentions in the market news are Q3 snapshots for Dole and Barrick Mining, and SoftBank's second-quarter earnings (Reuters headline). No timing given in the packet.
+- **Tomorrow's events:** none in the packet (no USD high-impact releases for 2026-11-11).
+- **Earnings:** `next_earnings_date` is null for every gapper, and the packet has no market-wide earnings calendar. Recent-results headlines in the news feed (not upcoming dates): Palantir, Trade Desk, Hims & Hers, CoreWeave, On Holding, Telos, ImmunityBio, Vistance Networks.
 
 ## Skips and Traps
 
-- **LASC:** no catalyst found. Skip. Market cap also null.
-- **FLYT:** headlines are generic ETF stories, not about the company. Market cap null. Skip.
-- **QNTU:** the only headline is a July ETF launch piece, not a real catalyst for a +51% move. Market cap null. Skip.
-- **STAK:** +82%, but the headline says the buyer LOI is "Non-Binding... No Purchase Commitment", market cap about $62.6M. Pure micro-cap hype.
-- **GOGO:** +71.5% with a market cap of about $527M, under the $800M swing floor. Earnings plus a term loan amendment.
-- **SKIN:** +51.8%, market cap about $102.8M, and the headlines include guidance narrowing and a class action settlement. Too small and messy.
-- **BDSX, IRTC:** big gap downs with investor-investigation headlines. Long-only rules, so not on any list. IRTC also has "Citigroup Downgrades iRhythm Holdings to Neutral, Lowers Price Target to $124".
-- **OBX (+44.4%, market cap about $856M):** good news, but not flagged eligible, and price is below its 200-day SMA (17.27) in the packet.
-- **KRMN, FLY:** real catalysts, but flagged ineligible and below their 200-day SMAs.
-- **Miners and AI infra (IREN, CIFR, WULF, RIOT, ONDS):** all trade far below their 200-day SMAs, flagged ineligible, and the Microsoft pullback headline on IREN is a reminder that this group is headline-driven.
-- **MCHP:** down on a wave of price target cuts. Not a long.
+- **HYB** +205.9%: the only headlines are about a $0.0475 special dividend and ex-dividend date. That can't explain a 3x move, and a $25 price against a $8.23 prior close and 200-day SMA looks like bad data or a thin-print artifact. Market cap is null. Skip.
+- **WCT** +92.2% and **SMX** +89.7%: reverse-split headlines. A reverse split mechanically resets price, it isn't a real gap. SMX is a $16.8M cap. Skip.
+- **TANH** +65.7%: the catalyst is a chairman resignation and appointment, plus generic "stocks moving premarket" headlines about other companies. $120M cap. No real story. Skip.
+- **CKX** +58.2%: a "$1 Billion Investment Led by Brad Jacobs" is the headline, but this is a $33.7M cap that was halted on a circuit breaker and already up 73% intraday earlier. Too small and too wild. Skip.
+- **TLS** +48.8%: strong headline (Q3 results, raised full-year outlook, Needham target to $9), but market cap is $527M, below both bars, and price 7.17 is under prior-day high 7.19. Not eligible. Watch only.
+- **PCTTU** +46.6%: the only headline is "8 Stocks Halted In Tuesday's Session". That's not a catalyst. Price 4.47 is far below prior-day high 9.81 and the 200-day SMA of 15.78. Skip.
+- **GFR** +38.0%: an M&A headline (Strathcona buying Greenfire), but that links to the target name, not clearly to GFR, and market cap is $969M with no RVOL. Not eligible. Skip.
+- **RGTIW** +32.4%: `catalyst_found: false`. No catalyst, skip. It's also a warrant.
+- **UVIX** -27.2%, **VISN** -25.0%, **IBRX** -17.6%, **NVDA** -4.3%: gapping down, no long setups here. IBRX is a clear earnings miss ("Sales $48.841M Miss $59.250M Estimate").
+- **AMD** +13.7%: the best-looking name by trend, above its 200-day SMA, but it fails the rules because price 508.675 sits below prior-day high 515.1. The only headline is commentary on a surge that already happened, and Cramer warns the data-center roadmap is "Suspect". Chasing is a trap. Watch only.
+- **WULF, CIFR, INTC, NOK, ONDS, AAL**: all below their 200-day SMAs and under prior-day highs. WULF and CIFR have target cuts in the headlines.
 
 ## Where the Two Brains Landed
 
