@@ -1,0 +1,11 @@
+const fs=require('fs'); const d3={mean:a=>a.reduce((x,y)=>x+y,0)/a.length,median:(a,f)=>{const v=(f?a.map(f):a).filter(x=>x!=null).sort((p,q)=>p-q);const m=Math.floor(v.length/2);return v.length%2?v[m]:(v[m-1]+v[m])/2},ascending:(a,b)=>a-b,group:(a,f)=>{const m=new Map();a.forEach(x=>{const k=f(x);if(!m.has(k))m.set(k,[]);m.get(k).push(x)});return m}};
+const html=fs.readFileSync(__dirname+'/../page/index.html','utf8'); const scripts=[...html.matchAll(/<script>([\s\S]*?)<\/script>/g)].map(m=>m[1]);
+const calcs={}; global.d3=d3; global.window=global; global.dash={calc:(id,o)=>calcs[id]=o,draw:()=>{},data:()=>({}),onData:()=>{}};
+global.document={querySelectorAll:()=>[]};
+eval(scripts[0]);
+const L=(f)=>JSON.parse(fs.readFileSync(__dirname+'/../data/'+f)).rows;
+const v=calcs.valuation.fn(L('companies.json'),L('markets.json'),L('assumptions.json'));
+const s=calcs.summary.fn(v); const g=calcs.groups.fn(v);
+console.log(JSON.stringify(s));
+for (const r of v.sort((a,b)=>(b.upside_pct??-1e9)-(a.upside_pct??-1e9))) console.log(r.ticker.padEnd(11),r.bucket.padEnd(22),String(r.price).padEnd(9),r.fair_value==null?'-':r.fair_value.toFixed(1),r.upside_pct==null?'-':r.upside_pct.toFixed(0)+'%',r.agreement,r.n_models);
+console.log(g.map(x=>x.bucket+' '+(x.median_upside_pct??0).toFixed(0)).join(' | '));

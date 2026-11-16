@@ -1,0 +1,452 @@
+<meta name="dash-one-writer">
+<style>
+.vd { font-family: var(--font-anthropic-sans); color: var(--color-fg); display: flex; flex-direction: column; gap: var(--cds-gap-lg); }
+.vd-title { font-family: var(--font-anthropic-serif); font-weight: 400; font-size: var(--cds-font-size-title); margin: 0; }
+.vd-lede { margin: 0; color: var(--color-fg); font-size: var(--cds-font-size-body); line-height: 1.5; }
+.vd-sub { margin: 0; color: var(--color-fg-muted); font-size: var(--cds-font-size-body); }
+.vd-h { font-size: var(--cds-font-size-heading); font-weight: var(--cds-font-weight-medium); margin: 0 0 var(--cds-gap-xs); }
+.vd-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: var(--cds-gap-md); }
+.vd-card { background: var(--color-panel); border: 1px solid var(--color-border-line); border-radius: var(--cds-radius); padding: var(--cds-pad-lg); min-height: 84px; }
+.vd-card-label { color: var(--color-fg-muted); font-size: var(--cds-font-size-body); }
+.vd-big { font-family: var(--font-anthropic-serif); font-weight: 400; font-size: 28px; font-variant-numeric: tabular-nums; }
+.vd-ok { color: var(--color-ok); } .vd-bad { color: var(--color-bad); } .vd-warn { color: var(--color-warn); } .vd-muted { color: var(--color-fg-muted); }
+.vd-strip { display: flex; flex-wrap: wrap; gap: var(--cds-gap-sm) var(--cds-gap-lg); font-size: var(--cds-font-size-body); color: var(--color-fg-muted); font-variant-numeric: tabular-nums; }
+.vd-strip b { color: var(--color-fg); font-weight: var(--cds-font-weight-medium); }
+.vd-controls { display: flex; flex-wrap: wrap; gap: var(--cds-gap-sm); align-items: center; }
+.vd-chartbox { position: relative; min-height: 200px; }
+.vd-chart svg text { font-size: 14px; fill: var(--color-fg); font-family: var(--font-anthropic-sans); }
+.vd-chart .vd-tick { fill: var(--cds-text-secondary); }
+.vd-tip { position: absolute; pointer-events: none; background: var(--cds-surface-popover); border: 1px solid var(--cds-border); box-shadow: var(--cds-shadow-popover); border-radius: var(--cds-radius); padding: var(--cds-pad-sm) var(--cds-pad-md); font-size: var(--cds-font-size-body); line-height: 1.5; max-width: 260px; z-index: 5; }
+.vd-tablewrap { overflow-x: auto; border: 1px solid var(--color-border-line); border-radius: var(--cds-radius); }
+.vd-table { width: 100%; border-collapse: collapse; font-size: var(--cds-font-size-body); font-variant-numeric: tabular-nums; }
+.vd-table th, .vd-table td { padding: 8px 12px; text-align: right; white-space: nowrap; border-bottom: 1px solid var(--color-border-line); }
+.vd-table th { color: var(--color-fg); font-weight: 600; background: var(--color-panel); position: sticky; top: 0; cursor: pointer; }
+.vd-table th.l, .vd-table td.l { text-align: left; }
+.vd-table tr.vd-group td { background: var(--color-panel); text-align: left; font-weight: var(--cds-font-weight-medium); color: var(--color-fg); }
+.vd-pill { display: inline-block; padding: 1px 8px; border-radius: 999px; font-size: 13px; border: 1px solid currentColor; }
+.vd-notes summary { cursor: pointer; font-weight: var(--cds-font-weight-medium); }
+.vd-notes { font-size: var(--cds-font-size-body); color: var(--color-fg-muted); line-height: 1.55; }
+.vd-notes table { border-collapse: collapse; margin: var(--cds-gap-sm) 0; }
+.vd-notes td, .vd-notes th { padding: 3px 10px 3px 0; text-align: left; vertical-align: top; }
+</style>
+
+<div class="vd">
+  <header id="overview">
+    <h1 class="vd-title">Daily Valuation Dashboard</h1>
+    <p class="vd-lede"><span data-draw="lede" data-source="summary">—</span></p>
+    <p class="vd-sub">Prices as of <span data-draw="asof" data-source="markets">—</span>. Fair value is the median of two or three models chosen for each company type. Research aid, not investment advice.</p>
+  </header>
+
+  <section id="rates">
+    <div class="vd-strip" data-draw="strip" data-source="markets assumptions">—</div>
+  </section>
+
+  <section id="scorecards" class="vd-cards">
+    <div class="vd-card"><div class="vd-card-label">Look cheap (upside &gt; band)</div><div class="vd-big vd-ok" data-draw="nCheap" data-source="summary" data-field="cheap" data-row="0">—</div></div>
+    <div class="vd-card"><div class="vd-card-label">Fairly valued</div><div class="vd-big" data-draw="nFair" data-source="summary" data-field="fair" data-row="0">—</div></div>
+    <div class="vd-card"><div class="vd-card-label">Look rich (downside &gt; band)</div><div class="vd-big vd-bad" data-draw="nRich" data-source="summary" data-field="rich" data-row="0">—</div></div>
+    <div class="vd-card"><div class="vd-card-label">Models agree (within band)</div><div class="vd-big" data-draw="nAgree" data-source="summary" data-field="agree" data-row="0">—</div></div>
+  </section>
+
+  <section id="filters" class="vd-controls">
+    <select class="dash-select" id="f-region" aria-label="Region">
+      <option value="">All regions</option>
+      <option value="US">US only</option>
+      <option value="Europe">Europe only</option>
+      <option value="Asia">Asia only</option>
+    </select>
+    <select class="dash-select" data-draw="bucketSel" aria-label="Company type" data-source="companies"></select>
+  </section>
+
+  <section id="upside-chart">
+    <h2 class="vd-h">Upside to fair value</h2>
+    <p class="vd-sub">Fair value vs today's price. Green = cheap, red = rich, grey = within the band or too little data (one model only). Point at a bar for each model's value.</p>
+    <div class="vd-chartbox vd-chart" data-draw="chart" data-source="valuation"></div>
+  </section>
+
+  <section id="table-sec">
+    <h2 class="vd-h">All companies</h2>
+    <p class="vd-sub">Prices and fair values in each stock's own currency. Click a column header to sort.</p>
+    <div class="vd-tablewrap">
+      <table class="vd-table" id="valtable" data-source="valuation" data-row-key="id">
+        <thead><tr>
+          <th class="l" data-field="ticker" data-sort="ticker">Ticker</th>
+          <th class="l" data-field="name" data-sort="name">Company</th>
+          <th data-field="price" data-sort="price">Price</th>
+          <th data-field="fair_value" data-sort="fair_value">Fair value</th>
+          <th data-field="upside_pct" data-sort="upside_pct">Upside</th>
+          <th class="l" data-field="signal" data-sort="signal">Signal</th>
+          <th class="l" data-field="agreement" data-sort="agreement">Models</th>
+          <th data-field="dcf" data-sort="dcf">DCF</th>
+          <th data-field="ddm" data-sort="ddm">Gordon DDM</th>
+          <th data-field="ri" data-sort="ri">Residual inc.</th>
+          <th data-field="peg_fv" data-sort="peg_fv">PEG = 1</th>
+          <th data-field="peer_fv" data-sort="peer_fv">Peer multiple</th>
+          <th data-field="pe" data-sort="pe">P/E</th>
+          <th data-field="peg" data-sort="peg">PEG</th>
+          <th data-field="ev_ebitda" data-sort="ev_ebitda">EV/EBITDA</th>
+          <th data-field="pb" data-sort="pb">P/B</th>
+          <th data-field="ps" data-sort="ps">P/S</th>
+          <th data-field="div_yield_pct" data-sort="div_yield_pct">Div. yield</th>
+          <th data-field="ke_pct" data-sort="ke_pct">ke</th>
+          <th data-field="g_pct" data-sort="g_pct">Growth used</th>
+          <th data-field="perf_1m_pct" data-sort="perf_1m_pct">1M</th>
+        </tr></thead>
+        <tbody data-draw="rows"></tbody>
+      </table>
+    </div>
+  </section>
+
+  <section id="groups">
+    <h2 class="vd-h">By company type</h2>
+    <p class="vd-sub">Median upside of each group and the models used for it.</p>
+    <div class="vd-tablewrap">
+      <table class="vd-table" data-source="groups" data-row-key="bucket">
+        <thead><tr>
+          <th class="l" data-field="bucket">Group</th>
+          <th data-field="n">Companies</th>
+          <th data-field="median_upside_pct">Median upside</th>
+          <th data-field="median_pe">Median P/E</th>
+          <th data-field="median_ev_ebitda">Median EV/EBITDA</th>
+          <th class="l" data-field="models">Models used</th>
+        </tr></thead>
+        <tbody data-draw="groupRows"></tbody>
+      </table>
+    </div>
+  </section>
+
+  <section id="benchmarks">
+    <h2 class="vd-h">Benchmarks</h2>
+    <div class="vd-tablewrap">
+      <table class="vd-table" data-source="markets" data-row-key="symbol">
+        <thead><tr>
+          <th class="l" data-field="name">Index / ETF</th>
+          <th data-field="value">Level</th>
+          <th data-field="change_pct">Day</th>
+          <th data-field="perf_1m_pct">1M</th>
+          <th data-field="perf_ytd_pct">YTD</th>
+        </tr></thead>
+        <tbody data-draw="bmRows"></tbody>
+      </table>
+    </div>
+  </section>
+
+  <section id="private" class="vd-notes">
+    <h2 class="vd-h">Not valued here (no trading price)</h2>
+    <p>These companies on your list have no listed share to value, so they are left out of the numbers above.</p>
+    <table>
+      <tr><th>Company</th><th>Group</th><th>Status</th></tr>
+      <tr><td>Databricks</td><td>Software</td><td>Private; no public ticker</td></tr>
+      <tr><td>Huawei</td><td>AI chips &amp; semis</td><td>Private; no public ticker</td></tr>
+      <tr><td>Anthropic</td><td>Platforms &amp; neocloud</td><td>Ticker ANT listed on Nasdaq but not trading yet; it joins the dashboard automatically on the first refresh after it trades</td></tr>
+    </table>
+  </section>
+
+  <details class="vd-notes" id="method">
+    <summary>How the models work, and their limits</summary>
+    <p><b>Cost of equity (ke)</b> = 10-year government yield (German 10Y for European stocks, US 10Y for US and Asian ones, since their fundamentals are reported in USD) + 5-year beta × equity risk premium. Beta is clamped to a sensible range so one odd year can't dominate.</p>
+    <p><b>Growth used</b> = average of next-year analyst EPS growth (ignored when it jumps more than 50%, usually a one-off) and last-12-month revenue growth, clamped to the growth floor and cap (a lower cap applies to conventional banks).</p>
+    <table>
+      <tr><th>Model</th><th>How it is computed here</th></tr>
+      <tr><td>DCF</td><td>Free cash flow per share grows at "growth used", fading in a straight line to terminal growth over the forecast years, then a Gordon terminal value; discounted at ke. Uses trailing free cash flow, so heavy capex years (e.g. AI build-outs) pull it down.</td></tr>
+      <tr><td>Gordon DDM</td><td>Next year's dividend ÷ (ke − terminal growth). Used for steady payers.</td></tr>
+      <tr><td>Residual income</td><td>Book value + book value × (ROE − ke) ÷ (ke − terminal growth). Used for banks, digital banks and brokers.</td></tr>
+      <tr><td>PEG = 1</td><td>Next-year EPS × a fair P/E equal to the growth rate (between 8 and 25).</td></tr>
+      <tr><td>Peer multiple</td><td>Median EV/EBITDA of the other companies in the same group (P/B for financials, P/S for high growth), applied to this company: P/B for banks and digital banks, P/E for brokers, EV/EBITDA for the rest. Physical AI names use the median P/S of all non-financial companies here, since most have no profits yet.</td></tr>
+    </table>
+    <table>
+      <tr><th>Group</th><th>Models</th></tr>
+      <tr><td>Software; AI chips &amp; semis; Platforms &amp; neocloud; Pharma &amp; biotech</td><td>DCF, PEG, peer EV/EBITDA</td></tr>
+      <tr><td>Physical AI</td><td>Market P/S, PEG, DCF</td></tr>
+      <tr><td>Banks</td><td>Residual income, peer P/B, Gordon</td></tr>
+      <tr><td>Digital banking</td><td>Residual income, peer P/B, PEG</td></tr>
+      <tr><td>Brokerage</td><td>PEG, peer P/E, residual income</td></tr>
+    </table>
+    <p><b>Signals.</b> A company valued by only one model is marked Low data and left out of the cheap/rich counts.</p>
+    <p><b>Limits.</b> Cyclical companies at peak earnings (e.g. memory makers) look cheap on trailing numbers. TradingView has few fundamentals for some Korean and Chinese listings (SK hynix, Samsung, Unitree) and for very new listings (SpaceX, Agility), so they get one model or none. Oracle appears in both Software and Platforms (marked * in the chart). Sum-of-the-parts, precedent transactions, liquidation value and option pricing need case-by-case inputs and are not automated. Fundamentals are TradingView's figures in USD; prices are in each stock's own currency and converted at today's FX rate.</p>
+  </details>
+</div>
+
+<script>
+// Shared helpers (on window so later scripts can use them)
+window.vd = window.vd || {};
+vd.state = { region: '', bucket: '', sort: 'upside_pct', dir: -1 };
+vd.cur = { USD: '$', EUR: '€', GBP: '£', CHF: 'CHF ', KRW: '₩', HKD: 'HK$', CNY: 'CN¥', JPY: '¥', INR: '₹', DKK: 'kr ' };
+vd.money = (v, c) => (v == null || !isFinite(v)) ? '–' : (vd.cur[c] || '') + d3.format(v >= 1000 ? ',.0f' : ',.2f')(v);
+vd.pct = (v, signed) => (v == null || !isFinite(v)) ? '–' : d3.format(signed ? '+.1f' : '.1f')(v) + '%';
+vd.num = (v) => (v == null || !isFinite(v)) ? '–' : d3.format(',.1f')(v);
+vd.sigClass = (s) => s === 'Cheap' ? 'vd-ok' : s === 'Rich' ? 'vd-bad' : 'vd-muted';
+vd.median = (a) => { const v = a.filter((x) => x != null && isFinite(x)).sort(d3.ascending); return v.length ? d3.median(v) : null; };
+
+dash.calc('valuation', {
+  title: 'Fair value by company',
+  description: 'Each company valued with two or three models picked for its group; fair value is their median.',
+  inputs: ['companies', 'markets', 'assumptions'],
+  fn: (companies, markets, assumptions) => {
+    const A = Object.fromEntries(assumptions.map((r) => [r.key, Number(r.value)]));
+    const M = Object.fromEntries(markets.map((r) => [r.symbol, Number(r.value)]));
+    const clamp = (x, lo, hi) => Math.max(lo, Math.min(hi, x));
+    const med = (a) => { const v = a.filter((x) => x != null && isFinite(x) && x > 0).sort((p, q) => p - q); if (!v.length) return null; const m = Math.floor(v.length / 2); return v.length % 2 ? v[m] : (v[m - 1] + v[m]) / 2; };
+    const plan = {
+      'Software': ['dcf', 'peg_fv', 'peer'], 'AI chips & semis': ['dcf', 'peg_fv', 'peer'], 'Platforms & neocloud': ['dcf', 'peg_fv', 'peer'],
+      'Physical AI': ['peer', 'peg_fv', 'dcf'], /* peer = market-wide P/S */
+      'Pharma & biotech': ['dcf', 'peg_fv', 'peer'],
+      'Banks': ['ri', 'peer', 'ddm'], 'Digital banking': ['ri', 'peer', 'peg_fv'], 'Brokerage': ['peg_fv', 'peer', 'ri']
+    };
+    const fin = ['Banks', 'Digital banking', 'Brokerage'];
+    const peerField = (b) => (b === 'Banks' || b === 'Digital banking') ? 'pb' : b === 'Brokerage' ? 'pe' : b === 'Physical AI' ? 'ps' : 'ev_ebitda';
+    return companies.map((c) => {
+      const n = (k) => (c[k] == null || c[k] === '') ? null : Number(c[k]);
+      const fx = n('fx_usd'), sh = n('shares'), price = n('price');
+      const rf = (c.region === 'Europe' ? M['TVC:DE10Y'] : M['TVC:US10Y']) / 100;
+      const beta = clamp(n('beta_5y') ?? 1, A.beta_min, A.beta_max);
+      const ke = rf + beta * A.erp_pct / 100;
+      const tg = (c.region === 'Europe' ? A.tg_eu_pct : A.tg_us_pct) / 100;
+      const gs = [];
+      if (n('eps_ttm') > 0 && n('eps_next_fy') > 0) { const ge = n('eps_next_fy') / n('eps_ttm') - 1; if (Math.abs(ge) <= 0.5) gs.push(ge); } // a jump over 50% is usually a one-off, so revenue growth is used alone
+      if (n('rev_growth_pct') != null) gs.push(n('rev_growth_pct') / 100);
+      const mature = c.bucket === 'Banks';
+      const gCap = (mature ? A.g_max_mature_pct : A.g_max_pct) / 100;
+      const g = clamp(gs.length ? d3.mean(gs) : tg, A.g_min_pct / 100, gCap);
+      const toLocal = (usdPerShare) => usdPerShare / fx;
+      let dcf = null;
+      if (!fin.includes(c.bucket) && n('fcf_ttm') > 0 && sh > 0) {
+        let cf = n('fcf_ttm') / sh, pv = 0; const N = A.fade_years;
+        for (let t = 1; t <= N; t++) { const gt = g + (tg - g) * (t - 1) / Math.max(1, N - 1); cf *= 1 + gt; pv += cf / Math.pow(1 + ke, t); }
+        pv += cf * (1 + tg) / (ke - tg) / Math.pow(1 + ke, N);
+        dcf = toLocal(pv);
+      }
+      const ddm = (n('dps') > 0 && n('div_yield_pct') >= 1.5) ? toLocal(n('dps') * (1 + tg) / (ke - tg)) : null;
+      const ri = (fin.includes(c.bucket) && n('bvps') > 0 && n('roe_pct') != null) ? toLocal(n('bvps') + n('bvps') * (n('roe_pct') / 100 - ke) / (ke - tg)) : null;
+      const peg_fv = n('eps_next_fy') > 0 ? toLocal(n('eps_next_fy') * clamp(g * 100, 8, 25)) : null;
+      const pf = peerField(c.bucket);
+      // High growth names are compared with the market-wide median P/S (their own group is too small and too spread out)
+      const peerSet = pf === 'ps' ? companies.filter((o) => !fin.includes(o.bucket) && o.symbol !== c.symbol) : companies.filter((o) => o.bucket === c.bucket && o.symbol !== c.symbol);
+      const peerMed = med(peerSet.map((o) => Number(o[pf])));
+      let peer_fv = null;
+      if (peerMed != null && sh > 0) {
+        if (pf === 'pb' && n('bvps') > 0) peer_fv = toLocal(peerMed * n('bvps'));
+        else if (pf === 'ps' && n('revenue_ttm') > 0) peer_fv = toLocal(peerMed * n('revenue_ttm') / sh);
+        else if (pf === 'pe' && n('eps_ttm') > 0) peer_fv = toLocal(peerMed * n('eps_ttm'));
+        else if (pf === 'ev_ebitda' && n('ebitda_ttm') > 0) peer_fv = toLocal((peerMed * n('ebitda_ttm') - (n('net_debt') || 0)) / sh);
+        if (peer_fv != null && peer_fv <= 0) peer_fv = null;
+      }
+      const vals = { dcf, ddm, ri, peg_fv, peer: peer_fv };
+      const used = (plan[c.bucket] || ['dcf', 'peer']).map((k) => vals[k]).filter((v) => v != null && isFinite(v) && v > 0);
+      const fair = med(used);
+      const upside = fair != null ? (fair / price - 1) * 100 : null;
+      const band = A.signal_band_pct;
+      const signal = upside == null ? 'No value' : used.length < 2 ? 'Low data' : upside > band ? 'Cheap' : upside < -band ? 'Rich' : 'Fair';
+      const agree = used.length < 2 ? 'Single model' : used.every((v) => Math.abs(v / fair - 1) * 100 <= A.agree_band_pct) ? 'Agree' : 'Mixed';
+      return {
+        id: c.id, symbol: c.symbol, ticker: c.ticker, name: c.name, bucket: c.bucket, region: c.region, currency: c.currency,
+        price, fair_value: fair, upside_pct: upside, signal, agreement: agree, n_models: used.length,
+        dcf, ddm, ri, peg_fv, peer_fv, peer_basis: pf === 'pb' ? 'P/B' : pf === 'ps' ? 'market P/S' : pf === 'pe' ? 'P/E' : 'EV/EBITDA', peer_median: peerMed,
+        pe: n('pe'), peg: n('peg'), ev_ebitda: n('ev_ebitda'), pb: n('pb'), ps: n('ps'), div_yield_pct: n('div_yield_pct'),
+        ke_pct: ke * 100, g_pct: g * 100, beta_used: beta, perf_1m_pct: n('perf_1m_pct')
+      };
+    });
+  }
+});
+
+dash.calc('summary', {
+  title: 'Signal counts',
+  description: 'How many companies look cheap, fair or rich, and the extremes.',
+  inputs: ['valuation'],
+  fn: (valuation) => {
+    const v = valuation.filter((r) => r.upside_pct != null && r.n_models >= 2);
+    const byUp = v.slice().sort((a, b) => b.upside_pct - a.upside_pct);
+    return [{
+      total: valuation.length, valued: v.length, low_data: valuation.length - v.length,
+      cheap: v.filter((r) => r.signal === 'Cheap').length,
+      fair: v.filter((r) => r.signal === 'Fair').length,
+      rich: v.filter((r) => r.signal === 'Rich').length,
+      agree: v.filter((r) => r.agreement === 'Agree').length,
+      top_ticker: byUp[0] ? byUp[0].ticker : null, top_upside_pct: byUp[0] ? byUp[0].upside_pct : null,
+      bottom_ticker: byUp.length ? byUp[byUp.length - 1].ticker : null, bottom_upside_pct: byUp.length ? byUp[byUp.length - 1].upside_pct : null,
+      median_upside_pct: v.length ? d3.median(v, (r) => r.upside_pct) : null
+    }];
+  }
+});
+
+dash.calc('groups', {
+  title: 'Upside by company type',
+  description: 'Median upside, P/E and EV/EBITDA of each group.',
+  inputs: ['valuation'],
+  fn: (valuation) => {
+    const models = { 'Software': 'DCF, PEG, peer EV/EBITDA', 'AI chips & semis': 'DCF, PEG, peer EV/EBITDA', 'Platforms & neocloud': 'DCF, PEG, peer EV/EBITDA', 'Physical AI': 'Market P/S, PEG, DCF', 'Pharma & biotech': 'DCF, PEG, peer EV/EBITDA', 'Banks': 'Residual income, peer P/B, Gordon', 'Digital banking': 'Residual income, peer P/B, PEG', 'Brokerage': 'PEG, peer P/E, residual income' };
+    const m = (a) => { const v = a.filter((x) => x != null && isFinite(x)).sort((p, q) => p - q); return v.length ? d3.median(v) : null; };
+    return Array.from(d3.group(valuation, (r) => r.bucket), ([bucket, rs]) => ({
+      bucket, n: rs.length, median_upside_pct: m(rs.map((r) => r.upside_pct)), median_pe: m(rs.map((r) => r.pe)),
+      median_ev_ebitda: m(rs.map((r) => r.ev_ebitda)), models: models[bucket] || ''
+    }));
+  }
+});
+</script>
+
+<script>
+// Drawings
+const vdFilter = (rows) => rows.filter((r) => (!vd.state.region || r.region === vd.state.region) && (!vd.state.bucket || r.bucket === vd.state.bucket));
+
+dash.draw('lede', (el) => {
+  const s = dash.data('summary');
+  if (s.status !== 'ok' || !s.data || !s.data[0]) { el.textContent = '—'; return; }
+  const r = s.data[0];
+  el.textContent = `Of ${r.valued} companies with enough data for two or more models, ${r.cheap} look cheap and ${r.rich} look rich on today's prices. Most upside: ${r.top_ticker} (${vd.pct(r.top_upside_pct, true)}); most downside: ${r.bottom_ticker} (${vd.pct(r.bottom_upside_pct, true)}). ${r.low_data} more have too little data to judge.`;
+});
+
+dash.draw('asof', (el) => {
+  const m = dash.data('markets');
+  const at = m.meta && m.meta.find ? m.meta.find((x) => x.label === 'Source') : null;
+  el.textContent = at ? at.value.replace('TradingView market data, pulled ', '').replace('T', ' ').replace('Z', ' UTC') : (m.status === 'ok' ? 'latest refresh' : '—');
+});
+
+dash.draw('strip', (el) => {
+  const m = dash.data('markets'), a = dash.data('assumptions');
+  if (m.status !== 'ok' || a.status !== 'ok') { el.textContent = '—'; return; }
+  el.replaceChildren();
+  const item = (label, value, src, where, field) => {
+    const s = document.createElement('span');
+    s.append(label + ' ');
+    const b = document.createElement('b'); b.textContent = value;
+    b.dataset.source = src; b.dataset.field = field; b.dataset.where = where;
+    s.append(b); el.append(s);
+  };
+  const v = (sym) => (m.data.find((r) => r.symbol === sym) || {}).value;
+  item('US 10Y', d3.format('.2f')(v('TVC:US10Y')) + '%', 'markets', 'symbol=TVC%3AUS10Y', 'value');
+  item('German 10Y', d3.format('.2f')(v('TVC:DE10Y')) + '%', 'markets', 'symbol=TVC%3ADE10Y', 'value');
+  item('EUR/USD', d3.format('.4f')(v('FX:EURUSD')), 'markets', 'symbol=FX%3AEURUSD', 'value');
+  const erp = (a.data.find((r) => r.key === 'erp_pct') || {}).value;
+  item('Equity risk premium', erp + '%', 'assumptions', 'key=erp_pct', 'value');
+});
+
+const vdCount = (field) => (el) => {
+  const s = dash.data('summary');
+  el.classList.toggle('dash-skeleton', s.status === 'loading');
+  el.textContent = s.status === 'ok' && s.data && s.data[0] ? String(s.data[0][field]) : '—';
+};
+dash.draw('nCheap', vdCount('cheap'));
+dash.draw('nFair', vdCount('fair'));
+dash.draw('nRich', vdCount('rich'));
+dash.draw('nAgree', vdCount('agree'));
+
+dash.draw('bucketSel', (sel) => {
+  const c = dash.data('companies');
+  const buckets = c.status === 'ok' ? Array.from(new Set(c.data.map((r) => r.bucket))) : [];
+  sel.replaceChildren(new Option('All company types', ''), ...buckets.map((b) => new Option(b, b)));
+  sel.value = vd.state.bucket;
+  sel.onchange = () => { vd.state.bucket = sel.value; ['chart', 'rows'].forEach((n) => dash.draw(n)); };
+});
+
+dash.draw('chart', (el) => {
+  const v = dash.data('valuation');
+  if (v.status === 'error') { el.textContent = 'Failed to load'; return; }
+  if (v.status !== 'ok' || !v.data) { el.textContent = '—'; return; }
+  const rows = vdFilter(v.data).filter((r) => r.upside_pct != null).sort((a, b) => b.upside_pct - a.upside_pct);
+  const dupe = (d) => v.data.filter((x) => x.symbol === d.symbol).length > 1;
+  el.replaceChildren();
+  if (!rows.length) { el.textContent = 'No companies match these filters.'; return; }
+  const W = Math.max(300, el.clientWidth), rowH = 28, top = 20, H = top + rows.length * rowH + 8;
+  const svg = d3.select(el).append('svg').attr('width', '100%').attr('viewBox', `0 0 ${W} ${H}`).attr('role', 'img')
+    .attr('aria-label', 'Bar chart of upside to fair value for each company, sorted from most upside to most downside');
+  const labelW = 110, valW = 70;
+  const ext = d3.extent(rows, (r) => r.upside_pct); const lim = Math.min(150, Math.max(30, Math.abs(ext[0]), Math.abs(ext[1])));
+  const x = d3.scaleLinear().domain([-lim, lim]).range([labelW, W - valW]).clamp(true);
+  const y = (i) => top + i * rowH;
+  [-lim, -lim / 2, 0, lim / 2, lim].forEach((t) => {
+    svg.append('line').attr('x1', x(t)).attr('x2', x(t)).attr('y1', top - 4).attr('y2', H - 6).style('stroke', t === 0 ? 'var(--cds-chart-axis)' : 'var(--cds-chart-grid)');
+    svg.append('text').attr('class', 'vd-tick').attr('x', x(t)).attr('y', 11).attr('text-anchor', 'middle').text(d3.format('+.0f')(t) + '%');
+  });
+  const col = (s) => s === 'Cheap' ? 'var(--color-ok)' : s === 'Rich' ? 'var(--color-bad)' : 'var(--cds-chart-muted)';
+  const tip = d3.select(el).append('div').attr('class', 'vd-tip').style('display', 'none');
+  const g = svg.selectAll('g.bar').data(rows).join('g').attr('class', 'bar');
+  g.append('text').attr('x', labelW - 8).attr('y', (d, i) => y(i) + rowH / 2 + 4).attr('text-anchor', 'end').text((d) => d.ticker + (dupe(d) && vd.state.bucket === '' ? '*' : ''));
+  g.append('rect').attr('x', (d) => Math.min(x(0), x(d.upside_pct))).attr('y', (d, i) => y(i) + 4).attr('height', rowH - 8)
+    .attr('width', (d) => Math.max(1, Math.abs(x(d.upside_pct) - x(0)))).attr('rx', 2).style('fill', (d) => col(d.signal));
+  g.append('text').attr('x', (d) => d.upside_pct >= 0 ? x(Math.min(d.upside_pct, lim)) + 4 : x(Math.max(d.upside_pct, -lim)) - 4)
+    .attr('y', (d, i) => y(i) + rowH / 2 + 4).attr('text-anchor', (d) => d.upside_pct >= 0 ? 'start' : 'end')
+    .attr('data-source', 'valuation').attr('data-field', 'upside_pct').attr('data-where', (d) => 'id=' + encodeURIComponent(d.id))
+    .text((d) => vd.pct(d.upside_pct, true));
+  g.append('rect').attr('x', 0).attr('y', (d, i) => y(i)).attr('width', W).attr('height', rowH).style('fill', 'transparent')
+    .on('pointermove', (ev, d) => {
+      const [mx, my] = d3.pointer(ev, el);
+      tip.style('display', 'block').style('left', Math.min(mx + 12, el.clientWidth - 270) + 'px').style('top', (my + 12) + 'px');
+      tip.html('');
+      tip.append('div').style('font-weight', '600').text(`${d.name} (${d.ticker}) · ${d.bucket}`);
+      const line = (k, val) => { const r = tip.append('div'); r.text(`${k}: ${val}`); };
+      line('Price', vd.money(d.price, d.currency));
+      line('Fair value', vd.money(d.fair_value, d.currency) + ` (${d.agreement.toLowerCase()})`);
+      if (d.dcf != null) line('DCF', vd.money(d.dcf, d.currency));
+      if (d.ddm != null) line('Gordon DDM', vd.money(d.ddm, d.currency));
+      if (d.ri != null) line('Residual income', vd.money(d.ri, d.currency));
+      if (d.peg_fv != null) line('PEG = 1', vd.money(d.peg_fv, d.currency));
+      if (d.peer_fv != null) line(`Peer ${d.peer_basis}`, vd.money(d.peer_fv, d.currency));
+    })
+    .on('pointerleave', () => tip.style('display', 'none'));
+});
+
+dash.draw('rows', (tb) => {
+  const v = dash.data('valuation');
+  if (v.status !== 'ok' || !v.data) { tb.replaceChildren(); return; }
+  const k = vd.state.sort, dir = vd.state.dir;
+  const rows = vdFilter(v.data).slice().sort((a, b) => {
+    const x = a[k], y = b[k];
+    if (x == null && y == null) return 0; if (x == null) return 1; if (y == null) return -1;
+    return (typeof x === 'string' ? x.localeCompare(y) : x - y) * dir;
+  });
+  tb.replaceChildren(...rows.map((r) => {
+    const tr = document.createElement('tr'); tr.dataset.key = encodeURIComponent(r.id);
+    const td = (text, cls) => { const c = document.createElement('td'); if (cls) c.className = cls; c.textContent = text; tr.append(c); return c; };
+    td(r.ticker, 'l'); td(r.name, 'l');
+    td(vd.money(r.price, r.currency)); td(vd.money(r.fair_value, r.currency));
+    td(vd.pct(r.upside_pct, true), vd.sigClass(r.signal));
+    const s = td('', 'l'); const p = document.createElement('span'); p.className = 'vd-pill ' + vd.sigClass(r.signal); p.textContent = r.signal; s.append(p);
+    td(r.agreement, 'l');
+    td(vd.money(r.dcf, r.currency)); td(vd.money(r.ddm, r.currency)); td(vd.money(r.ri, r.currency));
+    td(vd.money(r.peg_fv, r.currency)); td(vd.money(r.peer_fv, r.currency));
+    td(vd.num(r.pe)); td(r.peg == null ? '–' : d3.format('.2f')(r.peg)); td(vd.num(r.ev_ebitda)); td(vd.num(r.pb)); td(vd.num(r.ps));
+    td(vd.pct(r.div_yield_pct)); td(vd.pct(r.ke_pct)); td(vd.pct(r.g_pct)); td(vd.pct(r.perf_1m_pct, true), r.perf_1m_pct >= 0 ? 'vd-ok' : 'vd-bad');
+    return tr;
+  }));
+});
+
+dash.draw('groupRows', (tb) => {
+  const gdat = dash.data('groups');
+  if (gdat.status !== 'ok' || !gdat.data) { tb.replaceChildren(); return; }
+  tb.replaceChildren(...gdat.data.slice().sort((a, b) => (b.median_upside_pct ?? -1e9) - (a.median_upside_pct ?? -1e9)).map((r) => {
+    const tr = document.createElement('tr'); tr.dataset.key = encodeURIComponent(r.bucket);
+    const td = (text, cls) => { const c = document.createElement('td'); if (cls) c.className = cls; c.textContent = text; tr.append(c); };
+    td(r.bucket, 'l'); td(String(r.n)); td(vd.pct(r.median_upside_pct, true), r.median_upside_pct > 0 ? 'vd-ok' : 'vd-bad');
+    td(vd.num(r.median_pe)); td(vd.num(r.median_ev_ebitda)); td(r.models, 'l');
+    return tr;
+  }));
+});
+
+dash.draw('bmRows', (tb) => {
+  const m = dash.data('markets');
+  if (m.status !== 'ok') { tb.replaceChildren(); return; }
+  tb.replaceChildren(...m.data.filter((r) => r.kind === 'benchmark').map((r) => {
+    const tr = document.createElement('tr'); tr.dataset.key = encodeURIComponent(r.symbol);
+    const td = (text, cls) => { const c = document.createElement('td'); if (cls) c.className = cls; c.textContent = text; tr.append(c); };
+    td(r.name, 'l'); td(d3.format(',.2f')(r.value));
+    td(vd.pct(r.change_pct, true), r.change_pct >= 0 ? 'vd-ok' : 'vd-bad');
+    td(vd.pct(r.perf_1m_pct, true), r.perf_1m_pct >= 0 ? 'vd-ok' : 'vd-bad');
+    td(vd.pct(r.perf_ytd_pct, true), r.perf_ytd_pct >= 0 ? 'vd-ok' : 'vd-bad');
+    return tr;
+  }));
+});
+</script>
+
+<script>
+// Controls: listen and redraw
+document.querySelectorAll('#f-region').forEach((sel) => {
+  sel.addEventListener('change', () => { vd.state.region = sel.value; ['chart', 'rows'].forEach((n) => dash.draw(n)); });
+});
+document.querySelectorAll('#valtable th[data-sort]').forEach((th) => {
+  th.addEventListener('click', () => {
+    const k = th.dataset.sort;
+    if (vd.state.sort === k) vd.state.dir = -vd.state.dir; else { vd.state.sort = k; vd.state.dir = (k === 'ticker' || k === 'name' || k === 'signal' || k === 'agreement') ? 1 : -1; }
+    dash.draw('rows');
+  });
+});
+</script>
