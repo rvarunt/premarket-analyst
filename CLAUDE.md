@@ -2,28 +2,38 @@
 
 Guidance for Claude Code working in this repo.
 
+The repo has two parts:
+
+- `gapper/` — the premarket gapper pipeline (scan → packet.json → REPORT.md). All of its
+  files live in that folder and all of its paths are relative to it.
+- `valuation-dashboard/` — the Daily Valuation Dashboard (see its README). Not part of the
+  morning pipeline; never touch it while running the pipeline.
+
 ## Morning pipeline
 
 When the user says "run the morning pipeline" (or a clear equivalent), do these steps in
-order, without stopping to ask for confirmation between them:
+order, without stopping to ask for confirmation between them. **Run every step from inside
+`gapper/`** (`cd gapper` first): `scan.py`, `render_report.py`, `packet.json`, `.env`,
+`.venv` and `REPORT.md` all live there.
 
-1. **Run the scan.** `/home/user/.venv/bin/python3 scan.py` from the repo root. That venv
+1. **Run the scan.** `cd gapper && /home/user/.venv/bin/python3 scan.py`. That venv
    already has `requests`, `feedparser`, `yfinance`, `pandas`, and `markdown` installed. If
-   that path doesn't exist in this session, create a local one first:
+   that path doesn't exist in this session, create a local one first (inside `gapper/`):
    `python3 -m venv .venv && .venv/bin/pip install requests feedparser yfinance pandas markdown`,
-   then use `.venv/bin/python3 scan.py`. This writes a fresh `packet.json` at the repo root.
-2. **Write the report.** Read the `packet.json` that was just written (not a stale copy from
-   earlier in the conversation) and follow `prompt_claude.md` against it exactly, section by
-   section, per `REPORT_TEMPLATE.md`. Title the report with today's actual calendar date, not
-   necessarily `packet.json`'s `generated_at` date if the scan is reflecting an earlier
-   session's close. Overwrite `REPORT.md` with the result. Apply the data integrity rules
-   below on top of `prompt_claude.md`'s own judgment rules (catalyst check, bad-news-pop
-   check), not instead of them.
-3. **Show the report.** Paste the full contents of the freshly written `REPORT.md` into the
-   chat. Not a summary, not an excerpt, the whole thing.
+   then use `.venv/bin/python3 scan.py`. This writes a fresh `gapper/packet.json`.
+2. **Write the report.** Read the `gapper/packet.json` that was just written (not a stale copy
+   from earlier in the conversation) and follow `gapper/prompt_claude.md` against it exactly,
+   section by section, per `gapper/REPORT_TEMPLATE.md`. Title the report with today's actual
+   calendar date, not necessarily `packet.json`'s `generated_at` date if the scan is reflecting
+   an earlier session's close. Overwrite `gapper/REPORT.md` with the result. Apply the data
+   integrity rules below on top of `prompt_claude.md`'s own judgment rules (catalyst check,
+   bad-news-pop check), not instead of them. To render HTML, run `render_report.py` from
+   inside `gapper/` too.
+3. **Show the report.** Paste the full contents of the freshly written `gapper/REPORT.md` into
+   the chat. Not a summary, not an excerpt, the whole thing.
 4. **Commit and push.** Same as any other change in this repo: commit what actually changed
-   (`packet.json` is gitignored, so this is normally just `REPORT.md`, plus `scan.py` if it
-   was also touched) and push to the current branch.
+   (`packet.json` is gitignored, so this is normally just `gapper/REPORT.md`, plus
+   `gapper/scan.py` if it was also touched) and push to the current branch.
 
 Don't skip step 3. Don't stop after committing without having shown the report in the chat.
 
