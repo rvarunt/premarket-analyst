@@ -1,32 +1,27 @@
-# Daily Valuation Dashboard
+# Valuation dashboard
 
-A daily view of fair value vs price for ~57 listed companies across 8 groups
-(Software, AI chips & semis, Platforms & neocloud, Physical AI, Pharma & biotech,
-Banks, Digital banking, Brokerage), US, Europe and Asia.
+Fair value vs price for a list of listed companies (US, Europe, Asia), using two or three
+valuation models chosen for each company's group. Setup for your own copy: see [`../SETUP.md`](../SETUP.md).
 
-- **Live dashboard:** https://claude.ai/artifact/Nn6Zgepqon2xiARN1zFmkL (private Claude artifact)
-- **Data source:** TradingView scanner fields, via the signed-in TradingView Pro account
-- **Refresh:** Claude scheduled task, weekdays 07:50 New York time (just before the 07:58–08:00 premarket gapper scan)
-
-This folder is the versioned copy. The dashboard itself runs in Claude; changing files here
-does not change the live page until they are published to the artifact again.
-
-## Layout
+## Files
 
 | Path | What it is |
 |---|---|
-| `page/index.html` | The dashboard page. Holds all model logic (`dash.calc('valuation', …)`), the chart, tables and notes. |
-| `data/companies.json` | Snapshot of the company list and fundamentals. **The `rows` list (id, symbol, name, bucket) is the master company list** — the daily refresh reads it from the live artifact and keeps it. |
-| `data/markets.json` | Snapshot of 10Y yields, FX rates and benchmarks. |
-| `data/assumptions.json` | Model assumptions (ERP, terminal growth, beta and growth limits, signal bands). Not touched by the refresh. |
-| `refresh_prompt.md` | Copy of the scheduled task's prompt. |
-| `tools/check_models.js` | Runs the page's model code on the `data/` snapshot and prints fair value, upside and signal per company. `node tools/check_models.js` |
+| `companies.csv` | **The company list.** symbol, Yahoo symbol, name, group. Edit this to change what is valued. |
+| `build_data.py` | Pulls prices and fundamentals from Yahoo Finance (free, no account) into `data/companies.json` and `data/markets.json`. |
+| `data/assumptions.json` | Model assumptions: equity risk premium, terminal growth, beta and growth limits, signal bands. |
+| `data/example/` | Invented sample data so everything works before you fetch real data. |
+| `data/companies.json`, `data/markets.json` | Real market data, built on your computer. **Git-ignored** (personal use only). |
+| `page/index.html` | The dashboard page for a Claude Data artifact. Holds all model logic, the chart, tables and notes. |
+| `refresh_prompt.md` | Prompt for a Claude scheduled task that refreshes the dashboard daily from TradingView instead of Yahoo. |
+| `tools/check_models.js` | Runs the page's model code on a data folder; prints the table or writes a CSV. |
+| `tools/test_build_data.py` | Offline tests for `build_data.py`. |
 
 ## How the valuation works
 
-Cost of equity `ke = 10Y yield + beta × ERP` (German 10Y for European stocks, US 10Y otherwise).
-Growth = average of next-year EPS growth (ignored if it jumps > 50%) and revenue growth, clamped.
-Fair value = median of the models for the company's group:
+Cost of equity `ke = 10Y yield + beta × equity risk premium` (German 10Y for European stocks,
+US 10Y otherwise). Growth = average of next-year EPS growth (ignored if it jumps more than 50%)
+and revenue growth, within limits. Fair value = median of the models for the company's group:
 
 | Group | Models |
 |---|---|
@@ -35,12 +30,17 @@ Fair value = median of the models for the company's group:
 | Banks | Residual income, peer P/B, Gordon DDM |
 | Digital banking | Residual income, peer P/B, PEG = 1 |
 | Brokerage | PEG = 1, peer P/E, residual income |
+| Any other group | DCF, peer EV/EBITDA |
 
-Signal: Cheap if upside > 15%, Rich if < −15%, Fair in between; **Low data** if only one model applies.
+Signal: **Cheap** if upside > 15%, **Rich** if below −15%, **Fair** in between, **Low data** if
+only one model applies (left out of the counts). Full method notes are at the bottom of the page.
+
+## Data sources
+
+| Source | Account | Notes |
+|---|---|---|
+| Yahoo Finance (`build_data.py`) | None | Free. Gaps for some Asian listings; Yahoo limits request speed. German 10Y entered by hand (`--de10y`). |
+| TradingView (`refresh_prompt.md`) | TradingView account, Claude desktop app | Richer fundamentals; runs through your browser session. |
+
+Both write the same file format, so the page and `check_models.js` work with either.
 Research aid, not investment advice.
-
-## Changing things
-
-- **Add or remove a company / change its group:** edit the live artifact's companies file (ask Claude), then copy it here.
-- **Change a model or assumption:** edit `page/index.html` or `data/assumptions.json`, run `node tools/check_models.js`, then ask Claude to publish to the artifact.
-- **Not valued (no listing):** Databricks, Huawei; Anthropic (ANT) is added automatically once it trades.

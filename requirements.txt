@@ -1,0 +1,9 @@
+# Gapper scan (gapper/scan.py, gapper/render_report.py)
+requests
+feedparser
+yfinance
+pandas
+markdown
+
+# Valuation dashboard data builder (valuation-dashboard/build_data.py) uses yfinance from above.
+# The model checker (valuation-dashboard/tools/check_models.js) needs Node.js 18+, no packages.

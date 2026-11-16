@@ -1,0 +1,50 @@
+{
+"rows": [
+{
+"symbol": "TVC:US10Y",
+"name": "US 10Y yield",
+"kind": "rate",
+"currency": null,
+"value": 4.5,
+"change_pct": null,
+"perf_1m_pct": null,
+"perf_ytd_pct": null
+},
+{
+"symbol": "TVC:DE10Y",
+"name": "German 10Y yield",
+"kind": "rate",
+"currency": null,
+"value": 2.8,
+"change_pct": null,
+"perf_1m_pct": null,
+"perf_ytd_pct": null
+},
+{
+"symbol": "EURUSD",
+"name": "EUR/USD",
+"kind": "fx",
+"currency": "EUR",
+"value": 1.1,
+"change_pct": null,
+"perf_1m_pct": null,
+"perf_ytd_pct": null
+},
+{
+"symbol": "CHFUSD",
+"name": "CHF/USD",
+"kind": "fx",
+"currency": "CHF",
+"value": 1.15,
+"change_pct": null,
+"perf_1m_pct": null,
+"perf_ytd_pct": null
+}
+],
+"meta": [
+{
+"label": "Source",
+"value": "Sample data, not real market data."
+}
+]
+}

@@ -1,0 +1,58 @@
+symbol,yahoo,name,group
+NYSE:ORCL,ORCL,Oracle,Software
+NYSE:NOW,NOW,ServiceNow,Software
+NASDAQ:ADBE,ADBE,Adobe,Software
+NYSE:SNOW,SNOW,Snowflake,Software
+NASDAQ:NVDA,NVDA,NVIDIA,AI chips & semis
+NASDAQ:AMD,AMD,AMD,AI chips & semis
+NASDAQ:INTC,INTC,Intel,AI chips & semis
+NASDAQ:QCOM,QCOM,Qualcomm,AI chips & semis
+NASDAQ:AVGO,AVGO,Broadcom,AI chips & semis
+NASDAQ:ARM,ARM,Arm Holdings,AI chips & semis
+NASDAQ:MU,MU,Micron Technology,AI chips & semis
+KRX:000660,000660.KS,SK hynix,AI chips & semis
+KRX:005930,005930.KS,Samsung Electronics,AI chips & semis
+NYSE:TSM,TSM,TSMC (ADR),AI chips & semis
+NASDAQ:MRVL,MRVL,Marvell Technology,AI chips & semis
+NASDAQ:LITE,LITE,Lumentum,AI chips & semis
+EURONEXT:ASML,ASML.AS,ASML,AI chips & semis
+NASDAQ:MSFT,MSFT,Microsoft,Platforms & neocloud
+NASDAQ:AMZN,AMZN,Amazon,Platforms & neocloud
+NASDAQ:GOOG,GOOG,Alphabet,Platforms & neocloud
+NASDAQ:META,META,Meta Platforms,Platforms & neocloud
+NYSE:ORCL,ORCL,Oracle,Platforms & neocloud
+NASDAQ:PLTR,PLTR,Palantir,Platforms & neocloud
+NASDAQ:CRWV,CRWV,CoreWeave,Platforms & neocloud
+NASDAQ:NBIS,NBIS,Nebius Group,Platforms & neocloud
+NASDAQ:TSLA,TSLA,Tesla,Physical AI
+NASDAQ:SPCX,SPCX,SpaceX,Physical AI
+NASDAQ:AGLT,AGLT,Agility Robotics,Physical AI
+HKEX:9880,9880.HK,UBTECH Robotics,Physical AI
+SSE:688836,688836.SS,Unitree Robotics,Physical AI
+NASDAQ:FFAI,FFAI,Faraday Future,Physical AI
+NASDAQ:SYM,SYM,Symbotic,Physical AI
+TSE:6954,6954.T,FANUC,Physical AI
+NYSE:LLY,LLY,Eli Lilly,Pharma & biotech
+NASDAQ:REGN,REGN,Regeneron,Pharma & biotech
+NYSE:MRK,MRK,Merck & Co.,Pharma & biotech
+NYSE:PFE,PFE,Pfizer,Pharma & biotech
+NASDAQ:AMGN,AMGN,Amgen,Pharma & biotech
+NYSE:ABBV,ABBV,AbbVie,Pharma & biotech
+NASDAQ:GILD,GILD,Gilead Sciences,Pharma & biotech
+NYSE:JNJ,JNJ,Johnson & Johnson,Pharma & biotech
+SIX:ROP,ROG.SW,Roche,Pharma & biotech
+SIX:NOVN,NOVN.SW,Novartis,Pharma & biotech
+LSE:AZN,AZN.L,AstraZeneca,Pharma & biotech
+NYSE:JPM,JPM,JPMorgan Chase,Banks
+NYSE:GS,GS,Goldman Sachs,Banks
+NYSE:MS,MS,Morgan Stanley,Banks
+EURONEXT:INGA,INGA.AS,ING Groep,Banks
+NSE:IDFCFIRSTB,IDFCFIRSTB.NS,IDFC FIRST Bank,Banks
+NYSE:NU,NU,Nu Holdings,Digital banking
+NASDAQ:SOFI,SOFI,SoFi Technologies,Digital banking
+KRX:323410,323410.KS,KakaoBank,Digital banking
+MIL:FBK,FBK.MI,FinecoBank,Digital banking
+NASDAQ:HOOD,HOOD,Robinhood,Brokerage
+NASDAQ:COIN,COIN,Coinbase,Brokerage
+NYSE:SCHW,SCHW,Charles Schwab,Brokerage
+NASDAQ:IBKR,IBKR,Interactive Brokers,Brokerage

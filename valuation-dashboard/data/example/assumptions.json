@@ -1,0 +1,70 @@
+{
+"rows": [
+{
+"key": "erp_pct",
+"label": "Equity risk premium",
+"value": 5.0,
+"note": "Added to the 10Y yield \u00d7 beta in CAPM"
+},
+{
+"key": "tg_us_pct",
+"label": "Terminal growth, US",
+"value": 2.5,
+"note": "Long-run growth after the forecast period"
+},
+{
+"key": "tg_eu_pct",
+"label": "Terminal growth, Europe",
+"value": 2.0,
+"note": "Long-run growth after the forecast period"
+},
+{
+"key": "beta_min",
+"label": "Beta floor",
+"value": 0.6,
+"note": "5-year beta is clamped to this range"
+},
+{
+"key": "beta_max",
+"label": "Beta cap",
+"value": 2.0,
+"note": "5-year beta is clamped to this range"
+},
+{
+"key": "g_min_pct",
+"label": "Growth floor",
+"value": 2.0,
+"note": "Near-term growth is clamped to this range"
+},
+{
+"key": "g_max_pct",
+"label": "Growth cap",
+"value": 25.0,
+"note": "Near-term growth is clamped to this range"
+},
+{
+"key": "g_max_mature_pct",
+"label": "Growth cap, banks",
+"value": 8.0,
+"note": "Cap for conventional banks"
+},
+{
+"key": "fade_years",
+"label": "Forecast years",
+"value": 10,
+"note": "Growth fades in a straight line to terminal growth over this many years"
+},
+{
+"key": "signal_band_pct",
+"label": "Fair-value band",
+"value": 15.0,
+"note": "Upside within \u00b1 this is Fair; beyond is Cheap or Rich"
+},
+{
+"key": "agree_band_pct",
+"label": "Agreement band",
+"value": 20.0,
+"note": "Models agree when each is within \u00b1 this of their median"
+}
+]
+}

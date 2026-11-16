@@ -1,17 +1,31 @@
 # premarket-analyst
 
-Two daily market tools, both run by Claude on weekdays before the US open.
+Two daily tools for US and global equities, built to run with Claude before the US market opens.
+**Want your own copy? Follow [SETUP.md](SETUP.md)** (about 15 minutes, free data sources).
 
-| Part | What it does | Runs | Output |
+| Part | What it does | Data | Output |
 |---|---|---|---|
-| [`gapper/`](gapper/) | Premarket gapper scan: finds today's gappers (Alpaca data, SEC market caps, news), checks them against the watchlist criteria and writes a report | Claude Code routine **premarket-analyst**, weekdays (target 08:00 New York) | `gapper/REPORT.md`, pushed to `main` |
-| [`valuation-dashboard/`](valuation-dashboard/) | Fair value vs price for ~57 listed companies in 8 groups, using DCF, DDM, residual income, PEG and peer multiples | Claude scheduled task **Daily Valuation Dashboard refresh**, weekdays 07:50 New York | Live Claude dashboard (link in its README) |
+| [`gapper/`](gapper/) | Premarket gapper scan: today's gappers, market caps, news, econ calendar, checked against watchlist rules | Alpaca (free account), SEC EDGAR | `gapper/REPORT.md` (Claude writes the analysis) |
+| [`valuation-dashboard/`](valuation-dashboard/) | Fair value vs price for your company list, using DCF, dividend, residual-income, PEG and peer-multiple models | Yahoo Finance (free) or TradingView | Terminal table / CSV, or a live Claude dashboard |
+
+## Quick start
+
+```bash
+pip install -r requirements.txt
+python valuation-dashboard/build_data.py --de10y 2.7     # fetch data for companies.csv
+node valuation-dashboard/tools/check_models.js           # see the valuations
+```
+
+For the gapper scan, add your Alpaca keys (`.env.example`) and say "run the morning pipeline"
+in Claude Code. Details in [SETUP.md](SETUP.md).
 
 ## Layout
 
 ```
 premarket-analyst/
+├── SETUP.md                  set it up for yourself
 ├── CLAUDE.md                 how Claude runs the morning pipeline
+├── requirements.txt, .env.example, LICENSE
 ├── gapper/
 │   ├── scan.py               data gatherer → packet.json
 │   ├── prompt_claude.md      analysis instructions
@@ -20,16 +34,12 @@ premarket-analyst/
 │   ├── render_report.py      REPORT.md → HTML
 │   └── REPORT.md             latest report
 └── valuation-dashboard/
+    ├── companies.csv         your company list
+    ├── build_data.py         Yahoo Finance → data/*.json
     ├── page/index.html       dashboard page + valuation models
-    ├── data/                 company list, rates/FX, assumptions
-    ├── refresh_prompt.md     daily refresh instructions
-    └── tools/check_models.js test the models on the saved data
+    ├── data/                 assumptions, examples (real data is git-ignored)
+    ├── refresh_prompt.md     daily TradingView refresh via Claude
+    └── tools/                model checker, tests
 ```
 
-## Running by hand
-
-- **Gapper:** in Claude Code, say "run the morning pipeline".
-- **Valuation dashboard:** ask Claude to refresh the Daily Valuation Dashboard, or run
-  `node valuation-dashboard/tools/check_models.js` to see today's model output from the saved data.
-
-Research aids, not investment advice.
+MIT licensed. Research aids, not investment advice.

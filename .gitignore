@@ -5,3 +5,6 @@ __pycache__
 .env
 .econ_calendar_cache.json
 .sec_tickers_cache.json
+# Valuation dashboard: real market data is built locally, not committed
+valuation-dashboard/data/companies.json
+valuation-dashboard/data/markets.json

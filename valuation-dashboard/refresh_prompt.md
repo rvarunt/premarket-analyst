@@ -1,17 +1,25 @@
-# Daily refresh — scheduled task prompt
+# Daily refresh — scheduled task prompt (TradingView route)
 
-Copy of the prompt the scheduled task **"Daily Valuation Dashboard refresh"** sends each run
-(weekdays 07:50 America/New_York = 13:50 Amsterdam in winter). It runs on Varun's MacBook Air
-(needs the Claude desktop app open and TradingView signed in in the browser pane).
+This is the prompt for a Claude scheduled task that refreshes the dashboard every weekday from
+TradingView, using your signed-in TradingView account in the Claude desktop app's browser pane.
+It needs the Claude desktop app open on your computer at run time.
 
-If you change the prompt in Claude, update this file too.
+Prefer not to use TradingView? Use `build_data.py` instead (free Yahoo data, see SETUP.md).
+
+**To use it:** replace the two placeholders, then ask Claude: "create a scheduled task, weekdays
+7:50 New York time, with this prompt".
+
+| Placeholder | Replace with |
+|---|---|
+| `{{DASHBOARD_URL}}` | Your dashboard's claude.ai/artifact/… link (Claude gives it to you when it publishes the dashboard) |
+| `{{TRADINGVIEW_USERNAME}}` | The TradingView username you sign in with (only used to check you are signed in) |
 
 ---
 
-Refresh the user's "Daily Valuation Dashboard" artifact (https://claude.ai/artifact/Nn6Zgepqon2xiARN1zFmkL, a Data-type dashboard) with today's TradingView numbers. Only update its two data files (datasets "companies" and "markets"); do not change the page, the assumptions dataset, or anything else. Do not delete anything except the two superseded data assets named in step 5.
+Refresh the user's "Daily Valuation Dashboard" artifact ({{DASHBOARD_URL}}, a Data-type dashboard) with today's TradingView numbers. Only update its two data files (datasets "companies" and "markets"); do not change the page, the assumptions dataset, or anything else. Do not delete anything except the two superseded data assets named in step 5.
 
 1. Read datasets/companies and datasets/markets with ArtifactData (url above) to get each one's current source.url ("/_blob/<id>") and version. Read the current companies file with Artifact read (url above, path = the blob id) — its "rows" list is the company list to refresh: keep every row's id, symbol, ticker, name, bucket and order exactly as they are (some symbols appear twice under different buckets; fetch each symbol once and reuse it).
-2. Open https://www.tradingview.com/ in the built-in browser pane (mcp__remote-devices__Claude_Browser__*; load the built-in-browser skill first). The user is normally signed in (account varunrajt). If not signed in, stop and report that.
+2. Open https://www.tradingview.com/ in the built-in browser pane (mcp__remote-devices__Claude_Browser__*; load the built-in-browser skill first). The user is normally signed in (account {{TRADINGVIEW_USERNAME}}). If not signed in, stop and report that.
 3. In the page, with javascript_tool, GET https://scanner.tradingview.com/symbol?symbol=<SYM>&fields=<FIELDS> (credentials:'include') for each distinct symbol.
    Company FIELDS: close,currency,market_cap_basic,price_earnings_ttm,earnings_per_share_diluted_ttm,price_earnings_growth_ttm,price_book_ratio,price_sales_current,enterprise_value_ebitda_ttm,ebitda_ttm,dividends_yield_current,dps_common_stock_prim_issue_fy,beta_5_year,free_cash_flow_ttm,net_debt_fq,book_value_per_share_fq,return_on_equity_fq,total_revenue_yoy_growth_ttm,earnings_per_share_forecast_next_fy,total_revenue,Perf.1M,Perf.YTD,change
    Market symbols (fields close,change,Perf.1M,Perf.YTD): TVC:US10Y, TVC:DE10Y, NASDAQ:QQQ, NASDAQ:SMH, AMEX:XLF, TVC:SX5E, EURONEXT:AEX, and FX (close only): FX:EURUSD, FX_IDC:GBPUSD, FX_IDC:CHFUSD, FX_IDC:KRWUSD, FX_IDC:HKDUSD, FX_IDC:CNYUSD, FX_IDC:JPYUSD, FX_IDC:INRUSD.
