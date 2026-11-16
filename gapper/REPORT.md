@@ -1,117 +1,127 @@
-# Premarket Report: 2026-11-16
+# Premarket Report: November 16, 2026
 
 *Single-brain pass: Claude only. Second brain not wired in yet.*
 
 > Rules pick the watchlist. The AI judges the quality of the setups. This is not financial advice.
 
-**Data warning: read this first.** The scan ran at 06:09 ET Monday and Yahoo rate-limited it hard. 89 requests failed even after retries. VIX, 10Y, 3M, oil and dollar are null. Premarket high, VWAP, HOD, LOD and premarket volume are null for every gapper (`intraday_data_source: unavailable` across the board). RVOL is null for 18 of 20 names. Market cap is null for RMIX and NMAX. `next_earnings_date` is null for everyone. The econ calendar did load this time.
+**Data warning: read this first.** This is not a premarket scan. The packet says "Scan run 2026-11-16 11:40 EST (regular session)." So every gap below is today's live move vs Friday's close, and the levels (VWAP, HOD, LOD) are from the first two hours of the session. It replaces the 06:09 ET version of today's report.
 
-Same catch as last week: **the "gap" numbers are mostly Friday's regular session, not this morning's premarket.** For VTSI, NMAX and AMD, `price` is exactly `prior_close`, and most of the rest sit within a few cents of it. So "AMD -8.8%" means AMD closed Friday down 8.8% from Thursday, which lines up with the headline "AMD Sinks 10.5% as Chip Rally Unwinds, Nasdaq 100 Falls 1.7%". A few names (MTEX, LFWD, LVLU, BKHA) have a `price` that differs from `prior_close`, and FCUV's `prev_close` of 3.0 doesn't match its `prior_close` of 7.06, so treat those gap figures with suspicion too.
+Yahoo rate-limited the scan hard: 85 requests failed even after retries. VIX, 10Y, 3M, WTI and the dollar are null. Market cap is null for 8 names (HZN, GDHG, PSNYW, AVAZ, CRMX, CRDX, SLON, SOLT), so their flags are false by default. `next_earnings_date` is null for all 20. `premarket_high` is null for 13 of 20, and intraday data is missing entirely for MTEX, CRDX and TPEI. Index levels are ETF proxies (SPY, DIA, QQQ, IWM), not the indices themselves.
 
 ## Summary
 
-- **The tape in one line:** risk-off into a big week. ETF proxies are red: SPY -0.38%, QQQ -1.19%, IWM -0.31%, DIA flat at +0.12%. The feed says "S&P 500, Nasdaq futures slide as Nvidia earnings, Anthropic debut loom". The packet has no live futures number, so no size on that slide.
-- **The catch we're watching:** Nvidia's first earnings since Huang left, plus the Anthropic IPO. "The Market's Resilience Faces Its Toughest Week Yet, and It Starts With Nvidia". The packet doesn't give either date. Closer in: Fed Chair Warsh speaks at 12:00 PM ET today.
+- **The tape in one line:** broad risk-off, tech leading down. SPY -1.1%, QQQ -1.75%, IWM -1.02%, DIA -0.66%. The headlines: "Nasdaq falls 1% at open as Nvidia woes weigh on sentiment ahead of earnings" and "Stocks Fall Before Nvidia Earnings, Anthropic IPO: Markets Wrap".
+- **The catch we're watching:** Nvidia's earnings call ("Jensen Huang's sudden departure has made Tuesday's earnings call 'the most important in the company's history'"). Closer in: Fed Chair Warsh speaks at 12:00 PM ET today, about 20 minutes after this scan ran.
 - **Two-brain verdict:** Single-brain run, no second opinion.
 
 ## Pre-Market Gappers
 
-All 20 gappers from the packet. Gap % is vs `prev_close` (mostly Thursday's close, see the warning above). Market cap in parentheses where available. Headline is the first one listed for each ticker in the packet.
+All 20 gappers in the packet. Gap % is today's price vs Friday's `prev_close`. Market cap in parentheses. Headline is the first one the packet lists for each ticker, which often isn't the real story (see Skips and Traps for the ones that are).
 
-- **FCUV** +136% ($7.0M) : "Why Take-Two Interactive Software Shares Are Trading Higher; Here Are 20 Stocks Moving Premarket"
-- **VTSI** +61.83% ($48M) : "12 Industrials Stocks Moving In Friday's Intraday Session"
-- **ZYN** -45.55% ($116M) : "FDA To Expedite Nicotine Pouch Reviews In Pilot Program Under Trump Pressure: Report"
-- **BGIN** +40.58% ($439M) : "12 Information Technology Stocks Moving In Friday's Intraday Session"
-- **SHIM** +38.89% ($139M) : "12 Industrials Stocks Moving In Friday's Intraday Session"
-- **SBC** +37.64% ($756M) : "Intesa Sanpaolo Raises Price Target for Sicily by Car"
-- **RMIX** -37.44% (market cap null) : "Suncrete Q3 EPS $(0.01) Misses $0.08 Estimate, Sales $141.000M Miss $146.078M Estimate"
-- **NPCE** -37.1% ($260M) : "12 Health Care Stocks Moving In Friday's Intraday Session"
-- **BKHA** +35.81% ($30M) : "Black Hawk Acquisition Extends Deadline for Business Combination"
-- **NMAX** +31.41% (market cap null) : "Maxim Group Maintains Buy Rating on Newsmax"
-- **GRDX** -31% ($27M) : "GridAI Technologies Signs Definitive Agreement to Acquire Pronghorn Resources"
-- **LFTO** +30.63% ($4.14B) : "Analyst Rating and Price Target Updates for Liftoff Mobile, Inc."
-- **MTEX** -29.84% ($12M) : "Mannatech, Incorporated Announces Third Quarter 2026 Financial Results"
-- **LFWD** -29.02% ($11.5M) : "Lifeward Reports Third Quarter 2026 Financial Results"
-- **MOD** +27.86% ($7.22B) : "AMD Sinks 10.5% as Chip Rally Unwinds, Nasdaq 100 Falls 1.7%: Stock Market Today"
-- **RETO** -27.84% ($243M) : "ReTo Eco-Solutions, Inc. Experiences Multiple Trading Halts"
-- **LVLU** -27.6% ($24M) : "11 Consumer Discretionary Stocks Moving In Friday's Intraday Session"
-- **CADL** -26.1% ($486M) : "Multiple Financial Institutions Update Ratings and Price Targets for Candel Therapeutics"
-- **AMD** -8.8% ($876B) : "Nvidia's Jensen Huang Controversy Could Backfire on China, Chamath Palihapitiya Says — Washington May Get the Chip Controls It's Been Seeking"
-- **IREN** -6.73% ($6.49B) : "AMD Sinks 10.5% as Chip Rally Unwinds, Nasdaq 100 Falls 1.7%: Stock Market Today"
-
-The first headline often isn't the real story. The ticker-specific ones that actually explain the move: VTSI "Why Is VirTra Stock Surging Friday?", SHIM "Shimmick Lowers FY2026 Sales Guidance from $525.000M-$575.000M to $500.000M-$525.000M vs $499.800M Est", SBC "SBC Medical Group Announces Strategic Alliance and Investment in NeuroBrain Dynamics", NPCE "Multiple Analysts Downgrade NeuroPace Following Q3 Revenue Miss", LFTO "Why Is Liftoff Mobile Stock Skyrocketing Friday?", MOD "Modine Manufacturing in Acquisition Talks with Samsung Electronics", RETO "ReTo Eco-Solutions, Inc. Announces 8-to-1 Share Consolidation", CADL "Block & Leviton Investigates Candel Therapeutics for Potential Securities Law Violations", IREN "Why Is IREN Stock Falling on Friday?".
+- **HZN** +4872.73% (cap null) : "Black Hills And NorthWestern Energy Complete Merger; To Trade On NYSE As Bright Horizon Energy Under The Ticker Symbol 'HZN' Starting Today"
+- **GDHG** +806.34% (cap null) : "12 Consumer Discretionary Stocks Moving In Thursday's Pre-Market Session"
+- **PSNYW** +57.8% (cap null) : "What's Going On With Polestar Shares On Monday?"
+- **FCUV** -39.55% ($4.2M) : "Nasdaq Down Over 1%; Tyson Foods Earnings Top Views"
+- **MTEX** -34.6% ($8.0M) : "Mannatech, Incorporated Announces Third Quarter 2026 Financial Results"
+- **AVAZ** -29.44% (cap null) : no headline in the packet (`catalyst_found: false`)
+- **CLRO** +26.26% ($11.4M) : "12 Information Technology Stocks Moving In Monday's Pre-Market Session"
+- **IEP** -24.66% ($2.70B) : "12 Industrials Stocks Moving In Monday's Pre-Market Session"
+- **CRMX** -24.18% (cap null) : "Trump, Greenland Deal Sparks CRML Trading Frenzy: These ETFs Rocket 75%"
+- **CRDX** -22.36% (cap null) : "Cannabis Movers & Shakers: MindMed & Trulieve Management Shake-Ups, Credex Corp & CapStone Bolster Leadership Teams"
+- **SLON** -22.31% (cap null) : "Shares of crypto-linked stocks are trading higher amid a rise in the price of Bitcoin."
+- **SOLT** -22.29% (cap null) : "Soltech Energy Divests Large-Scale Solar Development Portfolio to Alight"
+- **TPEI** +20.09% ($41.8B, see below) : "BMO, REX Launch 3X Brazil, Taiwan, Japan ETNs as Emerging-Market Inflows Hit a 6th Week"
+- **TU** +10.78% ($14.6B) : "H World Group Posts Upbeat Q3 Earnings, Joins CG Oncology, TELUS And Other Big Stocks Moving Higher On Monday"
+- **IREN** -9.52% ($5.87B) : "IREN Stock Is Falling Monday: What's Going On?"
+- **ONDS** -6.8% ($2.74B) : "Stifel Maintains Buy on Ondas, Lowers Price Target to $15"
+- **IBIT** -6.15% ($52.4B) : "Bitcoin ETFs Face $1B Exodus As Ethereum, Solana Funds Bleed: Is Institutional Crypto Demand Cracking?"
+- **INTC** -6.13% ($297.6B) : "Intel Reports Share Stake Of 1.3M Ordinary Shares In Iren Limited"
+- **VALE** -5.17% ($34.7B) : "Samarco Orders Yokogawa Control Systems for Mining and Pelletizing Operations"
+- **CIFR** -4.89% ($2.98B) : "Why Is Cipher Digital Stock Surging on Wednesday?"
 
 ## Day Trading Watchlist
 
 The bar is Trend Join Long: gap > 3%, price > $3, market cap > $1B, premarket RVOL > 1.5, and price already breaking above yesterday's high.
 
-No names cleared the day-trading bar today. Every gapper has `day_eligible: false`. Only two names are up more than 3% with a cap over $1B: LFTO and MOD. Both have null RVOL, and both sit under their prior-day high (LFTO 24.44 vs 24.69, MOD 135.66 vs 146.12). There are no premarket high, VWAP, HOD or LOD values for anyone, so there's no trigger to build anyway.
+No names cleared the day-trading bar today. Every gapper is `day_eligible: false`. Only two up-movers have a known cap over $1B. TU is above its prior-day high (9.455 vs 8.63) but its RVOL is 0.01. TPEI has null RVOL and no intraday data at all. Nobody else up more than 3% has a known cap over $1B.
 
 ## Swing Watchlist
 
-The bar is: gap >= 8%, price > $3, open above yesterday's high, open above the 200-day SMA, market cap >= $800M, and a real catalyst. The real open hasn't printed yet, so the current price stands in for it.
+The bar is: gap >= 8%, price > $3, open above yesterday's high, open above the 200-day SMA, market cap >= $800M, and a real catalyst (earnings on the gap day, or news with no earnings).
 
-No names cleared the swing bar today. Every gapper has `swing_eligible: false`. The two up-movers with enough size both miss on trend:
+Swing management isn't built yet. Anything here is a "watch and build a plan" name, not a trade.
 
-- LFTO: $4.14B, +30.63%, above its 200-day SMA (24.44 vs 20.37), but 5 cents under the prior-day high of 24.69.
-- MOD: $7.22B, +27.86%, but 135.66 is under the prior-day high of 146.12 and way under the 200-day SMA of 214.3.
+| Ticker | Catalyst | Trend context | Idea | Second-brain check | Conviction |
+|---|---|---|---|---|---|
+| TPEI | "BMO, REX Launch 3X Brazil, Taiwan, Japan ETNs as Emerging-Market Inflows Hit a 6th Week" (news, no earnings date in the packet). Theme: leveraged emerging-market ETN. | Open is null, so the scanner used price 58.93 as the stand-in. That's above the prior-day high of 44.99 and the 200-day SMA of 44.99. | Watch only. No entry until the data is confirmed. | Not wired in. | 🔴 |
 
-SBC is the closest small name and still misses the cap bar at $756M.
+Why TPEI is red, and why I wouldn't touch it on this data:
+
+- **The catalyst is stale.** The only headline is an August launch article (the link is dated 26/08). Nothing in the packet explains a 20% move today.
+- **The market cap isn't TPEI's.** The packet names it "BANK OF MONTREAL /CAN/" and the $41.8B came from the SEC fallback. That's the issuer's cap, not the cap of a single exchange-traded note.
+- **The daily bars look broken.** Prior-day high, prior close and the 200-day SMA are all exactly 44.99, and 20-day average volume is 0. Meanwhile `prev_close` is 49.07, which doesn't match the 44.99 prior close. The trend checks that made it eligible ran against one thin bar.
+- **No live levels.** VWAP, HOD, LOD, premarket high and RVOL are all null.
+
+It cleared the rules on a technicality. Treat it as a data-quality question, not a setup.
 
 ## Market Trends of the Day
 
-The AI trade is cracking and the week is loaded. Friday's tape: "AMD Sinks 10.5% as Chip Rally Unwinds, Nasdaq 100 Falls 1.7%". AMD closed at 534.15 from 585.69. IREN fell again ("Why Is IREN Stock Falling on Friday?"), and Nebius is still in the headlines ("Nebius Crashes 20% as Jensen Huang Shock Rocks AI Stocks"). There's a policy angle on the build-out too: "Voters Rejected Data Centers In 10 States, Raising Regulatory Risk for CoreWeave, Nvidia and AI Build-Out".
+The AI trade is still unwinding into Nvidia's print. "NVIDIA Falls 4% Ahead of Earnings as Elon Musk Joins Calls to Reinstate Jensen Huang; AMD Drops 6%, Taiwan Semiconductor Slides 5%." Then later in the morning: "Nvidia's stock extends declines following harsh words from the U.S. government." There's a policy piece behind that in the INTC feed: "U.S. Department Of Commerce's Bureau of Industry and Security Interim Final Rule To Address Remote Access To Advanced Super Intelligence Chips And Servers."
 
-This morning is a wait-and-see into Nvidia and Anthropic. Four separate wraps say the same thing ("Stocks dip as caution sets in before Nvidia earnings, Anthropic IPO", "Tech Stocks Slide as Nvidia, Anthropic Tests Await"). QQQ -1.19% vs DIA +0.12% fits that. Tech is selling and the rest is flat.
+The AI-infra and crypto-miner names are getting hit together. IREN -9.52%, CIFR -4.89%, INTC -6.13%, and IBIT -6.15% on "Bitcoin ETFs Face $1B Exodus". INTC has its own problem too: "Intel Stock Falls as Shareholders Sue Over PC Slump Behind 29% One-Day Drop."
 
-The strategist chatter is split. Bull: "Why Morgan Stanley says it's time to go 'max' overweight on stocks". Bear: "Here's how much the stock market could crumble if AI is a bubble that bursts" (Furman's 25% drop scenario). Somewhere in between: "Why Nvidia can avoid the fate of most stocks that reached the apex by market cap".
-
-The one AI-adjacent winner is Modine, on a buyout story: "Modine Manufacturing in Acquisition Talks with Samsung Electronics" (data center cooling). Outside of that, the gapper list is mostly small-cap earnings reactions, a SPAC, a reverse split, and a law-firm probe. Not a theme, just Friday's noise.
+The week has two big AI tests: "Nvidia Earnings, Anthropic IPO Ahead in New Test for AI Economy" (WSJ). The selloff isn't just tech, though. IWM -1.02% and DIA -0.66% are red too. The only clean up-story with size is a takeover bid (TU). A couple of single-name earnings headlines are in the feed (Tyson "Stock Surges After Earnings") but no theme.
 
 ## Technical Signals for Today
 
-The packet levels are ETF proxies, not index levels, and not timestamped: SPY 754.27 (prev 757.16), DIA 523.1 (prev 522.46), QQQ 680.01 (prev 688.2), IWM 277.55 (prev 278.42). QQQ is the weak spot. VIX, 10Y, 3M, WTI and DXY are all null. No volatility, rate or dollar read, nothing live on futures.
+ETF proxy levels at the 11:40 ET scan:
 
-Large caps, price vs 200-day SMA:
+- SPY 745.97 (prev 754.27), -1.1%
+- QQQ 668.09 (prev 680.01), -1.75%
+- IWM 274.71 (prev 277.55), -1.02%
+- DIA 519.64 (prev 523.1), -0.66%
 
-- AMD 534.15 vs 423.1. Still well above the long-term trend even after Friday's hit. It's under Friday's high of 571.0.
-- LFTO 24.44 vs 20.37, above. Pinned just under the prior-day high of 24.69.
-- MOD 135.66 vs 214.3, well below, even after the +27.86% pop.
-- IREN 18.165 vs 42.59, way below.
+QQQ is the weak spot again. VIX, 10Y, 3M, WTI and DXY are all null, so there's no volatility, rate, oil or dollar read.
 
-Data artifacts to ignore: RETO's 200-day SMA of 1.6 vs a price of 5.6 is almost certainly the 8-to-1 consolidation not being adjusted. AMD's RVOL of 51.39 and IREN's 29.88 are inflated. The daily bars come from Alpaca's IEX feed, which covers only part of the tape, so don't read those as real 30x to 50x volume days.
+Big names vs VWAP and the 200-day SMA:
+
+- INTC 56 vs VWAP 56.07, HOD 57.2, LOD 55.36. Way under the 200-day SMA of 87.39.
+- IREN 16.435 vs VWAP 16.44, sitting right on it. HOD 17.05, LOD 16.02. 200-day SMA is 42.59.
+- IBIT 36.545 vs VWAP 36.65, just under. 200-day SMA is 41.05.
+- TU 9.455 vs VWAP 9.52, under. It hit 10.45 (HOD and premarket high) and has faded about 9.5% off that. Still under its 200-day SMA of 11.1.
+
+The pattern is the same everywhere: the losers are pinned near VWAP and the low end of the range. No bounce yet.
+
+Volume figures: CIFR shows RVOL 7.35 and GDHG 40565.9, but daily bars are Alpaca IEX, a subset of the tape. Several big names show RVOL 0.0 or 0.01 because it's a premarket RVOL and the IEX premarket print was tiny. Don't read either extreme literally.
 
 ## Economic Data, Rates and the Fed
 
 From `econ_calendar` (USD, high impact only):
 
-- **Today, 12:00 PM ET:** Fed Chairman Warsh Speaks. No forecast or previous (it's a speech).
+- **Today, 12:00 PM ET:** Fed Chairman Warsh Speaks. No forecast or previous, it's a speech.
 - **Tomorrow, 8:30 AM ET:** Core Retail Sales m/m, forecast 0.4%, previous 0.9%.
 - **Tomorrow, 8:30 AM ET:** Retail Sales m/m, forecast 0.2%, previous 0.8%.
 
-Both retail numbers are expected to cool hard from last month. A hot print would lean hawkish; a soft one helps the rate-cut camp. The packet has no 10Y or 3M reading, and no rates headlines in today's news feed, so there's no live read on where yields are going into Warsh's noon remarks. That noon speech is the one scheduled intraday event that could move the tape.
+Both retail numbers are expected to cool a lot from last month. A hot print leans hawkish, a soft one helps the rate-cut case. The packet has no 10Y or 3M reading, so there's no live read on yields going into Warsh at noon. His remarks are the only scheduled event left in today's session.
 
 ## Coming Up
 
 - **Tomorrow's events:** Retail Sales m/m (forecast 0.2%, previous 0.8%) and Core Retail Sales m/m (forecast 0.4%, previous 0.9%), both at 8:30 AM ET.
-- **Earnings:** `next_earnings_date` is null for every gapper, and the packet has no market-wide earnings calendar. The feed says Nvidia reports this week ("Nvidia's first post-Jensen earnings and Anthropic's IPO: What to watch this week"), but it doesn't give the day or time. Check a calendar.
+- **Earnings:** `next_earnings_date` is null for all 20 gappers, and the packet has no market-wide earnings calendar. The news feed puts Nvidia's call on Tuesday ("has made Tuesday's earnings call 'the most important in the company's history'"). The Anthropic IPO is in the headlines but the packet gives no date.
 
 ## Skips and Traps
 
-- **SHIM** +38.89%: **trap.** Up big on a sales miss ("Sales $135.798M Miss $139.850M Estimate") and a guidance cut ("Shimmick Lowers FY2026 Sales Guidance"). The EPS beat is the only good line. That's up on bad news. $139M cap. Skip.
-- **FCUV** +136%: $7.0M cap, 20-day average volume 9,171, and the only "catalysts" are generic movers roundups plus "Experiences Significant Stock Price Movement". The `prev_close` of 3.0 doesn't match the `prior_close` of 7.06, so the gap figure itself is suspect. Skip.
-- **VTSI** +61.83%: Q3 results and Roth reiterating Buy are real news, but it's a $48M cap. Skip.
-- **BGIN** +40.58%: the only company-specific headline is a conference appearance ("Announces Participation in 15th Annual ROTH Technology Conference"). That's not a catalyst. $439M cap. Skip.
-- **SBC** +37.64%: real news (the NeuroBrain alliance), but $756M is under both bars. Skip.
-- **BKHA** +35.81%: a SPAC around a shareholder vote and redemptions. $30M cap. Skip.
-- **NMAX** +31.41%: a decent quarter story ("Newsmax Delivers Its Strongest Quarter Since Going Public"), but market cap is null, so it can't clear either bar. Skip.
-- **LFTO** +30.63%: the best-looking up name in the packet. $4.14B, above its 200-day SMA, analysts raising targets (Wells Fargo to $27, Piper Sandler to $24). It's not eligible: 5 cents under the prior-day high, null RVOL, no premarket data. Note Piper's new $24 target is already below the 24.44 price. If it clears 24.69 on real volume after 10:00, it's the one to have on screen.
-- **MOD** +27.86%: a buyout rumor ("in Acquisition Talks with Samsung Electronics"), and the packet itself says it was first "Reported On November 12". Rumors are binary. It's also under the prior-day high and way under its 200-day SMA. Skip.
-- **ZYN** -45.55%: the packet name is "PTL Ltd" but one headline calls ZYN "A New ETF Trading On Smoke, Strategy". The data doesn't agree on what this ticker is. Skip.
-- **RMIX, NPCE, MTEX, LFWD, LVLU:** down on misses, downgrades and falling sales. No long setups.
-- **CADL** -26.1%: a law-firm probe ("Block & Leviton Investigates Candel Therapeutics") and a pushed BLA timeline. Binary risk. Skip.
-- **GRDX** -31% and **RETO** -27.84%: halts, a share-funded acquisition, and an 8-to-1 reverse split. Skip.
-- **AMD** -8.8% and **IREN** -6.73%: down with the AI unwind. AMD is still above its 200-day SMA, IREN is far below. With Nvidia earnings ahead this week, catching either one isn't either setup.
+- **TU** +10.78%: the real catalyst is "Telus Confirms Board Of Directors Has Received An Unsolicited, Non-Binding, And Conditional Acquisition Proposal From Québecor". Real news, $14.6B cap, and it's above the prior-day high. Not eligible: RVOL 0.01 kills the day bar, and the stand-in open of 9.57 is under the 200-day SMA of 11.1 for swing. It's also faded from 10.45 to 9.455, under VWAP 9.52. A non-binding bid is binary. Skip.
+- **HZN** +4872.73%: not a real gap. The ticker got reused. Black Hills and NorthWestern merged and started trading as Bright Horizon Energy under "HZN" today. The 1.76 prev close belongs to the old Horizon Global (the other headlines are from 2023). Ignore the number.
+- **GDHG** +806.34%: no cap, $0.83 prev close, 20-day average volume 1,227, and the only company news is a September amusement-park acquisition. HOD 7.48 vs VWAP 3.27. Pure microcap mania. Skip.
+- **PSNYW** +57.8%: a Polestar warrant, not the stock. No cap, and the headlines are a July article and old halts. Skip.
+- **CLRO** +26.26%: $11.4M cap, RVOL 0.1, and the only "catalysts" are generic movers roundups. Skip.
+- **TPEI** +20.09%: on the swing list on a technicality, see the Swing section. Watch only.
+- **AVAZ** -29.44%: `catalyst_found: false`, no headline, no cap. Skip.
+- **FCUV** -39.55% and **MTEX** -34.6%: sub-$10M caps. MTEX's own headline has sales falling ("Sales $24.872M Down From $29.161M YoY"). FCUV's headlines are roundups. No long setups.
+- **IEP** -24.66%: $2.70B but down hard, and the earnings line is a miss ("Icahn Enterprises Q3 EPS $(0.31) Misses $0.09 Estimate"). Far under the 200-day SMA of 7.28. No long setup.
+- **CRMX, CRDX, SLON, SOLT** (-22% to -24%): no cap, and the headlines are old or unrelated (CRDX's only headline is from 2021). Some look like leveraged ETFs. Skip.
+- **IREN, CIFR, INTC, IBIT, ONDS, VALE** (-4.9% to -9.5%): down with the AI and crypto unwind, or on target cuts (ONDS: Stifel to $15, Lake Street to $14, Needham $19 to $14). Neither setup is a short or a dip-buy, and they're all well under their 200-day SMAs. INTC also has a shareholder suit. Skip.
 
 ## Where the Two Brains Landed
 
