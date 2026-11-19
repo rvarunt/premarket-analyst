@@ -1,110 +1,117 @@
-# Premarket Report: November 18, 2026
+# Premarket Report: November 19, 2026
 
 *Single-brain pass: Claude only. Second brain not wired in yet.*
 
 > Rules pick the watchlist. The AI judges the quality of the setups. This is not financial advice.
 
-**Data warning: read this first.** The packet says "Scan run 2026-11-18 06:18 EST (premarket)." But just like yesterday, the gaps mostly aren't this morning's gaps. For most names `price` sits on or within a few cents of `prior_close` (NKE 35.86 vs 35.86, SNAP 5.5 vs 5.5, ONDS 4.395 vs 4.39, SLS 19.15 vs 19.17), so `gap_pct` is Tuesday's close vs Monday's close. The index proxies have the same problem: SPY's `prev_close` of 740.04 is exactly what yesterday's report showed as SPY's last. So the numbers below are Tuesday's session, while the overnight headlines describe a rally after Nvidia's print. The packet has no futures numbers to size that rally.
+**Data warning: read this first.** The packet says "Scan run 2026-11-19 06:07 EST (premarket)." Same story as the last three mornings: most gaps aren't this morning's gaps. For most names `price` sits on or within a few cents of `prior_close` (SKYA 4.13 vs 4.13, GDX 74.83 vs 74.83, BTG 4.485 vs 4.49, CRWV 47.845 vs 47.84, NUAI 3.99 vs 3.98), so `gap_pct` is Wednesday's close vs Tuesday's close. The index proxies match: SPY's `prev_close` of 732.41 is exactly what yesterday's report showed as SPY's last. So read the numbers below as Wednesday's session. The packet has no futures numbers for this morning.
 
-Yahoo rate-limited the scan again: 69 requests failed even after retries. Intraday data is `unavailable` for all 17 gappers, so VWAP, HOD, LOD, premarket high and premarket volume are null across the board. Per-ticker Yahoo news failed for every name, so catalysts are Alpaca headlines only. VIX, 10Y, 3M, WTI and the dollar are null. Market cap is null for PICS, LUCK and SNAP. `next_earnings_date` is null for all 17. Index levels are ETF proxies (SPY, DIA, QQQ, IWM), not the indices.
+Yahoo rate-limited the scan again: 74 requests failed even after retries. Intraday data is `unavailable` for all 18 gappers, so VWAP, HOD, LOD, premarket high and premarket volume are null across the board. Per-ticker Yahoo news failed, so catalysts are Alpaca headlines only. VIX, 10Y, 3M, WTI and the dollar are null. Market cap is null for 10 of 18 gappers (SDC, HY, RMIX, OKTG, MSTZ, NVD, GDX, NVDL, PATH, CRWV). `next_earnings_date` is null for all 18. Index levels are ETF proxies (SPY, DIA, QQQ, IWM), not the indices.
 
 ## Summary
 
-- **The tape in one line:** the packet's proxies show Tuesday's selloff (SPY -1.03%, DIA -1.64%, IWM -1.48%, QQQ -0.72%), but the overnight headlines flipped: "Stock Futures Rally as Nvidia Earnings Calm AI Trade Fears" (WSJ) and "Nvidia stock up nearly 4% as earnings beat expectations. Neoclouds surge" (CNBC).
-- **The catch we're watching:** FOMC Meeting Minutes at 2:00 PM ET, the only high-impact USD event today. Behind that, whether the Nvidia relief holds after MarketWatch's note that "the S&P 500 just broke a crucial support level" (its 200-day moving average).
+- **The tape in one line:** the proxies show a split Wednesday: DIA -1.12% and SPY -0.28%, while QQQ +0.38% and IWM +0.44% held green. Overnight the feed is earnings: "Palo Alto Networks Stock Rises After Earnings Beat" (Barron's) and "Alibaba Earnings Rebound Sharply as AI Profitability Improves" (WSJ).
+- **The catch we're watching:** "Walmart is set to report earnings before the bell" (CNBC). It's the one scheduled catalyst in the packet that lands before the open, and the Dow proxy was already the weakest of the four.
 - **Two-brain verdict:** Single-brain run, no second opinion.
 
 ## Pre-Market Gappers
 
-All 17 gappers in the packet. Gap % is `price` vs `prev_close` (mostly Tuesday's move, see the warning above). Market cap in parentheses. Headline is the first one the packet lists for each ticker.
+All 18 gappers in the packet. Gap % is `price` vs `prev_close` (mostly Wednesday's move, see the warning above). Market cap in parentheses. Headline is the first one the packet lists for each ticker.
 
-- **SLS** +156.36% ($3.90B) : "SELLAS Life Sciences Commences $150 Million Public Offering of Common Stock"
-- **BKHAU** +117.04% ($72.5M) : no headline in the packet (`catalyst_found: false`)
-- **VAI** +40.45% ($61.9M) : "Valor Energy Inc. Completes Acquisition of Youngstown Project for AI Data Center Development"
-- **GLSI** +35.9% ($274.5M) : "Greenwich LifeSciences Announces Acceptance of Abstracts at SABCS 2026"
-- **PSIG** -31.93% ($52.1M) : "PS International Group Ltd. Announces Unaudited Financial Results for the Six Months Ended June 30, 2026"
-- **PICS** -29.39% (cap null) : "PicPay Announces Third Quarter 2026 Financial and Operating Results"
-- **TCX** +28.65% ($165.3M) : "Tucows Agrees to Sell Ting Fiber Markets to Clearwave"
-- **DUOT** -27.41% ($116.2M) : "Duos Technologies Group Reports Q3 2026 Financial Results"
-- **CING** +25.87% ($70.6M) : "Cingulate Inc. Reports Third Quarter 2026 Financial Results and Provides Regulatory Update"
-- **IBO** +25.66% ($53.3M) : "Impact BioMedical Announces Name and Ticker Symbol Change"
-- **LUCK** +25.6% (cap null) : "Lucky Strike Entertainment Receives Take-Private Proposal from CEO"
-- **NFE** +23.61% ($61.5M) : "New Fortress Energy Reports Third Quarter 2026 Financial Results"
-- **SPAI** +23.08% ($61.8M) : "Safe Pro Group Reports Record Third Quarter 2026 Financial Results"
-- **IMA** +21.88% ($48.6M) : "William Blair Maintains Buy Rating on ImageneBio"
-- **SNAP** +7.84% (cap null) : "Seller Snap Launches MCP Server for AI Integration"
-- **ONDS** -6.89% ($2.51B) : "Needham Adjusts Ondas Price Target to $14 From $19, Maintains Buy Rating"
-- **NKE** -6.35% ($30.67B) : "Nike Reaffirms Fiscal 2027 Guidance and Outlines 'Full Stride Ahead' Strategy"
+- **SDC** +33144.4% (cap null) : no headline in the packet (`catalyst_found: false`)
+- **SKYA** +90.32% ($210.0M) : "SkyAI, Inc. Announces Final Results of Cash Tender Offer"
+- **CUE** +68.2% ($39.8M) : "B. Riley Cuts Price Target on Cue Biopharma to $25 From $83"
+- **CLRO** +46.19% ($18.5M) : no headline in the packet (`catalyst_found: false`)
+- **HY** -41.07% (cap null) : "Hyster-Yale Announces Proposed $125 Million Convertible Senior Notes Offering"
+- **PRE** -36.62% ($174.6M) : "Prenetics Reports Q3 2026 Financial Results and Reaffirms Guidance"
+- **NCT** -34.26% ($176.6M) : "Intercont (Cayman) Limited Announces 8-for-1 Reverse Share Split"
+- **RIBBU** +31.25% ($264.2M) : no headline in the packet (`catalyst_found: false`)
+- **NUAI** +24.69% ($560.9M) : "Roth Capital Raises Price Target for New Era Energy & Digital"
+- **RMIX** +24.46% (cap null) : "Linden Capital L.P. Files Schedule 13G for Haymaker Acquisition Corp. 4"
+- **OKTG** +24.09% (cap null) : no headline in the packet (`catalyst_found: false`)
+- **MSTZ** +12.74% (cap null) : no headline in the packet (`catalyst_found: false`)
+- **BTG** -6.17% ($6.01B) : "BTG Consulting PLC Releases Q3 2026 Red Flag Alert Research"
+- **NVD** +6.06% (cap null) : no headline in the packet (`catalyst_found: false`)
+- **GDX** -5.92% (cap null) : no headline in the packet (`catalyst_found: false`)
+- **NVDL** -5.87% (cap null) : no headline in the packet (`catalyst_found: false`)
+- **PATH** -5.33% (cap null) : "UiPath Releases 'The Context Gap' Research on Decision-Making Costs"
+- **CRWV** -4.16% (cap null) : "Nvidia Discloses CoreWeave's Adoption of Vera CPU and Updates Financing Commitments"
 
 ## Day Trading Watchlist
 
 The bar is Trend Join Long: gap > 3%, price > $3, market cap > $1B, premarket RVOL > 1.5, and price already breaking above yesterday's high.
 
-No names cleared the day-trading bar today. Every gapper is `day_eligible: false`. Only one up-mover has a known cap over $1B: SLS (+156.36%, $3.90B, RVOL 315.8), and it's at 19.15, well under its prior-day high of 24.87. ONDS and NKE are cap-qualified but gapping down. With premarket high and HOD null for everyone, there are no live levels to build a plan off even if something had qualified.
+No names cleared the day-trading bar today. Every gapper is `day_eligible: false`. Only one gapper has a known cap over $1B: BTG ($6.01B), and it's gapping down 6.17%. Every up-mover is either under $1B or has a null cap. With premarket high and HOD null for everyone, there are no live levels to build a plan off even if something had qualified.
 
 ## Swing Watchlist
 
 The bar is: gap >= 8%, price > $3, open above yesterday's high, open above the 200-day SMA, market cap >= $800M, and a real catalyst (earnings on the gap day, or news with no earnings).
 
-No names made the swing list today. Every gapper is `swing_eligible: false`. SLS is the closest: gap, price, cap and the 200-day SMA (8.88) all clear, but 19.15 is under yesterday's high of 24.87. Everything else up 8% or more is under $800M or has no cap.
+No names made the swing list today. Every gapper is `swing_eligible: false`. Nothing up 8% or more has a known cap of $800M or higher. The biggest known cap among the up-movers is NUAI at $560.9M, and it's under its 200-day SMA (3.99 vs 4.76) anyway.
 
 ## Market Trends of the Day
 
-The story flipped overnight. Yesterday was the AI unwind into Nvidia's print. This morning the feed is all relief: "Nvidia’s stock rises as blowout numbers help ease CEO transition fears" (MarketWatch, citing a "$130 billion quarterly forecast"), "Nvidia Reports Strong $115.8 Billion Quarterly Revenue In First Earnings Post-Jensen Huang" (Forbes), and "Instant view: Nvidia earnings beat estimates; attention turns to call" (Reuters). MarketWatch has NVDA "up over 3% in premarket trading on Wednesday."
+It's an earnings morning, and the AI trade is still the frame. Palo Alto is the clean beat: "Palo Alto Networks’ stock gets a fresh AI-fueled boost from earnings" (MarketWatch), with the company boosting its outlook on the "current threat environment and demand we see ahead of us." Barron's has it rising after the beat.
 
-It's spreading to the AI complex: "AMD, Broadcom, CoreWeave stocks rise on Nvidia earnings beat" (Yahoo Finance) and "Neoclouds surge" (CNBC). One note of caution there: on financing neoclouds, interim CEO Colette Kress said Nvidia will take "a very strong look" at the customers it helps. JPMorgan, per MarketWatch, says "there is likely more volatility to come in the near-term."
+Alibaba is the two-sided one. WSJ says "Alibaba Earnings Rebound Sharply as AI Profitability Improves," but Barron's frames AI as both the stock's best hope and its biggest danger, and Yahoo ran "Why Is Alibaba Stock Crashing Before Earnings?" Up next is Walmart before the bell.
 
-The Huang overhang isn't gone. "Nvidia Reports Faster Growth, Says Jensen Huang Won’t Return as CEO" (WSJ), and MarketWatch's "Why Nvidia broke with its usual practice in holding back its quarterly SEC report" says Nvidia isn't filing its 10-Q yet, and that this is the first official sign the resignation was about more than personal conduct.
+On sentiment, the tone is nervous. MarketWatch's top feed has "This closely-watched guru just sold everything" (Panmure Liberum's Joachim Klement), and a reader question leading with "Nvidia’s turmoil has me spooked." On the other side: "Anthropic Shares Indicated More Than 20% Higher on Gray Markets" (Yahoo Finance).
 
-The bigger-picture read is split. Truist says investors should start asking "what could go right" after "tech’s 42% valuation reset" and use the weakness to add exposure. Bespoke, via MarketWatch, says the S&P 500 breaking its 200-day "may not be" the bearish signal it usually is.
+Wednesday's tape on the proxies was a rotation day, not a risk-off day. DIA took the hit (-1.12%) while QQQ and IWM finished up. Gold miners went the other way from tech: GDX -5.92% and B2Gold (BTG) -6.17%, both on huge volume (RVOL 27.63 and 23.74). The packet has no gold price, so it can't tell you why.
 
-None of today's gappers are part of that AI theme except VAI's data-center acquisition headline, and that's a $61.9M name.
+In the AI names that did show up, CRWV fell 4.16% on a 41.42 RVOL, with "Nvidia Discloses CoreWeave's Adoption of Vera CPU and Updates Financing Commitments" as its top headline. NVDL and NVD moved in opposite directions (-5.87% and +6.06%). The packet has no name or cap for either, so you can't confirm what they track from the packet alone.
+
+Overseas, StoneX has "RBA Unemployment Forecasts Miss and Markets Swap Hikes for Cuts." None of today's gappers connect to it.
 
 ## Technical Signals for Today
 
-ETF proxy levels from the scan, vs each one's `prev_close` (this is Tuesday's session, not this morning's futures):
+ETF proxy levels from the scan, vs each one's `prev_close` (this is Wednesday's session, not this morning's futures):
 
-- SPY 732.41 (prev 740.04), -1.03%
-- DIA 507.37 (prev 515.83), -1.64%
-- IWM 268.96 (prev 273.0), -1.48%
-- QQQ 657.06 (prev 661.8), -0.72%
+- SPY 730.33 (prev 732.41), -0.28%
+- DIA 501.7 (prev 507.37), -1.12%
+- QQQ 659.57 (prev 657.06), +0.38%
+- IWM 270.14 (prev 268.96), +0.44%
 
-QQQ held up best on Tuesday, which is the reverse of Monday. That's two straight down days on the proxies: SPY went from 754.27 to 740.04 to 732.41 across the last two reports. MarketWatch says the S&P 500 has now broken its 200-day moving average. The packet has no 200-day level for SPY, so you can't check how far under it is. VIX, 10Y, 3M, WTI and DXY are all null, so there's no volatility, rate, oil or dollar read.
+SPY slipped again, but only -0.28%, and QQQ and IWM finished green. DIA did the damage. Yesterday's report flagged that MarketWatch had the S&P 500 under its 200-day moving average. The packet has no 200-day level for SPY, so you can't check whether it got back over. VIX, 10Y, 3M, WTI and DXY are all null: no volatility, rate, oil or dollar read.
 
-Cap-qualified names vs prior-day high and the 200-day SMA (no VWAP or HOD today, intraday data was unavailable):
+Cap-qualified and high-volume names vs prior-day high and the 200-day SMA (no VWAP or HOD today, intraday data was unavailable):
 
-- SLS 19.15, way under its prior-day high of 24.87, but far above the 200-day SMA of 8.88. RVOL 315.8 on 121.3M shares vs a 20-day average of 384,066. It ran and faded hard Tuesday.
-- NKE 35.86, under its prior-day high of 40.68 and the 200-day SMA of 44.54. RVOL 49.24.
-- ONDS 4.395, under its prior-day high of 4.7 and about half its 200-day SMA of 8.64. RVOL 29.0.
+- BTG 4.485, under its prior-day high of 4.6 and just under the 200-day SMA of 4.82. RVOL 23.74.
+- GDX 74.83, under its prior-day high of 76.75 and well under the 200-day SMA of 89.31. RVOL 27.63.
+- CRWV 47.845, under its prior-day high of 51.03 and about half the 200-day SMA of 88.36. RVOL 41.42.
+- PATH 11.73, under its prior-day high of 12.39 and the 200-day SMA of 12.32. RVOL 37.87.
+- NVDL 15.24, under its prior-day high of 17.05 and far under the 200-day SMA of 61.18. RVOL 125.34.
 
-On volume: daily bars are Alpaca IEX, a subset of the tape, and the volume looks like a full Tuesday session against a 20-day average. Don't read those RVOL multiples literally. RVOL is null for every micro-cap.
+On volume: daily bars are Alpaca IEX, a subset of the tape, and the volume looks like a full Wednesday session against a 20-day average. Don't read those RVOL multiples literally. RVOL is null for every micro-cap.
 
 ## Economic Data, Rates and the Fed
 
 From `econ_calendar` (USD, high impact only):
 
-- **Today, 2:00 PM ET:** FOMC Meeting Minutes. No forecast or previous.
-- **Tomorrow:** nothing high-impact.
+- **Today (Thursday, November 19):** nothing high-impact listed.
+- **Tomorrow (Friday, November 20):** nothing high-impact listed.
 
-The minutes are the one scheduled macro risk. They land late, after the 10:00am open of the day-trade window, so expect any rate reaction to hit the afternoon. The packet has no 10Y or 3M reading, so there's no live read on how rates are set up going in.
+The calendar's `note` field is empty, so the packet doesn't flag a fetch problem, it just lists zero events. The packet has nothing on Fed speakers and no 10Y or 3M reading, so there's no rates read going into today. Macro-wise, the day is about earnings, not data.
 
 ## Coming Up
 
-- **Tomorrow's events:** No high-impact USD releases in the calendar for Thursday, November 19.
-- **Earnings:** `next_earnings_date` is null for all 17 gappers, and the packet has no market-wide earnings calendar. Nvidia's print is now out. The only other company flagged in the feed is "Imperial Brands: What We Think of the Stock After Earnings" (Morningstar), which has already reported. NKE has "NIKE, Inc. Schedules Capital Markets Day" in its feed, but no date in the packet.
+- **Tomorrow's events:** No high-impact USD releases in the calendar for Friday, November 20.
+- **Earnings:** `next_earnings_date` is null for all 18 gappers, and the packet has no market-wide earnings calendar. From the feed: Walmart reports before the bell today (CNBC). Palo Alto Networks and Alibaba have already reported. Morningstar also has "SSE: What We Think of the Stock After Earnings," also already out.
 
 ## Skips and Traps
 
-- **SLS** +156.36%: $3.90B cap, RVOL 315.8, and a real catalyst: "SELLAS Life Sciences Announces Positive Topline Results from Pivotal Phase 3 REGAL Trial." But the top headline is "SELLAS Life Sciences Commences $150 Million Public Offering of Common Stock." Selling stock into the pop is dilution. Price 19.15 is way under the 24.87 prior-day high, so it already faded off its highs. Also, the cap is SEC shares outstanding times today's price, so it's set by the spike itself. Neither flag is set. Don't chase a biotech that's raising money into the move.
-- **LUCK** +25.6%: "Lucky Strike Entertainment Receives Take-Private Proposal from CEO." It's a real story, but the cap is null, so neither flag can fire. A take-private proposal also tends to pin a stock near the offer price, and the packet has no price for the offer. Its feed also has "Reports Fiscal Q1 2027 Results and Suspends Dividend." Skip.
-- **BKHAU** +117.04%: `catalyst_found: false`, volume null, 20-day average volume 0, and price 17.45 doesn't line up with a 13.05 prior close or the 8.04 prev close. Broken data on a $72.5M unit. Ignore the number.
-- **IBO** +25.66% and **CING** +25.87%: reverse splits in the feed ("1-for-12.62 Reverse Stock Split", "Executes 1-for-12 Reverse Stock Split"). IBO also has a pending merger with Zoar Limited and a 20-day average volume of 127 shares. Sub-$100M caps. Trap territory.
-- **VAI** +40.45%: $61.9M cap, 20-day average volume 1,999. The AI data-center angle ("Completes Acquisition of Youngstown Project for AI Data Center Development") is on-theme, but the company just renamed itself ("Senmiao Technology Limited Changes Name to Valor Energy Inc."). Skip.
-- **NFE** +23.61%: $61.5M cap, and its feed has "Announces Filing Grace Period" and "Fast LNG Unit Offline Due to Mechanical Issue." Up on a stock in distress. Trap.
-- **GLSI** +35.9%, **TCX** +28.65%, **SPAI** +23.08%, **IMA** +21.88%: all under $300M, all with thin 20-day average volume (344 to 7,361 shares). Real headlines, but under both cap bars. Skip.
-- **SNAP** +7.84%: cap null, so neither flag can fire. The first headline is about "Seller Snap," a different company. Other items are a West Virginia AG lawsuit and an activist letter ("Irenic Capital Urges Snap Inc. to Implement Cost-Cutting and AI Monetization Strategies"). Price 5.5 is right at the 5.51 prior-day high. Watch only, no setup.
-- **PSIG** -31.93%, **PICS** -29.39%, **DUOT** -27.41%: gap-downs. PSIG has a Nasdaq deficiency notice, and PICS's feed has "PicPay Shares Decline Amid Market Reaction to Brazilian Election Results." Neither setup is a short. Skip.
-- **NKE** -6.35% and **ONDS** -6.89%: cap-qualified gap-downs, both well under their 200-day SMAs. NKE reaffirmed guidance ("Nike Reaffirms Fiscal 2027 Guidance and Outlines 'Full Stride Ahead' Strategy") and still sold off on a 49x RVOL. ONDS has the same Needham target cut as yesterday. Not long setups. Skip.
+- **SDC** +33144.4%: `prev_close` of 0.07 against a price of 24.9333, no daily bars, no cap, no headline. That's broken data, not a gap. Ignore it.
+- **CUE** +68.2%: up on a downgrade. The top headline is "B. Riley Cuts Price Target on Cue Biopharma to $25 From $83," and the feed also has "Cue Biopharma, Inc. Executes 1-for-30 Reverse Stock Split." $39.8M cap, 20-day average volume 18,079. A reverse-split micro-cap popping on a target cut is a trap.
+- **SKYA** +90.32%: $210.0M cap. The story is a tender offer ("Announces Tender Offer for Up to 95% of Outstanding Securities," "Announces Final Results of Cash Tender Offer") plus "SkyAI Liquidates Solana Holdings and Announces $201M Share Buyback." If most of the float got tendered, what's left trades thin: 20-day average volume is 68,122. Under both cap bars. Skip.
+- **NUAI** +24.69%: $560.9M cap. "Roth Capital Raises Price Target for New Era Energy & Digital" is real news, but B. Riley cut its target ("to $10 From $13" per the link), and the feed has "Announces $64 Million Private Placement." Under the 200-day SMA (3.99 vs 4.76) and under both cap bars. Skip.
+- **RMIX** +24.46%: cap null. Every headline is about Haymaker Acquisition Corp. 4 (a 13G filing, a name and ticker change, a Haymaker V IPO). Nothing explains a 24% move. Skip.
+- **CLRO** +46.19%, **RIBBU** +31.25%, **OKTG** +24.09%, **MSTZ** +12.74%, **NVD** +6.06%: `catalyst_found: false`. No catalyst found, so no trade. RIBBU's 20-day average volume is 20 shares and OKTG's is 419.
+- **HY** -41.07%: "Hyster-Yale Announces Proposed $125 Million Convertible Senior Notes Offering." Dilution risk on a name that's already far below its 200-day SMA (15.44 vs 33.96). Not a long. Skip.
+- **PRE** -36.62%: the feed has "Prenetics Global Limited Subject to Trading Halt" next to "Reports Q3 2026 Financial Results and Reaffirms Guidance." The packet doesn't say why it was halted. 20-day average volume is 6,993. Two of its five headlines are about Pensana PLC, a different company. Skip.
+- **NCT** -34.26%: "Announces 8-for-1 Reverse Share Split," and the feed also has a "$200 Million Mixed Shelf Registration." Price 6.62 is well under the 9.09 prior close and the 10.07 prev close, so the numbers may be mixing pre- and post-split prices. Skip.
+- **BTG** -6.17%: the only gapper with a cap over $1B ($6.01B), but `catalyst_found: true` is a false match. Every headline is about BTG Consulting PLC, a different company from B2Gold. The real driver isn't in the packet. GDX fell 5.92% the same session, so read it as a gold-miner move, not company news. Gap-down, not a long. Skip.
+- **CRWV** -4.16% and **PATH** -5.33%: gap-downs, caps null. PATH's headlines (a research report, a Gemini for Healthcare partnership, an India hire) don't explain the drop. Both are well under their 200-day SMAs. Skip.
+- **GDX** -5.92% and **NVDL** -5.87%: `catalyst_found: false`, caps null, gap-downs. Skip.
 
 ## Where the Two Brains Landed
 
