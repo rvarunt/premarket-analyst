@@ -1,24 +1,24 @@
-# Premarket Report: November 26, 2026
+# Premarket Report: November 27, 2026
 
 *Single-brain pass: Claude only. Second brain not wired in yet.*
 
 > Rules pick the watchlist. The AI judges the quality of the setups. This is not financial advice.
 
-**Read this first: no cash session today.** It's Thanksgiving. The packet's own headlines say it: "Is the stock market open for Thanksgiving? The answer might surprise you." (MarketWatch), whose summary says "the major exchanges are closed, but trading of equity futures is open for part of the day." There's also "Is the stock market closed? Thanksgiving, Black Friday trading hours" (Detroit Free Press). No regular session means no 10:00am to 3:30pm trade window, so nothing below is a trade for today. Treat this as a read on Wednesday's close heading into Friday.
+**Read this first: Black Friday, and the gap data is stale.** The packet says "Scan run 2026-11-27 07:13 EST (premarket)." But Thursday was Thanksgiving, so the latest daily bar is still Wednesday's. Every gapper row is identical to yesterday's packet: same `price`, `prev_close` and `gap_pct` for all 15 names, and for the cap-qualified names `price` equals `prior_close` (MU 600.4 vs 600.4, SNDK 73.56 vs 73.56, STLA 3.655 vs 3.65, AMBA 35.68 vs 35.66). So these gaps are Wednesday's close vs Tuesday's close, not this morning's premarket. The ETF proxies are also unchanged from yesterday (SPY 716.74 vs 718.91 prev). There are no futures numbers in the packet, only headlines.
 
-**Data warning.** The packet says "Scan run 2026-11-26 07:07 EST (premarket)." Same pattern as the last several days: these aren't this morning's gaps. For the cap-qualified names, `price` equals `prior_close` (MU 600.4 vs 600.4, SNDK 73.56 vs 73.56, AMBA 35.68 vs 35.66, PHAR 10.05 vs 10.11). So `gap_pct` is really Wednesday's close vs Tuesday's close. The index proxies agree: SPY's `prev_close` of 718.91 is the SPY last from yesterday's report. The packet has no futures numbers, only headlines.
+The packet has a MarketWatch headline "Is the stock market open on Black Friday?" with the summary "Here's how the day after Thanksgiving will affect trading on Wall Street," but it doesn't give the hours. If today is a shortened session, the 10:00am to 3:30pm window and the 3:51pm flat rule may not fit. Check the exchange schedule before planning anything.
 
-Yahoo rate-limited the scan again: 61 requests failed even after retries. Intraday data is `unavailable` for all 15 gappers, so VWAP, HOD, LOD, premarket high and premarket volume are null across the board. `today_open` and `next_earnings_date` are null for all 15. VIX, 10Y, 3M, WTI and the dollar are null. Index levels are ETF proxies (SPY, DIA, QQQ, IWM). Market cap is null for MUU, NVDL, NVD, RKT and NU. `rvol` is null for the seven rows sourced from Alpaca's movers list (WLDSW, EUDA, FCUV, RIBBU, PW, PHAR, AMBA).
+**Data gaps.** Yahoo rate-limited the scan again: 61 requests failed even after retries. Intraday data is `unavailable` for all 15 gappers, so VWAP, HOD, LOD, premarket high and premarket volume are null across the board. `today_open` and `next_earnings_date` are null for all 15. VIX, 10Y, 3M, WTI and the dollar are null. Index levels are ETF proxies (SPY, DIA, QQQ, IWM). Market cap is null for MUU, NVDL, NVD, RKT and NU. `rvol` is null for the seven rows sourced from Alpaca's movers list (WLDSW, EUDA, FCUV, RIBBU, PW, PHAR, AMBA).
 
 ## Summary
 
-- **The tape in one line:** Wednesday was a wobble, not a flush. QQQ -0.66%, SPY -0.3%, DIA +0.3%, IWM +0.61%. MarketWatch: "A rebound off lows for the S&P 500 on Wednesday calms bourses after AI wash out," and "Futures point to Black Friday gains for Wall Street."
-- **The catch we're watching:** Markets are closed today. The real question is whether Wednesday's late tech bounce ("Oracle, CoreWeave and other tech stocks bounce back after selloff") holds into Friday, or whether "this stock-market selloff is probably going to get worse before it gets better" (MarketWatch).
+- **The tape in one line:** Headlines point to a bounce attempt into a heavy tape. MarketWatch: "Stocks are poised for a Friday jump," and CNBC: "The S&P 500 is in a correction. Bear markets and recessions don't always follow." No futures numbers in the packet to confirm the size of it.
+- **The catch we're watching:** Goldman says the Friday jump runs "right into a $100 billion wave of automated selling," with the summary noting "one big bout of selling is left for stocks this year by some trend-following trend funds." That's the thing that can flip a holiday pop into a fade.
 - **Two-brain verdict:** Single-brain run, no second opinion.
 
 ## Pre-Market Gappers
 
-All 15 gappers in the packet. Gap % is `price` vs `prev_close` (Wednesday's move for the big names, see the warning above). Market cap in parentheses. The headline is the first one the packet lists for each ticker.
+All 15 gappers in the packet. Gap % is `price` vs `prev_close`, which reflects Wednesday's session (see the warning above). Market cap in parentheses. The headline is the first one the packet lists for each ticker.
 
 - **WLDSW** +134.68% ($277.4M, SEC-derived): no headline in the packet (`catalyst_found: false`)
 - **EUDA** -53.67% ($7.9M): "EUDA Health Subsidiary Melana International Wins Golden Bull Award 2026 Singapore"
@@ -31,48 +31,52 @@ All 15 gappers in the packet. Gap % is `price` vs `prev_close` (Wednesday's move
 - **NVDL** -8.01% (cap null): no headline in the packet (`catalyst_found: false`)
 - **NVD** +7.94% (cap null): no headline in the packet (`catalyst_found: false`)
 - **RKT** +7.34% (cap null): "New York Regulators Fine Rocket Mortgage and Mr. Cooper $6.75 Million for Cybersecurity Violations"
-- **STLA** +5.94% ($10.59B): "Stellantis Scales Back French Plant Operations"
+- **STLA** +5.94% ($10.59B): "Stellantis in Advanced Negotiations with Struggling Supplier"
 - **SNDK** -5.58% ($10.47B): "Tradr ETFs Announces Launch of Triple Threat Series Including Memory ETF Featuring SanDisk"
-- **MU** -4.71% ($679.31B): "Tradr ETFs Announces Upcoming Launch of Leveraged ETF Featuring Micron Technology, Inc."
-- **NU** +4.21% (cap null): "Nubank Receives Official Recognition as a Bank in Brazil"
+- **MU** -4.71% ($679.31B): "Micron Reports High Bandwidth Memory (HBM) Capacity Largely Booked for Upcoming Year"
+- **NU** +4.21% (cap null): "Sandy & Junior Announce Residency at Nubank Parque"
 
 ## Day Trading Watchlist
 
 The bar is Trend Join Long: gap > 3%, price > $3, market cap > $1B, premarket RVOL > 1.5, and price already breaking above yesterday's high.
 
-No names cleared the day-trading bar today. Every gapper is `day_eligible: false`. And there's no session to trade anyway. STLA came closest: gap +5.94%, price 3.655, $10.59B cap, RVOL 34.7, but it sits just under its prior-day high of 3.69. RKT (+7.34%) and NU (+4.21%) are also under their prior-day highs (15.28 vs 15.39, 12.365 vs 12.53) and have null market caps.
+No names cleared the day-trading bar today. Every gapper is `day_eligible: false`. STLA is again the closest: gap +5.94%, price 3.655, $10.59B cap, RVOL 34.7, but it sits under its prior-day high of 3.69. RKT (+7.34%) and NU (+4.21%) are also under their prior-day highs (15.28 vs 15.39, 12.365 vs 12.53) and have null market caps. And with intraday levels null across the board, there's no premarket high, HOD or VWAP to build a plan from even if something had cleared.
 
 ## Swing Watchlist
 
 The bar is: gap >= 8%, price > $3, open above yesterday's high, open above the 200-day SMA, market cap >= $800M, and a real catalyst (earnings on the gap day, or news with no earnings).
 
-No names made the swing list today. Every gapper is `swing_eligible: false`. The only up-gappers over 8% are WLDSW, FCUV and RIBBU, and all three are sub-$800M caps with junk volume. See Skips and Traps.
+No names made the swing list today. Every gapper is `swing_eligible: false`. The only up-gappers over 8% are WLDSW, FCUV and RIBBU, all sub-$800M caps with junk volume. See Skips and Traps.
 
 ## Market Trends of the Day
 
-Tuesday was the AI selloff. Wednesday was the dip-buy that didn't quite finish. QQQ still lost 0.66% and SPY 0.3%, but DIA (+0.3%) and IWM (+0.61%) were green, the same tech-down, everything-else-up rotation as Tuesday, just much milder. MarketWatch's read: "Oracle, CoreWeave and other technology stocks bounced back from early losses on Wednesday, after what appeared to be a major selloff eased ahead of the market's close."
+The story this week is the AI unwind and whether it's done. Today's headlines split right down the middle.
 
-Memory is where the selling stuck. MU -4.71% (RVOL 58.24) with "BNP Paribas Downgrades Micron Technology to Neutral" in its headlines, and SNDK -5.58% (RVOL 142.86) with "SanDisk Shares Decline Amid Weak NAND Flash Price Outlook." AMBA -19.77% after earnings, with BofA cutting its target to $30 from $70 and Morgan Stanley to $70 from $96 (both per the packet's links).
+The bear side: "Nvidia's stock has tumbled 27% over one chaotic month. The next big test lies in the week ahead," with Jensen Huang facing "tough questions from Congress this week." Bloomberg: "Watch Nvidia, AI Fears Jolt Markets." Strategist Darius Dale is "100% in cash" and says buying the Nasdaq dip is "like catching a falling knife," citing "an overheating economy, too-hot inflation and upward pressure on interest rates." CNBC confirms "The S&P 500 is in a correction."
 
-Overseas and overnight, the mood is better. "Global stocks rally as investors shrug off U.S. tariffs and AI jitters" (CNBC) and "Futures point to Black Friday gains for Wall Street as global markets welcome U.S. resilience" (MarketWatch).
+The bull side: "The AI stock crash is mostly over, JPMorgan says," though the same piece warns "a worse phase could be coming in 2027." MarketWatch notes "Analysts raised their profit forecasts for S&P 500 companies during the selloff," framed as "Stocks look like a Black Friday bargain. Read the fine print."
 
-The strategist split is wide. Deutsche Bank says "The tech rout should bottom soon, with a 25% rally for the S&P 500 to follow," targeting 9,000 by end of 2027 as focus "shifts from capital expenditure to monetization." On the other side, MarketWatch's "Why this stock-market selloff is probably going to get worse before it gets better" argues "Monday's rally helped to paper over deeper issues." The FT chimes in with "It's an earnings bubble, not a valuation bubble."
+Tech labor is still getting cut: "SAP reportedly to cut 10,000 jobs," between 9% and 10% of its workforce, "to transition to the artificial-intelligence era."
+
+Overseas, China is propping things up. Reuters: "China cabinet calls for greater role by 'national team' investors to steady sinking markets." Meituan posted an "Earnings Beat as Price War Cools" (WSJ). South African retailer SPAR "flags up to 50% drop in annual earnings" (Reuters).
+
+In the gapper list, memory is still the weak spot. MU -4.71% (RVOL 58.24) has "BNP Paribas Downgrades Micron Technology to Neutral" in its headlines next to "HBM Capacity Largely Booked for Upcoming Year." SNDK -5.58% (RVOL 142.86) carries "SanDisk Shares Decline Amid Weak NAND Flash Price Outlook." AMBA -19.77% after earnings, with BofA cutting its target to $30 from $70 and Morgan Stanley to $70 from $96 (both per the packet's links).
 
 ## Technical Signals for Today
 
-ETF proxy levels from the scan vs each one's `prev_close` (this is Wednesday's session, not this morning's futures):
+ETF proxy levels from the scan vs each one's `prev_close`. These are Wednesday's session, unchanged from yesterday's packet, not this morning's futures:
 
 - SPY 716.74 (prev 718.91), -0.3%
 - DIA 501.29 (prev 499.78), +0.3%
 - QQQ 633.92 (prev 638.12), -0.66%
 - IWM 268.84 (prev 267.2), +0.61%
 
-Tech lagged again, but the gap between QQQ and the rest narrowed a lot from Tuesday. VIX, 10Y, 3M, WTI and DXY are all null, so there's no volatility, rate, oil or dollar read.
+Tech lagged into the holiday while small caps and the Dow held green. VIX, 10Y, 3M, WTI and DXY are all null, so there's no volatility, rate, oil or dollar read.
 
 Cap-qualified names vs prior-day high and the 200-day SMA (no VWAP or HOD, intraday data was unavailable):
 
 - MU 600.4: under its prior-day high of 604.78 and the 200-day SMA of 776.38.
-- SNDK 73.56: just under its prior-day high of 73.77. The 200-day SMA of 1275.57 still doesn't fit the price. Bad data, ignore it.
+- SNDK 73.56: just under its prior-day high of 73.77. The 200-day SMA of 1275.57 doesn't fit the price. Bad data, ignore it.
 - STLA 3.655: just under its prior-day high of 3.69, well under the 200-day SMA of 6.08.
 - AMBA 35.68: under its prior-day high of 36.54, about half the 200-day SMA of 66.69.
 - PHAR 10.05: under its prior-day high of 10.89 and the 200-day SMA of 13.34.
@@ -85,25 +89,25 @@ On volume: daily bars are Alpaca IEX, a subset of the tape, and the RVOL figures
 
 From `econ_calendar` (USD, high impact only):
 
-- **Today (Thursday, November 26):** nothing high-impact listed.
-- **Tomorrow (Friday, November 27):** nothing high-impact listed.
+- **Today (Friday, November 27):** nothing high-impact listed.
+- **Tomorrow (Saturday, November 28):** nothing high-impact listed.
 
-The calendar's `note` field is empty, so no fetch problem flagged. With no 10Y or 3M reading there's no rates read, and the packet has no Fed headlines today. Yesterday's Core PCE and Prelim GDP prints aren't in this packet, so there's nothing to report on what they showed.
+The calendar's `note` field is empty, so no fetch problem flagged. With no 10Y or 3M reading there's no rates read from the packet. The only Fed-adjacent items are Dale's worry about "upward pressure on interest rates" and a BNP Paribas Asset Management piece titled "Has central bank communication become counterproductive?"
 
 ## Coming Up
 
-- **Tomorrow's events:** nothing high-impact on the USD calendar. Friday is Black Friday. The packet's Detroit Free Press headline mentions "Black Friday trading hours" but doesn't give them, so check the session hours before you plan anything.
-- **Earnings:** `next_earnings_date` is null for all 15 gappers, and the packet has no market-wide earnings calendar. MU has a headline "Micron Technology Schedules Fiscal First Quarter 2027 Earnings Call" with no date in the title (the link points to December).
+- **Tomorrow's events:** nothing on the USD high-impact calendar, and tomorrow is Saturday. Next week's flagged event in the packet is Jensen Huang facing "tough questions from Congress this week" (MarketWatch), no date given.
+- **Earnings:** `next_earnings_date` is null for all 15 gappers, and the packet has no market-wide earnings calendar.
 
 ## Skips and Traps
 
-- **Everything, today:** no cash session. Nothing trades until Friday.
-- **STLA** +5.94%: the closest thing to a day setup, but under its prior-day high (3.655 vs 3.69) and way under its 200-day (6.08). The lead headline is bad news, "Stellantis Scales Back French Plant Operations," with "Stellantis Files Lawsuit Against Unifor Over Brampton Plant Access" right behind it. The only bullish item is "Stellantis Plans Increased Fiat 500 Production at Mirafiori for 2027," whose link mentions a JPMorgan report lifting autos. Up on a mixed-to-bad headline set. Treat as a trap.
-- **RKT** +7.34%: null market cap, and the catalyst match is broken. Three of its five headlines are about Reckitt ("Reckitt Enters 10-Year Renewable Power Purchase Agreement" and others), a different company. The Rocket ones are a $6.75M regulatory fine and a Las Vegas Grand Prix sponsorship. Neither explains the move. Skip.
-- **NU** +4.21%: null market cap, under its prior-day high (12.365 vs 12.53). The headlines are older news (bank license, Q3 results) plus "Nubank Halts Some Crypto Transactions." Skip.
+- **The whole list, as a premise:** these are Wednesday's moves replayed, not today's gaps. Nothing here tells you what's gapping this morning.
+- **STLA** +5.94%: closest thing to a day setup, but under its prior-day high (3.655 vs 3.69) and way under its 200-day (6.08). The headline set is mostly bad news: "Stellantis Scales Back French Plant Operations," "Stellantis Files Lawsuit Against Unifor Over Brampton Plant Access," and "Canadian Officials and Union Demand Carbon Tax Exemption to Save Stellantis Brampton Plant." The new lead, "Stellantis in Advanced Negotiations with Struggling Supplier," is not a clear positive. Up on a bad-news set. Trap.
+- **RKT** +7.34%: null market cap, and the catalyst match is broken. Three of its five headlines are about Reckitt ("Reckitt Enters 10-Year Renewable Power Purchase Agreement" and others), a different company. The Rocket ones are a $6.75M regulatory fine and a Las Vegas Grand Prix sponsorship. Neither explains the move, and the fine is bad news. Skip.
+- **NU** +4.21%: null market cap, under its prior-day high (12.365 vs 12.53). Lead headline is a concert residency at Nubank Parque, the rest are older items (bank recognition, Q3 results). No story for the move. Skip.
 - **AMBA** -19.77%: earnings gap-down with two big target cuts. Not a long setup for either list.
-- **PHAR** -23.98%: real bad news, "Pharming Temporarily Pauses RUCONEST® Manufacturing Following Media Fill Failure," with the link adding it notified the FDA of a likely supply interruption. Also, the $7.05B SEC-derived cap sits next to a 20-day average volume of 182, which doesn't hang together. And the lead headline is about Pharos Energy, a different company. Skip.
-- **MU** and **SNDK**: gap-downs on memory weakness, both under their prior-day highs. The lead headlines are leveraged-ETF launches, not catalysts. Skip.
+- **PHAR** -23.98%: real bad news, "Pharming Temporarily Pauses RUCONEST® Manufacturing Following Media Fill Failure," with the link adding it notified the FDA of a likely supply interruption. The $7.05B SEC-derived cap next to a 20-day average volume of 182 doesn't hang together, and the lead headline is about Pharos Energy, a different company. Skip.
+- **MU** and **SNDK**: gap-downs on memory weakness, both under their prior-day highs. MU has a downgrade in the mix, SNDK has a weak NAND outlook and an insider sale ("SanDisk Chief Accounting Officer Discloses Stock Sale in SEC Filing"). Skip.
 - **WLDSW** +134.68% and **RIBBU** +52.5%: warrant- and unit-style tickers (W and U suffixes, and RIBBU's name is Ribbon Acquisition Corp.), no catalyst, 20-day average volume of 0 and 20. `prev_close` doesn't match `prior_close` for either (41.0 vs 23.7, 62.0 vs 39.0), so the gap math itself is shaky. Skip.
 - **FCUV** +53.12%: $5.5M cap. The lead headline just says the stock moved, and the next one is "Focus Universal Inc. Announces Exercise of Warrants for Approximately $3.7 Million in Gross Proceeds." More shares. Skip.
 - **EUDA** -53.67% and **PW** -32.97%: $7.9M and $1.3M caps, both with reverse splits in their headlines ("1-for-20" and "One-for-Ten"). Skip.
